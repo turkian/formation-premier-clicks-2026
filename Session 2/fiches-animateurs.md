@@ -29,18 +29,20 @@
 
 À la place : « c'est mal nommé », « tout le monde bute là-dessus », « essaie voir ce qui arrive si… ».
 
-### Garde le lexique par fabricant en main
+### Garde le tableau résumé en main
 
-**[Documents/lexique-par-fabricant.md](../Documents/lexique-par-fabricant.md) — imprime-le et garde-le sur toi.**
+**[Tableau résumé — toutes marques](../Documents/lexique-par-fabricant/tableau-resume-animateurs.md) — imprime-le et garde-le sur toi.**
 
-Tu vas te faire demander « c'est où sur un Lumix? » toute la soirée, pour sept marques que personne ne connaît toutes. Les pièges les plus fréquents :
+Tu vas te faire demander « c'est où sur un Lumix? » toute la soirée, pour huit appareils différents que personne ne connaît tous. Le tableau te donne la correspondance croisée en une page.
+
+Les pièges les plus fréquents :
 
 - **Canon** dit `Av` / `Tv` au lieu de `A` / `S`, et `One Shot` / `AI Servo` au lieu de `AF-S` / `AF-C`
-- **Fujifilm** n'a souvent aucune molette de mode : bague d'ouverture + molette de vitesse, chacune avec une position `A`
+- **Fujifilm** n'a souvent aucune molette de mode : bague d'ouverture + molette de vitesse, chacune avec une position `A`. Le mode AF est un interrupteur physique à l'avant.
 - **Olympus** écrit `S-AF` et `C-AF`, lettres inversées
-- **Sony** appelle la stabilisation `OSS`, **Nikon** l'appelle `VR`
+- **Sony** a réorganisé tous ses menus en 2021 : sur un boîtier plus ancien, passe par le bouton `Fn`
 
-Plutôt que de chercher à leur place, **montre-leur la ligne du tableau.** Ils apprennent à s'en servir, et ils repartent avec.
+**Chaque participant a la feuille détaillée de sa propre marque**, avec les chemins de menu. Pour une question de menu, renvoie-le à **la section 4 de sa feuille** plutôt que de chercher à sa place. Il apprend à s'en servir, et il repart avec.
 
 ### Le groupe est mixte
 

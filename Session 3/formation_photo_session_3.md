@@ -69,7 +69,7 @@ Projette la même image, trois versions :
 
 La deuxième image est celle qui compte. Beaucoup de débutants essaient le RAW une fois, trouvent l'image terne, et n'y reviennent jamais. **Préviens-les que c'est censé être laid au départ.**
 
-> **Le format RAW porte un nom différent chez chaque fabricant** — `.CR3` chez Canon, `.NEF` chez Nikon, `.ARW` chez Sony, `.RAF` chez Fujifilm, `.RW2` chez Lumix, `.ORF` chez Olympus, `.DNG` sur les téléphones. C'est pour ça qu'un vieux logiciel refuse parfois d'ouvrir les fichiers d'un appareil récent. La liste complète est à la [section 6 de leur lexique par fabricant](../Documents/lexique-par-fabricant.md).
+> **Le format RAW porte un nom différent chez chaque fabricant** — `.CR3` chez Canon, `.NEF` chez Nikon, `.ARW` chez Sony, `.RAF` chez Fujifilm, `.RW2` chez Lumix, `.ORF` chez Olympus, `.DNG` sur les téléphones. C'est pour ça qu'un vieux logiciel refuse parfois d'ouvrir les fichiers d'un appareil récent. L'extension de chaque marque est indiquée à la **section 4 de sa feuille du [lexique par fabricant](../Documents/lexique-par-fabricant/README.md)**, juste à côté du menu où activer le RAW.
 
 ### Le conseil pratique
 

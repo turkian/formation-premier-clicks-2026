@@ -57,11 +57,20 @@ Pas de bloc « lexique ». Les mots seront définis au moment où on en a besoin
 
 Remets la **carte aide-mémoire** maintenant. Elle va servir de fil rouge pendant les trois séances.
 
-Remets aussi le **[lexique par fabricant](../Documents/lexique-par-fabricant.md)**, en une phrase :
+Remets aussi à chacun **la feuille de sa marque** ([lexique par fabricant](../Documents/lexique-par-fabricant/README.md)) — une seule feuille, la sienne. Présente-la en une phrase :
 
-> Chaque fabricant a inventé son propre vocabulaire pour désigner exactement les mêmes choses. Quand je dirai un mot que vous ne trouvez pas sur votre appareil, ce n'est jamais parce que votre appareil est moins bon — c'est parce qu'il l'appelle autrement. Tout est sur cette feuille.
+> Chaque fabricant a inventé son propre vocabulaire pour désigner exactement les mêmes choses. Quand je dirai un mot que vous ne trouvez pas sur votre appareil, ce n'est jamais parce que votre appareil est moins bon — c'est parce qu'il l'appelle autrement. Vous avez chacun la feuille de votre marque.
 
 Ça enlève d'avance l'anxiété des quatre moments « appareil en main » de la soirée, et ça évite qu'un possesseur de Fujifilm passe vingt minutes à chercher une molette qui n'existe pas.
+
+**Les huit feuilles ont la même structure**, ce qui te permet de dire « regardez la section 2 de votre feuille » sans savoir quelle marque chacun a en main :
+
+| Section | Contenu |
+|---|---|
+| **1** | Les modes |
+| **2** | La mise au point |
+| **3** | L'exposition |
+| **4** | Où trouver ces réglages dans les menus *(et le RAW)* |
 
 ### Avant chaque photo
 
@@ -151,7 +160,7 @@ Règle simple à donner : *« Ça bouge? AF-C. Ça ne bouge pas? AF-S. »*
 >
 > **Olympus / OM System** inverse les lettres : `S-AF` et `C-AF`.
 >
-> Écris les deux au tableau, et renvoie-les à la [section 3 du lexique par fabricant](../Documents/lexique-par-fabricant.md).
+> Écris les deux au tableau, et renvoie tout le monde à la **section 2 de sa feuille** — c'est la mise au point sur les huit feuilles.
 
 ### Comprendre une photo hors focus
 
@@ -362,9 +371,9 @@ Deux réglages sont en jeu, et chaque mode répond simplement à « lequel des d
 >
 > **Canon** est le seul à dire `Av` et `Tv`. Ça vient de *aperture value* et *time value*. Tous les autres disent `A` et `S`.
 >
-> **Fujifilm n'a pas cette molette du tout.** Les possesseurs de Fuji ne l'ont pas perdue : leur appareil se règle avec la bague d'ouverture de l'objectif et la molette de vitesse du boîtier, chacune ayant une position `A`. La combinaison des deux donne le mode. **C'est expliqué à la section 2 de leur lexique par fabricant** — envoie-les-y et continue, ne fais pas la démonstration pour toute la salle.
+> **Fujifilm n'a pas cette molette du tout.** Les possesseurs de Fuji ne l'ont pas perdue : leur appareil se règle avec la bague d'ouverture de l'objectif et la molette de vitesse du boîtier, chacune ayant une position `A`. La combinaison des deux donne le mode. **C'est expliqué en tête de la [feuille Fujifilm](../Documents/lexique-par-fabricant/fujifilm.md), avec le tableau des quatre combinaisons** — envoie-les-y et continue, ne fais pas la démonstration pour toute la salle.
 >
-> Les autres correspondances sont à la [section 1 du lexique](../Documents/lexique-par-fabricant.md).
+> Pour tous les autres : **section 1 de leur feuille**.
 
 ### Le point qui fait tout comprendre
 
@@ -468,9 +477,9 @@ Tout le monde configure son appareil, maintenant, avec l'aide des animateurs. Pe
 6. **Trouve le bouton +/−** et repère-le au toucher, sans regarder. Fais −1, puis +1, puis reviens à 0. Regarde l'écran ou le viseur changer.
 7. **Format de fichier : RAW + JPEG** si ton appareil le permet — on en aura besoin à la séance 3, et ça ne coûte que de l'espace sur la carte
 
-> **Cellulaire :** touche l'écran pour faire le point, puis **glisse ton doigt vers le haut ou le bas** — un petit soleil apparaît, c'est ta compensation d'exposition. Elle existe sur pratiquement tous les téléphones et presque personne ne le sait. Active aussi le format **RAW / ProRAW** si ton appareil l'offre, et **la grille de composition** — la section 7 du lexique dit où.
+> **Cellulaire :** touche l'écran pour faire le point, puis **glisse ton doigt vers le haut ou le bas** — un petit soleil apparaît, c'est ta compensation d'exposition. Elle existe sur pratiquement tous les téléphones et presque personne ne le sait. Active aussi le format **RAW / ProRAW** si ton appareil l'offre, et **la grille de composition** — la section 4 de ta feuille ([iPhone](../Documents/lexique-par-fabricant/iphone.md) ou [Android](../Documents/lexique-par-fabricant/android.md)) dit où.
 
-> **Le nom des réglages varie d'une marque à l'autre.** Renvoie systématiquement au [lexique par fabricant](../Documents/lexique-par-fabricant.md) plutôt que d'énumérer sept menus à voix haute. Les membres qui circulent doivent en avoir un exemplaire en main : c'est leur outil de travail pendant ces huit minutes.
+> **Le nom des réglages varie d'une marque à l'autre.** Renvoie systématiquement chacun à **sa propre feuille** plutôt que d'énumérer huit menus à voix haute — les modes sont en section 1, la mise au point en section 2, les menus en section 4. Les membres qui circulent doivent avoir le [tableau résumé toutes marques](../Documents/lexique-par-fabricant/tableau-resume-animateurs.md) en main : c'est leur outil de travail pendant ces huit minutes.
 
 Avant que quelqu'un range son appareil, demande à voix haute : *« Levez la main si votre molette est sur A ou Av. »* Regarde la salle. C'est ta vérification que la séance a fonctionné.
 

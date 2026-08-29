@@ -42,7 +42,8 @@ Chaque séance a **trois fichiers** : ce qu'il faut préparer, le déroulé en s
 | Fichier | Pour qui |
 |---|---|
 | [Aide-mémoire participants](Documents/aide-memoire-participants.md) | **Les participants** — 3 cartes à imprimer et plastifier + le feuillet lexique |
-| [Lexique par fabricant](Documents/lexique-par-fabricant.md) | **Les participants et les animateurs** — le même réglage chez Canon, Nikon, Sony, Fujifilm, Lumix, Olympus et sur cellulaire |
+| [Lexique par fabricant](Documents/lexique-par-fabricant/README.md) | **Les participants** — 8 feuilles, une par marque : Canon, Nikon, Sony, Fujifilm, Lumix, Olympus/OM, iPhone, Android. Chacun reçoit uniquement la sienne. |
+| [Tableau résumé toutes marques](Documents/lexique-par-fabricant/tableau-resume-animateurs.md) | **Les animateurs** — la correspondance croisée en une page, plus les cinq pièges |
 | [Courriels](Documents/courriels-participants.md) | Toi — les 6 envois rédigés, appelés depuis les fichiers « avant » et « après » |
 
 ---
@@ -75,7 +76,9 @@ Comprendre pourquoi une photo est ratée 30 secondes après l'avoir prise vaut d
 La compensation d'exposition, la composition et l'atelier individuel de développement sont les trois blocs les plus rentables. Ils ont été remontés ou allongés en conséquence.
 
 **5. Le vocabulaire du fabricant n'est jamais un obstacle.**
-Sept marques dans la salle, sept vocabulaires pour les mêmes réglages. Le [lexique par fabricant](Documents/lexique-par-fabricant.md) est remis dès la séance 1 avec ce message : « si vous ne trouvez pas un mot sur votre appareil, ce n'est pas parce qu'il est moins bon, c'est parce qu'il l'appelle autrement. »
+Huit types d'appareils dans la salle, huit vocabulaires pour les mêmes réglages. Chaque participant reçoit dès la séance 1 **la feuille de sa marque** ([lexique par fabricant](Documents/lexique-par-fabricant/README.md)) : le mot de la formation, le mot de son appareil, et le menu où le trouver. Les huit feuilles ont la même structure, ce qui permet de dire « section 2 de votre feuille » sans savoir qui a quoi.
+
+Le message qui les accompagne : « si vous ne trouvez pas un mot sur votre appareil, ce n'est pas parce qu'il est moins bon, c'est parce qu'il l'appelle autrement. »
 
 **6. Le cellulaire est un appareil valide.**
 Chaque exercice a son équivalent cellulaire, indiqué dans les fiches. Un participant au téléphone n'est jamais un spectateur.
@@ -101,7 +104,8 @@ Après chaque séance, un courriel personnel de trois lignes aux une ou deux per
 
 - 35 jeux de cartes aide-mémoire, plastifiées (cartes 1 et 2 pour la séance 1, carte 3 pour la séance 3)
 - 35 feuillets lexique
-- **40 lexiques par fabricant**, recto verso — 35 participants + 5 animateurs, qui en ont besoin comme outil de travail
+- **Les feuilles du lexique par fabricant**, une par participant selon sa marque *(d'après la question 1 du sondage)*, plus ~10 de réserve
+- **6 tableaux résumés toutes marques**, pour les animateurs et toi
 - 5 fiches d'animateurs
 - 5 affiches de mission, une par station de la séance 2
 - 35 tables de correspondance entre logiciels (séance 3)

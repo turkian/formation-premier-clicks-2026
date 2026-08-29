@@ -15,7 +15,7 @@
 | **10 jours avant** | Recruter les **2-3 membres** qui circuleront pendant les manipulations |
 | **1 semaine avant** | Lire les réponses du sondage · adapter tes exemples · **préparer les images de démonstration** |
 | **1 semaine avant** | Envoyer les cartes aide-mémoire à l'impression (35 jeux, plastifiés) |
-| **1 semaine avant** | Imprimer le [lexique par fabricant](../Documents/lexique-par-fabricant.md) — 35 copies recto verso, **et 5 de plus pour les animateurs** |
+| **1 semaine avant** | Imprimer les [feuilles du lexique par fabricant](../Documents/lexique-par-fabricant/README.md) — **une par participant selon sa marque**, d'après la question 1 du sondage, plus ~10 de réserve |
 | **3 jours avant** | Relance douce aux non-répondants du sondage |
 | **La veille** | Tester le projecteur avec ton appareil · charger tes batteries · imprimer les feuillets lexique |
 | **Le jour même** | Arriver 45 min avant · disposer les îlots · afficher le mot de passe wifi |
@@ -36,7 +36,10 @@ Brief à leur donner : *« Ne prends jamais l'appareil des mains de la personne.
 
 - Projecteur + moyen de projeter tes images (voir « Démonstrations » plus bas)
 - **Cartes aide-mémoire imprimées et plastifiées** ([aide-memoire-participants.md](../Documents/aide-memoire-participants.md)) — 35 copies
-- **[Lexique par fabricant](../Documents/lexique-par-fabricant.md)** — 35 copies recto verso. C'est le document le plus consulté des moments « appareil en main » : chaque fois que quelqu'un ne trouve pas un réglage, la réponse y est. Prévois-en aussi pour les membres qui circulent.
+- **[Lexique par fabricant](../Documents/lexique-par-fabricant/README.md)** — **une feuille recto verso par participant, celle de sa marque**. C'est le document le plus consulté des moments « appareil en main » : chaque fois que quelqu'un ne trouve pas un réglage, la réponse y est.
+  - Compte tes exemplaires d'après **la question 1 du sondage**, et relance les non-répondants : quelqu'un qui reçoit la feuille d'une autre marque que la sienne se retrouve exactement dans la situation qu'on voulait éviter.
+  - **Prévois ~10 feuilles de réserve** sur les marques les plus courantes, pour les emprunts et les appareils imprévus.
+  - Les 2-3 membres qui circulent reçoivent le [tableau résumé toutes marques](../Documents/lexique-par-fabricant/tableau-resume-animateurs.md), pas une feuille de marque.
 - Une source de lumière contrôlable : grande fenêtre, ou une lampe sur pied avec et sans diffuseur
 - Un objet ou un mannequin pour les démonstrations de mise au point
 - Quelques appareils de prêt si possible, pour ceux qui viendraient sans
