@@ -17,7 +17,7 @@ Dis-le dès la première minute. Ça désamorce l'anxiété de ceux qui n'ont pa
 
 ## Avant la séance
 
-**Toute la préparation est dans [avant-la-seance.md](avant-la-seance.md)** — équipe, matériel, salle, courriels et échéances.
+**Toute la préparation est dans [avant-la-seance.md](avant-la-seance.md)** — équipe, matériel, salle et échéances.
 
 Le suivi de la séance est dans [apres-la-seance.md](apres-la-seance.md).
 
@@ -31,7 +31,9 @@ Ce n'est pas du remplissage. C'est le moment où trente personnes voient que ce 
 
 **Ça vaut huit minutes de contenu technique.** Ne le coupe pas si tu manques de temps — coupe ailleurs.
 
-Inclus au moins une photo de chaque participant si tu peux. Si tu ne peux pas, ne le mentionne pas.
+Le montage vient de tes propres photos des ateliers, de celles des animateurs, et de la clé USB qui a circulé à la séance 2 — **rien n'a été demandé aux participants**.
+
+**Une photo de quelqu'un accroupi derrière son appareil vaut autant qu'une de ses images.** Vise la présence de chaque personne au moins une fois, sous une forme ou une autre. Si tu n'y arrives pas, ne le mentionne pas.
 
 ---
 
@@ -69,7 +71,7 @@ Projette la même image, trois versions :
 
 La deuxième image est celle qui compte. Beaucoup de débutants essaient le RAW une fois, trouvent l'image terne, et n'y reviennent jamais. **Préviens-les que c'est censé être laid au départ.**
 
-> **Le format RAW porte un nom différent chez chaque fabricant** — `.CR3` chez Canon, `.NEF` chez Nikon, `.ARW` chez Sony, `.RAF` chez Fujifilm, `.RW2` chez Lumix, `.ORF` chez Olympus, `.DNG` sur les téléphones. C'est pour ça qu'un vieux logiciel refuse parfois d'ouvrir les fichiers d'un appareil récent. L'extension de chaque marque est indiquée à la **section 4 de sa feuille du [lexique par fabricant](../Documents/lexique-par-fabricant/README.md)**, juste à côté du menu où activer le RAW.
+> **Le format RAW porte un nom différent chez chaque fabricant** — `.CR3` chez Canon, `.NEF` chez Nikon, `.ARW` chez Sony, `.RAF` chez Fujifilm, `.RW2` chez Lumix, `.ORF` chez Olympus, `.DNG` sur les téléphones. C'est pour ça qu'un vieux logiciel refuse parfois d'ouvrir les fichiers d'un appareil récent. L'extension de chaque marque est indiquée à la **section 4 de sa feuille du [lexique par fabricant](../Documents/lexique-par-fabricant/)**, juste à côté du menu où activer le RAW.
 
 ### Le conseil pratique
 
@@ -403,7 +405,13 @@ L'objectif de cette formation n'est pas qu'ils sachent ce qu'est une aberration 
 
 Consacre les huit dernières minutes à leur entrée dans la vie du club. Sois concret : des dates, des noms, des adresses.
 
-#### La prochaine sortie photo
+#### Remets le feuillet « Et maintenant »
+
+**Distribue le [feuillet](../Documents/feuillets-a-remettre.md#feuillet-3--et-maintenant) en main propre, rempli, pendant que tu parles.** C'est le dernier document de la formation, et il n'y aura aucun courriel de suivi : ce qui n'est pas sur ce papier n'existera pas.
+
+Il doit être **rempli avant la soirée** — un feuillet avec des blancs vides ne sert à rien.
+
+### 📅 La prochaine sortie photo
 
 **Une date précise, dans les trois semaines si possible.** Et cette phrase, littéralement :
 
@@ -411,17 +419,21 @@ Consacre les huit dernières minutes à leur entrée dans la vie du club. Sois c
 
 Une invitation générale ne fonctionne pas. Une date, un lieu, une heure et une personne qu'ils connaissent déjà, oui.
 
-#### Un parrain pour chacun
+### 👥 Un parrain pour chacun
 
 **Le geste unique qui a le plus d'effet sur le sentiment d'être à l'aise.**
 
-Jumelle chaque nouveau membre avec un membre expérimenté qui accepte de répondre à des questions par courriel ou avant les réunions. Prépare les paires d'avance, annonce-les ce soir, et **fais-les se présenter avant de partir**.
+Chaque nouveau membre est jumelé avec un membre expérimenté qui accepte de répondre à ses questions. **Écris le nom et le contact du parrain à la main sur chaque feuillet**, et surtout : **fais-les se rencontrer avant de partir.**
+
+> « Prenez deux minutes, trouvez votre parrain dans la salle, et présentez-vous. »
+
+Deux minutes de brouhaha, et le lien existe. Annoncé sans cette rencontre, il ne se concrétise presque jamais — et sans courriel de suivi, tu n'auras pas de deuxième chance.
 
 Les animateurs de la séance 2 sont des parrains tout désignés : les nouveaux les connaissent déjà.
 
-#### Où poser une question bête
+### 💬 Où poser une question bête
 
-Nomme le canal, et donne l'adresse ou le lien :
+Nomme le canal, écris l'adresse au tableau, **et fais-la recopier sur le feuillet** :
 
 - Le groupe Facebook / Discord / la liste de courriel du club
 - Ton adresse à toi
@@ -429,28 +441,29 @@ Nomme le canal, et donne l'adresse ou le lien :
 
 Dis « il n'y a pas de question bête » **et** donne l'adresse. La deuxième partie est celle qui compte.
 
-#### Un défi mensuel
+### 🎯 Un défi mensuel
 
-Simple, une contrainte à la fois : *« ce mois-ci, une photo à contre-jour. »* Avec un endroit pour les partager. Ça maintient l'élan quand la formation est finie.
+Simple, une contrainte à la fois : *« ce mois-ci, une photo à contre-jour. »* Avec un endroit pour les partager.
 
-#### La soirée critique
+### 🖼️ La soirée critique
 
-Explique **comment elle fonctionne** avant qu'ils y viennent : qui parle, dans quel ordre, ce qu'on y cherche. Une soirée critique où on débarque sans savoir à quoi s'attendre est terrifiante pour un débutant. Une soirée critique dont on a compris le fonctionnement est la meilleure chose qui puisse arriver à sa progression.
+Explique **comment elle fonctionne** avant qu'ils y viennent : qui parle, dans quel ordre, ce qu'on y cherche. Une soirée critique où on débarque sans savoir à quoi s'attendre est terrifiante pour un débutant.
 
-### La question de fin
+### La question de fin — à main levée
 
-Même papier anonyme qu'à la séance 1 :
+Exactement la même qu'à la séance 1, posée de la même façon. Trente secondes, sans papier.
 
-> **Sur 10, à quel point te sens-tu à l'aise de sortir ton appareil du mode automatique?**
+> « Dernière chose, comme au premier soir. À main levée : **qui se sent à l'aise, aujourd'hui, de sortir son appareil du mode automatique?** »
 
-Compare avec les réponses de la première soirée. Si la moyenne est passée de 3 à 7, la formation a réussi — quel que soit le nombre de notions retenues.
+Compte les mains et compare avec ton chiffre de la séance 1. Si tu passes de 6 mains sur 30 à 25, **la formation a réussi** — quel que soit le nombre de notions retenues.
 
-Ajoute deux questions ouvertes :
+Et dis le résultat à voix haute. *« Au premier soir, vous étiez six. Ce soir, vous êtes vingt-cinq. »* C'est la meilleure façon de finir : ils voient collectivement le chemin parcouru, ce qu'aucun d'eux ne peut mesurer tout seul.
 
-- Qu'est-ce qui t'a le plus servi?
-- Qu'est-ce qui manquait?
+### Puis, en une question ouverte
 
-C'est ce qui te permettra d'améliorer la prochaine édition.
+> « Avant de partir : **qu'est-ce qui vous a le plus servi?** »
+
+Quelques réponses spontanées, à voix haute. Note-les sur ton téléphone en sortant — c'est ce qui te permettra d'améliorer la prochaine édition, et ça ne demande rien à personne.
 
 ---
 

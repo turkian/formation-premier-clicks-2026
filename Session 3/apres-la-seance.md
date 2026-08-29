@@ -10,72 +10,71 @@
 
 **La formation ne se termine pas à la séance 3.** L'objectif — qu'ils se sentent à l'aise de faire de la photo — ne se joue pas dans les six heures de cours, il se joue dans les six mois qui suivent.
 
-Ce fichier est donc plus long que les deux autres, et il va jusqu'à trois mois après la dernière soirée. C'est la partie du plan qui décide si la formation a servi à quelque chose.
+Mais **il n'y a aucun courriel de suivi**. Tout ce qui devait être transmis l'a été en salle : le [feuillet « Et maintenant »](../Documents/feuillets-a-remettre.md#feuillet-3--et-maintenant) rempli, la rencontre avec le parrain faite avant qu'ils partent, la date de la sortie écrite au tableau.
+
+Le suivi se fait donc **en personne, aux activités du club**, et surtout **par les parrains**. C'est plus léger pour toi, mais ça déplace la charge : **le parrainage devient le mécanisme principal**, pas un bonus.
 
 ---
 
 ## Le soir même — le verdict
 
-- [ ] **Compile les réponses au sondage de confiance** et compare avec celles de la séance 1.
+- [ ] **Note le compte des mains levées** et compare avec celui de la séance 1.
 
-> **Sur 10, à quel point te sens-tu à l'aise de sortir ton appareil du mode automatique?**
+> **Qui se sent à l'aise de sortir son appareil du mode automatique?**
 >
-> Moyenne séance 1 : ______  →  Moyenne séance 3 : ______
+> Séance 1 : ______ mains sur 30  →  Séance 3 : ______ mains sur 30
 
-C'est **la** mesure de la formation. Si la moyenne est passée de 3 à 7, tu as réussi — quel que soit le nombre de notions retenues, et même si personne ne se souvient de ce qu'est une aberration chromatique.
+C'est **la** mesure de la formation. Si tu passes de 6 à 25, tu as réussi — même si personne ne se souvient de ce qu'est une aberration chromatique.
 
-- [ ] **Lis les deux questions ouvertes** (« qu'est-ce qui t'a le plus servi » / « qu'est-ce qui manquait ») pendant que tu as encore la soirée en tête.
+- [ ] **Note les réponses spontanées** à « qu'est-ce qui vous a le plus servi », pendant qu'elles sont fraîches.
 - [ ] **Note le minutage réel**, particulièrement l'atelier individuel : est-ce que 20 minutes ont suffi?
-- [ ] **Note ce qui a bloqué techniquement** — quel logiciel, quel système, quel problème. C'est ce qui rendra le courriel logiciel de la prochaine édition meilleur.
+- [ ] **Combien de gens sont arrivés sans logiciel installé?** C'est le chiffre qui te dira si le feuillet a suffi, ou s'il faudra un canal de rappel l'an prochain.
+- [ ] **Note ce qui a bloqué techniquement** — quel logiciel, quel système, quel problème.
 
 ---
 
-## Dans les 48 heures — le courriel de suivi
+## Dans la semaine — trois gestes, tous en personne
 
-**Le courriel qui décide si la formation a servi à quelque chose.** Envoie-le vite, pendant que l'élan est encore là. Texte prêt : [courriels, envoi 6](../Documents/courriels-participants.md#6--après-la-séance-3--le-suivi).
+### 1 · Briefe les parrains
 
-Il doit contenir cinq choses **concrètes** — des dates, des noms, des adresses. Pas des invitations générales.
+**C'est le geste le plus important de tout ce fichier.** Sans courriel de suivi, le parrainage est ton seul lien avec les nouveaux membres après la formation.
 
-- [ ] **La prochaine sortie photo** : date, lieu, heure. Et la phrase « vous êtes tous invités, et j'y serai ».
-- [ ] **Le nom et le courriel du parrain de chacun.** Personnalise le courriel, ou envoie-les individuellement. Un parrain annoncé collectivement n'est contacté par personne.
-- [ ] **Le canal de questions**, avec le lien ou l'adresse. « Il n'y a pas de question bête » ne sert à rien sans l'adresse à côté.
-- [ ] **Le défi du mois**, avec l'endroit où le partager.
-- [ ] **La date de la prochaine soirée critique**, avec trois lignes expliquant comment elle se déroule.
+Parle à chaque parrain — en personne, au téléphone, comme tu veux — et dis-leur **une seule chose** :
 
-Joins aussi :
+> **Écris à ton filleul en premier. Ne l'attends pas.**
 
-- [ ] Les **aide-mémoire en PDF**, pour réimpression
-- [ ] La **table de correspondance entre logiciels**
-- [ ] Le lien vers les fichiers RAW d'exercice, pour ceux qui veulent refaire le développement à tête reposée
+Un débutant qui hésite à poser une question hésite aussi à écrire le premier. Si les deux attendent, il ne se passe rien. Un parrain qui envoie un message dans la semaine — même juste « on se voit à la sortie samedi? » — sauve la relation.
 
----
+### 2 · Remercie publiquement
 
-## Dans la semaine
+Les animateurs et les parrains, nommément, à la prochaine réunion du club ou sur le canal du groupe. C'est ce qui te permettra de les recruter de nouveau l'an prochain.
 
-- [ ] **Remercie publiquement** les animateurs et les parrains, à la réunion du club ou sur le canal du groupe. Nomme-les. C'est ce qui te permettra de les recruter de nouveau l'an prochain.
-- [ ] **Écris aux parrains** séparément : rappelle-leur qui est leur filleul et suggère-leur d'écrire en premier. **Ne compte pas sur le débutant pour faire le premier pas** — c'est précisément la personne qui n'ose pas.
-- [ ] **Archive tout** : plans, cartes, courriels, fichiers RAW, et tes notes à chaud des trois soirées. La prochaine édition te prendra trois fois moins de temps.
+### 3 · Archive
+
+Plans, cartes, feuillets, feuilles du lexique, fichiers RAW, fiches d'îlot, et tes notes à chaud des trois soirées. **La prochaine édition te prendra trois fois moins de temps.**
+
+Les fiches d'îlot en particulier : elles te donnent le parc d'appareils réel du club, donc les bonnes quantités à imprimer l'an prochain.
 
 ---
 
 ## Deux semaines après — la sortie photo
 
-C'est le vrai test de la formation.
+**C'est le vrai test de la formation, et ton seul point de contact organisé avec le groupe.**
 
-- [ ] **Note qui est venu.** Pas pour tenir des comptes : pour savoir à qui écrire.
-- [ ] **Écris un mot à ceux qui ne sont pas venus.** Court, sans reproche, avec la date de la suivante.
+- [ ] **Sois-y.** Tu l'as promis à voix haute en remettant le feuillet.
+- [ ] **Occupe-toi en priorité des nouveaux.** Une sortie où le débutant reste seul dans son coin annule tout le travail des trois soirées.
+- [ ] **Demande aux parrains d'y être aussi**, et de repérer leur filleul.
+- [ ] **Note qui est venu.** Pas pour tenir des comptes : pour savoir à qui parler à la prochaine réunion.
 
-> « Bonjour [X], on s'est ennuyés de toi samedi. La prochaine sortie est le [DATE] au [LIEU] — viens même si tu n'es pas sûr, on est plusieurs à ne pas savoir ce qu'on va photographier. »
-
-- [ ] **Sur place, occupe-toi en priorité des nouveaux.** Une sortie où le débutant reste seul dans son coin annule tout le travail des trois soirées.
+Pour ceux qui ne sont pas venus, sans courriel : **c'est le rôle du parrain.** Un message de sa part passe mieux que le tien, et c'est exactement ce pour quoi il s'est porté volontaire.
 
 ---
 
 ## Un mois après
 
-- [ ] **Relance le défi du mois** avec un nouveau thème, une seule contrainte.
-- [ ] **Partage quelques photos des participants** sur le canal du club, avec leur accord. Voir sa photo diffusée par le club est un déclencheur d'appartenance très puissant à ce stade.
-- [ ] **Vérifie les parrainages** : demande aux parrains si le contact s'est fait. Là où il ne s'est pas fait, relance toi-même — souvent, il manque juste un premier message.
+- [ ] **Lance le nouveau défi du mois**, sur le canal du club. Une seule contrainte.
+- [ ] **Partage quelques photos des participants**, avec leur accord. Voir sa photo diffusée par le club est un déclencheur d'appartenance très puissant à ce stade.
+- [ ] **Demande aux parrains si le contact s'est fait.** Là où il ne s'est pas fait, va parler toi-même à la personne à la prochaine activité. Souvent, il manque juste un premier message.
 
 ---
 
@@ -86,8 +85,7 @@ C'est le vrai test de la formation.
 C'est la seule évaluation qui compte réellement. Une formation qui enseigne bien mais dont personne ne reste membre a échoué à son objectif; une formation approximative après laquelle vingt personnes viennent aux sorties a réussi.
 
 - [ ] Compte les participants encore présents aux activités.
-- [ ] **Écris à ceux qui ont disparu**, individuellement. Une question, pas une relance : *« qu'est-ce qui t'aurait aidé à continuer? »* Les réponses sont inconfortables et ce sont les plus utiles que tu recevras.
-- [ ] Note ce que tu apprends dans le bilan.
+- [ ] **Pour ceux qui ont disparu**, pose la question à leur parrain, ou à eux si tu les croises : *« qu'est-ce qui t'aurait aidé à continuer? »* Les réponses sont inconfortables et ce sont les plus utiles que tu recevras.
 
 ---
 
@@ -99,22 +97,25 @@ Rédige-le pendant que tout est frais — au plus tard deux semaines après la s
 
 | | Résultat |
 |---|---|
-| Inscrits / présents séance 1 | |
+| Présents séance 1 | |
 | Présents séance 2 | |
 | Présents séance 3 | |
-| Photos reçues pour le défi | ___ / 30 |
-| Confiance moyenne, séance 1 → séance 3 | ___ → ___ |
+| Mains levées, séance 1 → séance 3 | ___ → ___ |
+| Arrivés sans logiciel à la séance 3 | |
 | Encore actifs à 3 mois | ___ / 30 |
 
 **Le taux de présence entre les séances 1 et 2 est ton indicateur d'alerte.** S'il chute, le problème est presque toujours dans la séance 1 : trop dense, trop théorique, ou pas assez de manipulation.
+
+**Le nombre d'arrivées sans logiciel** te dit si le feuillet remis en main propre a suffi. S'il est élevé, la solution la plus légère n'est pas de revenir aux courriels : c'est **un seul message sur le canal du club** une semaine avant la séance 3.
 
 ### Les questions à te poser
 
 - Quel bloc a systématiquement débordé sur son horaire?
 - Quel bloc a produit le plus de « ah, je comprends »?
+- **L'ouverture de la séance 2 en îlots** a-t-elle fonctionné, ou faudrait-il revenir à une projection?
+- Le tour de table et les fiches d'îlot t'ont-ils donné assez d'information, ou t'a-t-il manqué quelque chose?
 - Y a-t-il eu assez d'animateurs? Est-ce que 5 stations étaient le bon nombre?
 - Le format 3 × 2 h 20 est-il le bon, ou faudrait-il une quatrième séance?
-- Qu'est-ce qui est revenu plus d'une fois dans les réponses à « qu'est-ce qui manquait »?
 
 ### Ce qui revient le plus souvent chez les débutants
 
@@ -129,26 +130,21 @@ Garde-les en tête pour la prochaine édition : ce sont les demandes les plus fr
 ## Checklist
 
 **Le soir même**
-- [ ] Sondage de confiance compilé et comparé
-- [ ] Réponses ouvertes lues
+- [ ] Mains levées comptées et comparées
+- [ ] Réponses spontanées notées
 - [ ] Notes à chaud
 
-**48 heures**
-- [ ] Courriel de suivi envoyé, avec date de sortie, parrains nommés, canal, défi, soirée critique
-- [ ] PDF des aide-mémoire et table de correspondance joints
-
 **La semaine**
+- [ ] **Parrains briefés : « écris en premier, ne l'attends pas »**
 - [ ] Animateurs et parrains remerciés publiquement
-- [ ] Parrains relancés pour qu'ils écrivent en premier
-- [ ] Tout archivé
+- [ ] Tout archivé, fiches d'îlot comprises
 
 **2 semaines**
-- [ ] Sortie photo tenue · absents relancés
+- [ ] Sortie photo tenue · tu y étais · parrains présents
 
 **1 mois**
 - [ ] Nouveau défi lancé · photos partagées · parrainages vérifiés
 
 **3 mois**
 - [ ] Comptage des participants encore actifs
-- [ ] Courriel aux disparus
 - [ ] Bilan écrit

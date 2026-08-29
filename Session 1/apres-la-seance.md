@@ -6,79 +6,80 @@
 
 ---
 
+## Le principe
+
+**Il n'y a aucun courriel dans cette formation.** Tout ce qui devait être communiqué l'a été en salle, de vive voix et sur le [feuillet du défi](../Documents/feuillets-a-remettre.md#feuillet-1--le-défi).
+
+Ce fichier tient donc en deux choses : **ce que tu notes le soir même**, et **ce que tu prépares pour la séance 2**.
+
+---
+
 ## Le soir même — 10 minutes, avant de te coucher
 
 Pendant que c'est frais. Ces notes ne servent à personne d'autre qu'à toi, mais tu les auras oubliées demain.
 
+- [ ] **Ramasse les cinq fiches d'îlot** et lis-les tout de suite. C'est ta seule source d'information sur qui est dans la salle — ne les laisse pas au fond d'un sac.
+- [ ] **Note le compte des mains levées** à la question de confiance. Tu la reposeras à la fin de la séance 3.
 - [ ] **Le minutage réel.** Quel bloc a débordé? Lequel a été trop court? Note les vrais horaires à côté des horaires prévus.
 - [ ] **Où le groupe a décroché.** Il y a toujours un moment. Note lequel.
 - [ ] **Les appareils qui ont posé problème** pendant les manipulations — modèle et nature du blocage. Tu peux préparer la réponse avant la séance 2, et ça t'évitera de perdre trois minutes au même endroit.
-- [ ] **Qui a semblé perdu ou silencieux.** Une ou deux personnes, pas plus. Voir « Le suivi individuel » plus bas — c'est l'action la plus rentable de toute la formation.
-- [ ] **Compiler les réponses de la question de confiance.** Calcule la moyenne et écris-la quelque part de sûr. Tu la compareras à la fin de la séance 3, et c'est ta seule vraie mesure.
+- [ ] **Qui a semblé perdu ou silencieux.** Une ou deux personnes, pas plus. Voir plus bas.
 
 ---
 
-## Dans les 24 heures — le courriel du défi
+## Dépouiller les fiches d'îlot — 15 minutes, et c'est tout ton travail entre les deux séances
 
-Envoie-le vite, tant que la soirée est encore vivante dans leur tête. Le texte est prêt : [courriels, envoi 2](../Documents/courriels-participants.md#2--le-lendemain-de-la-séance-1--le-défi).
+### Le parc d'appareils
 
-Vérifie qu'il contient bien les trois éléments qui font le travail :
+Compte les marques. Ça te sert à deux choses :
 
-- **La date limite**, 48 h avant la séance 2
-- **« Cinq photos, pas cinq bonnes photos »** — la formulation qui enlève la peur
-- **« Si vous n'avez pas eu le temps, venez quand même »** — sans ça, ceux qui n'ont rien fait ne viennent pas
+- **Vérifier que tout le monde est reparti avec la bonne feuille** du lexique. S'il manquait une marque dans ton stock, imprime-la et remets-la à la séance 2.
+- **Composer les cinq groupes de la séance 2** en mélangeant les types d'appareils. Un groupe où cohabitent un sans-miroir, un reflex et un cellulaire fonctionne mieux qu'un groupe homogène : les gens se montrent leurs écrans et découvrent que les concepts sont les mêmes.
 
-Rappelle aussi les réglages de départ en une ligne. Beaucoup vont ouvrir leur appareil le lendemain et avoir déjà oublié.
+**Prépare les groupes maintenant, sur papier.** Former cinq groupes de six à la pause de la séance 2, devant trente personnes debout, prend dix minutes que tu n'as pas.
 
----
+### Les frustrations
 
-## Le suivi individuel — l'action la plus rentable
+C'est la colonne la plus précieuse. Relis les trente réponses et cherche ce qui **revient plus d'une fois**.
 
-Écris **un courriel personnel de trois lignes** aux une ou deux personnes que tu as repérées comme silencieuses ou en difficulté.
+Utilise-les de trois façons :
 
-> « Bonjour [X], j'ai vu que le réglage du collimateur t'avait donné du fil à retordre hier — c'est un des plus mal fichus, tu n'es pas seul. Si tu veux, arrive dix minutes plus tôt jeudi prochain et on le règle ensemble. »
-
-C'est le geste qui décide si quelqu'un revient à la deuxième séance. Un débutant qui repart d'une soirée avec le sentiment d'être le seul à ne pas avoir suivi ne revient pas — sauf si quelqu'un le remarque et le lui dit.
-
-Objectif de la formation : **qu'ils se sentent à l'aise**. Trois lignes personnelles font plus pour ça que trente minutes de contenu.
+1. **Comme exemples** à la séance 2 : *« plusieurs d'entre vous ont écrit que les photos d'intérieur sont floues. On va régler ça à la station Mouvement. »* Les gens reconnaissent leurs propres mots, et ça vaut n'importe quelle démonstration.
+2. **Comme missions d'atelier**, si une frustration précise revient souvent — photos d'enfants floues, portraits sans fond flou, photos de soirée jaunes. Adapte la mission de la station concernée.
+3. **Comme correction de ta séance 1** : si une frustration très répandue n'a pas été traitée, c'est un manque de ton plan. Note-le pour la prochaine édition.
 
 ---
 
-## À mi-chemin — le rappel avec ta photo ratée
+## Le suivi individuel — sans courriel
 
-**Environ une semaine avant la séance 2.** Texte prêt : [courriels, envoi 3](../Documents/courriels-participants.md#3--à-mi-chemin-entre-les-séances-1-et-2--le-rappel).
+Repère les une ou deux personnes qui ont semblé silencieuses ou en difficulté. **Le geste qui décide si quelqu'un revient à la deuxième séance, c'est qu'on remarque qu'il existait.**
 
-Ce courriel double typiquement le taux de participation au défi. Envoie-le même si tu as l'impression d'insister.
+Sans courriel, deux façons de faire, aussi efficaces :
 
-**Joins vraiment une de tes propres photos ratées**, avec deux ou trois phrases précises sur ce qui a manqué. C'est la pièce jointe qui fait le travail, pas le texte : elle donne la permission de rater, et c'est exactement ce qui bloque ceux qui n'ont encore rien envoyé.
+- **Parle-leur avant qu'ils partent**, le soir même. Trente secondes suffisent : *« le collimateur t'a donné du fil à retordre — c'est un des réglages les plus mal fichus, tu n'es pas le seul. Arrive dix minutes plus tôt jeudi prochain et on le règle ensemble. »*
+- **Sinon, dès leur arrivée à la séance 2.** Note leur prénom pour ne pas l'oublier — la fiche d'îlot te le donne.
 
----
-
-## À réception des photos
-
-- [ ] **Accuse réception à chacun**, même d'une ligne. C'est court, et pour quelqu'un qui a hésité à envoyer, ça compte.
-- [ ] **Note qui a envoyé et qui n'a pas envoyé.** Pas pour surveiller — pour savoir à qui poser la question de vive voix jeudi (« tu as réussi à sortir? »), ce qui vaut mieux qu'une relance écrite.
-- [ ] **Vérifie les autorisations.** Le courriel dit « sans votre nom, sauf avis contraire ». Respecte-le à la lettre : c'est ce qui rend la projection tolérable.
-- [ ] **Range-les dans un dossier unique**, tu en auras besoin deux fois — pour l'ouverture de la séance 2, et pour le diaporama de la séance 3.
+**Si ton club a déjà un groupe Facebook ou une liste** où tu publies de toute façon, un message unique au groupe — pas trente courriels — coûte deux minutes et rappelle le défi à ceux qui l'ont oublié. C'est optionnel; la formation fonctionne sans.
 
 ---
 
 ## Ce qui bascule vers la préparation de la séance 2
 
-Ces éléments sont pilotés depuis [Session 2/avant-la-seance.md](../Session%202/avant-la-seance.md), pas ici :
+Piloté depuis [Session 2/avant-la-seance.md](../Session%202/avant-la-seance.md) :
 
-- Le **recrutement des 5 animateurs** — commence-le dès maintenant, c'est le point critique
-- La **sélection des 8 à 10 photos** à projeter
-- L'impression des fiches et des affiches de mission
+- Le **recrutement des 5 animateurs** — commence-le dès maintenant, c'est le point critique de la séance 2
+- Le **briefing des animateurs** et l'impression de leurs fiches
+- La préparation de **tes propres photos ratées** pour l'ouverture
 
 ---
 
 ## Checklist
 
+- [ ] Fiches d'îlot ramassées et lues
+- [ ] Compte des mains levées noté
 - [ ] Notes à chaud le soir même (minutage, décrochage, appareils, personnes)
-- [ ] Moyenne du sondage de confiance archivée
-- [ ] Courriel du défi envoyé dans les 24 h
-- [ ] Courriel personnel aux 1-2 personnes repérées
+- [ ] Parc d'appareils compté · feuilles manquantes à réimprimer identifiées
+- [ ] **Cinq groupes de six composés d'avance, sur papier**
+- [ ] Frustrations récurrentes relevées, et missions d'atelier ajustées si besoin
+- [ ] Mot dit aux 1-2 personnes repérées, ou prénom noté pour la séance 2
 - [ ] Recrutement des animateurs de la séance 2 lancé
-- [ ] Rappel à mi-parcours envoyé, avec ta photo ratée
-- [ ] Photos reçues, accusées, autorisations vérifiées, rangées

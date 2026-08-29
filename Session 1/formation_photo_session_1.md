@@ -19,7 +19,7 @@ Chaque bloc théorique est suivi d'un **« appareil en main »** de 4 à 6 minut
 
 ## Avant la séance
 
-**Toute la préparation est dans [avant-la-seance.md](avant-la-seance.md)** — équipe, matériel, salle, courriels et échéances.
+**Toute la préparation est dans [avant-la-seance.md](avant-la-seance.md)** — équipe, matériel, salle et échéances.
 
 Le suivi de la séance est dans [apres-la-seance.md](apres-la-seance.md).
 
@@ -35,17 +35,37 @@ Trois messages, dans cet ordre :
 2. **Cette formation ne porte pas sur votre appareil.** Elle porte sur les décisions à prendre. Les boutons changent d'un modèle à l'autre; les décisions sont les mêmes depuis cent ans.
 3. **Un cellulaire est un appareil photo.** Si c'est ce que vous avez, vous êtes exactement au bon endroit. La majorité de ce qu'on va voir s'y applique.
 
-### Tour de table éclair
+### Tour de table éclair — c'est ta seule collecte d'information
 
-Une phrase par personne, chronométrée (30 secondes × 30 = 15 min, c'est trop — fais-le **par îlot**, chacun se présente à sa table, puis un porte-parole par table résume en 20 secondes).
+Il n'y a pas eu de sondage avant la soirée. **Ces douze minutes sont donc le seul moment où tu apprends qui est dans la salle**, et elles valent largement l'investissement.
 
-Chacun dit :
+**Fais-le par îlot, pas en plénière.** Trente présentations de trente secondes prendraient quinze minutes et endormiraient la salle. Six personnes qui se présentent entre elles, c'est trois minutes, et c'est bien moins intimidant pour quelqu'un qui n'ose pas parler devant trente inconnus.
 
-- Son prénom
-- Quel appareil il a
-- **Une chose qu'il aimerait réussir à photographier**
+Chacun dit, à sa table :
 
-Note les réponses. Ce sont tes exemples pour le reste de la formation, et ta liste de sujets pour les ateliers de la séance 2.
+- Son **prénom**
+- **Quel appareil** il a
+- **Ce qui le frustre le plus en ce moment** avec son appareil
+
+> La troisième question est la plus importante des trois. C'est elle qui te donne les vrais exemples de la formation — des problèmes que les gens ont réellement, formulés dans leurs mots. Pose-la exactement ainsi, et pas « qu'est-ce que vous aimeriez apprendre » : la frustration est concrète, l'objectif d'apprentissage est vague.
+
+### La fiche d'îlot
+
+Une feuille est posée sur chaque table. Chacun remplit sa ligne pendant que les autres parlent : **prénom · marque d'appareil · ce qui me frustre le plus.**
+
+Tu ramasses les cinq fiches à la pause. Elles te donnent en une fois :
+
+- le **parc d'appareils**, pour distribuer les bonnes feuilles du lexique et composer les groupes de la séance 2
+- les **frustrations réelles**, qui deviennent tes exemples et souvent tes missions d'atelier
+- les **prénoms**
+
+### Puis, en plénière, 90 secondes
+
+Demande à un porte-parole par table de résumer : *« la frustration qui revient le plus à notre table, c'est… »*
+
+Cinq phrases, et toute la salle découvre qu'elle partage les mêmes blocages. **C'est le premier moment de soulagement collectif de la soirée** — beaucoup de débutants croient être les seuls à ne pas comprendre.
+
+Note ces cinq réponses au tableau et laisse-les affichées. Tu vas y revenir en cochant les blocages au fil de la séance.
 
 ### Ce que tu ne fais pas
 
@@ -57,7 +77,9 @@ Pas de bloc « lexique ». Les mots seront définis au moment où on en a besoin
 
 Remets la **carte aide-mémoire** maintenant. Elle va servir de fil rouge pendant les trois séances.
 
-Remets aussi à chacun **la feuille de sa marque** ([lexique par fabricant](../Documents/lexique-par-fabricant/README.md)) — une seule feuille, la sienne. Présente-la en une phrase :
+Remets aussi à chacun **la feuille de sa marque** ([lexique par fabricant](../Documents/lexique-par-fabricant/)) — une seule feuille, la sienne.
+
+Tu viens d'apprendre au tour de table qui a quoi : distribue-les maintenant, îlot par îlot, pendant que les membres qui circulent t'aident. Présente-les en une phrase :
 
 > Chaque fabricant a inventé son propre vocabulaire pour désigner exactement les mêmes choses. Quand je dirai un mot que vous ne trouvez pas sur votre appareil, ce n'est jamais parce que votre appareil est moins bon — c'est parce qu'il l'appelle autrement. Vous avez chacun la feuille de votre marque.
 
@@ -505,19 +527,25 @@ Avant que quelqu'un range son appareil, demande à voix haute : *« Levez la mai
 
 Cette formulation enlève la peur sans enlever l'engagement. Ne dis pas « facultatif » — la séance 2 dépend en partie de ces photos.
 
-### Logistique
+### Logistique — remets le feuillet maintenant
 
-- **Où envoyer les photos**, et **la date limite** (48 h avant la séance 2, pour que tu aies le temps de préparer la projection)
-- **Un rappel sera envoyé à mi-parcours** avec un exemple de photo ratée de ta part. Ça double typiquement la participation.
-- Ce qu'il faut apporter à la séance 2 : appareil, **batterie chargée**, carte mémoire avec de l'espace
+**Distribue le [feuillet du défi](../Documents/feuillets-a-remettre.md#feuillet-1--le-défi) en main propre**, pendant que tu parles. Pas en pile sur une table : en fin de soirée, la moitié des gens passerait à côté.
 
-### La question de fin
+Il contient les cinq missions, la liste de ce qu'il faut apporter, et un espace pour la date de la prochaine séance. **Écris cette date au tableau et fais-la recopier.**
 
-Avant de partir, chacun répond sur un papier (anonyme) :
+**Rien à envoyer, rien à préparer.** Ils apportent simplement leur carte mémoire avec leurs photos dessus, et on les regardera directement sur leurs écrans à la séance 2. C'est plus simple pour eux, et ça t'évite de gérer trente envois.
 
-> **Sur 10, à quel point te sens-tu à l'aise de sortir ton appareil du mode automatique?**
+Rappelle en une ligne ce qu'il faut apporter : appareil, **batterie chargée**, carte mémoire avec les photos.
 
-Tu reposeras la même question à la fin de la séance 3. C'est la seule mesure qui compte vraiment : l'objectif de cette formation est le confort, pas la connaissance.
+### La question de fin — à main levée
+
+Trente secondes, sans papier et sans rien à compiler ensuite.
+
+> « Dernière chose. À main levée, et il n'y a pas de mauvaise réponse : **qui se sent à l'aise, aujourd'hui, de sortir son appareil du mode automatique?** »
+
+Compte les mains, à peu près. Note le chiffre sur ton téléphone en sortant.
+
+Tu reposeras exactement la même question à la fin de la séance 3. Si tu passes de 6 mains sur 30 à 25, la formation a réussi — quel que soit le nombre de notions retenues. C'est la seule mesure qui corresponde vraiment à ton objectif, et elle ne coûte rien.
 
 ---
 

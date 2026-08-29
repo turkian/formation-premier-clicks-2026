@@ -20,7 +20,7 @@ Le diagnostic ne se fait plus en bloc théorique à la fin : il se fait **à cha
 
 ## Avant la séance
 
-**Toute la préparation est dans [avant-la-seance.md](avant-la-seance.md)** — équipe, matériel, salle, courriels et échéances.
+**Toute la préparation est dans [avant-la-seance.md](avant-la-seance.md)** — équipe, matériel, salle et échéances.
 
 Le suivi de la séance est dans [apres-la-seance.md](apres-la-seance.md).
 
@@ -28,29 +28,56 @@ Le suivi de la séance est dans [apres-la-seance.md](apres-la-seance.md).
 
 ## 0:00–0:15 — Retour sur la séance 1
 
-C'est le moment le plus délicat de toute la formation : **un débutant voit sa photo projetée devant 30 personnes.** Si ça se passe mal une seule fois, tu perds la personne pour de bon.
+Les participants ont apporté leurs photos **sur leur carte mémoire**. Rien n'a été envoyé, rien n'a été trié d'avance : le retour se fait sur leurs propres écrans, en îlots.
 
-### Les trois garde-fous
+C'est plus simple pour tout le monde, et c'est aussi **beaucoup moins intimidant** que de voir sa photo projetée devant trente personnes.
 
-1. **Montre tes propres ratés en premier.** Deux ou trois photos que tu as manquées, en expliquant pourquoi. Ça donne la permission de rater. Sans ce geste, personne ne se portera volontaire.
-2. **Anonyme par défaut.** Ne nomme personne à moins que la personne se soit identifiée elle-même. Demande des volontaires plutôt que de piger.
-3. **Toujours dans cet ordre :** *« Qu'est-ce qui fonctionne dans cette photo? »* — puis seulement — *« Qu'est-ce qu'on pourrait changer? »* Jamais l'inverse.
+### 0:00–0:04 · Tes ratés d'abord
 
-### Les questions à poser au groupe
+Projette **deux ou trois de tes propres photos manquées**, en expliquant précisément ce qui a raté.
 
-Pour chaque photo projetée :
+Ce n'est pas une politesse, c'est ce qui rend la suite possible. Sans ce geste, personne ne montrera spontanément une photo ratée à sa table — et le bloc entier tombe à plat.
+
+### 0:04–0:11 · En îlots, sur leurs écrans
+
+Consigne unique, donnée avant que les appareils sortent :
+
+> « Montrez-vous vos photos, à votre table. Pour chacune, la table répond à deux questions, **dans cet ordre** :
+>
+> **1. Qu'est-ce qui fonctionne dans cette photo?**
+> **2. Qu'est-ce qu'on pourrait changer?**
+>
+> Jamais l'inverse. »
+
+Les questions à afficher au tableau pour guider les tables :
 
 - Qu'est-ce qui est net?
 - Y a-t-il du mouvement? Figé ou visible?
 - D'où vient la lumière?
 - Quel réglage semble avoir été prioritaire?
-- Qu'est-ce qu'on pourrait changer?
+
+Tu circules avec les membres qui t'aident. **Repère une ou deux photos par table qui illustrent bien un point** — tu vas les demander juste après.
+
+### 0:11–0:15 · Une photo par table, en plénière
+
+Demande à chaque îlot **une** photo à montrer au groupe, choisie par la table.
+
+- **La table choisit, pas toi.** Ce qui est volontaire n'est jamais humiliant.
+- Fais-la venir sur l'écran de l'appareil relié au projecteur, ou simplement décrire par la table si le branchement est compliqué. Une description fonctionne très bien : *« la photo de Jean, où le chien est flou mais le gazon est net. »*
+- **Toujours ce qui fonctionne d'abord.**
 
 ### Ce que tu cherches à installer
 
-Ce n'est pas une critique de photos. C'est l'apprentissage d'une **lecture d'image**. À la fin de cette formation, ils devraient pouvoir regarder n'importe quelle photo et dire comment elle a probablement été faite.
+Ce n'est pas une critique de photos. C'est l'apprentissage d'une **lecture d'image** : à la fin de cette formation, ils devraient pouvoir regarder n'importe quelle photo et dire comment elle a probablement été faite.
 
-Si personne n'a envoyé de photos : utilise les tiennes et celles d'anciens participants. La séance fonctionne quand même.
+### Si beaucoup n'ont pas fait le défi
+
+C'est prévu, et ce n'est pas grave. Deux solutions immédiates :
+
+- **Les photos de la séance 1 comptent.** Tout le monde a photographié pendant les moments « appareil en main ». Elles sont sur les cartes.
+- **Fais-les photographier tout de suite** — deux minutes, la salle, un voisin, une fenêtre. Puis analysez ces images-là.
+
+Ne fais jamais remarquer que peu de gens ont fait le devoir. Les seuls que ça atteint sont ceux qui culpabilisent déjà.
 
 ---
 
@@ -128,9 +155,11 @@ Douze minutes. Pendant ce temps :
 
 ### Comment former les groupes
 
+**Les cinq groupes ont été composés d'avance**, après le dépouillement des fiches d'îlot de la séance 1. Affiche la liste et laisse les gens se placer — former cinq groupes de six à la pause, devant trente personnes debout, prendrait dix minutes que tu n'as pas.
+
 **Mélange les types d'appareils.** Un groupe où cohabitent un sans-miroir, un reflex et un cellulaire fonctionne mieux qu'un groupe homogène : les gens se montrent leurs écrans, comparent, et découvrent que les concepts sont les mêmes.
 
-Mélange aussi les niveaux si tu les connais grâce au sondage. Un participant un peu plus avancé par groupe accélère tout le monde.
+Mélange aussi les niveaux, que les fiches d'îlot de la séance 1 t'ont révélés. Un participant un peu plus avancé par groupe accélère tout le monde.
 
 Remets à chaque groupe une **feuille de rotation** indiquant l'ordre de ses cinq stations.
 
@@ -222,38 +251,44 @@ L'objectif n'est pas d'apprendre des recettes, c'est de **savoir poser un diagno
 
 ## 2:10–2:15 — Préparation de la séance 3
 
-### Ce que chacun doit apporter
+**Remets le [feuillet « Préparer la séance 3 »](../Documents/feuillets-a-remettre.md#feuillet-2--préparer-la-séance-3) en main propre, maintenant, pendant que tu parles.**
 
-- **Trois photos à lui**, choisies selon les critères ci-dessous
-- Son **ordinateur portable chargé** (ou son téléphone — voir plus bas)
-- Sa **carte mémoire** et un lecteur si nécessaire
+C'est le feuillet le plus important des trois : il n'y aura aucun rappel par courriel entre les deux séances. Quelqu'un qui arrive à la séance 3 sans logiciel installé perd les deux heures.
 
-### Les trois photos à choisir
+### Ce que tu dis en le distribuant
 
-1. **Une photo réussie techniquement** — bien exposée, nette
-2. **Une photo intéressante mais imparfaite** — le sujet est bon, quelque chose cloche
-3. **Une photo qui semble difficile à récupérer** — trop sombre, mal cadrée, ratée
+> Le logiciel qu'on va utiliser s'appelle Lightroom. Il est payant, mais **vous n'avez pas besoin de l'acheter.** Il y a quatre options gratuites sur ce feuillet, et ce que vous allez apprendre existe dans tous les logiciels de développement — je vous le montre dans celui-là parce qu'il faut bien en choisir un.
 
-La deuxième est la plus utile des trois. La troisième sert à apprendre où sont les limites du développement.
+Puis lis les trois points qui décident de la soirée :
 
-### Le logiciel — à régler dès maintenant
+1. **Lightroom mobile est gratuit** et fait tout ce qu'on va voir. C'est le premier choix pour quiconque n'a pas déjà Lightroom.
+2. **L'essai Adobe de 7 jours s'active la veille**, pas maintenant — sinon il sera expiré.
+3. **Ouvrez votre logiciel une fois avant de venir**, juste pour voir qu'il démarre.
 
-**Annonce-le à voix haute maintenant, pas seulement par courriel.** Un courriel envoyé deux semaines avant se perd; une annonce en salle se retient.
+### Ce qu'il faut apporter
 
-> Le logiciel qu'on va utiliser s'appelle Lightroom. Il est payant, mais **vous n'avez pas besoin de l'acheter pour suivre la séance.** Il y a plusieurs options gratuites, elles sont toutes dans le courriel que je vous envoie ce soir. Ce que vous allez apprendre existe dans tous les logiciels de développement — je vous le montre dans celui-là.
-
-Le courriel détaillé (essai gratuit, Lightroom mobile, Darktable, logiciels des fabricants) est dans `Documents/courriels-participants.md`.
-
-**Je fournis aussi un jeu de fichiers RAW** que tout le monde téléchargera avant la séance. Comme ça, personne n'est bloqué, et on travaille tous sur la même image pendant la démonstration.
+- **Ordinateur portable chargé** — ou téléphone/tablette avec Lightroom mobile
+- **Carte mémoire** et un lecteur si nécessaire
+- **Trois photos à eux** : une réussie, une intéressante mais imparfaite *(la plus utile des trois)*, une qu'ils croient impossible à rattraper
 
 ### Ceux qui n'ont pas d'ordinateur
 
-Deux solutions, toutes deux valides :
+Dis-le à voix haute, ne le laisse pas seulement sur le papier :
 
-- **Lightroom mobile sur téléphone ou tablette** — gratuit, développe même les RAW, et fait tout ce qu'on va voir
-- **Se placer à deux** sur un portable, en alternant aux commandes
+> Pas d'ordinateur portable? Aucun problème. Lightroom mobile sur téléphone ou tablette fait tout ce qu'on va voir, et vous pouvez aussi vous placer à deux sur un portable. **Venez me le dire avant de partir et je vous placerai.**
 
-Dis-le explicitement en salle. Quelqu'un qui n'a pas de portable et qui ne sait pas que c'est prévu ne viendra tout simplement pas.
+Quelqu'un qui n'a pas de portable et qui ne sait pas que c'est prévu **ne viendra tout simplement pas**.
+
+### Les fichiers d'exercice
+
+Tu fourniras des fichiers RAW communs pour la séance 3. Sans courriel, deux façons de les distribuer, à annoncer maintenant :
+
+- **Sur des clés USB, le soir même de la séance 3** — le plus fiable, prévois-en 4 ou 5 qui circulent
+- **Si ton club a un groupe ou un site**, dépose-les là et écris l'adresse au tableau, à recopier sur le feuillet
+
+Dis-leur que **ce n'est pas un prérequis** : s'ils n'ont rien téléchargé, les clés seront sur place.
+
+---
 
 ---
 

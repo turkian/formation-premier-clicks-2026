@@ -14,12 +14,14 @@
 | **10 jours avant** | Confirmer les 5 animateurs · leur envoyer leur fiche à l'avance |
 | **1 semaine avant** | Faire le **briefing des animateurs** (30 min) · ou le caler 45 min avant la séance |
 | **1 semaine avant** | Imprimer les 5 fiches et les 5 affiches de mission |
-| **48 h avant** | Date limite pour recevoir les photos du défi |
-| **La veille** | **Sélectionner 8 à 10 photos** de participants · préparer 2-3 de tes propres ratés · monter les paires avant/après de composition |
+| **La veille** | Préparer **2-3 de tes propres photos ratées** pour ouvrir · monter les paires avant/après de composition |
+| **La veille** | Imprimer le [feuillet « Préparer la séance 3 »](../Documents/feuillets-a-remettre.md#feuillet-2--préparer-la-séance-3) — 35 copies |
 | **La veille** | Vérifier la salle : la station Lumière a-t-elle une fenêtre? la station Mouvement a-t-elle un dégagement? |
 | **Le jour même** | Arriver 60 min avant · repérer les 5 zones avec les animateurs · préparer les feuilles de rotation |
 
-**Deux échéances à ne pas manquer :** le recrutement des animateurs (sans eux, la séance change de format) et la sélection des photos (elle prend plus de temps que prévu, ne la laisse pas au jour même).
+**L'échéance à ne pas manquer, c'est le recrutement des animateurs.** Sans eux, la séance change de format.
+
+Il n'y a **rien à recevoir ni à trier avant la soirée** : les participants apportent leurs photos sur leur carte, et l'ouverture se fait sur leurs propres écrans.
 
 ---
 
@@ -44,11 +46,15 @@ Plan de repli, par ordre de préférence :
 
 Ne garde jamais l'atelier **Exposition difficile** sans animateur : c'est le plus dur conceptuellement, et c'est là qu'un débutant se convainc qu'il est nul.
 
-### Préparation des photos du retour
+### Ce que tu prépares pour l'ouverture
 
-Rassemble les photos reçues et **sélectionne-en 8 à 10 seulement**. Avec 30 participants, tu ne peux pas tout montrer, et ce n'est pas souhaitable.
+Il n'y a pas de photos reçues d'avance à trier — les participants apportent les leurs sur leur carte mémoire, et le bloc d'ouverture se fait en îlots, sur leurs écrans.
 
-Choisis-les pour couvrir une gamme de situations, pas pour leur qualité. Prépare aussi **deux ou trois de tes propres ratés** — tu les montres en premier.
+Tu n'as donc qu'une chose à préparer, mais elle est essentielle :
+
+**Deux ou trois de tes propres photos ratées**, à projeter en premier, avec l'explication de ce qui a manqué. C'est ce qui donne la permission de rater. Sans ce geste, personne ne montrera spontanément une photo manquée à sa table.
+
+Prépare aussi les **paires avant/après** du bloc de composition — même scène, de loin puis de près, debout puis accroupi. Ce sont les seules images projetées de la soirée.
 
 ### Matériel
 
@@ -57,6 +63,9 @@ Choisis-les pour couvrir une gamme de situations, pas pour leur qualité. Prépa
 - **Affiche de mission** imprimée à chaque station (une page, gros caractères) — les participants oublient la consigne dès qu'ils ont l'appareil en main
 - Matériel spécifique par atelier : voir `fiches-animateurs.md`
 - Cartes aide-mémoire de rechange, pour ceux qui ont oublié la leur
+- **Feuilles du lexique** manquantes, si le dépouillement des fiches d'îlot a révélé une marque que tu n'avais pas en stock
+- **[Feuillet « Préparer la séance 3 »](../Documents/feuillets-a-remettre.md#feuillet-2--préparer-la-séance-3)** — 35 copies, à remettre en main propre à la fin
+- **La liste des cinq groupes**, composée après la séance 1 et imprimée
 
 ### Salle
 
