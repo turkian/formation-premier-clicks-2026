@@ -42,6 +42,7 @@ Chaque séance a **trois fichiers** : ce qu'il faut préparer, le déroulé en s
 | Fichier | Pour qui |
 |---|---|
 | [Aide-mémoire participants](Documents/aide-memoire-participants.md) | **Les participants** — 3 cartes à imprimer et plastifier + le feuillet lexique |
+| [Lexique par fabricant](Documents/lexique-par-fabricant.md) | **Les participants et les animateurs** — le même réglage chez Canon, Nikon, Sony, Fujifilm, Lumix, Olympus et sur cellulaire |
 | [Courriels](Documents/courriels-participants.md) | Toi — les 6 envois rédigés, appelés depuis les fichiers « avant » et « après » |
 
 ---
@@ -73,13 +74,16 @@ Comprendre pourquoi une photo est ratée 30 secondes après l'avoir prise vaut d
 **4. Ce qui a le plus d'impact occupe le meilleur créneau.**
 La compensation d'exposition, la composition et l'atelier individuel de développement sont les trois blocs les plus rentables. Ils ont été remontés ou allongés en conséquence.
 
-**5. Le cellulaire est un appareil valide.**
+**5. Le vocabulaire du fabricant n'est jamais un obstacle.**
+Sept marques dans la salle, sept vocabulaires pour les mêmes réglages. Le [lexique par fabricant](Documents/lexique-par-fabricant.md) est remis dès la séance 1 avec ce message : « si vous ne trouvez pas un mot sur votre appareil, ce n'est pas parce qu'il est moins bon, c'est parce qu'il l'appelle autrement. »
+
+**6. Le cellulaire est un appareil valide.**
 Chaque exercice a son équivalent cellulaire, indiqué dans les fiches. Un participant au téléphone n'est jamais un spectateur.
 
-**6. La formation ne se termine pas à la séance 3.**
+**7. La formation ne se termine pas à la séance 3.**
 Le dernier bloc de la séance 3 est consacré à la sortie photo, au parrainage et aux canaux de questions. Et le fichier [Après la séance 3](Session%203/apres-la-seance.md) va jusqu'à trois mois plus tard : c'est là que l'objectif « se sentir à l'aise » se réalise réellement.
 
-**7. Le suivi individuel vaut plus que le contenu.**
+**8. Le suivi individuel vaut plus que le contenu.**
 Après chaque séance, un courriel personnel de trois lignes aux une ou deux personnes qui ont semblé perdues. C'est le geste qui décide si quelqu'un revient — et il coûte cinq minutes.
 
 ---
@@ -97,6 +101,7 @@ Après chaque séance, un courriel personnel de trois lignes aux une ou deux per
 
 - 35 jeux de cartes aide-mémoire, plastifiées (cartes 1 et 2 pour la séance 1, carte 3 pour la séance 3)
 - 35 feuillets lexique
+- **40 lexiques par fabricant**, recto verso — 35 participants + 5 animateurs, qui en ont besoin comme outil de travail
 - 5 fiches d'animateurs
 - 5 affiches de mission, une par station de la séance 2
 - 35 tables de correspondance entre logiciels (séance 3)

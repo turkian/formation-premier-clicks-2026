@@ -29,6 +29,19 @@
 
 À la place : « c'est mal nommé », « tout le monde bute là-dessus », « essaie voir ce qui arrive si… ».
 
+### Garde le lexique par fabricant en main
+
+**[Documents/lexique-par-fabricant.md](../Documents/lexique-par-fabricant.md) — imprime-le et garde-le sur toi.**
+
+Tu vas te faire demander « c'est où sur un Lumix? » toute la soirée, pour sept marques que personne ne connaît toutes. Les pièges les plus fréquents :
+
+- **Canon** dit `Av` / `Tv` au lieu de `A` / `S`, et `One Shot` / `AI Servo` au lieu de `AF-S` / `AF-C`
+- **Fujifilm** n'a souvent aucune molette de mode : bague d'ouverture + molette de vitesse, chacune avec une position `A`
+- **Olympus** écrit `S-AF` et `C-AF`, lettres inversées
+- **Sony** appelle la stabilisation `OSS`, **Nikon** l'appelle `VR`
+
+Plutôt que de chercher à leur place, **montre-leur la ligne du tableau.** Ils apprennent à s'en servir, et ils repartent avec.
+
 ### Le groupe est mixte
 
 Chaque groupe contient des sans-miroir, des reflex et probablement un ou deux cellulaires. **C'est voulu.** Encourage-les à se montrer leurs écrans : voir le même concept sur trois appareils différents accélère la compréhension.

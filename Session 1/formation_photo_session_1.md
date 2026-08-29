@@ -57,6 +57,12 @@ Pas de bloc « lexique ». Les mots seront définis au moment où on en a besoin
 
 Remets la **carte aide-mémoire** maintenant. Elle va servir de fil rouge pendant les trois séances.
 
+Remets aussi le **[lexique par fabricant](../Documents/lexique-par-fabricant.md)**, en une phrase :
+
+> Chaque fabricant a inventé son propre vocabulaire pour désigner exactement les mêmes choses. Quand je dirai un mot que vous ne trouvez pas sur votre appareil, ce n'est jamais parce que votre appareil est moins bon — c'est parce qu'il l'appelle autrement. Tout est sur cette feuille.
+
+Ça enlève d'avance l'anxiété des quatre moments « appareil en main » de la soirée, et ça évite qu'un possesseur de Fujifilm passe vingt minutes à chercher une molette qui n'existe pas.
+
 ### Avant chaque photo
 
 1. **Qu'est-ce que je veux montrer?**
@@ -138,6 +144,14 @@ On règle la première maintenant, la seconde au bloc suivant.
 - **AF-C / Continuous / AI Servo** — le sujet bouge. L'appareil corrige en continu.
 
 Règle simple à donner : *« Ça bouge? AF-C. Ça ne bouge pas? AF-S. »*
+
+> **Attention, deux marques n'utilisent pas ces mots.**
+>
+> **Canon** dit `One Shot` (immobile) et `AI Servo` ou `Servo` (qui bouge). Un participant Canon qui cherche « AF-C » dans ses menus ne trouvera jamais rien.
+>
+> **Olympus / OM System** inverse les lettres : `S-AF` et `C-AF`.
+>
+> Écris les deux au tableau, et renvoie-les à la [section 3 du lexique par fabricant](../Documents/lexique-par-fabricant.md).
 
 ### Comprendre une photo hors focus
 
@@ -342,7 +356,15 @@ Deux réglages sont en jeu, et chaque mode répond simplement à « lequel des d
 | **S / Tv** | l'appareil | **toi** | Tu décides **le mouvement**. |
 | **M** | **toi** | **toi** | Tu décides tout. L'appareil ne décide plus rien. |
 
-*Av et A sont le même mode : Canon et Pentax disent « Av », Nikon, Sony et Fuji disent « A ». Même chose pour Tv et S.*
+*Av et A sont le même mode : Canon dit « Av », Nikon, Sony, Lumix et Olympus disent « A ». Même chose pour Tv et S.*
+
+> **Deux mises au point à faire tout de suite, sinon tu perds des gens.**
+>
+> **Canon** est le seul à dire `Av` et `Tv`. Ça vient de *aperture value* et *time value*. Tous les autres disent `A` et `S`.
+>
+> **Fujifilm n'a pas cette molette du tout.** Les possesseurs de Fuji ne l'ont pas perdue : leur appareil se règle avec la bague d'ouverture de l'objectif et la molette de vitesse du boîtier, chacune ayant une position `A`. La combinaison des deux donne le mode. **C'est expliqué à la section 2 de leur lexique par fabricant** — envoie-les-y et continue, ne fais pas la démonstration pour toute la salle.
+>
+> Les autres correspondances sont à la [section 1 du lexique](../Documents/lexique-par-fabricant.md).
 
 ### Le point qui fait tout comprendre
 
@@ -446,7 +468,9 @@ Tout le monde configure son appareil, maintenant, avec l'aide des animateurs. Pe
 6. **Trouve le bouton +/−** et repère-le au toucher, sans regarder. Fais −1, puis +1, puis reviens à 0. Regarde l'écran ou le viseur changer.
 7. **Format de fichier : RAW + JPEG** si ton appareil le permet — on en aura besoin à la séance 3, et ça ne coûte que de l'espace sur la carte
 
-> **Cellulaire :** touche l'écran pour faire le point, puis **glisse ton doigt vers le haut ou le bas** — un petit soleil apparaît, c'est ta compensation d'exposition. Elle existe sur pratiquement tous les téléphones et presque personne ne le sait. Active aussi le format **RAW / ProRAW** si ton appareil l'offre.
+> **Cellulaire :** touche l'écran pour faire le point, puis **glisse ton doigt vers le haut ou le bas** — un petit soleil apparaît, c'est ta compensation d'exposition. Elle existe sur pratiquement tous les téléphones et presque personne ne le sait. Active aussi le format **RAW / ProRAW** si ton appareil l'offre, et **la grille de composition** — la section 7 du lexique dit où.
+
+> **Le nom des réglages varie d'une marque à l'autre.** Renvoie systématiquement au [lexique par fabricant](../Documents/lexique-par-fabricant.md) plutôt que d'énumérer sept menus à voix haute. Les membres qui circulent doivent en avoir un exemplaire en main : c'est leur outil de travail pendant ces huit minutes.
 
 Avant que quelqu'un range son appareil, demande à voix haute : *« Levez la main si votre molette est sur A ou Av. »* Regarde la salle. C'est ta vérification que la séance a fonctionné.
 
