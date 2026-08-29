@@ -80,11 +80,16 @@ Avant chaque déclenchement, quelle que soit ta station. C'est le réflexe qu'on
 
 > **Le piège à surveiller à cette station.** Quelqu'un va dire « je change l'ouverture pour choisir ce qui est net ». Reprends-le doucement : **l'ouverture ne choisit pas *où* est le point net — ça, c'est le collimateur.** Elle choisit **combien de chose est net autour** de ce point. Les deux se règlent séparément, et confondre les deux est l'erreur la plus tenace chez les débutants.
 
-Que **l'ouverture n'est qu'un des trois leviers**, et souvent pas le plus puissant :
+Que **l'ouverture n'est qu'un des quatre leviers**, et souvent pas le plus puissant :
 
-1. **L'ouverture** — petit chiffre f/ = fond plus flou
-2. **La distance appareil → sujet** — plus tu t'approches, plus le fond fond
-3. **La distance sujet → arrière-plan** — plus le fond est loin, plus il fond
+| Levier | Effet | Coût |
+|---|---|---|
+| **1 · L'ouverture** | Petit chiffre f/ → zone nette plus mince | un réglage |
+| **2 · Ta distance au sujet** | Plus tu t'approches, plus la zone nette est mince | **gratuit** |
+| **3 · La focale** | Plus tu es zoomé, plus la zone paraît mince | **gratuit** |
+| **4 · La distance sujet → fond** | Ne change pas la zone nette, mais plus le fond en est loin, plus il paraît flou | **gratuit** |
+
+**Trois sur quatre ne demandent aucun menu.** C'est le message de la station.
 
 ### La démonstration à faire toi-même, à chaque rotation
 
@@ -97,6 +102,7 @@ C'est la démonstration la plus utile de toute la station. Elle surprend toujour
 | Ce que tu vas voir | Quoi dire |
 |---|---|
 | Ils sont à f/1.8 et le fond n'est pas flou | « Regarde à quelle distance est le mur derrière. Recule ton sujet de deux mètres et refais la même photo. » |
+| **« Mon objectif ne descend qu'à f/5.6, je suis désavantagé »** | Non. « Approche-toi et éloigne ton sujet du fond — tu vas obtenir le même résultat que ton voisin. » Puis fais-lui la démonstration côte à côte. **C'est la remarque la plus importante à désamorcer à cette station** : quelqu'un qui repart en croyant qu'il lui faut acheter un objectif ne progressera pas, il magasinera. |
 | Ils ne trouvent pas comment changer f/ | « Es-tu en mode A ou Av? Regarde ta molette du dessus. » |
 | **« Pourquoi le petit chiffre = grand trou? »** | Ça a été expliqué à la séance 1, rappelle-le en une phrase : **« c'est une division. `f/2` veut dire la focale divisée par 2. Sur un 50 mm, ça fait un trou de 25 mm; à `f/16`, 3 mm. Un seizième est plus petit qu'un demi. »** Ne refais pas le cours, tu as neuf minutes. |
 | **« Pourquoi mon objectif dit `f/3.5-5.6`? »** | « Quand tu zoomes, ton ouverture maximale rétrécit. À 18 mm tu peux ouvrir à `f/3.5`, à 55 mm seulement à `f/5.6`. **Zoomer te fait perdre de la lumière** — c'est pour ça que tes photos zoomées en intérieur sont plus souvent floues. » |

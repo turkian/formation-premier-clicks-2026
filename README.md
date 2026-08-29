@@ -4,7 +4,7 @@ Formation d'introduction en **trois séances**, destinée aux nouveaux membres, 
 
 **Objectif :** que les participants se sentent plus à l'aise de faire de la photo — pas qu'ils mémorisent le plus de notions possible.
 
-**Format :** 3 séances de 2 h 15 à 2 h 22 (pauses incluses), environ 30 participants, appareils mixtes (sans-miroir majoritaires, quelques reflex, quelques cellulaires).
+**Format :** 3 séances de 2 h 15 à 2 h 25 (pauses incluses), environ 30 participants, appareils mixtes (sans-miroir majoritaires, quelques reflex, quelques cellulaires).
 
 ---
 

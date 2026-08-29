@@ -1,7 +1,7 @@
 # Formation — Les bases de la photographie
 ## Session 1 — Comprendre comment une photo se construit
 
-**Durée :** 2 h 22 (pause incluse)
+**Durée :** 2 h 25 (pause incluse)
 **Participants :** environ 30
 **Objectif :** que chaque participant reparte capable de sortir du mode automatique **le soir même**, avec son appareil déjà configuré et une carte aide-mémoire dans sa poche.
 
@@ -219,16 +219,94 @@ Douze minutes réelles. Avec 30 personnes, une pause de 10 minutes en dure 15.
 
 ---
 
-## 1:02–1:28 — Ce qui est net : profondeur de champ et ouverture
+## 1:02–1:31 — La profondeur de champ et l'ouverture
 
-### Profondeur de champ
+### La profondeur de champ
 
-La **zone qui semble suffisamment nette devant et derrière le point de mise au point**.
+C'est le sujet central du bloc. L'ouverture, qu'on verra juste après, n'est qu'un des moyens de la contrôler.
 
-Deux situations à opposer clairement :
+#### La définition
 
-- Zone mince → le sujet se détache, l'arrière-plan fond. Portrait.
-- Zone épaisse → tout est lisible du premier plan à l'horizon. Paysage, photo de groupe, photo de rue documentaire.
+**La zone qui semble suffisamment nette, devant et derrière l'endroit où vous avez fait le point.**
+
+Insiste sur trois mots :
+
+- **Une zone**, pas un plan. La netteté ne s'arrête pas net, elle se dégrade progressivement.
+- **Devant et derrière.** Elle s'étend des deux côtés du point de mise au point.
+- **Qui *semble* nette.** C'est une impression, pas une mesure. Sur un téléphone, la même photo paraîtra plus nette que sur un grand écran.
+
+#### Les deux situations à opposer
+
+| | À quoi ça sert |
+|---|---|
+| **Zone mince** | Le sujet se détache, le reste fond. Portrait, détail, isolement d'un sujet dans le désordre. |
+| **Zone épaisse** | Tout est lisible du premier plan à l'horizon. Paysage, photo de groupe, photo de rue. |
+
+**Ni l'une ni l'autre n'est meilleure.** C'est une décision, comme figer ou laisser voir le mouvement.
+
+#### Ce qui change l'épaisseur de cette zone
+
+Trois choses, et deux d'entre elles n'ont rien à voir avec les réglages :
+
+| | Effet sur la zone nette |
+|---|---|
+| **1 · L'ouverture** | Grand trou → zone **mince**. Petit trou → zone **épaisse**. *(C'est le sujet de la partie suivante.)* |
+| **2 · La distance à laquelle vous faites le point** | Plus votre sujet est **près**, plus la zone est **mince**. C'est énorme, et presque personne ne le sait. |
+| **3 · La focale** | Plus vous êtes **zoomé**, plus la zone paraît **mince**. |
+
+#### Le facteur n° 2, en chiffres — c'est celui qui surprend
+
+Prends l'objectif que la majorité de la salle possède : **le zoom de kit, 18-55 mm**, réglé à 50 mm. À cette focale, son ouverture maximale est `f/5.6` — c'est tout ce qu'il peut faire, et c'est très bien.
+
+Même objectif, même ouverture. **Seule la distance du sujet change.**
+
+| Zoom de kit à 50 mm, `f/5.6` | Zone nette, environ |
+|---|---|
+| Sujet à **1 mètre** | **une dizaine de centimètres** |
+| Sujet à **3 mètres** | **un bon mètre** |
+| Sujet à **10 mètres** | **plusieurs mètres — en pratique, tout** |
+
+> **Ne donne pas ces chiffres comme des mesures.** Ils varient selon l'appareil et la taille du capteur. Ce qui compte, c'est **le rapport** : en passant de 3 m à 1 m, vous divisez votre zone nette par dix, **sans avoir touché à un seul réglage**.
+
+Fais remarquer qu'aucun de ces trois cas ne demande un objectif cher : c'est l'objectif qu'ils ont dans leur sac ce soir.
+
+#### Les trois conséquences pratiques
+
+C'est ici que ça devient utile. Ces trois situations sont des frustrations que la moitié de la salle a déjà vécues.
+
+**1 · Le portrait rapproché où un seul œil est net**
+
+Avec votre zoom de kit à `f/5.6`, ça vous arrivera rarement : une dizaine de centimètres suffit pour un visage.
+
+**Mais le jour où vous achèterez un 50 mm `f/1.8`** — c'est presque toujours le premier objectif qu'on s'offre — votre zone à 1 mètre tombera à **environ 4 centimètres**. Un visage de trois-quarts est plus épais que ça, et vous aurez un œil net et l'autre flou.
+
+> **Dis-le maintenant, ça leur évitera une déception.** Beaucoup achètent cet objectif, obtiennent des portraits ratés, et croient s'être trompés. **Ce n'est pas une erreur de mise au point, c'est de la physique.** La solution : fermer à `f/2.8` ou `f/4`, ou reculer d'un pas.
+
+**2 · La fleur dont un seul pétale est net**
+
+En gros plan, la zone se compte en **millimètres**. C'est pour ça que la macro est difficile, et ce n'est pas votre faute.
+
+**3 · Le paysage, où vous n'avez pas besoin de `f/16`**
+
+À partir de quelques mètres, la zone devient si épaisse que **tout est net de toute façon** — le tableau ci-dessus le montre, et c'était déjà à `f/5.6`.
+
+Beaucoup de débutants ferment à `f/16` par réflexe « pour être sûrs », se retrouvent avec une vitesse trop lente, et rapportent un paysage bougé. **`f/5.6` ou `f/8` suffisent presque toujours**, et vous laissent une vitesse confortable.
+
+#### Et un quatrième facteur, qui ne change PAS la profondeur de champ
+
+**La distance entre votre sujet et l'arrière-plan.**
+
+Elle ne modifie pas l'épaisseur de la zone nette. Mais **plus l'arrière-plan est loin en dehors de cette zone, plus il paraît flou.**
+
+C'est la distinction qui explique le malentendu le plus répandu :
+
+> **À combattre explicitement :** l'idée que `f/1.8 = arrière-plan flou garanti`. Beaucoup de débutants achètent un objectif lumineux, n'obtiennent pas l'effet attendu, et concluent qu'ils sont mauvais photographes. **Ils ont simplement photographié quelqu'un debout à 30 cm d'un mur.**
+>
+> Le mur était dans la zone nette, ou juste à côté. Aucune ouverture au monde n'y aurait changé grand-chose.
+
+**La solution est gratuite et ne demande aucun réglage :** éloignez votre sujet du fond, ou rapprochez-vous de lui.
+
+---
 
 ### Ouverture — on part d'une question, pas d'une règle
 
@@ -282,9 +360,9 @@ Ne laisse pas traîner au-delà de deux minutes. L'objectif du silence est de cr
 
 Le point de départ, et il surprend toujours :
 
-> **La barre oblique dans `f/2.8` est une vraie division.**
+> **La barre oblique dans `f/5.6` est une vraie division.**
 >
-> Le `f`, c'est la **focale** de votre objectif. `f/2.8` veut littéralement dire **« la focale divisée par 2,8 »** — et le résultat, c'est le diamètre réel du trou par lequel la lumière entre.
+> Le `f`, c'est la **focale** de votre objectif. `f/5.6` veut littéralement dire **« la focale divisée par 5,6 »** — et le résultat, c'est le diamètre réel du trou par lequel la lumière entre.
 
 Fais le calcul au tableau, avec un objectif que quelqu'un dans la salle possède :
 
@@ -293,6 +371,7 @@ Fais le calcul au tableau, avec un objectif que quelqu'un dans la salle possède
 | 50 mm | `f/2` | 50 ÷ 2 = **25 mm** |
 | 50 mm | `f/4` | 50 ÷ 4 = **12,5 mm** |
 | 50 mm | `f/16` | 50 ÷ 16 = **3 mm** |
+| **Votre kit à 50 mm** | **`f/5.6`** | 50 ÷ 5,6 ≈ **9 mm** |
 
 **Et voilà l'inversion expliquée.** Ce n'est pas une convention absurde : plus le diviseur est grand, plus le résultat est petit. Exactement comme un quart de tarte est plus petit qu'un demi.
 
@@ -363,30 +442,44 @@ Reviens ensuite au vote du début : *« ceux qui avaient dit `f/22` tout à l'he
 
 ---
 
-### Les trois autres facteurs — le point le plus important du bloc
+### Récapitulatif avant la démonstration
 
-Le flou d'arrière-plan ne dépend pas seulement de l'ouverture :
+Boucle la boucle en trente secondes, en revenant au début du bloc :
 
-- **Distance appareil → sujet** : plus tu es près, plus l'arrière-plan fond
-- **Distance sujet → arrière-plan** : plus l'arrière-plan est loin, plus il fond
-- **Focale** : une longue focale accentue l'effet
+> Pour contrôler ce qui est flou dans votre image, vous avez **quatre leviers**, et **un seul est un réglage** :
+>
+> 1. **L'ouverture** — le réglage
+> 2. **Votre distance au sujet** — vos pieds
+> 3. **La focale** — votre zoom
+> 4. **La distance entre le sujet et le fond** — les pieds de votre sujet
+>
+> **Trois sur quatre sont gratuits et ne demandent aucun menu.**
 
-> **À combattre explicitement :** l'idée que `f/1.8 = arrière-plan flou garanti`. Beaucoup de débutants achètent un objectif lumineux, n'obtiennent pas l'effet attendu, et concluent qu'ils sont mauvais. Ils ont simplement photographié quelqu'un debout à 30 cm d'un mur.
+C'est le message à retenir du bloc, davantage que la mécanique de l'ouverture.
 
-### Démonstration
+### Démonstration — trois séries, une par levier
 
-Deux séries projetées :
+Prépare-les à l'avance et projette-les côte à côte. Chaque série isole **un seul** facteur : c'est ce qui rend la démonstration lisible.
 
-1. Même sujet, même position, f/1.8 puis f/11.
-2. Même ouverture f/5.6, mais le sujet est déplacé loin de l'arrière-plan.
+**Série 1 · L'ouverture** — même sujet, même position, `f/1.8` puis `f/11`.
+C'est celle qu'ils attendent, et la moins surprenante.
 
-La deuxième série surprend toujours. C'est celle qui fait comprendre.
+> **Ajoute une image prise au zoom de kit à `f/5.6`**, avec le sujet bien détaché du fond. Sans ça, la moitié de la salle conclut de ta démonstration qu'il lui faut acheter un objectif — alors que le résultat s'obtient très bien avec ce qu'ils ont, en jouant sur les distances.
+
+**Série 2 · La distance de mise au point** — même objectif, même `f/5.6`, sujet à 1 m puis à 5 m.
+**C'est la série la plus importante des trois**, parce qu'elle montre le facteur invisible. Le même réglage donne un fond fondu dans un cas et un fond parfaitement lisible dans l'autre.
+
+**Série 3 · La distance au fond** — même `f/5.6`, sujet collé au mur puis à trois mètres du mur. *Fais-la au zoom de kit : c'est la preuve qu'ils n'ont besoin de rien acheter.*
+Celle qui démonte le mythe du `f/1.8`. Elle surprend toujours.
+
+> **Si tu ne peux en préparer qu'une, garde la série 2.** L'effet de l'ouverture, ils le verront eux-mêmes dans trois minutes en manipulant leur appareil. L'effet de la distance, non — il faut le leur montrer.
 
 ### Appareil en main — 6 min
 
-1. **Passe en mode A** (Nikon, Sony, Fuji) ou **Av** (Canon, Pentax). Trouve-le sur ta molette.
+1. **Passe en mode A** (Nikon, Sony, Fuji, Lumix, Olympus) ou **Av** (Canon). Trouve-le sur ta molette.
 2. **Trouve la molette qui change le chiffre f/.** Va de ton plus petit chiffre à ton plus grand, en regardant le nombre changer.
 3. **Photographie ton voisin de table** à f/le-plus-petit, puis à f/11. Compare sur l'écran.
+4. **Sans toucher à tes réglages**, refais la photo de très près, puis en reculant de trois pas. Compare les deux fonds. *C'est le levier gratuit — il faut qu'ils le sentent dans leurs jambes, pas seulement qu'ils l'entendent.*
 
 > **Cellulaire :** tu n'as pas d'ouverture réglable. Ton équivalent est le **mode Portrait**, qui simule le flou. Et surtout : le facteur « distance » fonctionne pareil pour toi — approche-toi du sujet, éloigne-le du fond. C'est du vrai flou, pas du calcul.
 
@@ -394,7 +487,7 @@ La deuxième série surprend toujours. C'est celle qui fait comprendre.
 
 ---
 
-## 1:28–1:46 — Mouvement et vitesse d'obturation
+## 1:31–1:49 — Mouvement et vitesse d'obturation
 
 ### La décision
 
@@ -448,7 +541,7 @@ Ce dernier geste produit toujours des rires et un « ah, je vois! ». C'est le m
 
 ---
 
-## 1:46–1:52 — ISO et faible lumière
+## 1:49–1:55 — ISO et faible lumière
 
 Présente l'ISO comme un **outil qui rend possibles les choix précédents**, jamais comme le troisième sommet d'un triangle.
 
@@ -479,7 +572,7 @@ Active **l'ISO automatique** et fixe une limite haute (3200 ou 6400 selon ton ap
 
 ---
 
-## 1:52–2:14 — Exposition, les quatre modes, et la recette de départ
+## 1:55–2:17 — Exposition, les quatre modes, et la recette de départ
 
 C'est le bloc le plus important de la séance. Il assemble tout le reste.
 
@@ -640,7 +733,7 @@ Avant que quelqu'un range son appareil, demande à voix haute : *« Levez la mai
 
 ---
 
-## 2:14–2:22 — Le défi et la suite
+## 2:17–2:25 — Le défi et la suite
 
 ### Le défi entre les séances 1 et 2
 

@@ -111,9 +111,29 @@ C'est le seul objet que les participants rapportent à la maison. Trois semaines
 │                                                  │
 │   Les réglages sont la 5e étape, jamais la 1re.  │
 │                                                  │
-│   Quand tu ne sais pas quoi régler, c'est        │
-│   souvent que tu n'as pas encore décidé ce       │
-│   que tu voulais montrer.                        │
+│  ──────────────────────────────────────────────  │
+│                                                  │
+│        POUR CONTRÔLER LE FLOU : 4 LEVIERS        │
+│                                                  │
+│   1.  L'OUVERTURE                                │
+│       petit chiffre → zone nette mince           │
+│                                                  │
+│   2.  MA DISTANCE AU SUJET          ← gratuit    │
+│       plus près → zone nette mince               │
+│       kit 50 mm f/5.6 :                          │
+│         à 3 m ≈ 1 m nette · à 1 m ≈ 10 cm        │
+│                                                  │
+│   3.  LA FOCALE                     ← gratuit    │
+│       plus zoomé → zone plus mince               │
+│                                                  │
+│   4.  DISTANCE SUJET → FOND         ← gratuit    │
+│       ne change pas la zone nette, mais          │
+│       un fond loin paraît plus flou              │
+│                                                  │
+│   Trois sur quatre ne demandent aucun menu.      │
+│                                                  │
+│   f/1.8 ne garantit RIEN si ton sujet est        │
+│   collé au mur.                                  │
 │                                                  │
 └──────────────────────────────────────────────────┘
 ```
