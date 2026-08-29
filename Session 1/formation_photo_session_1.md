@@ -19,27 +19,9 @@ Chaque bloc théorique est suivi d'un **« appareil en main »** de 4 à 6 minut
 
 ## Avant la séance
 
-### 2 semaines avant — sondage de 5 questions
+**Toute la préparation est dans [avant-la-seance.md](avant-la-seance.md)** — équipe, matériel, salle, courriels et échéances.
 
-Voir `Documents/courriels-participants.md`. Il te donne le parc d'appareils, les attentes, et surtout **ce qui frustre chaque personne en ce moment** — ce sont tes meilleurs exemples pendant la formation.
-
-### Équipe
-
-Avec 30 participants, prévois **2 à 3 membres du club qui circulent** pendant les moments « appareil en main ». Leur seul rôle : aider quelqu'un à trouver un menu. Sans eux, tu passeras tes 5 minutes avec une seule personne pendant que 29 attendent.
-
-Brief à leur donner : *« Ne prends jamais l'appareil des mains de la personne. Dis-lui où regarder et laisse-la faire le geste. »*
-
-### Matériel
-
-- Projecteur + moyen de projeter tes images (voir « Démonstrations » plus bas)
-- **Cartes aide-mémoire imprimées et plastifiées** (`Documents/aide-memoire-participants.md`) — 35 copies
-- Une source de lumière contrôlable : grande fenêtre, ou une lampe sur pied avec et sans diffuseur
-- Un objet ou un mannequin pour les démonstrations de mise au point
-- Quelques appareils de prêt si possible, pour ceux qui viendraient sans
-
-### Salle
-
-Disposition en îlots de 5-6 plutôt qu'en rangées. Les gens s'entraident spontanément pendant les manipulations, et ça prépare les groupes de la séance 2.
+Le suivi de la séance est dans [apres-la-seance.md](apres-la-seance.md).
 
 ---
 
@@ -529,3 +511,7 @@ Prépare le plan B même si tu comptes sur le plan A.
 Ne dis jamais « c'est simple », « évidemment », « il suffit de ». Si quelqu'un ne comprend pas, ces mots lui apprennent qu'il est le problème.
 
 Remplace par : « c'est mal nommé », « ça devient naturel après quelques fois », « tout le monde bute là-dessus ».
+
+---
+
+**← Préparation :** [avant-la-seance.md](avant-la-seance.md)  ·  **Suivi → :** [apres-la-seance.md](apres-la-seance.md)  ·  **Séance suivante :** [Séance 2](../Session%202/formation_photo_session_2.md)

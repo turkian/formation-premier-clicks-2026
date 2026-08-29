@@ -331,3 +331,7 @@ SI QUELQU'UN DÉCROCHE
   Un débutant qui repart avec une réussite revient. Un débutant
   qui repart avec quatre échecs, non.
 ```
+
+---
+
+**Contexte :** [Déroulé de la séance 2](formation_photo_session_2.md)  ·  **Briefing et matériel :** [avant-la-seance.md](avant-la-seance.md)

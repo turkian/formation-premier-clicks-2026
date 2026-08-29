@@ -4,20 +4,45 @@ Formation d'introduction en **trois séances**, destinée aux nouveaux membres, 
 
 **Objectif :** que les participants se sentent plus à l'aise de faire de la photo — pas qu'ils mémorisent le plus de notions possible.
 
-**Format :** 3 × 2 h 15, environ 30 participants, appareils mixtes (sans-miroir majoritaires, quelques reflex, quelques cellulaires).
+**Format :** 3 séances de 2 h 15 à 2 h 20 (pauses incluses), environ 30 participants, appareils mixtes (sans-miroir majoritaires, quelques reflex, quelques cellulaires).
 
 ---
 
 ## Les documents
 
+Chaque séance a **trois fichiers** : ce qu'il faut préparer, le déroulé en salle, et le suivi.
+
+### Séance 1 — Comprendre comment une photo se construit
+
+| Fichier | Quand tu l'ouvres |
+|---|---|
+| [Avant la séance](Session%201/avant-la-seance.md) | 3 semaines avant → rétroplanning, sondage, équipe, matériel |
+| [Déroulé](Session%201/formation_photo_session_1.md) | En salle → plan minuté 0:00 → 2:20 |
+| [Après la séance](Session%201/apres-la-seance.md) | Le soir même → notes à chaud, courriel du défi, suivi individuel |
+
+### Séance 2 — Mettre les concepts en pratique
+
+| Fichier | Quand tu l'ouvres |
+|---|---|
+| [Avant la séance](Session%202/avant-la-seance.md) | Dès la fin de la séance 1 → recrutement des animateurs, plans de repli |
+| [Fiches d'animateurs](Session%202/fiches-animateurs.md) | **À remettre aux 5 animateurs** → une fiche par station |
+| [Déroulé](Session%202/formation_photo_session_2.md) | En salle → plan minuté 0:00 → 2:15 |
+| [Après la séance](Session%202/apres-la-seance.md) | Avant que les animateurs partent → débriefage, courriel logiciel, parrainages |
+
+### Séance 3 — Développer et finaliser
+
+| Fichier | Quand tu l'ouvres |
+|---|---|
+| [Avant la séance](Session%203/avant-la-seance.md) | Dès la fin de la séance 2 → courriel logiciel, fichiers RAW, logistique |
+| [Déroulé](Session%203/formation_photo_session_3.md) | En salle → plan minuté 0:00 → 2:20 |
+| [Après la séance](Session%203/apres-la-seance.md) | Du soir même à 3 mois plus tard → suivi, sortie, parrainage, bilan |
+
+### Documents transversaux
+
 | Fichier | Pour qui |
 |---|---|
-| [Session 1](Session%201/formation_photo_session_1.md) | Toi — plan minuté de la première soirée |
-| [Session 2](Session%202/formation_photo_session_2.md) | Toi — plan minuté de la deuxième soirée |
-| [Fiches d'animateurs](Session%202/fiches-animateurs.md) | **Les 5 animateurs des ateliers** — à imprimer, une fiche chacun |
-| [Session 3](Session%203/formation_photo_session_3.md) | Toi — plan minuté de la troisième soirée |
-| [Aide-mémoire participants](Documents/aide-memoire-participants.md) | **Les participants** — 3 cartes à imprimer et plastifier |
-| [Courriels](Documents/courriels-participants.md) | Toi — les 6 envois, du sondage initial au suivi final |
+| [Aide-mémoire participants](Documents/aide-memoire-participants.md) | **Les participants** — 3 cartes à imprimer et plastifier + le feuillet lexique |
+| [Courriels](Documents/courriels-participants.md) | Toi — les 6 envois rédigés, appelés depuis les fichiers « avant » et « après » |
 
 ---
 
@@ -52,7 +77,10 @@ La compensation d'exposition, la composition et l'atelier individuel de dévelop
 Chaque exercice a son équivalent cellulaire, indiqué dans les fiches. Un participant au téléphone n'est jamais un spectateur.
 
 **6. La formation ne se termine pas à la séance 3.**
-Le dernier bloc est consacré à la sortie photo, au parrainage et aux canaux de questions. C'est là que l'objectif « se sentir à l'aise » se réalise réellement.
+Le dernier bloc de la séance 3 est consacré à la sortie photo, au parrainage et aux canaux de questions. Et le fichier [Après la séance 3](Session%203/apres-la-seance.md) va jusqu'à trois mois plus tard : c'est là que l'objectif « se sentir à l'aise » se réalise réellement.
+
+**7. Le suivi individuel vaut plus que le contenu.**
+Après chaque séance, un courriel personnel de trois lignes aux une ou deux personnes qui ont semblé perdues. C'est le geste qui décide si quelqu'un revient — et il coûte cinq minutes.
 
 ---
 

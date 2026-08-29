@@ -17,50 +17,9 @@ Dis-le dès la première minute. Ça désamorce l'anxiété de ceux qui n'ont pa
 
 ## Avant la séance
 
-### 2 semaines avant — le courriel logiciel
+**Toute la préparation est dans [avant-la-seance.md](avant-la-seance.md)** — équipe, matériel, salle, courriels et échéances.
 
-C'est **le** point de rupture de cette séance. Un participant qui arrive sans logiciel installé perd la soirée.
-
-Le courriel complet est dans `Documents/courriels-participants.md`. Il couvre :
-
-| Option | Coût | Note |
-|---|---|---|
-| **Essai gratuit Adobe, 7 jours** | Gratuit | ⚠️ Dis-leur de l'activer **la veille**, pas trois semaines avant |
-| **Lightroom mobile** (téléphone/tablette) | Gratuit | Développe même les RAW. Fait tout ce qu'on voit ce soir. |
-| **Darktable** ou **RawTherapee** | Gratuit | Ordinateur. Curseurs nommés autrement — voir table de correspondance en annexe |
-| **Logiciel du fabricant** (Canon DPP, Nikon NX Studio, etc.) | Gratuit | Fonctionne bien pour les corrections de base |
-
-**Envoie un rappel 3 jours avant**, avec une seule consigne : « ouvre ton logiciel une fois avant jeudi, juste pour vérifier qu'il démarre ».
-
-### 1 semaine avant — les fichiers RAW communs
-
-Prépare **3 fichiers RAW** et distribue-les par lien de téléchargement (et sur clés USB en secours le soir même).
-
-C'est le levier le plus important de la séance, pour deux raisons :
-
-1. **Personne n'est bloqué** — carte oubliée, photos non importées, ordinateur qui refuse de lire une carte : plus rien de tout ça n'arrête la soirée.
-2. **Tout le monde travaille sur la même image** pendant la démonstration guidée. Tu peux dire « regardez ce qui vient de se passer dans le ciel » et les 30 personnes voient la même chose. Avec 30 images différentes, la moitié de la salle décroche en dix minutes.
-
-**Choisis des fichiers avec des défauts réels :** un horizon penché, une sous-exposition, une balance des blancs trop froide, un ciel un peu brûlé. Une image parfaite n'apprend rien.
-
-### Logistique de la salle — vérifie chaque point
-
-Une séance de retouche échoue pour des raisons banales.
-
-- [ ] **Tables** — retoucher un portable sur les genoux pendant 2 h ne fonctionne pas
-- [ ] **Prises de courant** — une multiprise par table, minimum
-- [ ] **Wifi**, et son mot de passe affiché au mur
-- [ ] **Lecteurs de cartes** — aies-en 3 en réserve, quelqu'un en aura besoin
-- [ ] **Clés USB** avec les fichiers RAW, pour ceux qui ne les ont pas téléchargés
-- [ ] **Grand écran ou projecteur** bien visible du fond de la salle — le texte des curseurs Lightroom est petit; agrandis l'interface de ton logiciel avant de commencer
-- [ ] **2 ou 3 animateurs qui circulent** pendant l'atelier individuel
-
-### Ceux qui n'ont pas d'ordinateur
-
-Deux solutions valides, à annoncer d'avance et à rappeler en salle :
-
-- **Lightroom mobile** sur téléphone ou tablette — gratuit, et suffisant pour tout ce qu'on fait
-- **Se placer à deux** sur un portable, en alternant aux commandes. C'est même une bonne façon d'apprendre.
+Le suivi de la séance est dans [apres-la-seance.md](apres-la-seance.md).
 
 ---
 
@@ -512,3 +471,7 @@ C'est ce qui te permettra d'améliorer la prochaine édition.
 | Masque du sujet | Masque paramétrique / dessiné | Masque local | Masque du sujet |
 
 **Le message à répéter :** les noms diffèrent, les concepts sont identiques. Quelqu'un qui a compris « je veux récupérer mon ciel » trouvera toujours le bon curseur, dans n'importe quel logiciel.
+
+---
+
+**← Préparation :** [avant-la-seance.md](avant-la-seance.md)  ·  **Suivi → :** [apres-la-seance.md](apres-la-seance.md)  ·  **Bilan de la formation :** [apres-la-seance.md](apres-la-seance.md#le-bilan-pour-la-prochaine-édition)

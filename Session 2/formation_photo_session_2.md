@@ -20,44 +20,9 @@ Le diagnostic ne se fait plus en bloc théorique à la fin : il se fait **à cha
 
 ## Avant la séance
 
-### Recrutement et briefing des animateurs — le point critique
+**Toute la préparation est dans [avant-la-seance.md](avant-la-seance.md)** — équipe, matériel, salle, courriels et échéances.
 
-Cinq ateliers en rotation supposent **cinq animateurs**. Sans eux, tu as un atelier qui fonctionne (celui où tu es) et quatre où six débutants se regardent en se demandant quoi faire.
-
-**Briefing de 30 minutes, la semaine d'avant ou 45 min avant la séance.** Remets à chacun sa fiche (`fiches-animateurs.md`) et insiste sur trois consignes communes :
-
-1. **Ne prends jamais l'appareil des mains de quelqu'un.** Guide, ne fais pas à sa place.
-2. **Commence par ce qui fonctionne** dans la photo, avant ce qui pourrait changer. Toujours dans cet ordre.
-3. **Ton but n'est pas qu'ils fassent une belle photo.** C'est qu'ils comprennent pourquoi la photo est comme elle est.
-
-C'est aussi une excellente occasion de créer du lien entre les anciens et les nouveaux membres — ce qui sert directement l'objectif de la formation.
-
-### Si tu n'as que 2 ou 3 animateurs
-
-Plan de repli, par ordre de préférence :
-
-- **3 ateliers de 20 min**, groupes de 10 : garde *Profondeur de champ*, *Mouvement* et *Lumière*. Fais *Exposition difficile* et *Composition* en plénière.
-- **Tout le monde ensemble**, 4 missions successives de 15 min que tu diriges du centre de la salle. Moins riche, mais aucun risque de décrochage.
-
-Ne garde jamais l'atelier **Exposition difficile** sans animateur : c'est le plus dur conceptuellement, et c'est là qu'un débutant se convainc qu'il est nul.
-
-### Préparation des photos du retour
-
-Rassemble les photos reçues et **sélectionne-en 8 à 10 seulement**. Avec 30 participants, tu ne peux pas tout montrer, et ce n'est pas souhaitable.
-
-Choisis-les pour couvrir une gamme de situations, pas pour leur qualité. Prépare aussi **deux ou trois de tes propres ratés** — tu les montres en premier.
-
-### Matériel
-
-- Projecteur pour le bloc d'ouverture
-- Signal sonore pour les rotations (cloche, minuterie de téléphone sur haut-parleur)
-- **Affiche de mission** imprimée à chaque station (une page, gros caractères) — les participants oublient la consigne dès qu'ils ont l'appareil en main
-- Matériel spécifique par atelier : voir `fiches-animateurs.md`
-- Cartes aide-mémoire de rechange, pour ceux qui ont oublié la leur
-
-### Salle
-
-Cinq zones distinctes, si possible séparées visuellement. L'atelier Lumière a besoin d'une fenêtre ou d'une source contrôlable; l'atelier Mouvement a besoin d'un couloir ou d'un dégagement pour marcher.
+Le suivi de la séance est dans [apres-la-seance.md](apres-la-seance.md).
 
 ---
 
@@ -289,3 +254,7 @@ Deux solutions, toutes deux valides :
 - **Se placer à deux** sur un portable, en alternant aux commandes
 
 Dis-le explicitement en salle. Quelqu'un qui n'a pas de portable et qui ne sait pas que c'est prévu ne viendra tout simplement pas.
+
+---
+
+**← Préparation :** [avant-la-seance.md](avant-la-seance.md)  ·  **Fiches des ateliers :** [fiches-animateurs.md](fiches-animateurs.md)  ·  **Suivi → :** [apres-la-seance.md](apres-la-seance.md)
