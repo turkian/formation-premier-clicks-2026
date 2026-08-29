@@ -1,0 +1,89 @@
+# Formation photo — Club de photo
+
+Formation d'introduction en **trois séances**, destinée aux nouveaux membres, majoritairement débutants.
+
+**Objectif :** que les participants se sentent plus à l'aise de faire de la photo — pas qu'ils mémorisent le plus de notions possible.
+
+**Format :** 3 × 2 h 15, environ 30 participants, appareils mixtes (sans-miroir majoritaires, quelques reflex, quelques cellulaires).
+
+---
+
+## Les documents
+
+| Fichier | Pour qui |
+|---|---|
+| [Session 1](Session%201/formation_photo_session_1.md) | Toi — plan minuté de la première soirée |
+| [Session 2](Session%202/formation_photo_session_2.md) | Toi — plan minuté de la deuxième soirée |
+| [Fiches d'animateurs](Session%202/fiches-animateurs.md) | **Les 5 animateurs des ateliers** — à imprimer, une fiche chacun |
+| [Session 3](Session%203/formation_photo_session_3.md) | Toi — plan minuté de la troisième soirée |
+| [Aide-mémoire participants](Documents/aide-memoire-participants.md) | **Les participants** — 3 cartes à imprimer et plastifier |
+| [Courriels](Documents/courriels-participants.md) | Toi — les 6 envois, du sondage initial au suivi final |
+
+---
+
+## Les trois séances
+
+| | Séance 1 | Séance 2 | Séance 3 |
+|---|---|---|---|
+| **Titre** | Comprendre comment une photo se construit | Mettre les concepts en pratique | Développer et finaliser |
+| **Nature** | Concepts + manipulation d'appareil | Pratique en ateliers tournants | Atelier logiciel |
+| **Fil** | Lumière → netteté → mouvement → ISO → exposition → qui décide quoi | Problème → intention → choix → photo → analyse | Lire → décider → développer → exporter |
+| **Ils repartent avec** | Leur appareil configuré en mode A + les cartes 1 et 2 | Une heure de pratique + un réflexe de diagnostic | Une séquence de 7 gestes + une entrée dans la vie du club |
+
+---
+
+## Les principes qui structurent tout le plan
+
+**1. Jamais plus de 20 minutes sans que les appareils sortent des sacs.**
+Chaque bloc théorique de la séance 1 est suivi d'un « appareil en main » de 4 à 6 minutes. L'objectif n'est pas de faire une belle photo, c'est de **localiser le réglage** sur son propre appareil.
+
+**2. Les modes répondent à « qu'est-ce que l'appareil décide à ma place? »**
+Les quatre modes sont enseignés, mais comme une réponse à cette question — la même qui structure toute la formation — et non comme une liste à mémoriser. A/Av répond à « qu'est-ce qui doit être net? », S/Tv répond à « le mouvement, figé ou visible? ». Le manuel sert de test de compréhension : l'appareil n'y décide rien, donc la compensation d'exposition n'y a rien à corriger.
+
+Ils repartent malgré tout avec **un point de départ unique** — A/Av par défaut, S/Tv quand le mouvement devient la question — parce qu'un débutant à qui on laisse quatre options ouvertes se paralyse et retourne en automatique.
+
+**3. Le diagnostic à chaud, pas en bloc théorique.**
+Comprendre pourquoi une photo est ratée 30 secondes après l'avoir prise vaut dix fois mieux qu'un exposé une heure plus tard.
+
+**4. Ce qui a le plus d'impact occupe le meilleur créneau.**
+La compensation d'exposition, la composition et l'atelier individuel de développement sont les trois blocs les plus rentables. Ils ont été remontés ou allongés en conséquence.
+
+**5. Le cellulaire est un appareil valide.**
+Chaque exercice a son équivalent cellulaire, indiqué dans les fiches. Un participant au téléphone n'est jamais un spectateur.
+
+**6. La formation ne se termine pas à la séance 3.**
+Le dernier bloc est consacré à la sortie photo, au parrainage et aux canaux de questions. C'est là que l'objectif « se sentir à l'aise » se réalise réellement.
+
+---
+
+## Ce qu'il faut préparer — vue d'ensemble
+
+### Personnes
+
+- **2 à 3 membres** qui circulent pendant les manipulations de la séance 1
+- **5 animateurs** pour les ateliers de la séance 2 (briefing de 30 min à prévoir)
+- **2 à 3 animateurs** qui circulent pendant l'atelier de la séance 3
+- **Des parrains** — un par nouveau membre, à annoncer à la séance 3
+
+### À imprimer
+
+- 35 jeux de cartes aide-mémoire, plastifiées (cartes 1 et 2 pour la séance 1, carte 3 pour la séance 3)
+- 35 feuillets lexique
+- 5 fiches d'animateurs
+- 5 affiches de mission, une par station de la séance 2
+- 35 tables de correspondance entre logiciels (séance 3)
+
+### À préparer
+
+- Les images de démonstration de la séance 1 (**prépare le plan B projeté même si tu comptes faire les démos en direct**)
+- La sélection de 8 à 10 photos des participants pour l'ouverture de la séance 2, plus 2-3 de tes propres ratés
+- 3 fichiers RAW communs à distribuer avant la séance 3, **avec de vrais défauts**
+- Le diaporama des photos des participants pour l'ouverture de la séance 3
+
+### La mesure
+
+Même question anonyme au début de la séance 1 et à la fin de la séance 3 :
+
+> **Sur 10, à quel point te sens-tu à l'aise de sortir ton appareil du mode automatique?**
+
+C'est la seule mesure qui corresponde vraiment à l'objectif de la formation.
