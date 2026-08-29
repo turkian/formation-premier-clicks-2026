@@ -23,8 +23,8 @@
 | Ce qu'on dit en formation | Sur votre Android |
 |---|---|
 | **Tout automatique** | Le mode `Photo` normal — c'est là que vous êtes |
-| **Priorité à l'ouverture** *(je décide du flou)* | N'existe pas. Le mode **`Portrait`** simule le flou. **Mais s'approcher du sujet et éloigner le fond fonctionne exactement comme sur un appareil, et ça, c'est du vrai flou.** |
-| **Priorité à la vitesse** *(je décide du mouvement)* | Le mode **`Pro`** ou **`Expert`** vous laisse choisir la vitesse. Présent chez Samsung, Xiaomi, OnePlus, Sony Xperia. **Absent ou très limité sur les Google Pixel.** |
+| **Priorité à l'ouverture** *(je choisis la quantité de lumière)* | N'existe pas. Le mode **`Portrait`** simule le flou. **Mais s'approcher du sujet et éloigner le fond fonctionne exactement comme sur un appareil, et ça, c'est du vrai flou.** |
+| **Priorité à la vitesse** *(je choisis la durée)* | Le mode **`Pro`** ou **`Expert`** vous laisse choisir la vitesse. Présent chez Samsung, Xiaomi, OnePlus, Sony Xperia. **Absent ou très limité sur les Google Pixel.** |
 | **Manuel** | Le mode `Pro` / `Expert` — c'est en réalité un mode manuel |
 
 > **Si votre téléphone n'a pas de mode `Pro`, ou si vous voulez la même interface que les autres :** **Lightroom mobile est gratuite** et contient un appareil photo avec les contrôles manuels complets, identique sur tous les téléphones. C'est aussi le logiciel qu'on utilisera à la séance 3.

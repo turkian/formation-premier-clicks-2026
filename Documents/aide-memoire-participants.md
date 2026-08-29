@@ -30,8 +30,10 @@ C'est le seul objet que les participants rapportent à la maison. Trois semaines
 │   S · Tv    appareil     MOI        ✓            │
 │   M           MOI        MOI        ✗            │
 │                                                  │
-│   A/Av → je décide de ce qui est NET             │
-│   S/Tv → je décide du MOUVEMENT                  │
+│   A/Av → je choisis l'OUVERTURE                  │
+│           → épaisseur de la zone nette           │
+│   S/Tv → je choisis la VITESSE                   │
+│           → rendu du MOUVEMENT                   │
 │                                                  │
 │   En M, l'appareil ne décide rien,               │
 │   donc le +/− n'a rien à corriger.               │

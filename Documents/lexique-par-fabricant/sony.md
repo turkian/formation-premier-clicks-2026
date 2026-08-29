@@ -15,8 +15,8 @@
 | Ce qu'on dit en formation | Sur votre Sony |
 |---|---|
 | **Tout automatique** | `AUTO` ou `iAUTO` |
-| **Priorité à l'ouverture** — je décide de ce qui est net | **`A`** |
-| **Priorité à la vitesse** — je décide du mouvement | **`S`** |
+| **Priorité à l'ouverture** — je choisis la quantité de lumière | **`A`** |
+| **Priorité à la vitesse** — je choisis la durée | **`S`** |
 | **Manuel** — je décide de tout | `M` |
 | **Programme** | `P` |
 

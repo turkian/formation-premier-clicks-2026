@@ -65,7 +65,11 @@ Chaque séance a **trois fichiers** : ce qu'il faut préparer, le déroulé en s
 Chaque bloc théorique de la séance 1 est suivi d'un « appareil en main » de 4 à 6 minutes. L'objectif n'est pas de faire une belle photo, c'est de **localiser le réglage** sur son propre appareil.
 
 **2. Les modes répondent à « qu'est-ce que l'appareil décide à ma place? »**
-Les quatre modes sont enseignés, mais comme une réponse à cette question — la même qui structure toute la formation — et non comme une liste à mémoriser. A/Av répond à « qu'est-ce qui doit être net? », S/Tv répond à « le mouvement, figé ou visible? ». Le manuel sert de test de compréhension : l'appareil n'y décide rien, donc la compensation d'exposition n'y a rien à corriger.
+Les quatre modes sont enseignés, mais comme une réponse à cette question — la même qui structure toute la formation — et non comme une liste à mémoriser. Il n'y a que deux façons de faire entrer la lumière : **l'ouverture** règle la taille du trou, **la vitesse** règle la durée. Chaque mode dit simplement laquelle des deux le photographe garde en main, et chacune a une conséquence : la profondeur de champ pour l'une, le rendu du mouvement pour l'autre.
+
+Le manuel sert de test de compréhension : l'appareil n'y décide rien, donc la compensation d'exposition n'y a rien à corriger.
+
+**Le mode A ne fait pas choisir *ce qui* est net** — ça, c'est la mise au point, et elle se règle séparément dans tous les modes. Confondre les deux est l'erreur la plus tenace chez les débutants; le plan les sépare explicitement, et y revient au bloc des modes.
 
 Ils repartent malgré tout avec **un point de départ unique** — A/Av par défaut, S/Tv quand le mouvement devient la question — parce qu'un débutant à qui on laisse quatre options ouvertes se paralyse et retourne en automatique.
 

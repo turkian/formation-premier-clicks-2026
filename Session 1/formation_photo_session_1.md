@@ -348,13 +348,14 @@ C'est seulement ici que tu énonces la règle. Elle arrive comme une **conclusio
 | **`f/2.4`** — petit chiffre | grand | beaucoup | **mince** |
 | **`f/22`** — grand chiffre | petit | peu | **épaisse** |
 
-> **L'ouverture fait donc deux choses en même temps**, et c'est ce qui la rend intéressante :
+> **L'ouverture règle la quantité de lumière qui entre.** C'est sa fonction première, et c'est tout ce que le trou fait.
 >
-> 1. Elle décide de **combien de lumière** entre.
-> 2. Elle décide de **l'épaisseur de la zone nette** — la profondeur de champ dont on vient de parler.
+> **Mais ce réglage a une conséquence**, et c'est elle qui intéresse le plus les photographes : **il change l'épaisseur de la zone nette** — la profondeur de champ dont on vient de parler.
 >
-> Grande ouverture → beaucoup de lumière **et** un fond flou.
-> Petite ouverture → peu de lumière **et** tout net.
+> Grand trou → beaucoup de lumière, **et** une zone nette mince.
+> Petit trou → peu de lumière, **et** une zone nette épaisse.
+
+> ⚠️ **À redire ici, même si tu l'as déjà dit :** l'ouverture ne choisit pas *où* est le point net — ça, c'est la mise au point, et elle se règle séparément. L'ouverture choisit **combien de chose est net autour** de ce point. Les deux mots se ressemblent, les deux réglages n'ont rien à voir.
 
 **La formule à leur laisser :** *petit chiffre, grand trou, fond flou.* Six mots, et ça couvre 90 % des cas.
 
@@ -503,9 +504,9 @@ Deux réglages sont en jeu, et chaque mode répond simplement à « lequel des d
 | Mode | L'ouverture | La vitesse | Ce que ça veut dire |
 |---|---|---|---|
 | **Auto** | l'appareil | l'appareil | Il décide tout. Tu ne choisis rien. |
-| **A / Av** | **toi** | l'appareil | Tu décides **ce qui est net**. |
-| **S / Tv** | l'appareil | **toi** | Tu décides **le mouvement**. |
-| **M** | **toi** | **toi** | Tu décides tout. L'appareil ne décide plus rien. |
+| **A / Av** | **toi** | l'appareil | Tu choisis **la taille du trou** — donc la quantité de lumière. |
+| **S / Tv** | l'appareil | **toi** | Tu choisis **la durée** — combien de temps la lumière entre. |
+| **M** | **toi** | **toi** | Tu choisis les deux. L'appareil ne décide plus rien. |
 
 *Av et A sont le même mode : Canon dit « Av », Nikon, Sony, Lumix et Olympus disent « A ». Même chose pour Tv et S.*
 
@@ -519,15 +520,27 @@ Deux réglages sont en jeu, et chaque mode répond simplement à « lequel des d
 
 ### Le point qui fait tout comprendre
 
-Regarde la colonne « ce que ça veut dire » et compare avec les quatre questions de ta carte :
+Il n'y a que **deux façons de faire entrer la lumière** dans un appareil photo, et chaque mode dit simplement laquelle des deux tu gardes en main :
 
-- **Question 2 — qu'est-ce qui doit être net?** → c'est le mode **A / Av**
-- **Question 3 — le mouvement, figé ou visible?** → c'est le mode **S / Tv**
+| Réglage | Ce qu'il règle | Son effet secondaire — celui qui intéresse le photographe |
+|---|---|---|
+| **L'ouverture** | La **taille** du trou | Change l'**épaisseur de la zone nette** *(la profondeur de champ)* |
+| **La vitesse** | La **durée** pendant laquelle il reste ouvert | Change le **rendu du mouvement** — figé ou visible |
 
-**Les modes ne sont pas un menu technique. Ce sont les deux questions de la carte, transformées en position sur une molette.** Tu choisis ton mode en fonction de la question qui compte le plus dans la scène devant toi.
+**Mode `A / Av`** → je garde la main sur l'ouverture, donc sur la profondeur de champ.
+**Mode `S / Tv`** → je garde la main sur la vitesse, donc sur le mouvement.
 
-Portrait dans un parc → ce qui compte, c'est le fond flou → **A**.
-Ton enfant qui court → ce qui compte, c'est de le figer → **S**.
+Tu choisis ton mode selon **l'effet secondaire qui compte le plus** dans la scène devant toi.
+
+Portrait dans un parc → je veux un fond flou → **`A`**, et j'ouvre en grand.
+Ton enfant qui court → je veux le figer → **`S`**, et je monte à 1/500.
+
+> ⚠️ **Ne confonds jamais l'ouverture avec la mise au point** — c'est la confusion la plus tenace chez les débutants, et on l'a déjà séparée avant la pause :
+>
+> - **La mise au point décide OÙ** se trouve le point net. Un seul endroit, que tu désignes avec ton collimateur.
+> - **L'ouverture décide de l'ÉPAISSEUR** de la zone nette autour de cet endroit.
+>
+> Le mode `A` ne te fait pas choisir *ce qui* est net — ça, c'est ton collimateur, et il fonctionne dans tous les modes. Le mode `A` te fait choisir **combien de chose** sera net autour de ton sujet.
 
 ### Et l'ISO là-dedans?
 
@@ -588,9 +601,9 @@ Quatre situations. Le groupe répond à voix haute : **quel mode, et pourquoi?**
 
 | Situation | Réponse attendue |
 |---|---|
-| Portrait dehors, tu veux détacher la personne du fond | **A / Av** — la question, c'est ce qui est net |
+| Portrait dehors, tu veux détacher la personne du fond | **A / Av** — ce qui compte, c'est l'épaisseur de la zone nette |
 | Un enfant qui court | **S / Tv** — la question, c'est le mouvement |
-| Paysage, tu veux tout net du premier plan à l'horizon | **A / Av** — encore la netteté |
+| Paysage, tu veux tout net du premier plan à l'horizon | **A / Av** — encore l'épaisseur de la zone nette, mais en sens inverse |
 | Concert sombre | **S / Tv** pour ne pas descendre trop bas en vitesse, ou **A** grande ouverture — et surtout **compensation −1**, parce que l'appareil va vouloir éclaircir la scène |
 
 Il n'y a pas toujours une seule bonne réponse, et c'est un bon message à passer. Ce que tu vérifies, c'est qu'ils partent de **la question**, pas du réglage.
@@ -599,7 +612,7 @@ Il n'y a pas toujours une seule bonne réponse, et c'est un bon message à passe
 
 Les quatre modes existent et ils savent maintenant ce que chacun fait. Mais un débutant à qui on laisse quatre options ouvertes se paralyse et retourne en Auto. Donne-leur donc un **point de départ**, pas une restriction :
 
-> **Votre mode par défaut, c'est A (ou Av).** C'est celui qui répond à la question la plus fréquente : qu'est-ce qui doit être net?
+> **Votre mode par défaut, c'est A (ou Av).** C'est celui qui vous donne la main sur l'ouverture — et donc sur la profondeur de champ, la décision qui revient le plus souvent.
 >
 > **Passez en S (ou Tv) quand le mouvement devient la vraie question** — un enfant, un chien, un joueur de hockey.
 >

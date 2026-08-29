@@ -15,8 +15,8 @@
 | Ce qu'on dit en formation | Sur votre Canon |
 |---|---|
 | **Tout automatique** | `A+` — le carré vert |
-| **Priorité à l'ouverture** — je décide de ce qui est net | **`Av`** |
-| **Priorité à la vitesse** — je décide du mouvement | **`Tv`** |
+| **Priorité à l'ouverture** — je choisis la quantité de lumière | **`Av`** |
+| **Priorité à la vitesse** — je choisis la durée | **`Tv`** |
 | **Manuel** — je décide de tout | `M` |
 | **Programme** | `P` |
 

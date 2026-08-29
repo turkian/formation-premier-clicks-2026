@@ -78,6 +78,8 @@ Avant chaque déclenchement, quelle que soit ta station. C'est le réflexe qu'on
 
 ### Ce qu'ils doivent découvrir
 
+> **Le piège à surveiller à cette station.** Quelqu'un va dire « je change l'ouverture pour choisir ce qui est net ». Reprends-le doucement : **l'ouverture ne choisit pas *où* est le point net — ça, c'est le collimateur.** Elle choisit **combien de chose est net autour** de ce point. Les deux se règlent séparément, et confondre les deux est l'erreur la plus tenace chez les débutants.
+
 Que **l'ouverture n'est qu'un des trois leviers**, et souvent pas le plus puissant :
 
 1. **L'ouverture** — petit chiffre f/ = fond plus flou

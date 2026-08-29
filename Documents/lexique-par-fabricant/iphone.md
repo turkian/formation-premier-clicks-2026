@@ -19,8 +19,8 @@
 | Ce qu'on dit en formation | Sur votre iPhone |
 |---|---|
 | **Tout automatique** | Le mode `Photo` normal — c'est là que vous êtes |
-| **Priorité à l'ouverture** *(je décide du flou)* | N'existe pas. Le mode **`Portrait`** simule le flou d'arrière-plan. **Mais s'approcher du sujet et éloigner le fond fonctionne exactement comme sur un appareil, et ça, c'est du vrai flou.** |
-| **Priorité à la vitesse** *(je décide du mouvement)* | N'existe pas dans l'application native. Il faut une application tierce — voir ci-dessous. |
+| **Priorité à l'ouverture** *(je choisis la quantité de lumière)* | N'existe pas. Le mode **`Portrait`** simule le flou d'arrière-plan. **Mais s'approcher du sujet et éloigner le fond fonctionne exactement comme sur un appareil, et ça, c'est du vrai flou.** |
+| **Priorité à la vitesse** *(je choisis la durée)* | N'existe pas dans l'application native. Il faut une application tierce — voir ci-dessous. |
 | **Manuel** | Idem : application tierce |
 
 > **Pour régler la vitesse vous-même**, il vous faut une autre application. **Lightroom mobile est gratuite** et contient un appareil photo avec les contrôles manuels complets — c'est aussi le logiciel qu'on utilisera à la séance 3, donc autant l'installer tout de suite. Halide et ProCamera sont d'autres options, payantes.
