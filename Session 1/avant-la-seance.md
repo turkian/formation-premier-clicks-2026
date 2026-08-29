@@ -63,6 +63,7 @@ Brief à leur donner : *« Ne prends jamais l'appareil des mains de la personne.
 - **Cartes aide-mémoire imprimées et plastifiées** ([aide-memoire-participants.md](../Documents/aide-memoire-participants.md)) — 35 copies
 - **[Fiches d'îlot](#les-fiches-dîlot)** — 5 copies, une par table, plus des crayons
 - **[Feuillet du défi](../Documents/feuillets-a-remettre.md#feuillet-1--le-défi)** — 35 copies, à remettre en main propre à la fin
+- **Le tableau à questions** — une grande feuille au mur, un paquet de papillons adhésifs et des crayons. Il sert aux trois séances, prépare-le une fois.
 - **[Lexique par fabricant](../Documents/lexique-par-fabricant/)** — **une feuille recto verso par participant, celle de sa marque**. C'est le document le plus consulté des moments « appareil en main » : chaque fois que quelqu'un ne trouve pas un réglage, la réponse y est.
 
   **Comme tu ne sais pas d'avance qui a quoi, imprime un stock et distribue-le pendant le tour de table**, au moment où chacun dit sa marque. Répartition raisonnable pour 30 personnes :
@@ -82,6 +83,7 @@ Brief à leur donner : *« Ne prends jamais l'appareil des mains de la personne.
 
   Les 2-3 membres qui circulent reçoivent le [tableau résumé toutes marques](../Documents/lexique-par-fabricant/tableau-resume-animateurs.md), pas une feuille de marque.
 - Une source de lumière contrôlable : grande fenêtre, ou une lampe sur pied avec et sans diffuseur
+- **Les images de démonstration de la profondeur de champ** — trois séries, une par levier. C'est ton poste de préparation le plus long, voir le déroulé.
 - Un objet ou un mannequin pour les démonstrations de mise au point
 - Quelques appareils de prêt si possible, pour ceux qui viendraient sans
 

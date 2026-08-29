@@ -1,6 +1,12 @@
 # Séance 2 — Fiches d'animateurs
 
-**À imprimer : une fiche par animateur.** Chaque atelier accueille 6 participants pendant 12 minutes, cinq fois de suite.
+**À imprimer : une fiche par animateur.**
+
+**Quatre stations.** Chaque atelier accueille 7 ou 8 participants pendant **12 minutes**, quatre fois de suite.
+
+**Sept minutes de pratique pour huit personnes, c'est serré.** Si ta station le permet, monte **deux installations identiques** — deux fenêtres, deux marcheurs, deux sujets — pour que personne ne regarde les autres photographier.
+
+*La fiche de l'atelier 5 (Composition) est conservée en archive : la composition est enseignée en séance 3. Elle ne tourne pas ce soir.*
 
 ---
 
@@ -14,6 +20,8 @@
 | **0:01–0:08** | Ils photographient. Tu circules, tu observes, tu poses des questions. |
 | **0:08–0:11** | **Debrief.** Chacun montre un écran. Tu diagnostiques à voix haute. |
 | **0:11–0:12** | Ils se déplacent vers la station suivante. |
+
+> **Sept minutes, ça passe très vite à huit.** Donne ta mission en **une seule phrase** et lâche-les. Tout ce que tu as à expliquer, explique-le pendant qu'ils photographient, pas avant.
 
 **Le debrief est la partie qui enseigne.** Si tu manques de temps, coupe la pratique — jamais le debrief.
 
@@ -50,13 +58,13 @@ Chaque groupe contient des sans-miroir, des reflex et probablement un ou deux ce
 
 Chaque fiche indique l'équivalent cellulaire de sa mission. Un participant au téléphone doit repartir avec quelque chose à faire, pas avec un statut de spectateur.
 
-### La méthode en 5 étapes
+### L'intention à voix haute
 
-Demande à au moins un participant par rotation de la dire à voix haute avant sa photo :
+Demande à au moins un participant par rotation de dire son intention avant de déclencher :
 
-> **1.** Mon sujet, c'est… **2.** Ma lumière vient de… **3.** Ce qui doit être net, c'est… **4.** Le mouvement, je le veux… **5.** Donc je règle…
+> **Mon sujet, c'est…  Ma lumière vient de…  Ce qui doit être net, c'est…  Donc je règle…**
 
-C'est artificiel, et c'est exactement pour ça que ça marche.
+C'est artificiel, et c'est exactement pour ça que ça marche : ça empêche de partir directement sur les réglages sans avoir décidé ce qu'on veut montrer.
 
 ### Et partout : « regarde tes quatre coins »
 
@@ -284,6 +292,12 @@ Touche l'écran pour faire le point, puis **glisse le doigt vers le haut ou le b
 
 # Atelier 5 — Composition et point de vue
 
+> ### 📦 Fiche en archive — cette station ne tourne pas
+>
+> **La composition est enseignée en séance 3**, avec son propre exercice pratique. Cette station ne fait pas partie de la rotation.
+>
+> La fiche est conservée pour deux usages : si tu diriges un jour un atelier de composition à part, elle est prête; et le réflexe des quatre coins qu'elle décrit est rappelé à **toutes** les stations.
+
 **La station la plus facile à animer et la plus gratifiante.** Aucun réglage, aucun menu, résultat immédiatement visible. Un participant qui a peiné aux ateliers 1 et 4 va reprendre confiance ici — c'est en partie sa raison d'être.
 
 ### Matériel
@@ -340,7 +354,7 @@ Ils cadrent une photo. **Avant de déclencher**, tu leur demandes de nommer à v
 
 ```
 CHAQUE ROTATION (12 min)
-  1 min mission  ·  7 min pratique  ·  3 min debrief  ·  1 min déplacement
+  1 mission (une phrase) · 7 pratique · 3 debrief · 1 déplacement
 
 LES 3 RÈGLES
   Ne touche pas à leur appareil
@@ -349,7 +363,7 @@ LES 3 RÈGLES
 
 TOUJOURS
   « Regarde tes quatre coins »
-  Un participant dit la méthode en 5 étapes à voix haute
+  Un participant dit son intention à voix haute avant de déclencher
 
 SI QUELQU'UN DÉCROCHE
   Donne-lui une mission plus simple et laisse-le réussir.

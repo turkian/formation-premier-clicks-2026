@@ -4,7 +4,9 @@ Formation d'introduction en **trois séances**, destinée aux nouveaux membres, 
 
 **Objectif :** que les participants se sentent plus à l'aise de faire de la photo — pas qu'ils mémorisent le plus de notions possible.
 
-**Format :** 3 séances de 2 h 15 à 2 h 25 (pauses incluses), environ 30 participants, appareils mixtes (sans-miroir majoritaires, quelques reflex, quelques cellulaires).
+**Format :** 3 séances de **2 h exactement**, pauses et blocs questions inclus. Environ 30 participants, appareils mixtes (sans-miroir majoritaires, quelques reflex, quelques cellulaires).
+
+**Aucun ordinateur portable n'est requis** : le développement est une démonstration au projecteur. Un local avec un projecteur et des chaises suffit pour les trois soirées.
 
 ---
 
@@ -33,7 +35,7 @@ Chaque séance a **trois fichiers** : ce qu'il faut préparer, le déroulé en s
 
 | Fichier | Quand tu l'ouvres |
 |---|---|
-| [Avant la séance](Session%203/avant-la-seance.md) | Dès la fin de la séance 2 → clés USB, fichiers RAW, logistique |
+| [Avant la séance](Session%203/avant-la-seance.md) | 1 semaine avant → diaporama, photo de démonstration, feuillet final |
 | [Déroulé](Session%203/formation_photo_session_3.md) | En salle → plan minuté 0:00 → 2:20 |
 | [Après la séance](Session%203/apres-la-seance.md) | Du soir même à 3 mois plus tard → suivi, sortie, parrainage, bilan |
 
@@ -52,10 +54,21 @@ Chaque séance a **trois fichiers** : ce qu'il faut préparer, le déroulé en s
 
 | | Séance 1 | Séance 2 | Séance 3 |
 |---|---|---|---|
-| **Titre** | Comprendre comment une photo se construit | Mettre les concepts en pratique | Développer et finaliser |
-| **Nature** | Concepts + manipulation d'appareil | Pratique en ateliers tournants | Atelier logiciel |
-| **Fil** | Lumière → netteté → mouvement → ISO → exposition → qui décide quoi | Problème → intention → choix → photo → analyse | Lire → décider → développer → exporter |
-| **Ils repartent avec** | Leur appareil configuré en mode A + les cartes 1 et 2 | Une heure de pratique + un réflexe de diagnostic | Une séquence de 7 gestes + une entrée dans la vie du club |
+| **Titre** | La lumière et la netteté | L'exposition, et la pratique | Composer, développer, continuer |
+| **Durée** | **1 h 50** dans un créneau de 2 h | 2 h pleines | 2 h |
+| **La question de la soirée** | Qu'est-ce qui est net, et pourquoi? | Comment l'appareil décide de l'exposition? | Comment rendre mes photos meilleures? |
+| **Nature** | Concepts aérés + 3 manipulations | 44 min de théorie, puis 48 min d'ateliers | Composition pratique + démonstration |
+| **Ils repartent avec** | Leur appareil configuré en mode `A` + les cartes 1 et 2 | Les 4 modes compris et une heure d'appareil dans les mains | Cinq réflexes de composition, les 7 gestes, et une entrée dans la vie du club |
+
+**Le rythme est volontairement inégal.** La première soirée est la plus légère — les gens sont nerveux, ils ne se connaissent pas, et une marge de dix minutes vaut mieux qu'un bloc de plus. La deuxième est la plus dense, mais c'est aussi celle où ils sont le plus debout. La troisième est la plus chaleureuse : leurs photos, un exercice sans technique, une démonstration, et une invitation.
+
+**Trois déplacements par rapport à un découpage évident**, tous volontaires :
+
+- **Tout ce qui touche à l'exposition est regroupé en séance 2** — la vitesse, l'ISO, les quatre modes et la compensation. Ces notions dépendent les unes des autres : le raisonnement « je veux `f/4` et `1/500`, il manque de lumière, donc je monte l'ISO » ne tient pas si on les sépare. Et les ateliers qui les appliquent suivent immédiatement.
+- **La séance 1 ne traite donc que la netteté** — d'où elle vient, et ce qui change son épaisseur. Une soirée, une question.
+- **La composition ouvre la séance 3**, qui devient « rendre ses photos meilleures » : mieux composer à la prise de vue, puis mieux développer.
+
+Conséquence assumée : les participants utilisent le mode `A` et le `+/−` pendant trois semaines **avant** d'apprendre pourquoi ils fonctionnent. C'est le bon ordre — l'explication arrive quand ils ont déjà l'expérience du geste.
 
 ---
 
@@ -77,7 +90,7 @@ Ils repartent malgré tout avec **un point de départ unique** — A/Av par déf
 Comprendre pourquoi une photo est ratée 30 secondes après l'avoir prise vaut dix fois mieux qu'un exposé une heure plus tard.
 
 **4. Ce qui a le plus d'impact occupe le meilleur créneau.**
-La compensation d'exposition, la composition et l'atelier individuel de développement sont les trois blocs les plus rentables. Ils ont été remontés ou allongés en conséquence.
+La compensation d'exposition et la composition sont les deux blocs les plus rentables en confiance. Chacune ouvre désormais sa séance plutôt que de la clore.
 
 **5. Le vocabulaire du fabricant n'est jamais un obstacle.**
 Huit types d'appareils dans la salle, huit vocabulaires pour les mêmes réglages. Chaque participant reçoit dès la séance 1 **la feuille de sa marque** ([lexique par fabricant](Documents/lexique-par-fabricant/)) : le mot de la formation, le mot de son appareil, et le menu où le trouver. Les huit feuilles ont la même structure, ce qui permet de dire « section 2 de votre feuille » sans savoir qui a quoi.
@@ -126,7 +139,7 @@ Sans courriel de suivi, c'est lui qui porte tout. D'où deux gestes non négocia
 
 - Les images de démonstration de la séance 1 (**prépare le plan B projeté même si tu comptes faire les démos en direct**)
 - La sélection de 8 à 10 photos des participants pour l'ouverture de la séance 2, plus 2-3 de tes propres ratés
-- 3 fichiers RAW communs à distribuer avant la séance 3, **avec de vrais défauts**
+- **La photo de démonstration de la séance 3** — idéalement celle d'un participant, avec de vrais défauts
 - Le diaporama des photos des participants pour l'ouverture de la séance 3
 
 ### La mesure

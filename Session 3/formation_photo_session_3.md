@@ -1,23 +1,29 @@
 # Formation — Les bases de la photographie
-## Session 3 — Développer et finaliser une photographie
+## Session 3 — Composer, développer, et continuer
 
-**Durée :** 2 h 20 (pause incluse)
+**Durée :** 2 h 00 (pause et bloc questions inclus)
 **Participants :** environ 30
-**Objectif :** comprendre ce qui se passe **après la prise de vue**, et repartir avec un ordre de travail simple et reproductible.
+**Objectif :** rendre leurs photos meilleures des deux côtés du déclenchement — mieux composer à la prise de vue, comprendre ce qu'on peut faire après — puis les faire entrer dans la vie du club.
+
+> ### 💻 Aucun ordinateur portable n'est nécessaire
+>
+> **Le développement est une démonstration au projecteur**, pas un atelier. Personne n'apporte de portable, personne n'installe de logiciel, et la salle n'a besoin de rien de particulier — un projecteur et des chaises suffisent.
+>
+> C'est un choix assumé : une séance de retouche à trente personnes échoue pour des raisons banales — prises de courant, écrans trop petits, installations qui ne démarrent pas — et on y perd la première demi-heure. **Une démonstration de trente minutes livre l'essentiel** : ils voient une image médiocre devenir bonne, ils comprennent que c'est faisable, et ils savent quoi chercher quand ils s'y mettront chez eux.
+>
+> **L'atelier pratique de retouche devient une activité séparée du club**, plus tard, en petit groupe de huit ou dix, dans un local qui s'y prête. C'est un bien meilleur format pour ça — la retouche s'apprend mal à trente — et ça fait une occasion de plus de les revoir. Annonce-le au bloc « Et maintenant ».
 
 **Logiciel de démonstration :** Adobe Lightroom — mais la séance enseigne des concepts, pas un logiciel.
 
-### Le message d'ouverture de la séance
+### Le message d'ouverture
 
-> Ce que vous apprenez aujourd'hui existe dans **tous** les logiciels de développement. Les curseurs portent parfois d'autres noms, ils sont parfois ailleurs dans l'écran, mais c'est la même chose. Je vous le montre dans Lightroom parce qu'il faut bien en choisir un.
-
-Dis-le dès la première minute. Ça désamorce l'anxiété de ceux qui n'ont pas Lightroom, et c'est vrai.
+> Ce que je vous montre ce soir existe dans **tous** les logiciels de développement. Les curseurs portent parfois d'autres noms, ils sont parfois ailleurs à l'écran, c'est la même chose. Je vous le montre dans Lightroom parce qu'il faut bien en choisir un — **et vous n'avez rien à installer ce soir.**
 
 ---
 
 ## Avant la séance
 
-**Toute la préparation est dans [avant-la-seance.md](avant-la-seance.md)** — équipe, matériel, salle et échéances.
+**Toute la préparation est dans [avant-la-seance.md](avant-la-seance.md)** — elle est beaucoup plus légère qu'avant : plus de clés USB, plus de logiciels à faire installer, plus de logistique de prises.
 
 Le suivi de la séance est dans [apres-la-seance.md](apres-la-seance.md).
 
@@ -37,7 +43,88 @@ Le montage vient de tes propres photos des ateliers, de celles des animateurs, e
 
 ---
 
-## 0:08–0:18 — De l'appareil à l'image finale
+## 0:08–0:30 — La composition
+
+**Déplacée depuis la séance 2.** C'est le sujet le plus rentable en confiance : aucun vocabulaire technique, aucun menu, résultat visible immédiatement, et il s'applique intégralement au cellulaire.
+
+Il ouvre bien cette séance, qui est celle de « rendre ses photos meilleures » : on compose mieux à la prise de vue, puis on développe.
+
+### Cinq réflexes — pas douze règles
+
+Résiste à la tentation d'énumérer toutes les règles de composition. Cinq réflexes appliqués valent mieux que douze notions survolées.
+
+#### 1. Un seul sujet
+
+Si tu ne peux pas dire en un mot ce que tu photographies, la photo n'est pas encore prête. « Le marché » n'est pas un sujet. « Les mains du marchand » en est un.
+
+#### 2. Regarde les quatre coins
+
+Le réflexe le plus rentable de tous. Avant de déclencher, ton œil fait le tour du cadre : haut-gauche, haut-droite, bas-droite, bas-gauche. Tu y trouveras un poteau, une poubelle, un bras coupé, une tache de ciel blanc.
+
+**Personne ne fait ça naturellement.** Tout le monde regarde le sujet. C'est pour ça que ce réflexe change tout.
+
+#### 3. Approche-toi, et change de hauteur
+
+Deux gestes physiques qui remplacent des heures de théorie :
+
+- **Fais trois pas de plus.** La photo d'un débutant est presque toujours prise de trop loin.
+- **Baisse-toi, ou monte.** La hauteur des yeux d'un adulte debout est le point de vue le plus banal qui existe.
+
+#### 4. Regarde l'arrière-plan avant le sujet
+
+L'arrière-plan est ce qui ruine le plus de photos, et c'est celui qu'on ne regarde jamais. Inverse l'ordre : choisis d'abord un fond propre, place le sujet ensuite.
+
+#### 5. Décide où tu mets ton sujet
+
+Franchement au centre, ou franchement décentré. **Pas entre les deux** — c'est l'entre-deux qui donne l'impression d'accident.
+
+Mentionne la règle des tiers comme un point de départ, pas comme une loi. La symétrie, les lignes directrices et les cadres naturels viendront naturellement dans les soirées du club; ne les charge pas ici.
+
+### Démonstration
+
+Trois paires d'images projetées, chacune illustrant un seul réflexe. Même scène, avant/après. Les paires « de loin / de près » et « debout / accroupi » sont toujours les plus convaincantes.
+
+### Exercice sur place — 8 min
+
+Consigne unique, donnée avant que les appareils sortent :
+
+> « Choisissez un objet dans la salle. Photographiez-le **cinq fois** : de loin, de très près, en vous accroupissant, en levant l'appareil au-dessus de votre tête, et enfin en changeant d'arrière-plan. Aucun réglage à toucher. »
+
+Puis, en îlots, deux minutes : chacun montre sa préférée et dit pourquoi.
+
+**C'est le seul moment pratique de la soirée**, et il est volontairement sans technique — tout le monde réussit, et ça met la salle de bonne humeur avant la partie écran.
+
+---
+
+## 0:30–0:40 — Pause
+
+Dix minutes annoncées, qui en dureront treize.
+
+Reste dans la salle : c'est le moment où les gens viennent te montrer une photo sur leur écran avec une question qu'ils n'ont pas osé poser en groupe.
+
+---
+
+## 0:40–0:48 — Vos questions
+
+Même bloc qu'à la séance 1, au même endroit : **juste après la pause**, parce que les gens formulent leurs questions pendant la pause et les ont déjà dites à leur voisin.
+
+### Le tableau à questions
+
+Les papillons adhésifs sont au mur depuis le début de la soirée. **Commence par eux**, pas par « avez-vous des questions? » — une salle à qui on demande si elle a des questions répond non.
+
+Lis chaque question à voix haute avant d'y répondre : ça la valide, et ça permet aux autres de découvrir qu'ils avaient la même.
+
+### C'est le dernier bloc questions de la formation
+
+Dis-le, et ouvre plus large que d'habitude :
+
+> « C'est notre dernière soirée ensemble, alors profitez-en. Même les questions qui n'ont rien à voir avec ce soir. »
+
+Tu vas recevoir les questions accumulées depuis trois semaines — matériel, choix d'objectif, « pourquoi mes photos ne ressemblent pas à celles d'Instagram ». **Note celles auxquelles tu ne peux pas répondre en deux minutes** : ce sont tes sujets d'atelier pour l'année, et souvent les meilleurs.
+
+---
+
+## 0:48–0:56 — JPEG et RAW : ce que l'appareil fait déjà pour vous
 
 ### Ce que ton appareil fait déjà sans te le dire
 
@@ -88,39 +175,7 @@ Sois honnête là-dessus, ça évite des déceptions :
 
 ---
 
-## 0:18–0:28 — Importer et surtout trier
-
-### Importation
-
-Montre en cinq minutes :
-
-- Brancher la carte, importer
-- Où les fichiers atterrissent sur le disque
-- Que Lightroom ne *contient* pas les photos, il pointe vers elles
-
-**Ne t'attarde pas sur la gestion avancée du catalogue.** C'est un sujet fascinant pour toi et parfaitement inutile pour eux ce soir.
-
-### Le tri — la vraie compétence
-
-Consacre le reste du bloc à ça.
-
-**Garder 5 photos sur 100 est une compétence photographique.** Développer 100 photos moyennes n'en est pas une, et c'est ce qui décourage le plus de débutants : ils rentrent avec 300 fichiers, se sentent écrasés, et n'ouvrent jamais le logiciel.
-
-### La méthode en deux passages
-
-**Passage 1 — rapide, à l'instinct.** Tu défiles, tu marques d'un drapeau (touche `P`) tout ce qui te fait quelque chose. Tu ne réfléchis pas, tu ne compares pas, tu ne zoomes pas. Trois secondes par photo maximum.
-
-**Passage 2 — parmi les retenues seulement.** Tu compares les quasi-doublons, tu vérifies la netteté en zoomant, tu gardes la meilleure de chaque série.
-
-Puis tu filtres pour n'afficher que les retenues, et **tu ne travailles plus que là-dedans**.
-
-### Le conseil qui change tout
-
-> Ne développe jamais une photo tant que tu n'as pas fini de trier. Sinon tu vas passer vingt minutes sur la troisième photo de la série et découvrir ensuite que la septième était meilleure.
-
----
-
-## 0:28–0:38 — Lire une image avant de la modifier
+## 0:56–1:03 — Lire une image avant de la modifier
 
 **Le bloc le plus important de la séance après la démonstration.** Avant de toucher au moindre curseur.
 
@@ -149,15 +204,32 @@ Projette une image et fais parler le groupe pendant 5 minutes. Écris leurs obse
 
 ---
 
-## 0:38–1:08 — Le développement guidé : sept gestes, dans l'ordre
+## 1:03–1:33 — Démonstration : développer une photo en sept gestes
 
-**Tout le monde ouvre le fichier RAW commun et suit sur son propre écran.** Toi au projecteur, eux en même temps. Avance lentement, et attends les retardataires.
+**Tu développes, ils regardent.** Personne n'a d'ordinateur, et c'est ce qui rend ce bloc facile à réussir : tu contrôles le rythme, rien ne peut planter chez quelqu'un d'autre, et toute la salle voit la même chose au même moment.
+
+### Choisis bien ta photo
+
+**Prends une de leurs photos**, avec leur accord — repérée pendant le diaporama ou l'exercice de composition. C'est infiniment plus fort qu'une image de démonstration : la salle voit qu'une photo de quelqu'un comme eux peut devenir bonne.
+
+À défaut, une des tiennes, avec de vrais défauts : horizon penché, sous-exposée, balance des blancs trop froide, ciel un peu brûlé. **Une image parfaite n'apprend rien.**
+
+### Commente en continu, et fais-les participer
+
+Ce n'est pas une projection muette. Toutes les deux ou trois minutes, pose une question à la salle :
+
+> « Qu'est-ce qui vous dérange encore dans cette image? »
+> « Est-ce que je suis allé trop loin, là? »
+
+**Le désaccord est bienvenu** — il montre qu'il n'y a pas de bonne réponse, seulement une intention.
 
 ### Pourquoi un ordre fixe
 
 Un débutant n'a pas besoin d'un tour du logiciel. Il a besoin d'**une séquence à répéter** jusqu'à ce qu'elle devienne automatique. L'ordre a une logique : chaque geste dépend du précédent.
 
-Cette séquence est sur la troisième carte aide-mémoire. C'est ce qu'ils utiliseront réellement à la maison.
+**Cette séquence est sur la troisième carte aide-mémoire**, que tu remets au début du bloc. C'est le seul objet qu'ils rapportent de cette partie de la soirée — et comme ils n'ont pas manipulé, elle compte double.
+
+**Annonce le plan avant de commencer** et laisse-le affiché : sept gestes, dans cet ordre, et ils cochent en suivant.
 
 ### Les sept gestes
 
@@ -247,119 +319,82 @@ C'est la différence entre enseigner un logiciel et enseigner la photographie.
 
 ---
 
-## 1:08–1:20 — Pause
+## 1:33–1:40 — Les masques, la netteté et le bruit
 
-Douze minutes. Reste dans la salle : c'est le moment où les gens viennent te montrer leur écran avec un problème qu'ils n'ont pas osé nommer en groupe.
+Sept minutes pour trois choses. **Reste en démonstration, montre vite.**
 
----
+### Les masques — deux seulement
 
-## 1:20–1:34 — Corrections locales : deux masques, pas dix
+Lightroom en propose une douzaine. **Montres-en deux**, sur la même image que tu viens de développer.
 
-Lightroom offre une douzaine de types de masques. **Montres-en deux.** Un débutant à qui on montre douze outils n'en utilise aucun.
+- **Le masque du sujet** — éclaircir légèrement une personne trop sombre par rapport au décor. Exposition `+0,3` à `+0,7`, pas davantage. C'est le cas le plus fréquent qui existe.
+- **Le masque du ciel** — assombrir un ciel trop clair, ou lui rendre un peu de bleu.
 
-### Masque 1 — Le sujet
+Montre aussi **l'excès** dans les deux cas : un sujet trop éclairci qui se décolle du décor, un ciel trop assombri qui a l'air faux parce qu'il n'éclaire plus le paysage en dessous. **Ils reconnaîtront le symptôme chez eux.**
 
-Sélection automatique de la personne ou de l'objet principal.
+> **Le principe :** une correction locale doit être **invisible**. Si on voit où vous avez travaillé, c'est trop.
 
-Usage typique : **éclaircir légèrement une personne** qui est trop sombre par rapport au décor. Exposition +0,3 à +0,7, pas davantage.
+Nomme les autres outils en dix secondes pour qu'ils sachent que ça existe, et passe.
 
-C'est le masque le plus utile qui existe pour un débutant, parce que le cas « la personne est trop sombre » est le plus fréquent de tous.
+### La netteté — surtout ce qu'elle ne répare pas
 
-### Masque 2 — Le ciel
+Ce qu'elle fait : accentuer le contraste sur les bords **déjà nets**. Elle donne du croquant à une image correcte.
 
-Sélection automatique du ciel.
+**Ce qu'elle ne peut pas faire :**
 
-Usages :
-
-- Assombrir légèrement un ciel trop clair
-- Ajouter un peu de contraste ou de bleu
-
-**Le piège à montrer :** trop assombrir le ciel donne une image qui a l'air fausse, parce que la lumière du ciel n'éclaire plus le paysage en dessous. Montre l'excès pour qu'ils le reconnaissent chez eux.
-
-### Si le temps le permet — le dégradé linéaire
-
-Pour assombrir progressivement le haut d'une image, ou éclaircir un premier plan. Une minute de démonstration, pas plus.
-
-### Ce qu'on ne montre pas ce soir
-
-Le pinceau, la sélection d'objet, la sélection de couleur, les masques combinés. Nomme-les en dix secondes pour qu'ils sachent que ça existe, et passe.
-
-### Le principe des corrections locales
-
-> Une correction locale doit être **invisible**. Si on voit où tu as travaillé, c'est trop.
-
----
-
-## 1:34–1:42 — Netteté, bruit et corrections d'objectif
-
-### La netteté
-
-Ce qu'elle fait : accentuer le contraste sur les bords qui sont **déjà** nets. Elle donne du croquant à une image correcte.
-
-**Ce qu'elle ne peut pas faire — dis-le clairement :**
-
-- Elle ne récupère **pas** une mauvaise mise au point
-- Elle ne récupère **pas** un flou de bougé
+- Récupérer une **mauvaise mise au point**
+- Récupérer un **flou de bougé**
 - Poussée trop loin, elle crée des halos et fait ressortir le bruit
 
-C'est le lien direct avec la séance 1 : ce qui est raté à la prise de vue reste raté. Le développement améliore, il ne répare pas.
+C'est le lien direct avec la séance 1 : **ce qui est raté à la prise de vue reste raté.** Le développement améliore, il ne répare pas.
 
-### La réduction du bruit
+### Le bruit — et la fin d'une peur
 
-Lien direct avec l'ISO de la séance 1. Rappelle le message :
+Lien direct avec l'ISO de la séance 1. Fais la démonstration du débruitage sur un fichier à ISO élevé : les outils modernes sont réellement impressionnants.
 
-> **Une photo nette avec du bruit vaut mieux qu'une photo propre mais floue** — et maintenant vous savez pourquoi : le bruit se corrige en partie ici, le flou jamais.
+> **Rappelez-vous ce qu'on disait au premier soir : une photo nette avec du bruit vaut mieux qu'une photo propre mais floue.** Voilà pourquoi. Le bruit se corrige en partie ici. Le flou, jamais.
 
-Les outils modernes de débruitage par IA (Débruitage / Denoise dans Lightroom) sont réellement impressionnants. Fais une démonstration sur un fichier à ISO élevé — c'est un excellent moment de la séance, et ça enlève définitivement la peur de monter l'ISO.
+C'est un excellent moment de la soirée, et il enlève définitivement la peur de monter l'ISO.
 
-**Le piège :** trop de réduction de bruit donne une image lisse et plastique. Le bruit est moins laid que l'absence de détail.
+> **Le piège inverse :** trop de réduction de bruit donne une image lisse et plastique. Le bruit est moins laid que l'absence de détail.
 
-### Corrections d'objectif
+### Et deux cases à cocher
 
-Trente secondes, une case à cocher :
-
-- **Profil d'objectif** — corrige automatiquement la déformation et l'assombrissement des coins
-- **Aberrations chromatiques** — retire les liserés colorés sur les contours à fort contraste
-
-Dis simplement : *« cochez ces deux cases sur toutes vos photos, ça ne peut pas faire de mal. »* C'est le seul réglage de la soirée qui n'exige aucun jugement.
+`Profil d'objectif` et `Aberrations chromatiques`, dans les corrections optiques. *« Cochez-les sur toutes vos photos, ça ne peut pas faire de mal. »* C'est le seul réglage de la soirée qui n'exige aucun jugement.
 
 ---
 
-## 1:42–2:02 — Atelier individuel
+## 1:40–1:45 — Trier et exporter
 
-**C'est le cœur de la séance.** Vingt minutes, le plus long bloc de pratique. Les animateurs circulent.
+### Trier : la vraie compétence
 
-### Avant de toucher au premier curseur
+Trente secondes qui valent plus qu'une heure de curseurs.
 
-Chaque participant choisit une de ses propres photos et **écrit** — vraiment sur papier — quatre réponses :
+> **Garder 5 photos sur 100 est une compétence photographique.** Développer 100 photos moyennes n'en est pas une.
+>
+> Vous rentrez d'une sortie avec 300 fichiers, vous vous sentez écrasés, et vous n'ouvrez jamais le logiciel. La solution : **deux passages.** Le premier à l'instinct, trois secondes par photo, vous marquez d'un drapeau tout ce qui vous fait quelque chose. Le second, uniquement parmi les retenues.
+>
+> **Ne développez jamais avant d'avoir fini de trier**, sinon vous passerez vingt minutes sur la troisième photo d'une série et découvrirez ensuite que la septième était meilleure.
 
-1. **Ce que j'aime dans cette photo**
-2. **Ce que je veux améliorer**
-3. **Ce qui est récupérable**
-4. **Ce qui ne l'est pas**
+### Exporter — trois recettes chiffrées
 
-La première ligne n'est pas de la politesse : commencer par ce qui fonctionne évite de « corriger » une photo jusqu'à lui enlever ce qui la rendait intéressante.
+Pas de théorie. Trois recettes, sur la carte aide-mémoire.
 
-La quatrième est la plus formatrice. Reconnaître qu'une photo est irrécupérable est une compétence, pas un échec — et ça donne une leçon de prise de vue pour la prochaine fois.
+| Destination | Format | Qualité | Dimensions |
+|---|---|---|---|
+| **Web, club, courriel** | JPEG | 80 % | Côté long 2048 px |
+| **Impression** | JPEG | 100 % | Taille d'origine |
+| **Archivage** | Gardez le RAW | — | Le RAW *est* votre archive |
 
-### Puis développer
+Sur l'espace couleur : **sRGB pour tout ce qui va à l'écran.** C'est la seule chose à retenir.
 
-Avec les sept gestes, dans l'ordre, sur la carte.
+### La sauvegarde — trente secondes, mais dis-le
 
-### Rôle des animateurs pendant l'atelier
-
-- **Ne prends jamais la souris.** Guide, ne fais pas à la place.
-- Ramène systématiquement à l'intention : *« qu'est-ce que tu essaies de corriger, là? »*
-- Repère l'excès (ombres à +100, saturation à +50, netteté à fond) et fais comparer avec l'avant/après
-- Encourage. Quelqu'un qui vient de récupérer une photo qu'il croyait perdue vient de vivre le meilleur moment de la formation — dis-le-lui.
-
-### Si quelqu'un termine tôt
-
-Fais-lui reprendre **la troisième photo**, celle qu'il jugeait irrécupérable. Deux issues, toutes deux utiles : il la sauve et il est ravi, ou il confirme qu'elle est perdue et il comprend précisément pourquoi.
+> Le développement ne modifie jamais votre fichier original : vos réglages sont enregistrés à part, et vous pouvez toujours tout annuler. **Par contre, si vous perdez le fichier original, vous avez tout perdu.** Une copie sur un disque externe, ou dans le nuage. N'importe laquelle, mais une.
 
 ---
 
-## 2:02–2:20 — Exporter, et la suite
+## 1:45–2:00 — Et maintenant?
 
 ### Exporter — trois recettes chiffrées
 
@@ -467,26 +502,3 @@ Quelques réponses spontanées, à voix haute. Note-les sur ton téléphone en s
 
 ---
 
-## Annexe — Table de correspondance entre logiciels
-
-À distribuer à ceux qui n'utilisent pas Lightroom, pour qu'ils puissent suivre.
-
-| Lightroom | Darktable | RawTherapee | Lightroom mobile |
-|---|---|---|---|
-| Exposition | Exposition | Exposition | Exposition |
-| Hautes lumières | Balance des tons → hautes lumières | Ombres/Hautes lumières | Hautes lumières |
-| Ombres | Balance des tons → ombres | Ombres/Hautes lumières | Ombres |
-| Blancs / Noirs | Courbe de base, niveaux | Niveaux | Blancs / Noirs |
-| Contraste | Contraste, ou courbe | Contraste | Contraste |
-| Vibrance | Saturation des couleurs | Vibrance | Vibrance |
-| Balance des blancs | Balance des blancs | Balance des blancs | Balance des blancs |
-| Netteté | Netteté / Contraste local | Netteté | Netteté |
-| Réduction du bruit | Débruitage (profilé) | Réduction du bruit | Réduction du bruit |
-| Profil d'objectif | Correction d'objectif | Correction de la distorsion | *(automatique)* |
-| Masque du sujet | Masque paramétrique / dessiné | Masque local | Masque du sujet |
-
-**Le message à répéter :** les noms diffèrent, les concepts sont identiques. Quelqu'un qui a compris « je veux récupérer mon ciel » trouvera toujours le bon curseur, dans n'importe quel logiciel.
-
----
-
-**← Préparation :** [avant-la-seance.md](avant-la-seance.md)  ·  **Suivi → :** [apres-la-seance.md](apres-la-seance.md)  ·  **Bilan de la formation :** [apres-la-seance.md](apres-la-seance.md#le-bilan-pour-la-prochaine-édition)

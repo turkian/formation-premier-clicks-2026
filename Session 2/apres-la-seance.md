@@ -36,10 +36,10 @@ Note les réponses tout de suite, sur ton téléphone. Elles servent deux fois :
 
 ## Le soir même — tes notes à chaud
 
-- [ ] **Le minutage réel** des rotations. Les cinq stations ont-elles tenu dans l'heure?
+- [ ] **Le minutage réel** des rotations. Les stations ont-elles tenu dans l'heure?
 - [ ] **L'ouverture en îlots a-t-elle fonctionné?** Les gens se sont-ils montré leurs photos, ou est-ce que c'était silencieux? C'est le bloc le plus incertain de la soirée, note ton verdict pendant qu'il est frais.
 - [ ] **Combien avaient fait le défi**, à peu près. Si c'est très bas, c'est un signal sur la séance 1, pas sur les participants.
-- [ ] **La composition remontée en début de séance** a-t-elle bien fonctionné à cet endroit?
+- [ ] **Le bloc exposition et modes** a-t-il bien préparé la station « exposition difficile »? C'est le pari de ce découpage, note ton verdict.
 - [ ] **Qui a décroché**, en croisant tes observations avec ce que les animateurs t'ont dit.
 
 ---
@@ -84,7 +84,7 @@ Tu vas annoncer les paires à la fin de la séance 3. Elles se préparent mainte
 
 Piloté depuis [Session 3/avant-la-seance.md](../Session%203/avant-la-seance.md) :
 
-- Les 3 fichiers RAW communs et les clés USB
+- La photo de démonstration — demande l'accord de deux ou trois personnes ce soir même
 - Le montage du diaporama
 - La logistique de salle (prises, tables, lecteurs de cartes)
 - Le [feuillet « Et maintenant »](../Documents/feuillets-a-remettre.md#feuillet-3--et-maintenant), **à remplir avant la soirée**

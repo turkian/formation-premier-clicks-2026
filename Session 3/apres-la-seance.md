@@ -27,8 +27,8 @@ Le suivi se fait donc **en personne, aux activités du club**, et surtout **par 
 C'est **la** mesure de la formation. Si tu passes de 6 à 25, tu as réussi — même si personne ne se souvient de ce qu'est une aberration chromatique.
 
 - [ ] **Note les réponses spontanées** à « qu'est-ce qui vous a le plus servi », pendant qu'elles sont fraîches.
-- [ ] **Note le minutage réel**, particulièrement l'atelier individuel : est-ce que 20 minutes ont suffi?
-- [ ] **Combien de gens sont arrivés sans logiciel installé?** C'est le chiffre qui te dira si le feuillet a suffi, ou s'il faudra un canal de rappel l'an prochain.
+- [ ] **Note le minutage réel**, particulièrement la démonstration de développement : es-tu resté dans tes trente minutes, ou as-tu fini en accéléré?
+- [ ] **Combien de personnes ont levé la main pour l'atelier de retouche?** C'est ton indicateur de demande pour l'organiser.
 - [ ] **Note ce qui a bloqué techniquement** — quel logiciel, quel système, quel problème.
 
 ---
@@ -106,13 +106,15 @@ Rédige-le pendant que tout est frais — au plus tard deux semaines après la s
 
 **Le taux de présence entre les séances 1 et 2 est ton indicateur d'alerte.** S'il chute, le problème est presque toujours dans la séance 1 : trop dense, trop théorique, ou pas assez de manipulation.
 
-**Le nombre d'arrivées sans logiciel** te dit si le feuillet remis en main propre a suffi. S'il est élevé, la solution la plus légère n'est pas de revenir aux courriels : c'est **un seul message sur le canal du club** une semaine avant la séance 3.
+**Le nombre d'inscrits à l'atelier de retouche** te dit si la démonstration a donné envie ou si elle a suffi. Les deux réponses sont bonnes à savoir.
 
 ### Les questions à te poser
 
 - Quel bloc a systématiquement débordé sur son horaire?
 - Quel bloc a produit le plus de « ah, je comprends »?
 - **L'ouverture de la séance 2 en îlots** a-t-elle fonctionné, ou faudrait-il revenir à une projection?
+- **Le format 3 × 2 h tenait-il vraiment**, ou as-tu débordé à chaque soirée?
+- **Les blocs « vos questions » se sont-ils remplis?** Le tableau à papillons a-t-il servi?
 - Le tour de table et les fiches d'îlot t'ont-ils donné assez d'information, ou t'a-t-il manqué quelque chose?
 - Y a-t-il eu assez d'animateurs? Est-ce que 5 stations étaient le bon nombre?
 - Le format 3 × 2 h 20 est-il le bon, ou faudrait-il une quatrième séance?

@@ -1,13 +1,23 @@
 # Formation — Les bases de la photographie
-## Session 1 — Comprendre comment une photo se construit
+## Session 1 — La lumière et la netteté
 
-**Durée :** 2 h 25 (pause incluse)
+**Durée :** 1 h 50 dans un créneau de 2 h — **les dix dernières minutes sont une marge volontaire**
 **Participants :** environ 30
 **Objectif :** que chaque participant reparte capable de sortir du mode automatique **le soir même**, avec son appareil déjà configuré et une carte aide-mémoire dans sa poche.
 
 ### Fil conducteur
 
-**Lumière → Netteté → Mouvement → Sensibilité → Exposition → Contrôle de l'appareil**
+**Lumière → Où est le point net → Quelle épaisseur est nette**
+
+Cette soirée traite **une seule question** : qu'est-ce qui est net dans mon image, et pourquoi.
+
+*Tout ce qui concerne l'exposition — la vitesse, l'ISO, les quatre modes, la compensation — est regroupé en séance 2, juste avant les ateliers qui l'appliquent. Les participants utiliseront le mode `A` pendant trois semaines avant d'apprendre pourquoi il fonctionne : c'est voulu, et c'est le bon ordre.*
+
+### Sur la marge de dix minutes
+
+Le contenu programmé fait 1 h 50 pour un créneau de deux heures. **Cette marge n'est pas du contenu à ajouter.**
+
+C'est la première soirée : les gens arrivent en retard, les appareils ne s'allument pas, quelqu'un pose une question qui en vaut la peine, et le tour de table déborde parce que les gens se parlent — ce qui est exactement ce qu'on veut. **Si tu finis à l'heure, tant mieux; si tu finis dix minutes plus tard, tu es dans le plan.**
 
 ### Principe directeur de la séance
 
@@ -73,7 +83,7 @@ Pas de bloc « lexique ». Les mots seront définis au moment où on en a besoin
 
 ---
 
-## 0:12–0:20 — Les quatre questions
+## 0:12–0:18 — Les quatre questions
 
 Remets la **carte aide-mémoire** maintenant. Elle va servir de fil rouge pendant les trois séances.
 
@@ -109,7 +119,7 @@ Toute la séance consiste à traiter ces questions une par une.
 
 ---
 
-## 0:20–0:33 — Comprendre la lumière
+## 0:18–0:32 — Comprendre la lumière
 
 Avant de parler de réglages, comprendre la matière première.
 
@@ -151,7 +161,7 @@ Aucun réglage. C'est volontaire — le premier geste de la formation ne demande
 
 ---
 
-## 0:33–0:50 — Ce qui est net : la mise au point
+## 0:32–0:50 — Ce qui est net : la mise au point
 
 Séparer clairement **mise au point** et **profondeur de champ**. C'est la confusion la plus fréquente chez les débutants.
 
@@ -213,13 +223,38 @@ Trois gestes, dans l'ordre. Les animateurs circulent.
 
 ## 0:50–1:02 — Pause
 
-Douze minutes réelles. Avec 30 personnes, une pause de 10 minutes en dure 15.
+Dix minutes annoncées, qui en dureront treize. C'est prévu dans l'horaire.
 
 **Ce n'est pas du temps perdu.** C'est là que les nouveaux membres se parlent, et que ceux qui n'osent pas lever la main viennent te voir. Reste disponible dans la salle, ne va pas préparer tes diapos.
 
+**Installe le tableau à questions maintenant**, si ce n'est pas déjà fait — voir le bloc suivant.
+
 ---
 
-## 1:02–1:31 — La profondeur de champ et l'ouverture
+## 1:02–1:12 — Vos questions
+
+**Un bloc de questions à un endroit fixe, juste après la pause.** Ce n'est pas du remplissage : c'est structurellement le meilleur moment de la soirée pour ça.
+
+Les gens formulent leurs questions pendant la pause, et surtout ils les ont dites à leur voisin avant de te les dire. Une question déjà prononcée à voix basse se pose beaucoup plus facilement à voix haute.
+
+### Le tableau à questions
+
+**Une feuille au mur et des papillons adhésifs**, à disposition dès le début de la soirée.
+
+> « Si une question vous vient et que vous ne voulez pas interrompre, écrivez-la et collez-la là. Sans votre nom si vous préférez. J'y réponds après la pause, ou à la prochaine séance. »
+
+C'est le seul mécanisme qui capte les questions de ceux qui ne lèveront jamais la main — et **ce sont exactement les gens qui décrochent**. Ne le saute pas parce que ça semble scolaire : ça fonctionne.
+
+### Comment mener le bloc
+
+- **Commence par les papillons**, pas par « avez-vous des questions? ». Une salle à qui on demande si elle a des questions répond non.
+- **Lis la question à voix haute** avant d'y répondre. Ça la valide, et ça permet aux autres de découvrir qu'ils avaient la même.
+- **Si une question dépasse le niveau du soir** — « c'est quoi la différence entre plein format et APS-C? » — réponds en une phrase et note-la pour la séance 3. Ne pars pas dans une digression de dix minutes devant vingt-neuf personnes qui ne suivent plus.
+- **S'il n'y a rien**, ce qui arrive, n'insiste pas : reprends deux minutes sur le concept qui t'a semblé le moins bien passé et enchaîne. Le bloc n'est jamais perdu.
+
+---
+
+## 1:12–1:40 — La profondeur de champ et l'ouverture
 
 ### La profondeur de champ
 
@@ -487,255 +522,29 @@ Celle qui démonte le mythe du `f/1.8`. Elle surprend toujours.
 
 ---
 
-## 1:31–1:49 — Mouvement et vitesse d'obturation
+## 1:40–1:50 — Votre appareil est prêt, et votre défi
 
-### La décision
+Huit minutes, et elles décident si la soirée sert à quelque chose. **Personne ne quitte la salle sans avoir configuré son appareil.**
 
-Face à quelque chose qui bouge, tu as deux réponses possibles, et **aucune n'est meilleure** :
+### Configurez maintenant, ensemble — 5 min
 
-- **Figer** — on lit le détail, l'instant est suspendu
-- **Laisser le mouvement apparaître** — on lit la vitesse, l'énergie
+Les membres qui circulent aident, et personne ne range son sac avant d'avoir terminé.
 
-Ton choix dépend de ce que tu veux raconter. C'est la question 3 de la carte.
+1. **Mode `A`** *(ou `Av` sur un Canon)*. C'est votre mode pour les trois prochaines semaines.
+2. **ISO automatique**, avec une limite haute à 3200 ou 6400.
+3. **`AF-S`**, collimateur unique ou détection de l'œil.
+4. **Repérez le bouton `+/−` au toucher**, sans regarder. Faites `−1`, puis `+1`, puis revenez à `0`.
+5. **Format `RAW + JPEG`** si votre appareil le permet. On s'en servira à la troisième séance.
 
-### Vitesse rapide
+> **Les mots changent d'une marque à l'autre — c'est le moment de vous servir de votre feuille**, sections 1 et 4. Les membres qui circulent ont le tableau de toutes les marques.
 
-Sport, animaux, enfants, action. Ordres de grandeur à donner (les débutants ont besoin de chiffres de départ, pas de théorie) :
+**Sur le `+/−`, une seule consigne pratique ce soir**, sans théorie :
 
-| Situation | Point de départ |
-|---|---|
-| Personne qui marche | 1/250 s |
-| Enfant qui court, chien | 1/500 s |
-| Sport, oiseau en vol | 1/1000 s et plus |
+> « Si votre photo est trop sombre, tournez vers le `+`. Trop claire, vers le `−`. C'est tout, et ça marche. **On verra pourquoi à la prochaine séance**, et vous comprendrez du même coup à quoi servent les trois autres positions de votre molette. »
 
-### Vitesse lente
+C'est volontaire : ils vont **utiliser** le mode `A` et le `+/−` pendant trois semaines, puis apprendre pourquoi. L'explication arrive quand ils ont déjà l'expérience du geste — c'est le bon ordre, pas un raccourci.
 
-Filé, eau soyeuse, mouvements volontaires, traînées lumineuses.
-
-| Situation | Point de départ |
-|---|---|
-| Eau de rivière soyeuse | 1/4 s à 1 s, sur trépied |
-| Filé (suivre un sujet qui passe) | 1/30 s |
-| Traînées de phares | plusieurs secondes, trépied obligatoire |
-
-### Flou de bougé — la distinction essentielle
-
-Deux flous complètement différents, souvent confondus :
-
-- **Le sujet a bougé** → seul le sujet est flou, le décor est net
-- **Le photographe a bougé** → toute l'image est floue
-
-Savoir lequel des deux on a devant soi, c'est savoir quoi corriger. Ça revient dans le diagnostic de la séance 2.
-
-Facteurs de stabilité : ta posture, la focale (plus c'est long, plus ça tremble), la stabilisation de ton boîtier ou de ton objectif, le trépied.
-
-### Appareil en main — 6 min
-
-1. **Passe en mode S** (Nikon, Sony, Fuji) ou **Tv** (Canon, Pentax).
-2. **Trouve la molette de vitesse.** Va de 1/1000 à 1/15 en regardant le chiffre changer.
-3. **Photographie ta main qui s'agite**, à 1/500 puis à 1/15. Compare.
-
-Ce dernier geste produit toujours des rires et un « ah, je vois! ». C'est le meilleur moment de la séance pour la confiance.
-
-> **Cellulaire :** cherche un mode « Pro » ou « Expert » dans ton application appareil photo — beaucoup d'Android en ont un, avec la vitesse réglable. Sinon, l'application native a souvent un mode « Longue exposition » ou « Photo en direct ». Tu peux aussi te contenter d'observer : ton téléphone choisit une vitesse lente quand il fait sombre, et c'est pour ça que tes photos de soirée sont floues.
-
----
-
-## 1:49–1:55 — ISO et faible lumière
-
-Présente l'ISO comme un **outil qui rend possibles les choix précédents**, jamais comme le troisième sommet d'un triangle.
-
-### Le raisonnement à montrer
-
-> Je veux **f/4** pour ma profondeur de champ.
-> Je veux **1/500 s** pour figer mon sujet.
-> Il manque de lumière.
-> → **J'augmente l'ISO.**
-
-L'ISO n'est pas une décision créative. C'est ce qui te permet de garder tes deux vraies décisions.
-
-### Conséquences
-
-- Bruit
-- Perte de détail fin
-- Dynamique réduite
-
-### Le message à faire retenir
-
-**Une photo nette avec du bruit vaut mieux qu'une photo propre mais floue.**
-
-Le bruit se corrige en partie au développement (séance 3). Le flou, non. Répète-le : beaucoup de débutants ratent des photos irremplaçables parce qu'ils ont peur de monter l'ISO.
-
-### Le conseil pratique
-
-Active **l'ISO automatique** et fixe une limite haute (3200 ou 6400 selon ton appareil). Tu récupères ainsi la souplesse sans avoir à y penser. C'est ce qu'on va configurer dans le bloc suivant.
-
----
-
-## 1:55–2:17 — Exposition, les quatre modes, et la recette de départ
-
-C'est le bloc le plus important de la séance. Il assemble tout le reste.
-
-### Exposition
-
-Trop sombre, trop clair, ou **comme je le voulais**. La troisième option est la seule qui compte : il n'existe pas d'exposition objectivement correcte, seulement une exposition qui sert ton intention.
-
-### Comment l'appareil décide
-
-L'appareil mesure la lumière et suppose que la scène est globalement de luminosité moyenne. Ça marche la plupart du temps. Ça échoue systématiquement dans trois cas :
-
-- **Neige, plage, mur blanc** → l'appareil sous-expose, ta neige devient grise
-- **Scène très sombre, spectacle** → l'appareil surexpose, tes noirs deviennent gris
-- **Contre-jour** → l'appareil expose pour le fond, ton sujet devient une silhouette
-
-### Les quatre modes — qui décide quoi
-
-C'est la même question que depuis le début de la soirée : **qu'est-ce que l'appareil décide à ma place?**
-
-Deux réglages sont en jeu, et chaque mode répond simplement à « lequel des deux je garde ».
-
-| Mode | L'ouverture | La vitesse | Ce que ça veut dire |
-|---|---|---|---|
-| **Auto** | l'appareil | l'appareil | Il décide tout. Tu ne choisis rien. |
-| **A / Av** | **toi** | l'appareil | Tu choisis **la taille du trou** — donc la quantité de lumière. |
-| **S / Tv** | l'appareil | **toi** | Tu choisis **la durée** — combien de temps la lumière entre. |
-| **M** | **toi** | **toi** | Tu choisis les deux. L'appareil ne décide plus rien. |
-
-*Av et A sont le même mode : Canon dit « Av », Nikon, Sony, Lumix et Olympus disent « A ». Même chose pour Tv et S.*
-
-> **Deux mises au point à faire tout de suite, sinon tu perds des gens.**
->
-> **Canon** est le seul à dire `Av` et `Tv`. Ça vient de *aperture value* et *time value*. Tous les autres disent `A` et `S`.
->
-> **Fujifilm n'a pas cette molette du tout.** Les possesseurs de Fuji ne l'ont pas perdue : leur appareil se règle avec la bague d'ouverture de l'objectif et la molette de vitesse du boîtier, chacune ayant une position `A`. La combinaison des deux donne le mode. **C'est expliqué en tête de la [feuille Fujifilm](../Documents/lexique-par-fabricant/fujifilm.md), avec le tableau des quatre combinaisons** — envoie-les-y et continue, ne fais pas la démonstration pour toute la salle.
->
-> Pour tous les autres : **section 1 de leur feuille**.
-
-### Le point qui fait tout comprendre
-
-Il n'y a que **deux façons de faire entrer la lumière** dans un appareil photo, et chaque mode dit simplement laquelle des deux tu gardes en main :
-
-| Réglage | Ce qu'il règle | Son effet secondaire — celui qui intéresse le photographe |
-|---|---|---|
-| **L'ouverture** | La **taille** du trou | Change l'**épaisseur de la zone nette** *(la profondeur de champ)* |
-| **La vitesse** | La **durée** pendant laquelle il reste ouvert | Change le **rendu du mouvement** — figé ou visible |
-
-**Mode `A / Av`** → je garde la main sur l'ouverture, donc sur la profondeur de champ.
-**Mode `S / Tv`** → je garde la main sur la vitesse, donc sur le mouvement.
-
-Tu choisis ton mode selon **l'effet secondaire qui compte le plus** dans la scène devant toi.
-
-Portrait dans un parc → je veux un fond flou → **`A`**, et j'ouvre en grand.
-Ton enfant qui court → je veux le figer → **`S`**, et je monte à 1/500.
-
-> ⚠️ **Ne confonds jamais l'ouverture avec la mise au point** — c'est la confusion la plus tenace chez les débutants, et on l'a déjà séparée avant la pause :
->
-> - **La mise au point décide OÙ** se trouve le point net. Un seul endroit, que tu désignes avec ton collimateur.
-> - **L'ouverture décide de l'ÉPAISSEUR** de la zone nette autour de cet endroit.
->
-> Le mode `A` ne te fait pas choisir *ce qui* est net — ça, c'est ton collimateur, et il fonctionne dans tous les modes. Le mode `A` te fait choisir **combien de chose** sera net autour de ton sujet.
-
-### Et l'ISO là-dedans?
-
-L'ISO est indépendant de la molette : il peut être automatique ou manuel dans **n'importe lequel** des quatre modes.
-
-Quand il est en automatique, c'est lui qui absorbe le manque de lumière pour que ton choix reste possible — exactement ce qu'on vient de voir au bloc précédent. C'est pour ça qu'on le laisse en automatique au début.
-
-### La compensation d'exposition — LE contrôle à retenir
-
-C'est le bouton **+/−**. Il dit à l'appareil : *« ta mesure est bonne, mais je veux un peu plus clair / un peu plus sombre. »*
-
-- Neige, sujet clair → **+1**
-- Concert, scène sombre → **−1**
-- Contre-jour, sujet dans l'ombre → **+1 ou +2**
-
-C'est le contrôle qui donne 80 % du bénéfice de sortir du mode automatique, pour 20 % de l'effort. S'ils ne retiennent qu'une chose de la soirée, que ce soit celle-là.
-
-### Pourquoi la compensation ne fonctionne pas en manuel
-
-**C'est le test qui prouve qu'ils ont compris les modes.** Fais-le comme une question au groupe avant de donner la réponse.
-
-> La compensation d'exposition dit à l'appareil : **« décide autrement que ce que tu allais décider. »**
->
-> Encore faut-il qu'il décide quelque chose.
-
-| Mode | L'appareil décide… | Le +/− fait… |
-|---|---|---|
-| **Auto** | l'ouverture et la vitesse | ✅ il les ajuste |
-| **A / Av** | la vitesse | ✅ il change la vitesse |
-| **S / Tv** | l'ouverture | ✅ il change l'ouverture |
-| **M** | **rien** | ❌ **rien du tout** |
-
-En manuel, tu as déjà pris les deux décisions toi-même. Il ne reste rien à décaler. Pour éclaircir une photo en M, tu tournes directement tes propres molettes : ouverture, vitesse ou ISO.
-
-**Ce n'est pas une limite de ton appareil.** C'est la définition même du mode manuel — et c'est aussi ce qui explique pourquoi le manuel est plus lent : tu ne peux plus corriger d'un seul geste.
-
-> **La démonstration à faire — 60 secondes, et personne ne l'oublie**
->
-> « Mettez-vous en mode M. Tournez votre molette de compensation. Regardez votre écran. »
->
-> Rien ne bouge. Le groupe le voit de ses yeux au lieu de te croire sur parole, et la logique s'installe pour de bon.
-
-> **Note pour toi, pas pour eux — la nuance qui pourrait te faire reprendre**
->
-> Sur la plupart des boîtiers récents, en **mode M avec l'ISO en automatique**, la compensation redevient active : elle agit alors sur l'ISO, parce que c'est la seule chose que l'appareil décide encore. C'est parfaitement cohérent avec la règle qu'on vient d'enseigner — il décide de l'ISO, donc on peut lui demander de décider autrement.
->
-> Ne l'aborde pas spontanément : c'est une couche de plus, et ça brouille le message principal. Mais si quelqu'un dans la salle le soulève, tu as la réponse — et le fait qu'elle découle de la même règle est une belle façon de conclure.
-
-### Avantage sans-miroir — dis-le explicitement
-
-Ton viseur ou ton écran montre **déjà** l'exposition finale. Quand tu tournes la molette +/−, l'image s'éclaircit ou s'assombrit sous tes yeux. Tu n'as plus à deviner : tu tournes jusqu'à ce que ce soit beau.
-
-**Avec un reflex**, le viseur optique montre toujours la même chose, peu importe tes réglages. Ce n'est pas un défaut de ton appareil et tu ne fais pas d'erreur : tu dois simplement regarder l'écran après la photo, ou passer en visée par l'écran (Live View), qui te donne le même aperçu direct.
-
-### Petit exercice de groupe — 3 min
-
-Quatre situations. Le groupe répond à voix haute : **quel mode, et pourquoi?**
-
-| Situation | Réponse attendue |
-|---|---|
-| Portrait dehors, tu veux détacher la personne du fond | **A / Av** — ce qui compte, c'est l'épaisseur de la zone nette |
-| Un enfant qui court | **S / Tv** — la question, c'est le mouvement |
-| Paysage, tu veux tout net du premier plan à l'horizon | **A / Av** — encore l'épaisseur de la zone nette, mais en sens inverse |
-| Concert sombre | **S / Tv** pour ne pas descendre trop bas en vitesse, ou **A** grande ouverture — et surtout **compensation −1**, parce que l'appareil va vouloir éclaircir la scène |
-
-Il n'y a pas toujours une seule bonne réponse, et c'est un bon message à passer. Ce que tu vérifies, c'est qu'ils partent de **la question**, pas du réglage.
-
-### Ta consigne de départ
-
-Les quatre modes existent et ils savent maintenant ce que chacun fait. Mais un débutant à qui on laisse quatre options ouvertes se paralyse et retourne en Auto. Donne-leur donc un **point de départ**, pas une restriction :
-
-> **Votre mode par défaut, c'est A (ou Av).** C'est celui qui vous donne la main sur l'ouverture — et donc sur la profondeur de champ, la décision qui revient le plus souvent.
->
-> **Passez en S (ou Tv) quand le mouvement devient la vraie question** — un enfant, un chien, un joueur de hockey.
->
-> **Le manuel viendra tout seul** le jour où vous vous direz « je veux exactement cette ouverture ET exactement cette vitesse ». Ce jour-là, vous saurez pourquoi, et vous n'aurez besoin de personne pour vous l'expliquer.
-
-Le mode Auto n'est pas honteux. Il est simplement muet sur ce que tu voulais montrer.
-
-### Appareil en main — 8 min · le moment le plus utile de la séance
-
-Tout le monde configure son appareil, maintenant, avec l'aide des animateurs. Personne ne quitte la salle sans avoir terminé.
-
-1. **Fais le tour complet de ta molette** — trouve Auto, A ou Av, S ou Tv, et M. Nomme à voix haute ce que l'appareil décide dans chacun. C'est la vérification que le bloc précédent est passé.
-2. **Arrête-toi sur M et tourne la molette +/−.** Rien ne bouge. C'est normal, et maintenant tu sais pourquoi.
-3. **Reviens sur A / Av** — c'est là que ton appareil reste en partant ce soir.
-4. **ISO automatique activé**, avec une limite haute (3200 ou 6400)
-5. **AF-S** par défaut, collimateur unique ou détection de l'œil
-6. **Trouve le bouton +/−** et repère-le au toucher, sans regarder. Fais −1, puis +1, puis reviens à 0. Regarde l'écran ou le viseur changer.
-7. **Format de fichier : RAW + JPEG** si ton appareil le permet — on en aura besoin à la séance 3, et ça ne coûte que de l'espace sur la carte
-
-> **Cellulaire :** touche l'écran pour faire le point, puis **glisse ton doigt vers le haut ou le bas** — un petit soleil apparaît, c'est ta compensation d'exposition. Elle existe sur pratiquement tous les téléphones et presque personne ne le sait. Active aussi le format **RAW / ProRAW** si ton appareil l'offre, et **la grille de composition** — la section 4 de ta feuille ([iPhone](../Documents/lexique-par-fabricant/iphone.md) ou [Android](../Documents/lexique-par-fabricant/android.md)) dit où.
-
-> **Le nom des réglages varie d'une marque à l'autre.** Renvoie systématiquement chacun à **sa propre feuille** plutôt que d'énumérer huit menus à voix haute — les modes sont en section 1, la mise au point en section 2, les menus en section 4. Les membres qui circulent doivent avoir le [tableau résumé toutes marques](../Documents/lexique-par-fabricant/tableau-resume-animateurs.md) en main : c'est leur outil de travail pendant ces huit minutes.
-
-Avant que quelqu'un range son appareil, demande à voix haute : *« Levez la main si votre molette est sur A ou Av. »* Regarde la salle. C'est ta vérification que la séance a fonctionné.
-
----
-
-## 2:17–2:25 — Le défi et la suite
-
-### Le défi entre les séances 1 et 2
+### Le défi — 3 min
 
 **Cinq photos. Pas cinq bonnes photos.**
 
@@ -743,35 +552,21 @@ Avant que quelqu'un range son appareil, demande à voix haute : *« Levez la mai
 - Une photo où une grande partie de la scène est nette
 - Une photo où le mouvement est figé
 - Une photo où le mouvement est visible
-- Une photo dans une lumière que tu trouves intéressante
-
-### Comment le formuler
+- Une photo dans une lumière que vous trouvez intéressante
 
 > Si elles sont ratées, elles sont encore **plus** utiles : on va les regarder ensemble et comprendre pourquoi. C'est exactement ce qu'on fait à la prochaine séance.
 >
-> Et si vous n'avez pas eu le temps, **venez quand même**. Il y aura des photos à analyser, et vous ne serez pas les seuls.
+> Et si vous n'avez pas eu le temps, **venez quand même**. Vous ne serez pas les seuls.
 
-Cette formulation enlève la peur sans enlever l'engagement. Ne dis pas « facultatif » — la séance 2 dépend en partie de ces photos.
+**Distribue le [feuillet du défi](../Documents/feuillets-a-remettre.md#feuillet-1--le-défi) en main propre**, pendant que tu parles — pas en pile sur une table. Écris la date de la prochaine séance au tableau et fais-la recopier sur le feuillet.
 
-### Logistique — remets le feuillet maintenant
+**Rien à envoyer.** Ils apportent leur carte mémoire avec leurs photos dessus, on les regardera sur leurs écrans.
 
-**Distribue le [feuillet du défi](../Documents/feuillets-a-remettre.md#feuillet-1--le-défi) en main propre**, pendant que tu parles. Pas en pile sur une table : en fin de soirée, la moitié des gens passerait à côté.
-
-Il contient les cinq missions, la liste de ce qu'il faut apporter, et un espace pour la date de la prochaine séance. **Écris cette date au tableau et fais-la recopier.**
-
-**Rien à envoyer, rien à préparer.** Ils apportent simplement leur carte mémoire avec leurs photos dessus, et on les regardera directement sur leurs écrans à la séance 2. C'est plus simple pour eux, et ça t'évite de gérer trente envois.
-
-Rappelle en une ligne ce qu'il faut apporter : appareil, **batterie chargée**, carte mémoire avec les photos.
-
-### La question de fin — à main levée
-
-Trente secondes, sans papier et sans rien à compiler ensuite.
+### La question de fin — 30 secondes
 
 > « Dernière chose. À main levée, et il n'y a pas de mauvaise réponse : **qui se sent à l'aise, aujourd'hui, de sortir son appareil du mode automatique?** »
 
-Compte les mains, à peu près. Note le chiffre sur ton téléphone en sortant.
-
-Tu reposeras exactement la même question à la fin de la séance 3. Si tu passes de 6 mains sur 30 à 25, la formation a réussi — quel que soit le nombre de notions retenues. C'est la seule mesure qui corresponde vraiment à ton objectif, et elle ne coûte rien.
+Compte les mains, à peu près, et note le chiffre en sortant. Tu reposeras exactement la même question à la fin de la séance 3.
 
 ---
 

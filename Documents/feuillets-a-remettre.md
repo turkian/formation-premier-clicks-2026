@@ -66,57 +66,48 @@ Il n'y a aucun courriel dans cette formation. Tout ce qui devait être communiqu
 
 *Demi-page · à remettre à la fin de la séance 2*
 
-> **C'est le feuillet le plus important des trois.** Quelqu'un qui arrive à la séance 3 sans logiciel installé perd les deux heures. Remets-le en main propre en le commentant, ne le laisse pas sur une table.
+> **Feuillet volontairement court.** Il n'y a plus rien à installer ni à télécharger : le développement est une démonstration, ils n'ont besoin de rien d'autre que leur appareil.
 
 ```
 ┌──────────────────────────────────────────────────────┐
 │                                                      │
-│   AVANT LA SÉANCE 3 — LE LOGICIEL                    │
+│   LA SÉANCE 3 — COMPOSER, DÉVELOPPER, CONTINUER      │
 │                                                      │
-│   Vous n'avez RIEN à acheter.                        │
-│   Je ferai la démonstration dans Lightroom, mais     │
-│   ce que vous apprendrez existe dans tous les        │
-│   logiciels. Choisissez ce qui vous convient :       │
-│                                                      │
-│   1 ▸ LIGHTROOM MOBILE — gratuit                     │
-│       Téléphone ou tablette. Développe même les      │
-│       fichiers RAW. Suffisant pour toute la séance.  │
-│       C'est mon premier choix.                       │
-│                                                      │
-│   2 ▸ ESSAI GRATUIT ADOBE — 7 jours, ordinateur      │
-│       ⚠ Activez-le LA VEILLE, pas avant.             │
-│                                                      │
-│   3 ▸ DARKTABLE ou RAWTHERAPEE — gratuits            │
-│       darktable.org  ·  rawtherapee.com              │
-│                                                      │
-│   4 ▸ LE LOGICIEL DE VOTRE FABRICANT — gratuit       │
-│       Canon DPP · Nikon NX Studio · Sony Imaging     │
-│       Edge… sur le site du fabricant.                │
+│   Date  ______________  Heure  ______________        │
 │                                                      │
 │  ──────────────────────────────────────────────────  │
 │                                                      │
 │   À APPORTER                                         │
 │                                                      │
-│   ▸  Ordinateur portable CHARGÉ                      │
-│      (ou téléphone/tablette avec Lightroom mobile)   │
-│   ▸  Votre carte mémoire + un lecteur si besoin      │
-│   ▸  TROIS de vos photos :                           │
-│        · une que vous trouvez réussie                │
-│        · une intéressante mais imparfaite  ← la plus │
-│          utile des trois                             │
-│        · une que vous croyez impossible à rattraper  │
+│   ▸  Votre appareil (batterie chargée)               │
+│   ▸  Votre carte mémoire, avec vos photos            │
 │                                                      │
-│   Pas d'ordinateur portable? Aucun problème.         │
-│   Lightroom mobile fait tout, et vous pouvez         │
-│   aussi vous placer à deux. Dites-le-moi.            │
+│   C'est tout.                                        │
+│                                                      │
+│   PAS besoin d'ordinateur portable.                  │
+│   PAS besoin d'installer de logiciel.                │
+│   PAS besoin de télécharger quoi que ce soit.        │
 │                                                      │
 │  ──────────────────────────────────────────────────  │
 │                                                      │
-│   OUVREZ VOTRE LOGICIEL UNE FOIS avant de venir,     │
-│   juste pour voir qu'il démarre. Deux minutes,       │
-│   et ça évite d'y passer la première demi-heure.     │
+│   AU PROGRAMME                                       │
 │                                                      │
-│   Séance 3 :  ______________________                 │
+│   ▸  Vos photos des deux premières soirées           │
+│   ▸  La composition — et un exercice, appareil       │
+│      en main                                         │
+│   ▸  Une démonstration : je développe une photo      │
+│      devant vous, du début à la fin                  │
+│   ▸  Vos questions — les dernières, alors            │
+│      gardez-les!                                     │
+│   ▸  Comment continuer après la formation            │
+│                                                      │
+│  ──────────────────────────────────────────────────  │
+│                                                      │
+│   D'ICI LÀ                                           │
+│                                                      │
+│   Photographiez. C'est tout ce qui compte.           │
+│   Le mode A, votre collimateur, et le +/− quand      │
+│   c'est trop clair ou trop sombre.                   │
 │                                                      │
 └──────────────────────────────────────────────────────┘
 ```
