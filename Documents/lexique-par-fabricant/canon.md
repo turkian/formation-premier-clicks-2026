@@ -2,14 +2,13 @@
 
 **Feuille à conserver · recto verso**
 
-> **Sept marques sont représentées ce soir, et chacune a inventé son propre vocabulaire pour désigner exactement les mêmes réglages.**
+> **Les fabricants d'appareils photo n'emploient pas tous les mêmes mots pour désigner les mêmes réglages.**
 >
-> Voici les mots de **votre** appareil. Chaque autre participant a la feuille du sien. Si vous entendez un mot que vous ne trouvez pas, ce n'est jamais parce que votre appareil est moins bon — c'est parce qu'il l'appelle autrement.
+> Cette feuille donne les mots de votre Canon. Si vous entendez un terme pendant la formation et que vous ne le trouvez pas sur votre appareil, ce n'est jamais parce qu'il est moins bon : c'est qu'il l'appelle autrement, et la correspondance est ici.
 
 **Comment lire cette feuille :** la colonne de gauche est toujours le mot dit en formation. La colonne de droite est le mot de votre appareil, ou l'endroit où le trouver.
 
 ---
-
 
 ## 1 · Les modes de la molette
 
@@ -21,7 +20,9 @@
 | **Manuel** — je décide de tout | `M` |
 | **Programme** | `P` |
 
-> ⚠️ **Canon est la seule marque à dire `Av` et `Tv`.** Toutes les autres disent `A` et `S`, et c'est ce que vous entendrez pendant la formation. `Av` vient de *aperture value*, `Tv` de *time value*. **Quand on dira `A`, cherchez `Av`. Quand on dira `S`, cherchez `Tv`.**
+> ⚠️ **Canon nomme ces deux modes autrement que ce que vous entendrez en formation.** On y dira `A` et `S`; votre molette porte `Av` et `Tv`. *(`Av` vient de « aperture value », `Tv` de « time value ».)*
+>
+> **Quand on dira `A`, cherchez `Av`. Quand on dira `S`, cherchez `Tv`.** Ce sont exactement les mêmes deux modes.
 
 > **Le mode `Fv`**, sur les boîtiers R récents, permet de choisir librement quels réglages vous laissez en automatique. C'est astucieux, mais ne commencez pas par là.
 
@@ -40,7 +41,7 @@
 | L'appareil choisit tout seul | `Zone AF auto` |
 | **Détection du visage et de l'œil** | `Détection visage + suivi` · `Détection œil` · `Sujet à détecter` |
 
-> ⚠️ **Canon n'utilise pas du tout `AF-S` et `AF-C`.** Ces mots reviendront toute la soirée. Chez vous, retenez : **immobile = `One Shot`, qui bouge = `AI Servo`** *(ou `Servo` sur un R)*.
+> ⚠️ **Vos menus ne contiennent ni `AF-S` ni `AF-C`.** Ces deux mots reviendront pourtant toute la soirée. Retenez la traduction : **immobile = `One Shot`, qui bouge = `AI Servo`** *(ou `Servo` sur un boîtier série R)*.
 
 ---
 
@@ -80,7 +81,7 @@
 1. **Essayez le menu rapide.** Neuf fois sur dix le réglage y est, et vous évitez les menus complètement.
 2. **Le manuel de votre appareil est en PDF sur le site du fabricant**, gratuitement, même pour un modèle de quinze ans. Cherchez « [votre modèle] manuel PDF ». Il a un index : cherchez-y le mot de la colonne de droite, pas celui de la formation.
 3. **Les chemins de menu varient d'un modèle à l'autre**, surtout entre un reflex et un sans-miroir de la même marque. La logique ne change pas : la qualité d'image est dans le menu « prise de vue », la mise au point dans le menu « AF ».
-4. **Demandez.** À un animateur pendant la séance, à votre parrain ensuite, ou sur le groupe du club. Personne ne connaît les menus de sept marques par cœur — les formateurs non plus.
+4. **Demandez.** À un animateur pendant la séance, à votre parrain ensuite, ou sur le groupe du club. Personne ne connaît par cœur les menus de tous les appareils — les formateurs non plus.
 
 ---
 

@@ -2,14 +2,13 @@
 
 **Feuille à conserver · recto verso**
 
-> **Sept marques sont représentées ce soir, et chacune a inventé son propre vocabulaire pour désigner exactement les mêmes réglages.**
+> **Les fabricants d'appareils photo n'emploient pas tous les mêmes mots pour désigner les mêmes réglages.**
 >
-> Voici les mots de **votre** appareil. Chaque autre participant a la feuille du sien. Si vous entendez un mot que vous ne trouvez pas, ce n'est jamais parce que votre appareil est moins bon — c'est parce qu'il l'appelle autrement.
+> Cette feuille donne les mots de votre Olympus. Si vous entendez un terme pendant la formation et que vous ne le trouvez pas sur votre appareil, ce n'est jamais parce qu'il est moins bon : c'est qu'il l'appelle autrement, et la correspondance est ici.
 
 **Comment lire cette feuille :** la colonne de gauche est toujours le mot dit en formation. La colonne de droite est le mot de votre appareil, ou l'endroit où le trouver.
 
 ---
-
 
 > **Olympus est devenu OM System en 2022.** Si votre boîtier porte l'un ou l'autre nom, cette feuille est la bonne : les menus sont restés pratiquement identiques.
 
@@ -23,7 +22,7 @@
 | **Manuel** — je décide de tout | `M` |
 | **Programme** | `P` |
 
-> ✅ **Olympus utilise exactement les mots de la formation** pour les modes. C'est Canon qui fait bande à part avec `Av` et `Tv`.
+> ✅ **Olympus emploie exactement les mots utilisés en formation** pour les modes. Vous n'avez rien à traduire ici.
 
 ---
 
@@ -39,7 +38,7 @@
 | L'appareil choisit tout seul | `Toutes cibles` |
 | **Détection du visage et de l'œil** | `Priorité visage` · `Priorité pupille` |
 
-> ⚠️ **Olympus inverse les lettres.** On dira `AF-S` et `AF-C` toute la soirée; chez vous c'est **`S-AF`** et **`C-AF`**. C'est la même chose, lue à l'envers.
+> ⚠️ **Vos menus inversent les lettres.** On dira `AF-S` et `AF-C` toute la soirée; sur votre appareil, c'est **`S-AF`** et **`C-AF`**. C'est exactement la même chose, écrite à l'envers.
 
 ---
 
@@ -78,7 +77,7 @@
 1. **Essayez le menu rapide.** Neuf fois sur dix le réglage y est, et vous évitez les menus complètement.
 2. **Le manuel de votre appareil est en PDF sur le site du fabricant**, gratuitement, même pour un modèle de quinze ans. Cherchez « [votre modèle] manuel PDF ». Il a un index : cherchez-y le mot de la colonne de droite, pas celui de la formation.
 3. **Les chemins de menu varient d'un modèle à l'autre**, surtout entre un reflex et un sans-miroir de la même marque. La logique ne change pas : la qualité d'image est dans le menu « prise de vue », la mise au point dans le menu « AF ».
-4. **Demandez.** À un animateur pendant la séance, à votre parrain ensuite, ou sur le groupe du club. Personne ne connaît les menus de sept marques par cœur — les formateurs non plus.
+4. **Demandez.** À un animateur pendant la séance, à votre parrain ensuite, ou sur le groupe du club. Personne ne connaît par cœur les menus de tous les appareils — les formateurs non plus.
 
 ---
 

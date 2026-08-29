@@ -4,13 +4,13 @@
 
 > **Un téléphone fait la même photographie, avec d'autres gestes.** Vous n'êtes pas dans une catégorie à part : vous avez une interface tactile au lieu de molettes, et à peu près tout ce qui se dit en formation s'applique à vous.
 >
-> Les six autres marques présentes ce soir ont chacune leur propre feuille. Si vous entendez un mot que vous ne trouvez pas, ce n'est jamais parce que votre appareil est moins bon.
+> Si vous entendez un terme pendant la formation et que vous ne le trouvez pas sur votre téléphone, ce n'est jamais parce qu'il est moins bon : c'est qu'il l'appelle autrement, ou qu'il le fait automatiquement pour vous.
 
 **Comment lire cette feuille :** la colonne de gauche est toujours le mot dit en formation. La colonne de droite est le geste ou l'endroit correspondant sur votre téléphone.
 
 ---
 
-> ⚠️ **Cette feuille est la plus approximative des huit, et c'est inévitable.**
+> ⚠️ **Les indications de cette feuille sont volontairement approximatives, et c'est inévitable.**
 >
 > Sous Android, **chaque fabricant écrit sa propre application appareil photo** — Samsung, Google Pixel, Xiaomi, OnePlus, Motorola, Sony… Les noms des réglages, leur emplacement et même leur existence changent d'une marque à l'autre, **et d'une version de l'application à l'autre sur le même téléphone**. Une mise à jour peut déplacer un réglage du jour au lendemain.
 >
