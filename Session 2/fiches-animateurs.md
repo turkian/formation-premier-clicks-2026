@@ -96,6 +96,8 @@ C'est la démonstration la plus utile de toute la station. Elle surprend toujour
 |---|---|
 | Ils sont à f/1.8 et le fond n'est pas flou | « Regarde à quelle distance est le mur derrière. Recule ton sujet de deux mètres et refais la même photo. » |
 | Ils ne trouvent pas comment changer f/ | « Es-tu en mode A ou Av? Regarde ta molette du dessus. » |
+| **« Pourquoi le petit chiffre = grand trou? »** | Ça a été expliqué à la séance 1, rappelle-le en une phrase : **« c'est une division. `f/2` veut dire la focale divisée par 2. Sur un 50 mm, ça fait un trou de 25 mm; à `f/16`, 3 mm. Un seizième est plus petit qu'un demi. »** Ne refais pas le cours, tu as neuf minutes. |
+| **« Pourquoi mon objectif dit `f/3.5-5.6`? »** | « Quand tu zoomes, ton ouverture maximale rétrécit. À 18 mm tu peux ouvrir à `f/3.5`, à 55 mm seulement à `f/5.6`. **Zoomer te fait perdre de la lumière** — c'est pour ça que tes photos zoomées en intérieur sont plus souvent floues. » |
 | À f/1.8, seul le nez est net | « C'est exactement ça, une profondeur de champ mince. Si tu veux les deux yeux nets, ferme à f/2.8 ou f/4. » |
 | Ils zooment au lieu de s'approcher | « Fais les deux et compare — tu vas voir que ce n'est pas la même photo. » |
 

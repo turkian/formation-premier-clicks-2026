@@ -1,7 +1,7 @@
 # Formation — Les bases de la photographie
 ## Session 1 — Comprendre comment une photo se construit
 
-**Durée :** 2 h 20 (pause incluse)
+**Durée :** 2 h 22 (pause incluse)
 **Participants :** environ 30
 **Objectif :** que chaque participant reparte capable de sortir du mode automatique **le soir même**, avec son appareil déjà configuré et une carte aide-mémoire dans sa poche.
 
@@ -109,7 +109,7 @@ Toute la séance consiste à traiter ces questions une par une.
 
 ---
 
-## 0:20–0:35 — Comprendre la lumière
+## 0:20–0:33 — Comprendre la lumière
 
 Avant de parler de réglages, comprendre la matière première.
 
@@ -151,7 +151,7 @@ Aucun réglage. C'est volontaire — le premier geste de la formation ne demande
 
 ---
 
-## 0:35–0:52 — Ce qui est net : la mise au point
+## 0:33–0:50 — Ce qui est net : la mise au point
 
 Séparer clairement **mise au point** et **profondeur de champ**. C'est la confusion la plus fréquente chez les débutants.
 
@@ -211,7 +211,7 @@ Trois gestes, dans l'ordre. Les animateurs circulent.
 
 ---
 
-## 0:52–1:04 — Pause
+## 0:50–1:02 — Pause
 
 Douze minutes réelles. Avec 30 personnes, une pause de 10 minutes en dure 15.
 
@@ -219,7 +219,7 @@ Douze minutes réelles. Avec 30 personnes, une pause de 10 minutes en dure 15.
 
 ---
 
-## 1:04–1:24 — Ce qui est net : profondeur de champ et ouverture
+## 1:02–1:28 — Ce qui est net : profondeur de champ et ouverture
 
 ### Profondeur de champ
 
@@ -230,17 +230,137 @@ Deux situations à opposer clairement :
 - Zone mince → le sujet se détache, l'arrière-plan fond. Portrait.
 - Zone épaisse → tout est lisible du premier plan à l'horizon. Paysage, photo de groupe, photo de rue documentaire.
 
-### Ouverture
+### Ouverture — on part d'une question, pas d'une règle
 
-Elle influence deux choses en même temps :
+**N'énonce pas la règle tout de suite.** Si tu annonces « petit chiffre = grande ouverture » d'entrée, il n'y a plus rien à comprendre : il ne reste qu'à mémoriser. La question d'abord, la règle en conclusion.
 
-- La profondeur de champ
-- La quantité de lumière qui entre
+#### 1 · Poser la définition — 30 secondes
 
-Petit chiffre (f/1.8) = grande ouverture = zone nette mince = beaucoup de lumière.
-Grand chiffre (f/16) = petite ouverture = zone nette épaisse = peu de lumière.
+> L'ouverture, c'est simplement **la grandeur du trou qui laisse passer la lumière** dans votre objectif. On l'indique avec un `f` suivi d'un chiffre : `f/2.4`, `f/11`, `f/22`.
 
-**Cette inversion est contre-intuitive. Dis-le à voix haute** — les débutants croient souvent qu'ils n'ont pas compris, alors que c'est simplement mal nommé.
+Rien de plus pour l'instant. Pas de conséquence, pas de profondeur de champ.
+
+#### 2 · La question — 2 minutes
+
+> **Entre `f/2.4` et `f/22`, lequel laisse passer le plus de lumière?**
+
+**Fais voter à main levée, pas de réponse nominative.**
+
+> « Qui dit `f/2.4`? … Qui dit `f/22`? … Qui n'en a aucune idée? »
+
+C'est essentiel. Une question dont la réponse est contre-intuitive, posée à une personne devant trente autres, c'est exactement le genre de moment qui fait qu'on ne revient pas la semaine suivante. Le vote collectif permet de se tromper sans être exposé.
+
+**Annonce le partage avant de le voir :**
+
+> « Je vous préviens, c'est presque toujours moitié-moitié. Et les deux camps ont de bonnes raisons. »
+
+#### 3 · Révéler, en protégeant ceux qui ont eu tort
+
+> « C'est `f/2.4`. »
+
+Puis, **immédiatement**, sans laisser le silence s'installer :
+
+> « Et si vous avez répondu `f/22`, votre raisonnement était parfaitement logique : 22 est plus grand que 2,4, donc on s'attend à un plus gros trou. **C'est la notation qui est piégeuse, pas vous.** »
+
+Cette phrase-là est plus importante que la réponse. Elle transforme une erreur collective en curiosité collective — ce qui est exactement l'état dans lequel tu veux la salle pour les quatre minutes qui suivent.
+
+#### 4 · La deuxième question — 1 à 2 minutes
+
+> **Pourquoi?**
+
+Laisse chercher. Il y a souvent quelqu'un dans la salle qui sait, ou qui approche.
+
+- **Si la réponse sort**, fais-la reformuler par la personne et reprends-la à ton compte. Une explication venant d'un pair vaut plus que la tienne, et ça valorise quelqu'un devant le groupe.
+- **Si quelqu'un s'approche** — « les chiffres sont à l'envers », « c'est une proportion » — appuie-toi dessus : *« vous êtes très proche, et le mot que vous cherchez est… »*
+- **Si personne ne trouve**, c'est normal et c'est même le cas le plus fréquent. Enchaîne toi-même.
+
+Ne laisse pas traîner au-delà de deux minutes. L'objectif du silence est de créer l'envie de savoir, pas de mettre la salle mal à l'aise.
+
+#### 5 · L'explication
+
+#### Ce n'est pas mal nommé. C'est une fraction.
+
+Le point de départ, et il surprend toujours :
+
+> **La barre oblique dans `f/2.8` est une vraie division.**
+>
+> Le `f`, c'est la **focale** de votre objectif. `f/2.8` veut littéralement dire **« la focale divisée par 2,8 »** — et le résultat, c'est le diamètre réel du trou par lequel la lumière entre.
+
+Fais le calcul au tableau, avec un objectif que quelqu'un dans la salle possède :
+
+| Objectif | Réglage | Le trou fait vraiment |
+|---|---|---|
+| 50 mm | `f/2` | 50 ÷ 2 = **25 mm** |
+| 50 mm | `f/4` | 50 ÷ 4 = **12,5 mm** |
+| 50 mm | `f/16` | 50 ÷ 16 = **3 mm** |
+
+**Et voilà l'inversion expliquée.** Ce n'est pas une convention absurde : plus le diviseur est grand, plus le résultat est petit. Exactement comme un quart de tarte est plus petit qu'un demi.
+
+> **La phrase à dire :** « Vous n'avez pas à retenir que c'est à l'envers. Vous avez juste à vous rappeler que c'est une division. »
+
+#### La relation avec la focale
+
+C'est la deuxième moitié, et c'est elle qui rend le système utile :
+
+| Objectif | Réglage | Diamètre |
+|---|---|---|
+| 24 mm | `f/2.8` | ≈ 8,5 mm |
+| 200 mm | `f/2.8` | ≈ 71 mm |
+
+Deux trous complètement différents… **et pourtant, la même exposition.** Le 200 mm laisse entrer beaucoup plus de lumière, mais il l'étale sur une image beaucoup plus agrandie. Les deux effets s'annulent.
+
+> **C'est tout l'intérêt du système :** `f/5.6` donne la même exposition sur n'importe quel objectif, de n'importe quelle marque, depuis cent ans. Sans cette convention, il faudrait recalculer à chaque changement d'objectif.
+
+#### Les deux retombées concrètes — à ne pas sauter
+
+C'est ici que l'explication cesse d'être théorique et devient utile dès demain. Ce sont les deux passages qu'ils vont répéter à quelqu'un d'autre.
+
+**1 · Pourquoi votre objectif de kit dit `f/3.5-5.6`**
+
+La plupart des gens dans la salle ont ce zoom, et personne ne sait ce que ces deux chiffres veulent dire.
+
+> Sur un 18-55 mm `f/3.5-5.6`, l'ouverture maximale change quand vous zoomez : `f/3.5` à 18 mm, `f/5.6` à 55 mm.
+>
+> Pourquoi? Parce qu'à 18 mm, `f/3.5` demande un trou de 5 mm — facile. À 55 mm, il en faudrait un de 16 mm, et l'objectif deviendrait gros et cher. Le fabricant a préféré le laisser rétrécir.
+>
+> **Conséquence pratique : quand vous zoomez, vous perdez de la lumière.** C'est pour ça que vos photos zoomées en intérieur sont plus souvent floues.
+
+**2 · Pourquoi les gros téléobjectifs blancs coûtent une fortune**
+
+> Un 400 mm `f/2.8` a besoin d'un trou de 400 ÷ 2,8 = **143 mm**. Presque 15 cm de verre de diamètre. Voilà pourquoi ces objectifs sont énormes, lourds et hors de prix — ce n'est pas du marketing, c'est de l'arithmétique.
+
+Cette dernière fait toujours rire, et elle se retient. C'est une bonne façon de refermer.
+
+#### Ce qu'il ne faut pas faire
+
+- **Ne demande à personne de calculer quoi que ce soit.** Tu fais les divisions au tableau, ils regardent.
+- **N'aborde pas** la surface du trou, les racines de 2, ni pourquoi la suite est 1,4 · 2 · 2,8 · 4 · 5,6. C'est vrai, c'est élégant, et ça n'aide personne ce soir.
+- **Ne t'attarde pas si quelqu'un reste perdu.** Passe à la synthèse ci-dessous : c'est elle qu'il faut retenir, pas la démonstration. L'objectif de la soirée n'est pas qu'ils comprennent l'optique, c'est qu'ils osent tourner la molette.
+
+#### 6 · La synthèse — maintenant, la règle
+
+C'est seulement ici que tu énonces la règle. Elle arrive comme une **conclusion de ce qu'ils viennent de comprendre**, pas comme un fait à mémoriser — et c'est toute la différence.
+
+Écris-la au tableau :
+
+| | Le trou | La lumière | La zone nette |
+|---|---|---|---|
+| **`f/2.4`** — petit chiffre | grand | beaucoup | **mince** |
+| **`f/22`** — grand chiffre | petit | peu | **épaisse** |
+
+> **L'ouverture fait donc deux choses en même temps**, et c'est ce qui la rend intéressante :
+>
+> 1. Elle décide de **combien de lumière** entre.
+> 2. Elle décide de **l'épaisseur de la zone nette** — la profondeur de champ dont on vient de parler.
+>
+> Grande ouverture → beaucoup de lumière **et** un fond flou.
+> Petite ouverture → peu de lumière **et** tout net.
+
+**La formule à leur laisser :** *petit chiffre, grand trou, fond flou.* Six mots, et ça couvre 90 % des cas.
+
+Reviens ensuite au vote du début : *« ceux qui avaient dit `f/22` tout à l'heure — vous ne le redirez plus jamais. »* Ça referme la boucle, et la salle repart avec le sentiment d'avoir compris quelque chose plutôt que d'avoir été corrigée.
+
+---
 
 ### Les trois autres facteurs — le point le plus important du bloc
 
@@ -273,7 +393,7 @@ La deuxième série surprend toujours. C'est celle qui fait comprendre.
 
 ---
 
-## 1:24–1:42 — Mouvement et vitesse d'obturation
+## 1:28–1:46 — Mouvement et vitesse d'obturation
 
 ### La décision
 
@@ -327,7 +447,7 @@ Ce dernier geste produit toujours des rires et un « ah, je vois! ». C'est le m
 
 ---
 
-## 1:42–1:50 — ISO et faible lumière
+## 1:46–1:52 — ISO et faible lumière
 
 Présente l'ISO comme un **outil qui rend possibles les choix précédents**, jamais comme le troisième sommet d'un triangle.
 
@@ -358,7 +478,7 @@ Active **l'ISO automatique** et fixe une limite haute (3200 ou 6400 selon ton ap
 
 ---
 
-## 1:50–2:12 — Exposition, les quatre modes, et la recette de départ
+## 1:52–2:14 — Exposition, les quatre modes, et la recette de départ
 
 C'est le bloc le plus important de la séance. Il assemble tout le reste.
 
@@ -507,7 +627,7 @@ Avant que quelqu'un range son appareil, demande à voix haute : *« Levez la mai
 
 ---
 
-## 2:12–2:20 — Le défi et la suite
+## 2:14–2:22 — Le défi et la suite
 
 ### Le défi entre les séances 1 et 2
 
