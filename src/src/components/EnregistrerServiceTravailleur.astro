@@ -1,0 +1,29 @@
+---
+/**
+ * Enregistre le service travailleur qui garde le site consultable quand le
+ * réseau de la salle tombe (décision D9).
+ *
+ * L'enregistrement est silencieux : un échec ne doit jamais empêcher une leçon
+ * de s'afficher. Il est également ignoré en développement, où un cache
+ * agressif ne ferait que masquer les modifications en cours.
+ */
+import { asset } from '../lib/lien';
+
+const chemin = asset('/service-travailleur.js');
+const portee = asset('/');
+const enProduction = import.meta.env.PROD;
+---
+
+{
+  enProduction && (
+    <script is:inline define:vars={{ chemin, portee }}>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register(chemin, { scope: portee }).catch(() => {
+            /* Sans réseau ni permission, on continue simplement en ligne. */
+          });
+        });
+      }
+    </script>
+  )
+}

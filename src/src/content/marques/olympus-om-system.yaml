@@ -1,0 +1,76 @@
+nom: Olympus / OM System
+rang: 6
+genre: appareil
+menuRapide: "Le **Super Control Panel** — appuyez sur `OK` depuis l'écran d'informations"
+extensionRaw: "`.ORF`"
+sections:
+  - numero: 1
+    entrees:
+      - formation: Tout automatique
+        appareil: "`iAUTO`"
+      - formation: Priorité à l'ouverture — je choisis la quantité de lumière
+        appareil: "**`A`**"
+      - formation: Priorité à la vitesse — je choisis la durée
+        appareil: "**`S`**"
+      - formation: Manuel — je décide de tout
+        appareil: "`M`"
+      - formation: Programme
+        appareil: "`P`"
+    note: |
+      ✅ **Olympus emploie exactement les mots utilisés en formation** pour les modes. Vous
+      n'avez rien à traduire ici.
+  - numero: 2
+    entrees:
+      - formation: "`AF-S` — sujet immobile"
+        appareil: "**`S-AF`**"
+      - formation: "`AF-C` — sujet qui bouge"
+        appareil: "**`C-AF`**"
+      - formation: Mise au point manuelle
+        appareil: "`MF`"
+      - formation: Un seul collimateur, que je déplace
+        appareil: "`Cible unique`"
+      - formation: Une petite zone
+        appareil: "`Groupe de cibles`"
+      - formation: L'appareil choisit tout seul
+        appareil: "`Toutes cibles`"
+      - formation: Détection du visage et de l'œil
+        appareil: "`Priorité visage` · `Priorité pupille`"
+    note: |
+      ⚠️ **Vos menus inversent les lettres.** On dira `AF-S` et `AF-C` toute la soirée ; sur
+      votre appareil, c'est **`S-AF`** et **`C-AF`**. C'est exactement la même chose, écrite
+      à l'envers.
+  - numero: 3
+    entrees:
+      - formation: Compensation d'exposition
+        appareil: "Le bouton **`+/−`**"
+      - formation: ISO automatique
+        appareil: "`ISO-A`"
+      - formation: Limite haute de l'ISO auto
+        appareil: "`Limite supérieure`, dans le `Réglage ISO-Auto`"
+    note: |
+      **Rappel :** en mode `M`, la molette `+/−` ne fait rien. C'est normal — l'appareil ne
+      décide plus rien, il n'y a donc rien à corriger.
+  - numero: 4
+    exception: |
+      **Le Super Control Panel est la clé de votre appareil.** Depuis l'écran d'informations,
+      appuyez sur **`OK`** : tous les réglages importants apparaissent en une seule grille, et
+      vous n'avez plus besoin des menus. Apprenez-le en premier.
+    entrees:
+      - formation: Qualité d'image / RAW
+        appareil: "**`RAW+JPEG`**"
+        chemin: "Super Control Panel — ou `Menu Prise de vue 1` → `Qualité d'image`"
+      - formation: Mode de mise au point
+        appareil: "`Mode AF`"
+        chemin: "Super Control Panel — ou `Menu Prise de vue 2`"
+      - formation: Zone AF
+        appareil: "`Zone AF`"
+        chemin: "Super Control Panel"
+      - formation: Détection visage / œil
+        appareil: "`Priorité visage`"
+        chemin: "Super Control Panel"
+      - formation: Limite de l'ISO auto
+        appareil: "`Réglage ISO-Auto`"
+        chemin: "`Menu Personnalisé` *(l'engrenage)* → onglet `E`"
+    note: |
+      L'ISO auto est le seul réglage vraiment caché : il est dans le menu personnalisé, pas
+      dans le menu de prise de vue. Sans le Super Control Panel, vous chercherez longtemps.

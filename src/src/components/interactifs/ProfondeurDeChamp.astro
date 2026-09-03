@@ -1,0 +1,395 @@
+---
+/**
+ * Profondeur de champ : les quatre leviers, un seul est un réglage.
+ *
+ * Trois décisions structurent ce composant :
+ *
+ * 1. **Les quatre leviers, dont un seul est un réglage d'appareil.** C'est le
+ *    message du bloc, et il est porté par la mise en forme : les trois leviers
+ *    gratuits sont visiblement d'une autre nature que l'ouverture.
+ *
+ * 2. **La position du point et l'épaisseur de la zone sont deux commandes
+ *    distinctes**, aux conséquences visuelles distinctes. C'est la confusion la
+ *    plus tenace chez les débutants : changer l'ouverture ne déplace pas le
+ *    point net, ça épaissit la zone autour.
+ *
+ * 3. **La distance au fond ne change pas l'épaisseur.** Le composant le prouve :
+ *    on la fait varier, la lecture ne bouge pas, et le fond devient pourtant
+ *    plus flou. C'est ce qui démonte le mythe du `f/1.8`.
+ *
+ * Tout est calculé, rien n'est photographié : le composant fonctionne le premier
+ * soir, avant qu'une seule image de démonstration existe.
+ */
+import { FORMATS } from '../../lib/profondeur-de-champ';
+import { typo } from '../../lib/typo';
+import '../../styles/interactif.css';
+
+interface Props {
+  /** Format de capteur au chargement. */
+  format?: string;
+  distance?: number;
+  focale?: number;
+  ouverture?: number;
+  fond?: number;
+  /** Contraindre l'ouverture comme un zoom de kit 18-55 mm f/3.5-5.6. */
+  kit?: boolean;
+}
+
+const {
+  format = 'aps-c',
+  distance = 3,
+  focale = 50,
+  ouverture = 5.6,
+  fond = 3,
+  kit = false,
+} = Astro.props;
+
+const formats = FORMATS.map((f) => ({ id: f.id, nom: f.nom }));
+---
+
+<div
+  class="composant"
+  data-pdc
+  data-format={format}
+  data-distance={distance}
+  data-focale={focale}
+  data-ouverture={ouverture}
+  data-fond={fond}
+  data-kit={kit ? '' : undefined}
+>
+  <div class="commandes">
+    <div class="segments" role="group" aria-label="Format du capteur">
+      {formats.map((f) => (
+        <button type="button" data-format-choix={f.id} aria-pressed={f.id === format}>
+          {f.nom}
+        </button>
+      ))}
+    </div>
+
+    <div class="levier" data-reglage>
+      <div class="etiquette">
+        <span>1 · L'ouverture <span class="marque-reglage">un réglage</span></span>
+        <output data-sortie="ouverture"></output>
+      </div>
+      <div class="course">
+        <input type="range" data-levier="ouverture" min="0" max="20" step="1" aria-label="Ouverture" />
+        <div class="zone-interdite" data-interdit hidden></div>
+      </div>
+      <p class="refus" data-refus aria-live="polite"></p>
+    </div>
+
+    <div class="levier">
+      <div class="etiquette">
+        <span>2 · Votre distance au sujet <span class="marque-gratuit">gratuit</span></span>
+        <output data-sortie="distance"></output>
+      </div>
+      <input type="range" data-levier="distance" min="0" max="100" step="1" aria-label="Distance de mise au point" />
+    </div>
+
+    <div class="levier">
+      <div class="etiquette">
+        <span>3 · La focale <span class="marque-gratuit">gratuit</span></span>
+        <output data-sortie="focale"></output>
+      </div>
+      <input type="range" data-levier="focale" min="0" max="100" step="1" aria-label="Focale" />
+    </div>
+
+    <div class="levier">
+      <div class="etiquette">
+        <span>4 · Distance du sujet au fond <span class="marque-gratuit">gratuit</span></span>
+        <output data-sortie="fond"></output>
+      </div>
+      <input type="range" data-levier="fond" min="0" max="100" step="1" aria-label="Distance du sujet à l'arrière-plan" />
+      <p class="refus" style="color:var(--texte-3)" set:html={typo(
+        'Ne change pas l’épaisseur de la zone nette — seulement le flou du fond.',
+      )} />
+    </div>
+  </div>
+
+  <div class="visuel">
+    <p class="etiquette-format">
+      Chiffres pour&nbsp;: <b data-nom-format></b>
+    </p>
+
+    <svg class="scene-svg" viewBox="0 0 640 260" role="img" data-scene-pdc
+         aria-label="Vue de dessus : l'appareil, le sujet, la zone nette et l'arrière-plan">
+      <defs>
+        <linearGradient id="pdc-zone" x1="0" x2="1" y1="0" y2="0">
+          <stop offset="0" stop-color="var(--accent)" stop-opacity="0" />
+          <stop offset="0.5" stop-color="var(--accent)" stop-opacity="0.4" />
+          <stop offset="1" stop-color="var(--accent)" stop-opacity="0" />
+        </linearGradient>
+      </defs>
+
+      <!-- Le sol, gradué : la scène est vue de dessus, donc les distances sont
+           lisibles telles quelles. -->
+      <g data-graduations></g>
+      <line x1="40" y1="196" x2="620" y2="196" stroke="var(--trait)" stroke-width="1" />
+
+      <!-- La zone nette : sa largeur est l'épaisseur calculée, son centre suit
+           le point de mise au point. Deux choses distinctes, deux commandes. -->
+      <rect data-zone x="0" y="86" width="0" height="110" fill="url(#pdc-zone)" />
+      <line data-bord-proche y1="86" y2="196" stroke="var(--accent)" stroke-width="2" stroke-dasharray="4 3" />
+      <line data-bord-lointain y1="86" y2="196" stroke="var(--accent)" stroke-width="2" stroke-dasharray="4 3" />
+
+      <!-- L'appareil -->
+      <g transform="translate(40,196)">
+        <rect x="-14" y="-24" width="28" height="20" rx="3" fill="var(--texte-2)" />
+        <rect x="-5" y="-30" width="10" height="7" rx="2" fill="var(--texte-2)" />
+        <text x="0" y="18" text-anchor="middle" font-size="12" fill="var(--texte-3)">vous</text>
+      </g>
+
+      <!-- L'arrière-plan : son flou est rendu par un filtre dont l'intensité
+           suit sa distance hors de la zone nette. -->
+      <g data-fond-groupe>
+        <rect data-fond-mur x="0" y="60" width="8" height="136" fill="var(--fond-4)" />
+        <text data-fond-texte y="52" text-anchor="middle" font-size="12" fill="var(--texte-3)">fond</text>
+      </g>
+
+      <!-- Le sujet : le point de mise au point. Il ne bouge que lorsqu'on
+           change la distance de mise au point — jamais lorsqu'on ouvre ou
+           qu'on ferme. -->
+      <g data-sujet>
+        <circle cy="150" r="13" fill="var(--texte)" />
+        <rect y="163" x="-9" width="18" height="33" rx="6" fill="var(--texte)" />
+        <text y="216" text-anchor="middle" font-size="12" fill="var(--texte-2)">sujet</text>
+      </g>
+    </svg>
+
+    <div class="lecture" aria-live="polite">
+      <div class="chiffre" data-sortie="epaisseur"></div>
+      <div class="bande" data-sortie="bande"></div>
+      <div class="sens" data-sortie="sens"></div>
+      <div class="limites" data-sortie="limites"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  import {
+    profondeurDeChamp,
+    format as trouverFormat,
+    bande as trouverBande,
+    distanceLisible,
+    CRANS_OUVERTURE,
+    ouvertureMaxKit,
+    cranLePlusOuvert,
+  } from '../../lib/profondeur-de-champ';
+  import { typo } from '../../lib/typo';
+
+  /** Les crans de distance, resserrés là où l'effet est le plus fort. */
+  const DISTANCES = [
+    0.3, 0.4, 0.5, 0.6, 0.75, 1, 1.25, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10, 15, 20, 30, 50,
+  ];
+  const FOCALES = [18, 24, 28, 35, 50, 70, 85, 105, 135, 200, 300];
+  const FONDS = [0.1, 0.3, 0.5, 1, 2, 3, 5, 10, 20, 50];
+
+  const plusProche = (liste: number[], valeur: number) =>
+    liste.reduce((a, b) => (Math.abs(b - valeur) < Math.abs(a - valeur) ? b : a));
+
+  for (const racine of document.querySelectorAll<HTMLElement>('[data-pdc]')) {
+    demarrer(racine);
+  }
+
+  function demarrer(racine: HTMLElement) {
+    const kit = racine.hasAttribute('data-kit');
+
+    const etat = {
+      format: racine.dataset.format ?? 'aps-c',
+      iDistance: DISTANCES.indexOf(plusProche(DISTANCES, Number(racine.dataset.distance ?? 3))),
+      iFocale: FOCALES.indexOf(plusProche(FOCALES, Number(racine.dataset.focale ?? 50))),
+      iOuverture: CRANS_OUVERTURE.indexOf(
+        plusProche([...CRANS_OUVERTURE], Number(racine.dataset.ouverture ?? 5.6)),
+      ),
+      iFond: FONDS.indexOf(plusProche(FONDS, Number(racine.dataset.fond ?? 3))),
+    };
+
+    const curseur = (nom: string) =>
+      racine.querySelector<HTMLInputElement>(`[data-levier="${nom}"]`)!;
+    const sortie = (nom: string) => racine.querySelector<HTMLElement>(`[data-sortie="${nom}"]`)!;
+
+    for (const [nom, liste] of [
+      ['ouverture', CRANS_OUVERTURE],
+      ['distance', DISTANCES],
+      ['focale', FOCALES],
+      ['fond', FONDS],
+    ] as const) {
+      const c = curseur(nom);
+      c.max = String(liste.length - 1);
+      c.step = '1';
+    }
+
+    racine.addEventListener('input', (evenement) => {
+      const cible = evenement.target as HTMLInputElement;
+      const nom = cible.dataset.levier;
+      if (!nom) return;
+      const valeur = Number(cible.value);
+      if (nom === 'ouverture') etat.iOuverture = valeur;
+      if (nom === 'distance') etat.iDistance = valeur;
+      if (nom === 'focale') etat.iFocale = valeur;
+      if (nom === 'fond') etat.iFond = valeur;
+      rendre();
+    });
+
+    for (const bouton of racine.querySelectorAll<HTMLButtonElement>('[data-format-choix]')) {
+      bouton.addEventListener('click', () => {
+        etat.format = bouton.dataset.formatChoix!;
+        rendre();
+      });
+    }
+
+    function rendre() {
+      const f = trouverFormat(etat.format);
+      const focale = FOCALES[etat.iFocale]!;
+
+      /*
+       * Le préréglage « zoom de kit » referme l'ouverture maximale à mesure
+       * qu'on zoome. La commande **refuse visiblement** d'aller au-delà plutôt
+       * que de laisser croire que l'ouverture existe : c'est précisément ce que
+       * l'objectif fait dans la vraie vie, et ce que personne ne comprend en
+       * lisant « 18-55 mm f/3.5-5.6 » sur la bague.
+       */
+      let iMin = 0;
+      let refus = '';
+      if (kit) {
+        const limite = cranLePlusOuvert(ouvertureMaxKit(focale));
+        iMin = CRANS_OUVERTURE.indexOf(limite);
+        if (etat.iOuverture < iMin) {
+          etat.iOuverture = iMin;
+          refus = typo(
+            `À ${focale} mm, votre zoom de kit ne s'ouvre pas plus que f/${limite}. Ce n'est pas un réglage : c'est l'objectif.`,
+          );
+        }
+      }
+
+      const ouverture = CRANS_OUVERTURE[etat.iOuverture]!;
+      const distance = DISTANCES[etat.iDistance]!;
+      const fond = FONDS[etat.iFond]!;
+
+      const r = profondeurDeChamp(distance, focale, ouverture, f);
+      const b = trouverBande(r.epaisseur, r.jusquALInfini);
+
+      curseur('ouverture').value = String(etat.iOuverture);
+      curseur('ouverture').min = String(iMin);
+      curseur('distance').value = String(etat.iDistance);
+      curseur('focale').value = String(etat.iFocale);
+      curseur('fond').value = String(etat.iFond);
+
+      sortie('ouverture').textContent = `f/${ouverture}`;
+      sortie('distance').textContent = typo(`${distance.toLocaleString('fr-CA')} m`);
+      sortie('focale').textContent = typo(`${focale} mm`);
+      sortie('fond').textContent = typo(`${fond.toLocaleString('fr-CA')} m derrière`);
+      racine.querySelector<HTMLElement>('[data-refus]')!.textContent = refus;
+      racine.querySelector<HTMLElement>('[data-nom-format]')!.textContent = f.nom;
+
+      const interdit = racine.querySelector<HTMLElement>('[data-interdit]')!;
+      interdit.hidden = iMin === 0;
+      interdit.style.width = `${(iMin / (CRANS_OUVERTURE.length - 1)) * 100}%`;
+      interdit.style.right = 'auto';
+      interdit.style.left = '0';
+      interdit.style.borderRadius = '999px 0 0 999px';
+
+      for (const bouton of racine.querySelectorAll<HTMLButtonElement>('[data-format-choix]')) {
+        bouton.setAttribute('aria-pressed', String(bouton.dataset.formatChoix === etat.format));
+      }
+
+      /*
+       * Deux tiers de la lecture : le chiffre, puis ce qu'il veut dire. Un
+       * débutant à qui on annonce « 8 cm » n'apprend rien ; « un œil net,
+       * l'autre flou » lui apprend quelque chose.
+       */
+      sortie('epaisseur').textContent = r.jusquALInfini
+        ? typo('net jusqu’à l’infini')
+        : typo(distanceLisible(r.epaisseur));
+      sortie('bande').textContent = typo(`« ${b.nom} »`);
+      sortie('sens').textContent = typo(b.sens);
+      sortie('limites').textContent = r.jusquALInfini
+        ? typo(
+            `De ${distanceLisible(r.proche)} à l'infini. Hyperfocale à ${distanceLisible(r.hyperfocale)} : au-delà, fermer davantage n'ajoute rien.`,
+          )
+        : typo(
+            `Net de ${distanceLisible(r.proche)} à ${distanceLisible(r.lointaine)}. Hyperfocale à ${distanceLisible(r.hyperfocale)}.`,
+          );
+
+      dessiner(racine, distance, fond, r);
+    }
+
+    rendre();
+  }
+
+  /**
+   * La scène, vue de dessus.
+   *
+   * L'échelle est logarithmique : sans cela, un sujet à 30 cm et un fond à 50 m
+   * ne peuvent pas coexister dans un même dessin, et c'est précisément la
+   * comparaison que le bloc demande de faire.
+   */
+  function dessiner(
+    racine: HTMLElement,
+    distance: number,
+    fond: number,
+    r: { proche: number; lointaine: number; jusquALInfini: boolean },
+  ) {
+    const X0 = 54;
+    const X1 = 600;
+    const MIN = 0.2;
+    const MAX = 80;
+    const enX = (metres: number) => {
+      const borne = Math.min(Math.max(metres, MIN), MAX);
+      const t = (Math.log(borne) - Math.log(MIN)) / (Math.log(MAX) - Math.log(MIN));
+      return X0 + t * (X1 - X0);
+    };
+
+    const xSujet = enX(distance);
+    const xProche = enX(r.proche);
+    const xLointain = r.jusquALInfini ? X1 : enX(r.lointaine);
+    const xFond = enX(distance + fond);
+
+    const q = <T extends Element>(sel: string) => racine.querySelector<T>(sel)!;
+
+    q<SVGRectElement>('[data-zone]').setAttribute('x', String(xProche));
+    q<SVGRectElement>('[data-zone]').setAttribute('width', String(Math.max(2, xLointain - xProche)));
+    for (const [sel, x] of [
+      ['[data-bord-proche]', xProche],
+      ['[data-bord-lointain]', xLointain],
+    ] as const) {
+      const l = q<SVGLineElement>(sel);
+      l.setAttribute('x1', String(x));
+      l.setAttribute('x2', String(x));
+    }
+
+    q<SVGGElement>('[data-sujet]').setAttribute('transform', `translate(${xSujet},0)`);
+
+    /*
+     * Le flou du fond suit sa distance **hors** de la zone nette, et non
+     * l'ouverture : c'est exactement la distinction que le bloc doit établir.
+     * Un fond resté dans la zone nette n'est pas flouté, quelle que soit
+     * l'ouverture — le mur à trente centimètres du sujet.
+     */
+    const dehors = r.jusquALInfini ? 0 : Math.max(0, distance + fond - r.lointaine);
+    const flou = Math.min(6, Math.sqrt(dehors) * 1.9);
+    const groupe = q<SVGGElement>('[data-fond-groupe]');
+    groupe.style.filter = flou > 0.05 ? `blur(${flou.toFixed(2)}px)` : 'none';
+    groupe.style.opacity = String(1 - Math.min(0.45, flou / 14));
+
+    const mur = q<SVGRectElement>('[data-fond-mur]');
+    mur.setAttribute('x', String(Math.min(X1 + 6, xFond)));
+    const texte = q<SVGTextElement>('[data-fond-texte]');
+    texte.setAttribute('x', String(Math.min(X1 + 6, xFond) + 4));
+
+    // Graduations : sans repère chiffré, le dessin logarithmique tromperait.
+    const graduations = q<SVGGElement>('[data-graduations]');
+    if (!graduations.childNodes.length) {
+      for (const metres of [0.3, 1, 3, 10, 30]) {
+        const x = enX(metres);
+        graduations.insertAdjacentHTML(
+          'beforeend',
+          `<line x1="${x}" y1="196" x2="${x}" y2="202" stroke="var(--trait)" />` +
+            `<text x="${x}" y="216" text-anchor="middle" font-size="11" fill="var(--trait-fort)">${metres
+              .toLocaleString('fr-CA')
+              .replace(/\s/g, ' ')} m</text>`,
+        );
+      }
+    }
+  }
+</script>

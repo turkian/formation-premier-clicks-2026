@@ -1,0 +1,101 @@
+---
+/**
+ * Le carrefour.
+ *
+ * Une règle : les trois leçons, le lexique et l'index des fiches sont chacun à
+ * un clic. Rien n'est imbriqué derrière une section intermédiaire, parce que
+ * l'usage réel est un participant debout dehors, sur un téléphone, avec un
+ * feuillet papier dans l'autre main.
+ */
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { lien } from '../lib/lien';
+import { typo } from '../lib/typo';
+import { seanceCourante, dateLisible } from '../lib/calendrier';
+import { MARQUES_ORDRE } from '../lib/marques';
+import '../styles/carrefour.css';
+
+const lecons = (await getCollection('lecons')).sort((a, b) => a.data.numero - b.data.numero);
+const fiches = (await getCollection('fiches')).sort((a, b) => a.data.rang - b.data.rang);
+const courante = seanceCourante();
+---
+
+<Base
+  titre="Premiers clics"
+  description="La formation photo du club, en trois séances : la lumière et la netteté, l'exposition, composer et développer."
+>
+  <div class="page" id="contenu">
+    <header class="entete-site">
+      <p class="surtitre">Formation photo du club</p>
+      <h1>Premiers clics</h1>
+      <p class="chapeau" set:html={typo(
+        'Trois soirées pour sortir du mode automatique, et de quoi y revenir pendant les mois qui suivent.',
+      )} />
+    </header>
+
+    <section class="section-carrefour">
+      <h2>Les trois séances</h2>
+      <div class="grille">
+        {lecons.map((lecon) => {
+          const date = dateLisible(lecon.data.numero);
+          return (
+            <a
+              class="carte"
+              href={lien(`/lecons/${lecon.data.numero}`)}
+              data-courante={lecon.data.numero === courante ? '' : undefined}
+            >
+              <span class="etiquette">
+                Séance {lecon.data.numero}
+                {lecon.data.numero === courante && ' · ce soir'}
+              </span>
+              <h3 set:html={typo(lecon.data.titre)} />
+              <p set:html={typo(date ?? lecon.data.filConducteur)} />
+            </a>
+          );
+        })}
+      </div>
+    </section>
+
+    <section class="section-carrefour">
+      <h2>Consulter</h2>
+      <div class="grille">
+        <a class="carte" href={lien('/lexique')}>
+          <span class="etiquette">Lexique</span>
+          <h3>Les mots de votre marque</h3>
+          <p set:html={typo(
+            `Le même réglage porte huit noms. ${MARQUES_ORDRE.length} feuilles, la même structure, la vôtre en un clic.`,
+          )} />
+        </a>
+        <a class="carte" href={lien('/fiches')}>
+          <span class="etiquette">Fiches de référence</span>
+          <h3>À imprimer, ou à garder sur le téléphone</h3>
+          <p set:html={typo(
+            `${fiches.length} fiches d'une page, conçues pour s'imprimer proprement sur une feuille.`,
+          )} />
+        </a>
+        <a class="carte" href={lien('/plan-de-cours')}>
+          <span class="etiquette">Plan de cours</span>
+          <h3>Ce que couvre la formation</h3>
+          <p>Clientèle visée, matériel requis, contenu des trois séances.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="section-carrefour">
+      <h2>Les fiches, une par une</h2>
+      <ul class="liste-simple">
+        {fiches.map((fiche) => (
+          <li>
+            <a href={lien(`/fiches/${fiche.id}`)} set:html={typo(fiche.data.titre)} />
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <footer class="pied-site">
+      <p set:html={typo(
+        'Premiers clics — formation offerte par le club photo. Le contenu de ce site est le support des trois séances ; il reste en ligne après la formation.',
+      )} />
+    </footer>
+  </div>
+</Base>

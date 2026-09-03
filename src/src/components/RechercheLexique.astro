@@ -1,0 +1,92 @@
+---
+/**
+ * Recherche à l'intérieur de la marque affichée.
+ *
+ * Volontairement limitée à une marque : un participant cherche le mot de **son**
+ * appareil, et une recherche croisée sur huit marques lui renverrait sept
+ * résultats sans rapport (décision de conception, non-objectif du projet).
+ *
+ * Elle porte à la fois sur le vocabulaire de la formation et sur celui de
+ * l'appareil, puisque le participant part le plus souvent du mot imprimé sur son
+ * boîtier — c'est même le cas le plus fréquent.
+ */
+interface Props {
+  nombre: number;
+  marque: string;
+}
+
+const { nombre, marque } = Astro.props;
+---
+
+<div class="recherche">
+  <label for="recherche-lexique">Chercher dans votre feuille</label>
+  <input
+    type="search"
+    id="recherche-lexique"
+    autocomplete="off"
+    spellcheck="false"
+    placeholder="AF-C, compensation, RAW, Av…"
+    aria-describedby="compte-lexique"
+  />
+  <p class="compte" id="compte-lexique" role="status" data-total={nombre}>
+    {nombre} entrées pour {marque}.
+  </p>
+</div>
+
+<script>
+  /**
+   * Filtrage local, sans index ni dépendance : les entrées sont déjà dans la
+   * page, et le corpus d'une marque tient en quelques dizaines de lignes.
+   *
+   * La comparaison est faite sans accents ni signes diacritiques, parce qu'on
+   * cherche « detection » aussi souvent que « détection », et sans casse.
+   */
+  const champ = document.querySelector<HTMLInputElement>('#recherche-lexique');
+  const compte = document.querySelector<HTMLParagraphElement>('#compte-lexique');
+  const entrees = [...document.querySelectorAll<HTMLElement>('.entree')];
+  const sections = [...document.querySelectorAll<HTMLElement>('.section-lexique')];
+  const total = Number(compte?.dataset.total ?? entrees.length);
+
+  const aplatir = (texte: string) =>
+    texte
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[̀-ͯ]/g, '');
+
+  const index = entrees.map((entree) => aplatir(entree.dataset.recherche ?? ''));
+
+  function filtrer() {
+    const requete = aplatir(champ?.value.trim() ?? '');
+    let visibles = 0;
+
+    entrees.forEach((entree, i) => {
+      const correspond = requete === '' || index[i]!.includes(requete);
+      entree.hidden = !correspond;
+      if (correspond) visibles += 1;
+    });
+
+    for (const section of sections) {
+      const siennes = [...section.querySelectorAll<HTMLElement>('.entree')];
+      const aucune = siennes.length > 0 && siennes.every((e) => e.hidden);
+      const message = section.querySelector<HTMLElement>('[data-aucun]');
+      if (message) message.hidden = !aucune || requete === '';
+      // Les sections d'exception (Fujifilm, cellulaires) n'ont pas d'entrées :
+      // elles restent affichées, leur explication étant justement la réponse.
+      section.hidden = requete !== '' && siennes.length > 0 && aucune
+        && !section.querySelector('.exception');
+    }
+
+    if (compte) {
+      compte.textContent =
+        requete === ''
+          ? `${total} entrées pour cette marque.`
+          : visibles === 0
+            ? 'Aucune entrée ne correspond. Essayez le mot imprimé sur votre appareil.'
+            : `${visibles} entrée${visibles > 1 ? 's' : ''} sur ${total}.`;
+    }
+  }
+
+  champ?.addEventListener('input', filtrer);
+  // Le champ peut être pré-rempli par le navigateur au retour arrière.
+  filtrer();
+</script>

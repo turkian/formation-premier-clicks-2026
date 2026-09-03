@@ -1,0 +1,90 @@
+nom: Fujifilm
+rang: 4
+genre: appareil
+sousTitre: Bague d'ouverture et molette de vitesse, comme un argentique
+menuRapide: "`Q`"
+extensionRaw: "`.RAF`"
+sections:
+  - numero: 1
+    exception: |
+      **Si vous cherchez la molette des modes : elle n'existe pas sur la plupart des Fujifilm.**
+      Vous ne l'avez pas perdue — votre appareil est construit comme les appareils argentiques,
+      et se règle autrement.
+
+      Vous avez **deux commandes séparées**, et chacune a une position `A` (automatique) :
+
+      - la **bague d'ouverture**, sur l'objectif ;
+      - la **molette de vitesse**, sur le dessus du boîtier.
+
+      **Le mode découle de la combinaison des deux :**
+
+      | Bague d'ouverture | Molette de vitesse | Vous êtes en… | Ce qu'on dira en formation |
+      |---|---|---|---|
+      | Sur `A` | Sur `A` | Tout automatique | `AUTO` / `P` |
+      | **Un chiffre** *(f/2.8…)* | Sur `A` | **Priorité à l'ouverture** | **`A`** |
+      | Sur `A` | **Un chiffre** *(1/500…)* | **Priorité à la vitesse** | **`S`** |
+      | **Un chiffre** | **Un chiffre** | **Manuel** | `M` |
+
+      Une fois qu'on l'a compris, c'est le système le plus lisible qui existe : **vous voyez
+      votre mode d'un coup d'œil, appareil éteint.**
+    entrees: []
+    note: |
+      **Deux exceptions à connaître.**
+
+      **Certains modèles ont bel et bien une molette `PASM`** classique : X-S10, X-S20, X-T200,
+      série X-A. Si vous en avez une, oubliez le tableau ci-dessus et suivez simplement ce qui
+      se dit en formation.
+
+      **Quelques objectifs n'ont pas de bague d'ouverture.** Sur ceux-là, l'ouverture se règle
+      avec une molette du boîtier, et un petit interrupteur `A` se trouve sur l'objectif.
+  - numero: 2
+    exception: |
+      **Chez vous, le mode de mise au point n'est pas dans un menu.** C'est un **interrupteur
+      physique sur l'avant du boîtier**, à trois positions : `S` · `C` · `M`.
+    entrees:
+      - formation: "`AF-S` — sujet immobile"
+        appareil: "Interrupteur sur **`S`**"
+      - formation: "`AF-C` — sujet qui bouge"
+        appareil: "Interrupteur sur **`C`**"
+      - formation: Mise au point manuelle
+        appareil: "Interrupteur sur **`M`**"
+      - formation: Un seul collimateur, que je déplace
+        appareil: "`Point unique`"
+      - formation: Une petite zone
+        appareil: "`Zone`"
+      - formation: L'appareil choisit tout seul
+        appareil: "`Large / Suivi`"
+      - formation: Détection du visage et de l'œil
+        appareil: "`Détection visage/œil`"
+  - numero: 3
+    entrees:
+      - formation: Compensation d'exposition
+        appareil: "Une **molette dédiée** sur le dessus, graduée de `−3` à `+3`. La plus pratique de toutes les marques."
+      - formation: ISO automatique
+        appareil: "`Réglage ISO AUTO` → `AUTO1`, `AUTO2` ou `AUTO3`"
+      - formation: Limite haute de l'ISO auto
+        appareil: "`Sensibilité max`, dans le réglage `AUTO` choisi"
+      - formation: Vitesse la plus lente acceptée
+        appareil: "`Vitesse d'obturation min.`, dans le réglage `AUTO` choisi"
+    note: |
+      **Rappel :** en manuel — bague **et** molette sur un chiffre — la molette `+/−` ne fait
+      rien. C'est normal : l'appareil ne décide plus rien, il n'y a donc rien à corriger.
+  - numero: 4
+    entrees:
+      - formation: Qualité d'image / RAW
+        appareil: "**`FINE+RAW`**"
+        chemin: "`Réglage qualité d'image` → `Qualité d'image`"
+      - formation: Mode de mise au point
+        appareil: "**L'interrupteur physique à l'avant du boîtier** — pas un menu"
+      - formation: Zone AF
+        appareil: "`Mode AF`"
+        chemin: "`Réglage AF/MF` — ou le petit joystick et la molette arrière"
+      - formation: Détection visage / œil
+        appareil: "`Détection visage/œil`"
+        chemin: "`Réglage AF/MF`"
+      - formation: Limite de l'ISO auto
+        appareil: "`Réglage ISO AUTO`"
+        chemin: "`Réglage qualité d'image`"
+    note: |
+      Fujifilm met beaucoup de choses sur des commandes physiques plutôt que dans les menus.
+      C'est déroutant le premier soir, très rapide ensuite.

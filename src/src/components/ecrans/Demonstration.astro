@@ -1,0 +1,112 @@
+---
+/**
+ * L'écran de démonstration.
+ *
+ * Les photographies occupent tout l'espace utile : aucun texte de panneau ne
+ * vient le leur disputer, décidé avec l'animateur. Un schéma peut vivre dans un
+ * panneau — il fait partie de l'explication — mais une photographie est une
+ * preuve, et une preuve se regarde en grand.
+ *
+ * Chaque série porte sa légende : **la seule** variable qui change, et les
+ * réglages restés identiques. Sans cela, la salle ne peut attribuer la
+ * différence à rien de précis, et la démonstration ne démontre pas.
+ */
+import { mdEnLigne, md } from '../../lib/md';
+import { typo } from '../../lib/typo';
+import EmplacementDemo from '../EmplacementDemo.astro';
+
+interface Props {
+  ecran: any;
+}
+
+const { ecran } = Astro.props;
+const claim = ecran.claim ? await mdEnLigne(ecran.claim) : '';
+const aparte = await md(ecran.aparte);
+
+const series = await Promise.all(
+  (ecran.series ?? []).map(async (serie: any) => ({
+    images: serie.images,
+    variable: serie.variable,
+    /** « ouverture f/5.6 · focale 50 mm » */
+    constantes: Object.entries(serie.constantes ?? {})
+      .map(([cle, valeur]) => `${cle} ${valeur}`)
+      .join(' · '),
+    legende: serie.legende ? await mdEnLigne(serie.legende) : '',
+  })),
+);
+
+const libres = ecran.images ?? [];
+const nombreDeRangs = series.length + (libres.length > 0 ? 1 : 0);
+---
+
+<div class="ecran demonstration" data-rangs={nombreDeRangs}>
+  {claim ? <h1 class="claim" style="font-size:calc(var(--t-enonce) * 0.6)" set:html={claim} /> : <div />}
+
+  <div class="rangs">
+    {series.map((serie) => (
+      <figure class="rang">
+        <div class="serie" data-images={serie.images.length}>
+          {serie.images.map((image: any) => (
+            <EmplacementDemo
+              id={image.id}
+              fichier={image.fichier}
+              specification={image.specification}
+              alt={image.alt}
+              valeur={image.valeur}
+              priorite={image.priorite}
+            />
+          ))}
+        </div>
+        <figcaption class="legende-serie">
+          <b set:html={typo(`Seule chose qui change : ${serie.variable}.`)} />
+          {serie.constantes && (
+            <span set:html={typo(` Identiques d'une image à l'autre : ${serie.constantes}.`)} />
+          )}
+          {serie.legende && <span set:html={` ${serie.legende}`} />}
+        </figcaption>
+      </figure>
+    ))}
+
+    {libres.length > 0 && (
+      <div class="rang">
+        <div class="serie" data-images={libres.length}>
+          {libres.map((image: any) => (
+            <EmplacementDemo
+              id={image.id}
+              fichier={image.fichier}
+              specification={image.specification}
+              alt={image.alt}
+              valeur={image.valeur}
+              priorite={image.priorite}
+            />
+          ))}
+        </div>
+      </div>
+    )}
+  </div>
+
+  {aparte && <div class="legende-serie" set:html={aparte} />}
+</div>
+
+<style>
+  .rangs {
+    display: grid;
+    gap: var(--pas-2);
+    min-height: 0;
+    /* Les rangs se partagent la hauteur : deux séries sur un écran gardent
+       chacune une place utilisable, plutôt qu'une pleine et l'autre écrasée. */
+    grid-auto-rows: minmax(0, 1fr);
+  }
+  .rang {
+    margin: 0;
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto;
+    gap: calc(var(--pas) * 0.6);
+    min-height: 0;
+    overflow: hidden;
+  }
+  .rang .legende-serie { padding-top: calc(var(--pas) * 0.5); }
+  @media (max-width: 44rem) {
+    .rangs { grid-auto-rows: auto; }
+  }
+</style>

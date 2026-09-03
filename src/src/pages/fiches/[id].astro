@@ -1,0 +1,28 @@
+---
+/**
+ * Une route par fiche, engendrée depuis la collection : déposer un fichier dans
+ * `src/content/fiches/` suffit à créer la page et à la faire apparaître dans
+ * l'index, sans qu'aucune autre page soit modifiée.
+ */
+import type { GetStaticPaths } from 'astro';
+import { getCollection, render } from 'astro:content';
+import Fiche from '../../layouts/Fiche.astro';
+
+export const getStaticPaths = (async () => {
+  const fiches = await getCollection('fiches');
+  return fiches.map((fiche) => ({ params: { id: fiche.id }, props: { fiche } }));
+}) satisfies GetStaticPaths;
+
+const { fiche } = Astro.props;
+const { Content } = await render(fiche);
+---
+
+<Fiche
+  titre={fiche.data.titre}
+  sousTitre={fiche.data.sousTitre}
+  seance={fiche.data.seance}
+  colonnes={fiche.data.colonnes}
+  densite={fiche.data.densite}
+>
+  <Content />
+</Fiche>

@@ -1,0 +1,50 @@
+---
+/**
+ * « Appareil en main ».
+ *
+ * Même présentation aux trois séances, et reconnaissable **du fond de la salle
+ * sans lire** : bordure d'accent, bandeau, gestes numérotés en gros. Ces
+ * moments reviennent huit fois dans la formation ; qu'ils se reconnaissent
+ * d'un coup d'œil évite huit fois d'expliquer qu'on change de mode.
+ *
+ * La variante cellulaire n'est pas une note en bas de page : un participant qui
+ * photographie avec son téléphone doit avoir un exercice à faire, pas
+ * l'impression d'être toléré.
+ */
+import { md, mdEnLigne } from '../../lib/md';
+
+interface Props {
+  ecran: any;
+}
+
+const { ecran } = Astro.props;
+const claim = await mdEnLigne(ecran.claim);
+const gestes = await Promise.all(ecran.gestes.map((g: string) => mdEnLigne(g)));
+const cellulaire = await mdEnLigne(ecran.cellulaire);
+const reflex = await mdEnLigne(ecran.reflex);
+const aparte = await md(ecran.aparte);
+---
+
+<div class="ecran appareil">
+  <div>
+    <p class="banniere">Appareil en main</p>
+    <h1 class="claim" set:html={claim} />
+  </div>
+
+  <div style="display:grid;gap:var(--pas-2);align-content:start;min-height:0">
+    <ol class="gestes">
+      {gestes.map((geste) => <li><span set:html={geste} /></li>)}
+    </ol>
+
+    {(cellulaire || reflex) && (
+      <div class="variantes">
+        {cellulaire && (
+          <p class="variante"><b>Cellulaire</b><span set:html={cellulaire} /></p>
+        )}
+        {reflex && <p class="variante"><b>Reflex</b><span set:html={reflex} /></p>}
+      </div>
+    )}
+
+    {aparte && <div class="aparte" set:html={aparte} />}
+  </div>
+</div>

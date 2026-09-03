@@ -1,0 +1,41 @@
+---
+/**
+ * Le sélecteur de marque.
+ *
+ * Ce sont de vrais liens vers de vraies pages : sans JavaScript, il fonctionne
+ * entièrement. La mémorisation du choix est une commodité posée par-dessus, pas
+ * le mécanisme lui-même.
+ */
+import type { CollectionEntry } from 'astro:content';
+import { lien } from '../lib/lien';
+import { typo } from '../lib/typo';
+
+import { PARAM_CHOISIR } from '../lib/lexique';
+
+interface Props {
+  marques: CollectionEntry<'marques'>[];
+  courante?: string;
+}
+
+const { marques, courante } = Astro.props;
+---
+
+<nav class="encadre-marques" aria-label="Choisir votre marque">
+  <p>Votre marque</p>
+  <ul class="jetons-marques">
+    {marques.map((marque) => (
+      <li>
+        <a
+          href={lien(`/lexique/${marque.id}`)}
+          aria-current={marque.id === courante ? 'page' : undefined}
+          set:html={typo(marque.data.nom)}
+        />
+      </li>
+    ))}
+  </ul>
+  {courante && (
+    <p style="margin:0.75rem 0 0;font-size:0.9rem">
+      <a href={`${lien('/lexique')}?${PARAM_CHOISIR}`}>Changer de marque</a>
+    </p>
+  )}
+</nav>

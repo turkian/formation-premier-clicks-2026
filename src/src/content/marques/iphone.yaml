@@ -1,0 +1,71 @@
+nom: iPhone
+rang: 7
+genre: cellulaire
+sousTitre: L'appareil photo natif, et ce qu'il ne fait pas
+extensionRaw: "`.DNG` — environ 25 Mo par photo"
+sections:
+  - numero: 1
+    exception: |
+      **Votre iPhone n'a pas de molette de modes.** Par défaut, il est l'équivalent du mode
+      **tout automatique** : il choisit l'ouverture, la vitesse et l'ISO, tous les trois.
+    entrees:
+      - formation: Tout automatique
+        appareil: "Le mode `Photo` normal — c'est là que vous êtes"
+      - formation: Priorité à l'ouverture — je choisis la quantité de lumière
+        appareil: "N'existe pas. Le mode **`Portrait`** simule le flou d'arrière-plan."
+        note: "**Mais s'approcher du sujet et éloigner le fond fonctionne exactement comme sur un appareil, et ça, c'est du vrai flou.**"
+      - formation: Priorité à la vitesse — je choisis la durée
+        appareil: "N'existe pas dans l'application native. Il faut une application tierce."
+      - formation: Manuel
+        appareil: "Idem : application tierce"
+    note: |
+      **Pour régler la vitesse vous-même**, il vous faut une autre application.
+      **Lightroom mobile est gratuite** et contient un appareil photo avec les contrôles manuels
+      complets — c'est aussi le logiciel utilisé à la séance 3, donc autant l'installer tout de
+      suite. Halide et ProCamera sont d'autres options, payantes.
+  - numero: 2
+    entrees:
+      - formation: Choisir où faire le point
+        appareil: "**Touchez l'écran** à l'endroit voulu. Un carré jaune apparaît."
+      - formation: "`AF-S` — verrouiller le point"
+        appareil: "**Maintenez le doigt** une seconde. `VERR. AE/AF` s'affiche en haut de l'écran. Touchez ailleurs pour déverrouiller."
+      - formation: "`AF-C` — suivre un sujet qui bouge"
+        appareil: "Automatique. Votre iPhone suit le sujet sans qu'on le lui demande."
+      - formation: Détection du visage et de l'œil
+        appareil: "Automatique, toujours active"
+  - numero: 3
+    entrees:
+      - formation: Compensation d'exposition
+        appareil: "Touchez l'écran pour faire le point, puis **glissez le doigt vers le haut ou le bas**. Un petit soleil apparaît à côté du carré jaune."
+      - formation: Garder la correction d'une photo à l'autre
+        appareil: "Activer `Réglage d'exposition`"
+        chemin: "`Réglages` → `Appareil photo` → `Conserver les réglages`"
+      - formation: ISO automatique
+        appareil: "Toujours automatique, sauf en application tierce"
+    note: |
+      **C'est le réglage le plus utile de votre téléphone, et presque personne ne sait qu'il
+      existe.** C'est exactement la compensation d'exposition dont on parle toute la soirée :
+      neige trop grise, glissez vers le haut ; scène sombre trop pâle, glissez vers le bas.
+  - numero: 4
+    exception: |
+      Attention : certains réglages sont dans **l'application appareil photo**, d'autres dans
+      les **Réglages du téléphone**.
+    entrees:
+      - formation: RAW *(modèles `Pro` seulement)*
+        appareil: "**`Apple ProRAW`**"
+        chemin: "`Réglages` → `Appareil photo` → `Formats`"
+        note: "Ensuite, activez `RAW` en haut à droite de l'application appareil photo, à chaque séance de photo."
+      - formation: Grille de composition
+        appareil: "**`Grille`**"
+        chemin: "`Réglages` → `Appareil photo`"
+      - formation: Niveau pour l'horizon
+        appareil: "`Niveau` *(à partir d'iOS 17)*"
+        chemin: "`Réglages` → `Appareil photo`"
+      - formation: Conserver les réglages
+        appareil: "`Conserver les réglages`"
+        chemin: "`Réglages` → `Appareil photo`"
+    note: |
+      **Faites les deux premiers ce soir.** La grille est le meilleur outil gratuit qui existe
+      pour vos quatre coins et vos horizons droits.
+
+      Activez le RAW seulement quand vous comptez développer la photo : les fichiers sont lourds.

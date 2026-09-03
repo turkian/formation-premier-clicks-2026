@@ -1,0 +1,51 @@
+---
+/**
+ * La zone nette : une **zone**, pas un plan, et elle s'étend **devant et
+ * derrière** le point de mise au point.
+ *
+ * Les trois mots que le bloc insiste à faire entendre sont exactement ce que ce
+ * dessin doit rendre visible — d'où le dégradé plutôt qu'un rectangle net : la
+ * netteté ne s'arrête pas net, elle se dégrade progressivement.
+ */
+interface Props {
+  /** Proportion de la scène occupée par la zone nette, de 0 à 1. */
+  epaisseur?: number;
+  etiquette?: string;
+}
+const { epaisseur = 0.28, etiquette = 'la zone nette' } = Astro.props;
+const largeur = Math.max(0.05, Math.min(0.9, epaisseur)) * 480;
+const x = 320 - largeur / 2;
+---
+
+<svg viewBox="0 0 640 230" role="img" aria-label={`Vue de dessus : ${etiquette} autour du point de mise au point`}
+     style="width:100%;height:auto">
+  <defs>
+    <linearGradient id="zn-degrade" x1="0" x2="1">
+      <stop offset="0" stop-color="var(--accent)" stop-opacity="0" />
+      <stop offset="0.5" stop-color="var(--accent)" stop-opacity="0.42" />
+      <stop offset="1" stop-color="var(--accent)" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <rect x={x} y="46" width={largeur} height="122" fill="url(#zn-degrade)" />
+  <line x1="60" y1="168" x2="620" y2="168" stroke="var(--trait)" />
+
+  <g transform="translate(60,168)">
+    <rect x="-14" y="-22" width="28" height="18" rx="3" fill="var(--texte-2)" />
+    <text x="0" y="20" text-anchor="middle" font-size="13" fill="var(--texte-3)">vous</text>
+  </g>
+
+  <line x1="320" y1="40" x2="320" y2="176" stroke="var(--texte)" stroke-width="2" />
+  <circle cx="320" cy="108" r="8" fill="var(--texte)" />
+  <text x="320" y="30" text-anchor="middle" font-size="14" fill="var(--texte)">le point</text>
+  <text x="320" y="196" text-anchor="middle" font-size="13" fill="var(--texte-2)">un seul endroit</text>
+
+  <g stroke="var(--accent)" stroke-width="1.5">
+    <line x1={x} y1="46" x2={x} y2="168" stroke-dasharray="4 3" />
+    <line x1={x + largeur} y1="46" x2={x + largeur} y2="168" stroke-dasharray="4 3" />
+    <line x1={x + 6} y1="38" x2={x + largeur - 6} y2="38" marker-start="url(#zn-fleche)" />
+  </g>
+  <text x="320" y="218" text-anchor="middle" font-size="14" fill="var(--accent)">
+    {etiquette} — devant et derrière
+  </text>
+</svg>

@@ -1,0 +1,219 @@
+/**
+ * Les fiches de référence : une page Letter à l'impression, lisible sur un
+ * téléphone à l'écran.
+ *
+ * Trois exigences qui tirent dans des directions différentes, et une seule
+ * feuille pour les servir :
+ *   — à l'écran, fond sombre, une colonne, pleine largeur du téléphone ;
+ *   — au papier, noir sur blanc, deux colonnes, **une seule** page ;
+ *   — à l'impression, plus aucun mobilier de site : ni navigation, ni lien,
+ *     ni commande. Restent le titre et l'attribution du club.
+ */
+
+.fiche {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: clamp(1.2rem, 4vw, 2.5rem) clamp(0.9rem, 3.5vw, 2rem) 4rem;
+}
+
+.fiche-entete {
+  margin-bottom: 1.4rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 2px solid var(--accent);
+}
+
+.fiche-entete .surtitre {
+  font-size: var(--t-etiquette);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: var(--graisse-appui);
+  margin-bottom: 0.4rem;
+}
+
+.fiche-entete h1 {
+  font-size: clamp(1.5rem, 5vw, 2.2rem);
+  margin-bottom: 0.25rem;
+}
+
+.fiche-entete .sous-titre {
+  color: var(--texte-2);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.fiche-corps > *:first-child { margin-top: 0; }
+
+.fiche-corps h2 {
+  font-size: 1.02rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 1.5rem 0 0.5rem;
+  /* Un titre ne reste jamais seul au bas d'une colonne. */
+  break-after: avoid;
+  break-inside: avoid;
+}
+
+.fiche-corps h3 {
+  font-size: 0.97rem;
+  margin: 0.9rem 0 0.3rem;
+  color: var(--texte);
+  break-after: avoid;
+}
+
+.fiche-corps table { margin: 0.4rem 0 0.9rem; break-inside: avoid; }
+.fiche-corps th, .fiche-corps td { padding: 0.3em 0.55em; }
+.fiche-corps ul, .fiche-corps ol { margin-bottom: 0.9rem; }
+.fiche-corps li { margin-bottom: 0.18em; }
+.fiche-corps blockquote {
+  margin: 0.7rem 0;
+  padding: 0.55rem 0.85rem;
+  border-left: 3px solid var(--accent);
+  background: var(--fond-2);
+  border-radius: 0 var(--rayon) var(--rayon) 0;
+  break-inside: avoid;
+}
+.fiche-corps blockquote p:last-child { margin-bottom: 0; }
+.fiche-corps hr {
+  border: 0;
+  border-top: 1px solid var(--trait);
+  margin: 1.3rem 0;
+}
+.fiche-corps strong { font-weight: var(--graisse-appui); }
+
+.fiche-pied {
+  margin-top: 1.6rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--trait);
+  color: var(--texte-3);
+  font-size: 0.85rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Un tableau large défile dans ses propres limites, il n'élargit pas la page. */
+.fiche-corps .defile-x { margin: 0.4rem 0 0.9rem; }
+.fiche-corps .defile-x table { margin: 0; min-width: 26rem; }
+
+@media (max-width: 44rem) {
+  .fiche-corps .defile-x table { min-width: 24rem; }
+}
+
+/* ── Impression ─────────────────────────────────────────────────────────── */
+
+@page {
+  size: letter;
+  margin: 11mm 12mm;
+}
+
+@media print {
+  /* Tout le mobilier de site disparaît. */
+  .sans-impression,
+  .saut-au-contenu,
+  nav,
+  .fil,
+  .pied-site {
+    display: none !important;
+  }
+
+  html, body { background: #fff; }
+
+  /* `min-height: 100vh` vaut la hauteur **totale** de la feuille à
+     l'impression, marges comprises : la page déborde alors de quelques
+     millimètres et l'imprimante en sort une seconde, vide. */
+  body { min-height: 0; }
+
+  .fiche {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .fiche-entete {
+    border-bottom: 1.2pt solid #000;
+    padding-bottom: 4pt;
+    margin-bottom: 7pt;
+  }
+  .fiche-entete h1 { font-size: 17pt; }
+  .fiche-entete .surtitre { font-size: 7pt; margin-bottom: 2pt; }
+  .fiche-entete .sous-titre { font-size: 8.5pt; }
+
+  /* Deux colonnes : deux cartes 10 × 15 tiennent sur une page Letter. */
+  .fiche-corps[data-colonnes='deux'] {
+    column-count: 2;
+    column-gap: 8mm;
+    column-fill: auto;
+  }
+
+  .fiche-corps h2 {
+    font-size: 9.5pt;
+    margin: 7pt 0 2.5pt;
+    color: #000;
+    border-bottom: 0.6pt solid #999;
+    padding-bottom: 1.5pt;
+  }
+  .fiche-corps h2:first-child { margin-top: 0; }
+  .fiche-corps h3 { font-size: 8.8pt; margin: 5pt 0 1.5pt; }
+  .fiche-corps p, .fiche-corps li, .fiche-corps td, .fiche-corps th { font-size: 8.6pt; }
+  .fiche-corps ul, .fiche-corps ol { margin-bottom: 5pt; padding-left: 3.6mm; }
+  .fiche-corps li { margin-bottom: 0.6pt; }
+  .fiche-corps table { margin: 2.5pt 0 5pt; }
+  .fiche-corps th, .fiche-corps td { padding: 1.1pt 2.2pt; border-bottom: 0.4pt solid #bbb; }
+  .fiche-corps blockquote {
+    margin: 3.5pt 0;
+    padding: 2.5pt 4pt;
+    border-left: 1.5pt solid #000;
+    background: #f2f2f2;
+    font-size: 8.4pt;
+  }
+  .fiche-corps hr { margin: 6pt 0; border-top: 0.4pt solid #bbb; }
+
+  /* Le défilement horizontal n'a pas de sens sur papier. */
+  .fiche-corps .defile-x { overflow: visible; }
+  .fiche-corps .defile-x table { min-width: 0; }
+
+  /* Un lien imprimé est du texte : ni couleur, ni soulignement, ni URL ajoutée. */
+  .fiche-corps a { color: #000; text-decoration: none; }
+
+  .fiche-pied {
+    margin-top: 6pt;
+    padding-top: 3pt;
+    border-top: 0.4pt solid #999;
+    font-size: 7pt;
+    color: #444;
+    /* Le pied appartient à la page, pas à la deuxième colonne. */
+    column-span: all;
+  }
+
+  /* Une fiche dont le contenu complet est une exigence — la fiche de
+     diagnostic porte tous les symptômes — resserre sa mise en page plutôt que
+     de laisser tomber des lignes. */
+  .fiche-corps[data-densite='serree'] p,
+  .fiche-corps[data-densite='serree'] li,
+  .fiche-corps[data-densite='serree'] td,
+  .fiche-corps[data-densite='serree'] th {
+    font-size: 7.9pt;
+    line-height: 1.24;
+  }
+  .fiche-corps[data-densite='serree'] h2 { font-size: 8.8pt; margin: 5pt 0 2pt; }
+  .fiche-corps[data-densite='serree'] h3 { font-size: 8.2pt; margin: 3.5pt 0 1pt; }
+  .fiche-corps[data-densite='serree'] ul,
+  .fiche-corps[data-densite='serree'] ol { margin-bottom: 3.5pt; }
+  .fiche-corps[data-densite='serree'] blockquote { margin: 2.5pt 0; padding: 2pt 3.5pt; font-size: 7.7pt; }
+  .fiche-corps[data-densite='serree'] li { margin-bottom: 0; }
+
+  /* L'en-tête d'une fiche serrée cède aussi : le titre reste lisible, le
+     sous-titre et l'espace sous le filet se réduisent. */
+  .fiche:has([data-densite='serree']) .fiche-entete {
+    padding-bottom: 2.5pt;
+    margin-bottom: 4.5pt;
+  }
+  .fiche:has([data-densite='serree']) .fiche-entete h1 { font-size: 14pt; }
+  .fiche:has([data-densite='serree']) .fiche-entete .sous-titre { font-size: 8pt; }
+
+  /* Rien ne doit produire une deuxième page. */
+  .fiche > *:last-child { break-after: avoid-page; }
+}

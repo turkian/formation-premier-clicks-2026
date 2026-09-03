@@ -1,0 +1,501 @@
+# Séance 2 — adaptée de docs/Session 2/formation_photo_session_2.md,
+# selon la même règle que la séance 1 (décision D7) : les blocs de citation
+# deviennent le texte à l'écran, les tableaux deviennent du contenu, les
+# directives destinées à la salle sont affichées, et tout ce qui relève du
+# minutage, de l'équipe, du matériel ou des consignes d'animation reste dans
+# docs/ — y compris les fiches d'ateliers, qui sont un outil d'animateur.
+
+numero: 2
+titre: L'exposition
+filConducteur: La durée → la sensibilité → qui décide quoi → et on met les mains dedans
+question: qu'est-ce que mon appareil décide à ma place, et pourquoi ?
+
+blocs:
+  # ─────────────────────────────────────────────────────────────────────────
+  - id: retour
+    titre: Retour sur la séance 1
+    resume: Les ratés d'abord — les miens.
+    ecrans:
+      - id: mes-rates
+        genre: repere
+        variante: ouverture
+        titre: Retour
+        claim: Voici deux de mes photos manquées, et pourquoi elles ont raté.
+        corps: |
+          Qui a essayé le mode `A` depuis trois semaines ? Et qui a trouvé ça déroutant ?
+
+          **Les difficultés sont de bonnes nouvelles** : ce sont les questions de ce soir.
+        aparte: |
+          Gardez votre carte dans l'appareil : vos photos serviront aux ateliers.
+
+      - id: le-programme
+        genre: panneau
+        titre: Le programme
+        claim: Ce soir, vous allez comprendre ce que votre appareil décide à votre place.
+        corps: |
+          La séance 1 a traité tout ce qui décide de **la netteté**. Celle-ci regroupe tout ce
+          qui décide de **l'exposition**.
+
+          Il n'y a que **deux façons de faire entrer la lumière** :
+
+          | | Ce qu'elle règle | Vue |
+          |---|---|---|
+          | **L'ouverture** | la **taille** du trou | séance 1 |
+          | **La vitesse** | la **durée** pendant laquelle il reste ouvert | ce soir |
+
+          Les quatre modes de votre molette ne seront qu'une conséquence de ces deux-là.
+        aparte: |
+          Une demi-heure de théorie utile, puis une heure complète d'appareil dans les mains.
+
+  # ─────────────────────────────────────────────────────────────────────────
+  - id: vitesse
+    titre: Le mouvement et la vitesse
+    resume: Figer, ou laisser voir. Aucune des deux n'est meilleure.
+    ecrans:
+      - id: la-decision
+        genre: panneau
+        titre: La décision
+        claim: Face à quelque chose qui bouge, vous avez deux réponses. Aucune n'est meilleure.
+        corps: |
+          - **Figer** — on lit le détail, l'instant est suspendu.
+          - **Laisser le mouvement apparaître** — on lit la vitesse, l'énergie.
+
+          | Situation | Point de départ |
+          |---|---|
+          | Personne qui marche | `1/250 s` |
+          | Enfant qui court, chien | `1/500 s` |
+          | Sport, oiseau en vol | `1/1000 s` et plus |
+          | Filé — suivre un sujet qui passe | `1/30 s` |
+          | Eau de rivière soyeuse | `1/4 s` à `1 s`, sur trépied |
+        aparte: |
+          Votre choix dépend de ce que vous voulez raconter : c'est **la question 3** de votre
+          fiche. Ces chiffres sont des points de départ, pas des règles.
+
+      - id: deux-flous
+        genre: panneau
+        titre: Deux flous, deux causes
+        claim: Le sujet a bougé, ou c'est vous. Savoir lequel, c'est savoir quoi corriger.
+        corps: |
+          | Ce que vous voyez | Qui a bougé | Ce qu'on fait |
+          |---|---|---|
+          | Seul le sujet est flou, **le décor est net** | le sujet | montez la vitesse, ou passez en `AF-C` |
+          | **Toute l'image** est floue, dans le même sens | vous | montez la vitesse, calez vos coudes |
+        aparte: |
+          Ce qui vous stabilise : votre posture, la focale — plus c'est long, plus ça tremble —,
+          la stabilisation du boîtier ou de l'objectif, et le trépied. Cette distinction revient
+          à chaque diagnostic de la soirée.
+
+      - id: explorer-le-mouvement
+        genre: interactif
+        titre: Explorer le mouvement
+        claim: Faites bouger le sujet seul, puis vous seul. Ce n'est pas le même flou.
+        composant: vitesse-et-mouvement
+
+      - id: la-molette-de-vitesse
+        genre: appareil-en-main
+        titre: Appareil en main — la vitesse
+        claim: Photographiez votre main qui s'agite, à 1/500 puis à 1/15.
+        gestes:
+          - "**Passez en mode `S`** — ou **`Tv`** sur un Canon."
+          - "**Trouvez la molette de vitesse.** Allez de `1/1000` à `1/15` en regardant le chiffre changer."
+          - "**Photographiez votre main qui s'agite**, à `1/500` puis à `1/15`. Comparez."
+        cellulaire: |
+          Cherchez un mode **`Pro`** ou **`Expert`** dans votre application appareil photo.
+          Sinon, observez : votre téléphone choisit une vitesse lente quand il fait sombre, et
+          c'est pour ça que vos photos de soirée sont floues.
+        aparte: |
+          Les modes sont en **section 1** de votre feuille de marque.
+
+  # ─────────────────────────────────────────────────────────────────────────
+  - id: iso
+    titre: L'ISO et la faible lumière
+    resume: Ce qui rend possibles vos deux vraies décisions.
+    ecrans:
+      - id: le-raisonnement
+        genre: panneau
+        titre: L'ISO
+        claim: L'ISO n'est pas une décision créative. Il vous permet de garder vos deux vraies décisions.
+        corps: |
+          Le raisonnement, dans cet ordre :
+
+          1. Je veux **`f/4`** pour ma profondeur de champ.
+          2. Je veux **`1/500 s`** pour figer mon sujet.
+          3. Il manque de lumière.
+          4. → **J'augmente l'ISO.**
+
+          Ce que ça coûte : du **bruit**, de la perte de détail fin, une dynamique réduite.
+        aparte: |
+          Activez l'**ISO automatique** avec une limite haute — 3200 ou 6400 selon votre
+          appareil. Vous récupérez la souplesse sans avoir à y penser.
+
+      - id: nette-et-bruitee
+        genre: interactif
+        titre: Le compromis
+        claim: Une photo nette avec du bruit vaut mieux qu'une photo propre mais floue.
+        composant: iso-et-bruit
+        aparte: |
+          Le bruit se corrige en partie au développement — séance 3. Le flou de bougé, jamais.
+
+      - id: nette-ou-propre
+        genre: demonstration
+        titre: Nette et bruitée, ou propre et floue
+        claim: La même scène, les deux issues du même arbitrage.
+        series:
+          - variable: l'ISO, et donc la vitesse qui en découle
+            constantes:
+              scène: la même, en faible lumière
+              ouverture: f/2.8
+              focale: 35 mm
+            legende: Regardez laquelle des deux vous garderiez.
+            images:
+              - id: l2-iso-nette-bruitee
+                specification: Faible lumière, ISO 6400, 1/125 s · f/2.8 · nette et bruitée
+                valeur: ISO 6400 — nette, bruitée
+                priorite: essentiel
+                reglages: { iso: "6400", ouverture: f/2.8, focale: 35 mm }
+              - id: l2-iso-propre-floue
+                specification: Même scène, ISO 400, 1/8 s à main levée · f/2.8 · propre et bougée
+                valeur: ISO 400 — propre, floue
+                priorite: essentiel
+                reglages: { iso: "400", ouverture: f/2.8, focale: 35 mm }
+
+  # ─────────────────────────────────────────────────────────────────────────
+  - id: pause
+    titre: Pause
+    resume: Le tableau à questions reste au mur.
+    ecrans:
+      - id: la-pause
+        genre: repere
+        variante: pause
+        titre: Pause
+        claim: Douze minutes.
+        corps: |
+          Le tableau à questions est au mur, avec les papillons adhésifs. Écrivez, collez, sans
+          votre nom si vous préférez.
+
+          Après la pause : les quatre modes, la compensation, et une heure d'ateliers.
+
+  # ─────────────────────────────────────────────────────────────────────────
+  - id: exposition
+    titre: L'exposition et les quatre modes
+    resume: Le bloc le plus important de la séance — il assemble tout le reste.
+    ecrans:
+      - id: ouverture
+        genre: repere
+        variante: ouverture
+        titre: L'exposition
+        claim: Trop sombre, trop clair, ou comme je le voulais.
+        corps: |
+          La troisième option est la seule qui compte : **il n'existe pas d'exposition
+          objectivement correcte**, seulement une exposition qui sert votre intention.
+
+      # ★ Panneau cumulatif : la salle propose la correction avant de la voir.
+      - id: quand-l-appareil-se-trompe
+        genre: panneau
+        titre: Quand l'appareil se trompe
+        claim: Votre appareil suppose que la scène est de luminosité moyenne. Ça échoue dans trois cas.
+        corps: |
+          | La scène | Ce qu'il fait | Le résultat |
+          |---|---|---|
+          | **Neige, plage, mur blanc** | il sous-expose | votre neige devient grise |
+          | **Spectacle, scène sombre** | il surexpose | vos noirs deviennent gris |
+          | **Contre-jour** | il expose pour le fond | votre sujet devient une silhouette |
+        aparte: |
+          Dans les trois cas, que faut-il faire ?
+        etats:
+          - etiquette: Les trois échecs
+          - etiquette: La correction
+            encadre: |
+              **Neige, sujet clair → `+1`.** **Scène sombre → `−1`.**
+              **Contre-jour → `+1` ou `+2`.**
+
+              C'est le bouton `+/−`. Il dit à l'appareil : « la mesure est bonne, mais je la
+              veux un peu plus claire — ou un peu plus sombre. »
+            ton: reponse
+          - etiquette: Ce qu'il faut retenir
+            encadre: |
+              La compensation donne **80 % du bénéfice** de sortir du mode automatique, pour
+              20 % de l'effort.
+
+              S'il ne faut retenir qu'une chose de la soirée, que ce soit celle-là.
+            ton: regle
+
+      - id: qui-decide-quoi
+        genre: panneau
+        titre: Les quatre modes
+        claim: Deux réglages sont en jeu. Chaque mode dit lequel des deux vous gardez.
+        corps: |
+          | Mode | L'ouverture | La vitesse | Ce que ça veut dire |
+          |---|---|---|---|
+          | **Auto** | l'appareil | l'appareil | Il décide tout. |
+          | **A · Av** | **vous** | l'appareil | Vous choisissez **la taille du trou**. |
+          | **S · Tv** | l'appareil | **vous** | Vous choisissez **la durée**. |
+          | **M** | **vous** | **vous** | L'appareil ne décide plus rien. |
+        aparte: |
+          `Av` et `A` sont **le même mode** : Canon dit `Av`, les autres disent `A`. Même chose
+          pour `Tv` et `S`. **Fujifilm n'a pas cette molette** : le mode résulte de la bague
+          d'ouverture et de la molette de vitesse, chacune ayant une position `A` — les quatre
+          combinaisons sont en tête de votre feuille. Pour tous les autres : **section 1**.
+
+      - id: l-effet-secondaire
+        genre: panneau
+        titre: Le point qui fait tout comprendre
+        claim: Vous choisissez votre mode selon l'effet secondaire qui compte le plus.
+        corps: |
+          | Réglage | Ce qu'il règle | L'effet secondaire — celui qui vous intéresse |
+          |---|---|---|
+          | **L'ouverture** | la **taille** du trou | l'**épaisseur de la zone nette** |
+          | **La vitesse** | la **durée** | le **rendu du mouvement** — figé ou visible |
+
+          Portrait dans un parc → fond flou → **`A`**, ouvert en grand.
+          Votre enfant qui court → le figer → **`S`**, à `1/500`.
+        aparte: |
+          ⚠️ **L'ouverture n'est pas la mise au point.** Le mode `A` ne choisit pas *ce qui* est
+          net — ça, c'est votre collimateur, dans tous les modes. Il choisit **combien de chose**
+          sera net autour de votre sujet.
+
+      - id: explorer-la-molette
+        genre: interactif
+        titre: Qui décide quoi
+        claim: Choisissez un mode, et regardez ce que l'appareil garde en main.
+        composant: molette-des-modes
+
+      # ★ Panneau cumulatif : « le test qui prouve qu'ils ont compris les modes ».
+      - id: la-compensation-en-manuel
+        genre: panneau
+        titre: La question qui prouve
+        claim: Pourquoi la compensation ne fait-elle rien en mode manuel ?
+        corps: |
+          La compensation dit une seule chose à l'appareil : **« décide autrement. »**
+
+          Mettez-vous en `M`. Tournez votre molette de compensation. Regardez votre écran.
+        aparte: |
+          Rien ne bouge. À votre avis, pourquoi ?
+        etats:
+          - etiquette: La question
+          - etiquette: La réponse
+            encadre: |
+              **Encore faut-il qu'il décide quelque chose.**
+
+              En `Auto`, il décide l'ouverture et la vitesse. En `A · Av`, la vitesse. En
+              `S · Tv`, l'ouverture. En **`M`, rien** — donc le `+/−` ne fait **rien du tout**.
+            ton: reponse
+          - etiquette: Ce que ça dit du manuel
+            encadre: |
+              En manuel, vous avez déjà pris les deux décisions. Il ne reste rien à décaler.
+
+              **Ce n'est pas une limite de votre appareil** : c'est la définition même du mode
+              manuel — et c'est pourquoi le manuel est plus lent.
+            ton: regle
+
+      - id: votre-point-de-depart
+        genre: panneau
+        titre: Votre point de départ
+        claim: Votre mode par défaut, c'est A — ou Av.
+        corps: |
+          - **`A` · `Av`** par défaut : la main sur l'ouverture, donc sur la profondeur de champ,
+            la décision qui revient le plus souvent.
+          - **`S` · `Tv`** quand le mouvement devient la vraie question.
+          - **Le manuel viendra tout seul**, le jour où vous vous direz « je veux exactement
+            cette ouverture ET exactement cette vitesse ».
+
+          Le mode Auto n'est pas honteux. Il est simplement **muet sur ce que vous vouliez
+          montrer**.
+        aparte: |
+          **Sans-miroir :** votre viseur montre déjà l'exposition finale — tournez le `+/−`
+          jusqu'à ce que ce soit beau. **Reflex :** le viseur optique montre toujours la même
+          chose. Regardez l'écran après la photo, ou passez en visée par l'écran.
+
+      - id: quatre-situations
+        genre: panneau
+        titre: Quatre situations
+        claim: Quel mode, et pourquoi ? Partez de la question, pas du réglage.
+        corps: |
+          1. Portrait dehors, détacher la personne du fond.
+          2. Un enfant qui court.
+          3. Paysage, tout net du premier plan à l'horizon.
+          4. Concert sombre.
+        aparte: |
+          Il n'y a pas toujours une seule bonne réponse, et c'est un bon message à retenir.
+        etats:
+          - etiquette: Les quatre situations
+          - etiquette: Les réponses
+            corps: |
+              | | La réponse |
+              |---|---|
+              | Portrait, détacher du fond | **`A · Av`** — l'épaisseur de la zone nette |
+              | Un enfant qui court | **`S · Tv`** — la question est le mouvement |
+              | Paysage, tout net | **`A · Av`** — l'épaisseur, en sens inverse |
+              | Concert sombre | **`S · Tv`** pour tenir la vitesse — et surtout **`−1`** |
+
+      - id: le-tour-de-la-molette
+        genre: appareil-en-main
+        titre: Appareil en main — la molette
+        claim: Faites le tour de votre molette, et nommez à voix haute ce que l'appareil décide.
+        gestes:
+          - "**Faites le tour de votre molette** — `Auto`, `A` ou `Av`, `S` ou `Tv`, `M`."
+          - "**Arrêtez-vous sur `M` et tournez le `+/−`.** Rien ne bouge — et maintenant vous savez pourquoi."
+          - "**Revenez sur `A` · `Av`** — c'est là que votre appareil reste en partant ce soir."
+          - "**ISO automatique**, limite haute à 3200 ou 6400."
+          - "**Trouvez le bouton `+/−` au toucher**, sans regarder : `−1`, `+1`, retour à `0`."
+          - "**Format `RAW + JPEG`** si votre appareil le permet. On en aura besoin à la séance 3."
+        cellulaire: |
+          Touchez l'écran pour faire le point, puis **glissez le doigt vers le haut ou le bas** —
+          un petit soleil apparaît : c'est votre compensation. Activez aussi le **RAW / ProRAW**
+          et **la grille de composition** — section 4 de votre feuille.
+        aparte: |
+          Avant de partir en atelier : **votre molette est-elle revenue sur `A` ou `Av` ?**
+
+  # ─────────────────────────────────────────────────────────────────────────
+  - id: ateliers
+    titre: Les ateliers
+    resume: Quatre stations, et une phrase à dire à voix haute avant chaque photo.
+    ecrans:
+      - id: quatre-stations
+        genre: repere
+        variante: ouverture
+        titre: Les ateliers
+        claim: Quatre stations. Vous photographiez, puis on regarde vos écrans ensemble.
+        corps: |
+          | | Ce que vous y contrôlez |
+          |---|---|
+          | **1 · Profondeur de champ** | ouverture, distance, focale, arrière-plan |
+          | **2 · Mouvement** | vitesse, figé contre visible |
+          | **3 · Lumière** | se déplacer plutôt que régler |
+          | **4 · Exposition difficile** | la compensation, vue il y a une heure |
+        aparte: |
+          **Le cellulaire est admis partout.** Là où un réglage manque, l'animateur de la station
+          donne l'équivalent.
+
+      - id: la-phrase-a-dire
+        genre: appareil-en-main
+        titre: Appareil en main — les ateliers
+        claim: Avant de déclencher, dites votre intention à voix haute.
+        gestes:
+          - "« **Mon sujet**, c'est… »"
+          - "« **Ma lumière** vient de… »"
+          - "« **Ce qui doit être net**, c'est… »"
+          - "« Donc **je règle**… »"
+          - "Et avant d'appuyer : **regardez vos quatre coins.**"
+        cellulaire: |
+          Exactement la même phrase. Elle ne dépend d'aucun réglage.
+        aparte: |
+          C'est artificiel au début, et c'est pour ça que ça fonctionne : la séquence devient un
+          réflexe, et on ne part plus directement sur les réglages.
+
+  # ─────────────────────────────────────────────────────────────────────────
+  - id: diagnostic
+    titre: Pourquoi une photo est ratée
+    resume: Les diagnostics des ateliers, rassemblés en un outil réutilisable.
+    ecrans:
+      - id: le-message-de-fond
+        genre: panneau
+        titre: Poser un diagnostic
+        claim: "Une photo ratée n'est pas un échec : c'est de l'information sur ce qu'il faut changer."
+        corps: |
+          L'objectif n'est pas d'apprendre des recettes, c'est de **savoir poser un diagnostic**.
+          C'est même la façon la plus rapide d'apprendre.
+
+          On part toujours du **symptôme** — c'est la seule chose que vous voyez. La cause se
+          déduit ensuite, et la correction en découle.
+        aparte: |
+          Vous venez de vivre chacun de ces cas dans les ateliers. L'arbre complet est aussi une
+          fiche de référence à imprimer.
+
+      - id: l-arbre
+        genre: interactif
+        titre: L'arbre de diagnostic
+        claim: Le symptôme, puis la cause, puis la correction.
+        composant: arbre-de-diagnostic
+
+      # ★ Panneau cumulatif : la salle propose l'exposition corrigée avant de la voir.
+      - id: le-cas-du-posemetre
+        genre: demonstration
+        titre: Les trois échecs du posemètre
+        claim: Deux scènes où l'appareil se trompe systématiquement.
+        series:
+          - variable: la compensation appliquée
+            constantes:
+              scène: neige en plein jour
+              mode: A
+            legende: Une scène blanche, telle que l'appareil la voit, puis telle que vous la vouliez.
+            images:
+              - id: l2-neige-sans-compensation
+                specification: Neige en plein jour, mode A, compensation 0 — la neige sort grise
+                valeur: compensation 0
+                priorite: essentiel
+                reglages: { compensation: "0", scène: neige, mode: A }
+              - id: l2-neige-avec-compensation
+                specification: Même scène, compensation +1 — la neige redevient blanche
+                valeur: compensation +1
+                priorite: essentiel
+                reglages: { compensation: "+1", scène: neige, mode: A }
+          - variable: la compensation appliquée
+            constantes:
+              scène: sujet à contre-jour
+              mode: A
+            legende: Le fond est lumineux ; l'appareil expose pour lui.
+            images:
+              - id: l2-contre-jour-sans
+                specification: Sujet devant une fenêtre lumineuse, compensation 0 — silhouette
+                valeur: compensation 0
+                priorite: essentiel
+                reglages: { compensation: "0", scène: contre-jour, mode: A }
+              - id: l2-contre-jour-avec
+                specification: Même scène, compensation +2 — le visage est lisible
+                valeur: compensation +2
+                priorite: essentiel
+                reglages: { compensation: "+2", scène: contre-jour, mode: A }
+        aparte: |
+          Le troisième cas est la scène sombre — un spectacle : l'appareil éclaircit, vos noirs
+          deviennent gris, et la correction est `−1`.
+
+      - id: vos-photos
+        genre: demonstration
+        titre: Vos photos
+        claim: Des photos prises par des gens de cette salle, avec des appareils comme les vôtres.
+        images:
+          - id: l2-participant-1
+            specification: Photo apportée par un participant après la séance 1, avec son accord
+            valeur: apportée par un participant
+            priorite: utile
+          - id: l2-participant-2
+            specification: Deuxième photo de participant, illustrant un autre symptôme
+            valeur: apportée par un participant
+            priorite: utile
+        aparte: |
+          Rien n'est projeté sans l'accord de la personne, et on ne nomme personne.
+
+  # ─────────────────────────────────────────────────────────────────────────
+  - id: vers-la-seance-3
+    titre: Préparer la séance 3
+    resume: Il n'y a presque rien à préparer, et c'est voulu.
+    ecrans:
+      - id: rien-a-installer
+        genre: panneau
+        titre: La prochaine fois
+        claim: Vous n'avez rien à installer et rien à apporter d'autre que votre appareil.
+        corps: |
+          La prochaine fois : la **composition** — comment organiser ce qu'il y a dans le cadre —
+          et **comment on développe une photo après l'avoir prise**.
+
+          **Pas d'ordinateur portable, pas de logiciel, pas de fichier à télécharger.** Je
+          développe devant vous, au projecteur.
+
+          Ce que vous apportez :
+
+          - votre **appareil**, batterie chargée — il y a un exercice de composition ;
+          - votre **carte mémoire**, avec vos photos des trois dernières semaines.
+        aparte: |
+          Si l'un de vous accepte que je développe **une de ses photos** devant le groupe, venez
+          me voir avant de partir. C'est beaucoup plus parlant qu'une image d'exemple, et je
+          m'engage à ne dire que du bien de la vôtre.
+
+      - id: d-ici-la
+        genre: repere
+        variante: cloture
+        titre: D'ici là
+        claim: Photographiez. C'est tout.
+        corps: |
+          Le mode `A`, votre collimateur, et le `+/−` quand c'est trop clair ou trop sombre —
+          vous savez maintenant pourquoi il fonctionne.

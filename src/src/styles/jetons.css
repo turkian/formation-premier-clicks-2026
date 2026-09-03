@@ -1,0 +1,123 @@
+/**
+ * Jetons de design partagés.
+ *
+ * Trois échelles cohabitent et ne se mélangent jamais :
+ *   — projection : dimensionnée en `vmin`, donc calée sur la plus petite
+ *     dimension de l'écran. Un projecteur 4:3 (1024 × 768) et un 16:9 obtiennent
+ *     ainsi une taille proportionnelle à la hauteur réellement disponible.
+ *     En `vw`, le cas 4:3 déborderait silencieusement.
+ *   — téléphone : en `rem`, distance de lecture courte, une seule colonne.
+ *   — papier : en `pt`, noir sur blanc, une page Letter.
+ *
+ * Trois paliers typographiques seulement, conformément aux planchers de
+ * lisibilité : l'énoncé se lit du fond de la salle, le corps se lit du milieu,
+ * l'aparté est un détail sans coût — rien de nécessaire pour suivre un bloc ne
+ * peut y résider.
+ */
+
+:root {
+  /* ── Fond neutre sombre : les photographies s'y présentent sans dominante ── */
+  --fond: #15171b;
+  --fond-2: #1e2127;
+  --fond-3: #272b33;
+  --fond-4: #333842;
+  --trait: #3d434d;
+  --trait-fort: #5a616d;
+
+  --texte: #eef1f5;
+  --texte-2: #b8c0cb;
+  --texte-3: #8d97a4;
+
+  /* La formation parle de lumière : l'accent est chaud, et il ne rivalise pas
+     avec les couleurs habituelles des photographies projetées. */
+  --accent: #ffb454;
+  --accent-sourd: #7a5420;
+  --accent-2: #74b6ff;
+  --succes: #74d19a;
+  --alerte: #ff8d78;
+
+  --sur-accent: #1a1206;
+
+  /* ── Trois paliers, échelle de projection ── */
+  --t-enonce: clamp(1.7rem, 0.6rem + 4.2vmin, 4.2rem);
+  --t-corps: clamp(1rem, 0.35rem + 2.35vmin, 2.1rem);
+  --t-aparte: clamp(0.85rem, 0.32rem + 1.5vmin, 1.3rem);
+  /* Palier de service : numéros de bloc, étiquettes. Jamais porteur de sens. */
+  --t-etiquette: clamp(0.72rem, 0.3rem + 1.15vmin, 1rem);
+  /* Un chiffre qu'on lit du fond de la salle (lectures des composants). */
+  --t-chiffre: clamp(2.2rem, 0.6rem + 6vmin, 6rem);
+
+  --interligne-enonce: 1.12;
+  --interligne-corps: 1.45;
+
+  --graisse-enonce: 640;
+  --graisse-corps: 400;
+  --graisse-appui: 620;
+
+  /* ── Rythme ── */
+  --pas: clamp(0.5rem, 1.1vmin, 1.1rem);
+  --pas-2: calc(var(--pas) * 2);
+  --pas-3: calc(var(--pas) * 3);
+  --pas-4: calc(var(--pas) * 4);
+
+  --rayon: 0.5rem;
+  --rayon-2: 0.9rem;
+
+  --marge-ecran: clamp(1rem, 4vmin, 3.5rem);
+
+  --pile: 'Inter Variable', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+
+  color-scheme: dark;
+}
+
+/* ── Échelle téléphone ────────────────────────────────────────────────────
+   Sous 700 px, on lit à trente centimètres, pas à dix mètres : les paliers
+   redeviennent des `rem` et cessent de suivre la géométrie de l'écran. */
+@media (max-width: 44rem) {
+  :root {
+    --t-enonce: 1.65rem;
+    --t-corps: 1.02rem;
+    --t-aparte: 0.86rem;
+    --t-etiquette: 0.74rem;
+    --t-chiffre: 2.6rem;
+    --interligne-enonce: 1.18;
+    --interligne-corps: 1.5;
+    --marge-ecran: 1.1rem;
+    --pas: 0.55rem;
+  }
+}
+
+/* ── Échelle papier ───────────────────────────────────────────────────────
+   Une fiche de référence, une page Letter, à bout de bras. */
+@media print {
+  :root {
+    --fond: #ffffff;
+    --fond-2: #ffffff;
+    --fond-3: #f2f2f2;
+    --fond-4: #e6e6e6;
+    --trait: #b8b8b8;
+    --trait-fort: #7a7a7a;
+    --texte: #000000;
+    --texte-2: #1c1c1c;
+    --texte-3: #4a4a4a;
+    --accent: #000000;
+    --accent-sourd: #000000;
+    --accent-2: #000000;
+    --sur-accent: #ffffff;
+
+    --t-enonce: 16pt;
+    --t-corps: 9.5pt;
+    --t-aparte: 8pt;
+    --t-etiquette: 7.5pt;
+    --t-chiffre: 15pt;
+    --interligne-enonce: 1.15;
+    --interligne-corps: 1.3;
+    --pas: 3pt;
+    --marge-ecran: 0pt;
+    --rayon: 2pt;
+    --rayon-2: 3pt;
+
+    color-scheme: light;
+  }
+}

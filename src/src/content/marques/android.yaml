@@ -1,0 +1,71 @@
+nom: Android
+rang: 8
+genre: cellulaire
+sousTitre: Samsung, Pixel, Xiaomi, OnePlus, Xperia
+extensionRaw: "`.DNG` — 20 à 30 Mo par photo"
+sections:
+  - numero: 1
+    exception: |
+      **Votre téléphone n'a pas de molette de modes.** Par défaut, il est l'équivalent du mode
+      **tout automatique** : il choisit l'ouverture, la vitesse et l'ISO.
+    entrees:
+      - formation: Tout automatique
+        appareil: "Le mode `Photo` normal — c'est là que vous êtes"
+      - formation: Priorité à l'ouverture — je choisis la quantité de lumière
+        appareil: "N'existe pas. Le mode **`Portrait`** simule le flou."
+        note: "**Mais s'approcher du sujet et éloigner le fond fonctionne exactement comme sur un appareil, et ça, c'est du vrai flou.**"
+      - formation: Priorité à la vitesse — je choisis la durée
+        appareil: "Le mode **`Pro`** ou **`Expert`**"
+        note: "Présent chez Samsung, Xiaomi, OnePlus, Sony Xperia. **Absent ou très limité sur les Google Pixel.**"
+      - formation: Manuel
+        appareil: "Le mode `Pro` / `Expert` — c'est en réalité un mode manuel"
+    note: |
+      **Si votre téléphone n'a pas de mode `Pro`, ou si vous voulez la même interface que les
+      autres :** **Lightroom mobile est gratuite** et contient un appareil photo avec les
+      contrôles manuels complets, identique sur tous les téléphones. C'est aussi le logiciel
+      utilisé à la séance 3.
+  - numero: 2
+    entrees:
+      - formation: Choisir où faire le point
+        appareil: "**Touchez l'écran** à l'endroit voulu. Un cercle ou un carré apparaît."
+      - formation: "`AF-S` — verrouiller le point"
+        appareil: "**Maintenez le doigt** une seconde. Un cadenas ou la mention `AE/AF` apparaît. Touchez ailleurs pour déverrouiller."
+      - formation: "`AF-C` — suivre un sujet qui bouge"
+        appareil: "Automatique dans le mode `Photo`. En mode `Pro`, cherchez `AF-C` ou `Continu`."
+      - formation: Détection du visage et de l'œil
+        appareil: "Automatique, toujours active"
+  - numero: 3
+    entrees:
+      - formation: Compensation d'exposition
+        appareil: "Touchez l'écran pour faire le point, puis **glissez le doigt vers le haut ou le bas** — ou faites glisser le petit **curseur en forme de soleil** qui apparaît à côté du point de mise au point."
+      - formation: ISO automatique
+        appareil: "Automatique dans le mode `Photo`. En mode `Pro`, `ISO` → `AUTO`."
+      - formation: Régler l'ISO soi-même
+        appareil: "`ISO`"
+        chemin: "Mode `Pro`"
+    note: |
+      **C'est le réglage le plus utile de votre téléphone, et presque personne ne sait qu'il
+      existe.** C'est exactement la compensation d'exposition dont on parle toute la soirée.
+  - numero: 4
+    exception: |
+      Presque tout se trouve **dans l'application appareil photo elle-même**, derrière
+      l'**engrenage** ⚙️ ou les **trois points** en haut de l'écran.
+    entrees:
+      - formation: RAW
+        appareil: "**`RAW`** ou **`RAW + JPEG`**"
+        chemin: "Mode `Pro` → réglages ⚙️ → `Format`"
+        note: "Chez Samsung, c'est parfois dans `Paramètres` → `Formats et options avancées` → `Fichiers RAW`, ou dans l'application séparée `Expert RAW`."
+      - formation: Grille de composition
+        appareil: "**`Grille`**, `Quadrillage` ou `Lignes de guidage`"
+        chemin: "Application appareil photo → ⚙️"
+      - formation: Niveau pour l'horizon
+        appareil: "`Guide de niveau` — ou inclus dans la grille"
+        chemin: "Application appareil photo → ⚙️"
+      - formation: Résolution / qualité
+        appareil: "`Format et résolution`"
+        chemin: "Application appareil photo → ⚙️"
+    note: |
+      **Faites la grille ce soir.** C'est le meilleur outil gratuit qui existe pour vos quatre
+      coins et vos horizons droits.
+
+      Activez le RAW seulement quand vous comptez développer la photo : les fichiers sont lourds.

@@ -1,0 +1,77 @@
+nom: Sony
+rang: 3
+genre: appareil
+menuRapide: "`Fn`"
+extensionRaw: "`.ARW`"
+sections:
+  - numero: 1
+    entrees:
+      - formation: Tout automatique
+        appareil: "`AUTO` ou `iAUTO`"
+      - formation: Priorité à l'ouverture — je choisis la quantité de lumière
+        appareil: "**`A`**"
+      - formation: Priorité à la vitesse — je choisis la durée
+        appareil: "**`S`**"
+      - formation: Manuel — je décide de tout
+        appareil: "`M`"
+      - formation: Programme
+        appareil: "`P`"
+    note: |
+      ✅ **Sony emploie exactement les mots utilisés en formation** pour les modes. Vous n'avez
+      rien à traduire ici.
+  - numero: 2
+    entrees:
+      - formation: "`AF-S` — sujet immobile"
+        appareil: "`AF-S`"
+      - formation: "`AF-C` — sujet qui bouge"
+        appareil: "`AF-C`"
+      - formation: Mise au point manuelle
+        appareil: "`MF`"
+      - formation: Un seul collimateur, que je déplace
+        appareil: "`Spot flexible`"
+      - formation: Une petite zone
+        appareil: "`Zone`"
+      - formation: L'appareil choisit tout seul
+        appareil: "`Large`"
+      - formation: Détection du visage et de l'œil
+        appareil: "`Reconnaissance sujet` · anciennement `Eye AF`"
+  - numero: 3
+    entrees:
+      - formation: Compensation d'exposition
+        appareil: "Le bouton **`+/−`** — ou une **molette dédiée** sur beaucoup de boîtiers"
+      - formation: ISO automatique
+        appareil: "`ISO AUTO`"
+      - formation: Limite haute de l'ISO auto
+        appareil: "`ISO AUTO Max`"
+      - formation: Vitesse la plus lente acceptée
+        appareil: "`ISO AUTO Vit.Ob.Min`"
+    note: |
+      **Rappel :** en mode `M`, la molette `+/−` ne fait rien. C'est normal — l'appareil ne
+      décide plus rien, il n'y a donc rien à corriger.
+  - numero: 4
+    entrees:
+      - formation: Qualité d'image / RAW
+        appareil: "**`RAW & JPEG`**"
+        chemin: "`Prise de vue` → `Qualité image/Enr` → `Format fichier`"
+      - formation: Mode de mise au point
+        appareil: "`Mode mise au pt`"
+        chemin: "`Mise au point` → `AF/MF`"
+      - formation: Zone AF
+        appareil: "`Zone mise au pt`"
+        chemin: "`Mise au point`"
+      - formation: Détection visage / œil
+        appareil: "`Reconnaissance sujet`"
+        chemin: "`Mise au point`"
+      - formation: Limite de l'ISO auto
+        appareil: "`ISO AUTO`"
+        chemin: "`Exposition/Couleur` → `Exposition` → `ISO`"
+    note: |
+      ⚠️ **Sony a complètement réorganisé ses menus en 2021.**
+
+      Les chemins ci-dessus valent pour les boîtiers récents (A7 IV, A7 CII, A6700, ZV-E1 et
+      plus récents), dont les onglets portent des noms : *Prise de vue*, *Exposition/Couleur*,
+      *Mise au point*…
+
+      **Sur un boîtier plus ancien** (A7 III, A6400, A6000 et avant), les onglets sont numérotés
+      `1` `2` `3`… et rien n'est au même endroit. **Utilisez le bouton `Fn`**, qui lui n'a pas
+      changé, ou cherchez le nom du réglage dans l'index du manuel PDF.

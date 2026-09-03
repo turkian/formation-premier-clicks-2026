@@ -1,0 +1,83 @@
+nom: Canon
+rang: 1
+genre: appareil
+menuRapide: "`Q`"
+extensionRaw: "`.CR3` — ou `.CR2` sur les boîtiers plus anciens"
+sections:
+  - numero: 1
+    entrees:
+      - formation: Tout automatique
+        appareil: "`A+` — le carré vert"
+      - formation: Priorité à l'ouverture — je choisis la quantité de lumière
+        appareil: "**`Av`**"
+      - formation: Priorité à la vitesse — je choisis la durée
+        appareil: "**`Tv`**"
+      - formation: Manuel — je décide de tout
+        appareil: "`M`"
+      - formation: Programme
+        appareil: "`P`"
+    note: |
+      ⚠️ **Canon nomme ces deux modes autrement que ce que vous entendrez en formation.**
+      On dira `A` et `S` ; votre molette porte `Av` et `Tv`. *(`Av` vient de « aperture value »,
+      `Tv` de « time value ».)*
+
+      **Quand on dira `A`, cherchez `Av`. Quand on dira `S`, cherchez `Tv`.** Ce sont exactement
+      les mêmes deux modes.
+
+      Le mode **`Fv`**, sur les boîtiers R récents, permet de choisir librement quels réglages
+      vous laissez en automatique. C'est astucieux, mais ne commencez pas par là.
+  - numero: 2
+    entrees:
+      - formation: "`AF-S` — sujet immobile"
+        appareil: "**`One Shot`** ou `One-Shot AF`"
+      - formation: "`AF-C` — sujet qui bouge"
+        appareil: "**`AI Servo`** *(reflex)* ou `Servo AF` *(série R)*"
+      - formation: L'appareil choisit lequel des deux
+        appareil: "`AI Focus`"
+      - formation: Mise au point manuelle
+        appareil: "`MF`"
+      - formation: Un seul collimateur, que je déplace
+        appareil: "`1 collimateur` · `AF Spot` · `Zone AF flexible`"
+      - formation: Une petite zone
+        appareil: "`Zone AF`"
+      - formation: L'appareil choisit tout seul
+        appareil: "`Zone AF auto`"
+      - formation: Détection du visage et de l'œil
+        appareil: "`Détection visage + suivi` · `Détection œil` · `Sujet à détecter`"
+    note: |
+      ⚠️ **Vos menus ne contiennent ni `AF-S` ni `AF-C`.** Ces deux mots reviendront pourtant
+      toute la soirée. Retenez la traduction : **immobile = `One Shot`, qui bouge = `AI Servo`**
+      *(ou `Servo` sur un boîtier série R)*.
+  - numero: 3
+    entrees:
+      - formation: Compensation d'exposition
+        appareil: "Le bouton **`+/−`**, près du déclencheur"
+      - formation: ISO automatique
+        appareil: "`ISO auto`"
+      - formation: Limite haute de l'ISO auto
+        appareil: "`Plage ISO auto`"
+      - formation: Vitesse la plus lente acceptée
+        appareil: "`Vit. obtu. min.`"
+    note: |
+      **Rappel :** en mode `M`, la molette `+/−` ne fait rien. C'est normal — l'appareil ne
+      décide plus rien, il n'y a donc rien à corriger.
+  - numero: 4
+    entrees:
+      - formation: Qualité d'image / RAW
+        appareil: "**`RAW+JPEG`**"
+        chemin: "Onglet rouge `Prise de vue 1` → `Qualité d'image`"
+      - formation: Mode de mise au point
+        appareil: "`Fonctionnement AF`"
+        chemin: "Onglet violet `AF` — ou le bouton `AF`"
+      - formation: Zone AF
+        appareil: "`Zone AF`"
+        chemin: "Onglet `AF`"
+      - formation: Détection visage / œil
+        appareil: "`Détection œil` ou `Sujet à détecter`"
+        chemin: "Onglet `AF`"
+      - formation: Limite de l'ISO auto
+        appareil: "`Plage ISO auto`"
+        chemin: "Onglet rouge → `Sensibilité ISO`"
+    note: |
+      Canon range ses menus par onglets de couleur : **rouge** = prise de vue,
+      **violet** = autofocus, **jaune** = configuration.

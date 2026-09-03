@@ -1,0 +1,489 @@
+/**
+ * Les écrans de leçon : projetés dans une salle de trente personnes, et
+ * relisibles sur un téléphone.
+ *
+ * Deux arrangements **écrits**, pas une mise à l'échelle (décision D4). Une
+ * toile 16:9 réduite pour tenir sur un téléphone est illisible ; un simple
+ * repli fluide perd la relation entre un schéma et le tableau qu'il illustre.
+ * On écrit donc deux grilles, une fois, partagées par la vingtaine de panneaux.
+ */
+
+.scene {
+  /* La scène occupe exactement la fenêtre : rien ne déborde, rien ne défile.
+     C'est ce que la vérification en 1024 × 768 et en 16:9 contrôle. */
+  height: 100vh;
+  height: 100dvh;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  overflow: hidden;
+  background: var(--fond);
+}
+
+/* ── Barre supérieure : position, titre du bloc, index ────────────────────── */
+
+.barre {
+  display: flex;
+  align-items: center;
+  gap: var(--pas-2);
+  padding: calc(var(--pas) * 1.2) var(--marge-ecran);
+  border-bottom: 1px solid var(--trait);
+  font-size: var(--t-etiquette);
+  color: var(--texte-3);
+  min-width: 0;
+}
+
+.barre .position {
+  flex: 0 0 auto;
+  font-weight: var(--graisse-appui);
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.barre .titre-bloc {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--texte-2);
+}
+
+.barre .commandes { flex: 0 0 auto; display: flex; gap: var(--pas); }
+
+.barre button,
+.barre a.bouton {
+  font: inherit;
+  font-size: inherit;
+  color: var(--texte-2);
+  background: transparent;
+  border: 1px solid var(--trait);
+  border-radius: var(--rayon);
+  padding: 0.35em 0.7em;
+  cursor: pointer;
+  text-decoration: none;
+  min-height: 2.2em;
+}
+.barre button:hover, .barre a.bouton:hover { border-color: var(--accent); color: var(--texte); }
+
+/* ── Corps de l'écran ─────────────────────────────────────────────────────── */
+
+.ecran {
+  min-height: 0;
+  overflow: hidden;
+  padding: var(--marge-ecran);
+  display: grid;
+  align-content: start;
+  gap: var(--pas-2);
+}
+
+/* Panneau de concept, arrangement de projection :
+   l'énoncé traverse le haut, le corps et le schéma sont côte à côte, l'aparté
+   occupe une bande basse discrète. */
+.panneau {
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  grid-template-areas:
+    'claim  claim'
+    'corps  schema'
+    'aparte aparte';
+  column-gap: var(--pas-4);
+  height: 100%;
+  align-content: stretch;
+}
+
+.panneau[data-sans-schema] {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    'claim'
+    'corps'
+    'aparte';
+}
+
+/*
+ * Troisième arrangement : le panneau cumulatif.
+ *
+ * Un panneau qui accumule porte, à son dernier état, tout le bloc — la question,
+ * la réponse, l'explication et la règle. Empilé en une colonne, il déborde ;
+ * c'est le seul cas où l'écran a besoin d'une troisième mise en page.
+ *
+ * Les encadrés révélés occupent donc leur propre colonne, à droite du corps.
+ * Rien n'est retiré, rien n'est réduit : la largeur déjà disponible est
+ * utilisée. À la largeur d'un téléphone, la pile en une colonne reprend, dans
+ * l'ordre où les états sont arrivés.
+ */
+/* Aux états avancés, l'énoncé a été lu plusieurs minutes plus tôt : il cède un
+   peu de sa taille au contenu qui vient d'arriver, qui est ce que la salle
+   regarde maintenant. Il reste au-dessus du palier de corps, donc lisible du
+   fond. */
+.panneau[data-dense] .claim {
+  font-size: calc(var(--t-enonce) * 0.78);
+  max-width: 34ch;
+}
+
+.panneau[data-dense] {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-areas:
+    'claim   claim'
+    'corps   encadres'
+    'aparte  aparte';
+}
+
+.region-encadres {
+  grid-area: encadres;
+  min-height: 0;
+  display: grid;
+  align-content: start;
+  gap: var(--pas);
+  overflow: hidden;
+}
+
+/* Trois encadrés cumulés dans une colonne : ils se resserrent un peu, sans
+   descendre sous le palier du corps — c'est le contenu que la salle vient de
+   voir apparaître, il reste lisible du milieu de la pièce. */
+.region-encadres .encadre {
+  padding: calc(var(--pas) * 0.85) calc(var(--pas) * 1.4);
+  font-size: calc(var(--t-corps) * 0.94);
+}
+
+/* Un projecteur 4:3 offre nettement moins de hauteur qu'un 16:9 de même largeur,
+   et c'est le dernier état d'un panneau cumulatif qui en souffre le premier —
+   c'est lui qui porte tout le bloc. La colonne des révélations se resserre alors
+   davantage ; elle reste au-dessus du palier d'aparté, donc jamais reléguée au
+   plus petit tier. */
+@media (min-width: 60rem) and (max-height: 50rem) {
+  .region-encadres .encadre {
+    padding: calc(var(--pas) * 0.6) calc(var(--pas) * 1.1);
+    font-size: calc(var(--t-corps) * 0.86);
+    line-height: 1.35;
+  }
+  .region-encadres { gap: calc(var(--pas) * 0.7); }
+  .aparte { padding-top: calc(var(--pas) * 0.7); }
+}
+
+/* Sans état révélé, la colonne des encadrés n'existe pas et le corps reprend
+   toute la largeur. */
+.panneau[data-dense][data-sans-encadres] {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    'claim'
+    'corps'
+    'aparte';
+}
+
+.region-claim { grid-area: claim; }
+.region-corps { grid-area: corps; min-height: 0; }
+.region-schema { grid-area: schema; min-height: 0; display: grid; align-content: center; }
+.region-aparte { grid-area: aparte; }
+
+.claim {
+  font-size: var(--t-enonce);
+  line-height: var(--interligne-enonce);
+  font-weight: var(--graisse-enonce);
+  letter-spacing: -0.015em;
+  max-width: 30ch;
+  text-wrap: balance;
+}
+.panneau[data-sans-schema] .claim { max-width: 24ch; }
+
+.corps {
+  font-size: var(--t-corps);
+  color: var(--texte-2);
+  min-height: 0;
+}
+.corps strong { color: var(--texte); font-weight: var(--graisse-appui); }
+.corps table { font-size: 0.95em; }
+.corps th { color: var(--accent); font-size: 0.88em; letter-spacing: 0.04em; text-transform: uppercase; }
+.corps td:first-child { color: var(--texte); }
+.corps ul, .corps ol { padding-left: 1.15em; }
+.corps li { margin-bottom: 0.3em; }
+.corps > *:last-child { margin-bottom: 0; }
+
+.aparte {
+  font-size: var(--t-aparte);
+  color: var(--texte-3);
+  border-top: 1px solid var(--trait);
+  padding-top: calc(var(--pas) * 1.1);
+  max-width: 100ch;
+}
+.aparte > *:last-child { margin-bottom: 0; }
+
+/* Un encadré : la réponse, la règle, l'avertissement. C'est ce qu'un état
+   cumulatif ajoute le plus souvent. */
+.encadre {
+  border-left: 4px solid var(--accent);
+  background: var(--fond-2);
+  border-radius: 0 var(--rayon) var(--rayon) 0;
+  padding: calc(var(--pas) * 1.2) var(--pas-2);
+  font-size: var(--t-corps);
+  color: var(--texte);
+}
+.encadre[data-ton='reponse'] { border-left-color: var(--succes); background: color-mix(in oklab, var(--succes) 9%, var(--fond-2)); }
+.encadre[data-ton='regle'] { border-left-color: var(--accent); background: color-mix(in oklab, var(--accent) 10%, var(--fond-2)); }
+.encadre[data-ton='avertissement'] { border-left-color: var(--alerte); background: color-mix(in oklab, var(--alerte) 9%, var(--fond-2)); }
+.encadre > *:last-child { margin-bottom: 0; }
+
+/* Ce qu'un état vient d'ajouter s'annonce, brièvement. La salle a regardé
+   ailleurs pendant que l'animateur parlait. */
+@media (prefers-reduced-motion: no-preference) {
+  .encadre[data-revele] { animation: paraitre 260ms ease-out; }
+}
+@keyframes paraitre {
+  from { opacity: 0; transform: translateY(0.4rem); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ── Repère : ouverture de bloc, pause, questions ─────────────────────────── */
+
+.repere {
+  height: 100%;
+  align-content: center;
+  justify-items: start;
+  text-align: left;
+  max-width: 62ch;
+  margin: 0 auto;
+  gap: var(--pas-2);
+  min-height: 0;
+}
+.repere .claim { font-size: calc(var(--t-enonce) * 1.02); max-width: 24ch; }
+/* Un repère qui porte des consignes n'est plus un simple panneau de titre :
+   l'énoncé cède la place au contenu plutôt que de le pousser hors de l'écran. */
+.repere[data-dense] { align-content: start; }
+.repere[data-dense] .claim { font-size: calc(var(--t-enonce) * 0.72); max-width: 30ch; }
+.repere .numero-bloc {
+  font-size: var(--t-etiquette);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: var(--graisse-appui);
+}
+.repere .corps { font-size: var(--t-corps); }
+
+/* ── Appareil en main : reconnaissable du fond de la salle sans lire ──────── */
+
+.appareil {
+  height: 100%;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: var(--pas-2);
+  border: 2px solid var(--accent);
+  border-radius: var(--rayon-2);
+  padding: var(--pas-2) var(--pas-3);
+  background: linear-gradient(180deg, color-mix(in oklab, var(--accent) 8%, transparent), transparent 45%);
+}
+
+.appareil .banniere {
+  display: flex;
+  align-items: center;
+  gap: var(--pas);
+  font-size: var(--t-etiquette);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 700;
+}
+.appareil .banniere::before {
+  content: '';
+  width: 1.1em;
+  height: 1.1em;
+  border-radius: 3px;
+  border: 2px solid var(--accent);
+  border-top-width: 5px;
+  flex: 0 0 auto;
+}
+
+.appareil .claim { font-size: calc(var(--t-enonce) * 0.82); max-width: 34ch; }
+
+.gestes {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: var(--pas);
+  align-content: start;
+  counter-reset: geste;
+  font-size: var(--t-corps);
+  min-height: 0;
+}
+.gestes li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0 var(--pas-2);
+  align-items: baseline;
+  counter-increment: geste;
+  margin: 0;
+}
+.gestes li::before {
+  content: counter(geste);
+  display: grid;
+  place-items: center;
+  width: 1.7em;
+  height: 1.7em;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--sur-accent);
+  font-weight: 700;
+  font-size: 0.82em;
+}
+
+.variantes {
+  display: grid;
+  gap: var(--pas);
+  grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
+  font-size: var(--t-aparte);
+}
+.variante {
+  border: 1px dashed var(--trait-fort);
+  border-radius: var(--rayon);
+  padding: calc(var(--pas) * 1.1) var(--pas-2);
+  color: var(--texte-2);
+}
+.variante b {
+  display: block;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.86em;
+  margin-bottom: 0.25em;
+}
+
+/* ── Démonstration : les photographies occupent l'espace, seules ──────────── */
+
+.demonstration { height: 100%; grid-template-rows: auto minmax(0, 1fr) auto; gap: var(--pas-2); }
+.serie {
+  display: grid;
+  gap: var(--pas-2);
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  min-height: 0;
+}
+.legende-serie {
+  font-size: var(--t-aparte);
+  color: var(--texte-2);
+  border-top: 1px solid var(--trait);
+  padding-top: var(--pas);
+}
+.legende-serie b { color: var(--accent); }
+
+/* ── Interactif ───────────────────────────────────────────────────────────── */
+
+.interactif { height: 100%; grid-template-rows: auto minmax(0, 1fr); gap: var(--pas); min-height: 0; }
+.interactif .claim { font-size: calc(var(--t-enonce) * 0.62); max-width: 46ch; }
+
+/* ── Barre inférieure : progression des états, code QR ─────────────────────── */
+
+.pied-ecran {
+  display: flex;
+  align-items: center;
+  gap: var(--pas-2);
+  padding: var(--pas) var(--marge-ecran);
+  border-top: 1px solid var(--trait);
+  font-size: var(--t-etiquette);
+  color: var(--texte-3);
+  min-height: 0;
+}
+
+.etats-points { display: flex; gap: 0.35rem; align-items: center; }
+.etats-points span {
+  width: 0.62rem;
+  height: 0.62rem;
+  border-radius: 50%;
+  border: 1px solid var(--trait-fort);
+}
+.etats-points span[data-atteint] { background: var(--accent); border-color: var(--accent); }
+
+.pied-ecran .navigation { margin-left: auto; display: flex; gap: var(--pas); align-items: center; }
+.pied-ecran a { color: var(--texte-2); text-decoration: none; }
+.pied-ecran a:hover { color: var(--accent); }
+
+/* ── Le code QR ───────────────────────────────────────────────────────────── */
+
+.qr {
+  display: flex;
+  align-items: center;
+  gap: var(--pas-2);
+  font-size: var(--t-aparte);
+  color: var(--texte-2);
+}
+.qr img {
+  width: clamp(4.5rem, 11vmin, 8rem);
+  height: auto;
+  background: #fff;
+  border-radius: var(--rayon);
+  padding: 0.35rem;
+}
+.qr .adresse { font-size: 0.86em; color: var(--texte-3); word-break: break-all; }
+
+/* ── Index des blocs ──────────────────────────────────────────────────────── */
+
+dialog.index-blocs {
+  border: 1px solid var(--trait-fort);
+  border-radius: var(--rayon-2);
+  background: var(--fond-2);
+  color: var(--texte);
+  padding: 0;
+  max-width: min(46rem, 92vw);
+  width: 100%;
+}
+dialog.index-blocs::backdrop { background: rgba(0, 0, 0, 0.68); }
+dialog.index-blocs .dedans { padding: var(--pas-3); }
+dialog.index-blocs h2 { font-size: 1.1rem; margin-bottom: var(--pas-2); }
+dialog.index-blocs ol { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.3rem; counter-reset: b; }
+dialog.index-blocs li { margin: 0; counter-increment: b; }
+dialog.index-blocs a {
+  display: grid;
+  grid-template-columns: 2.2rem minmax(0, 1fr);
+  gap: var(--pas);
+  align-items: baseline;
+  padding: 0.55rem 0.7rem;
+  border-radius: var(--rayon);
+  border: 1px solid transparent;
+  text-decoration: none;
+  color: var(--texte);
+  font-size: 1rem;
+}
+dialog.index-blocs a::before { content: counter(b); color: var(--accent); font-weight: 700; }
+dialog.index-blocs a:hover, dialog.index-blocs a:focus-visible { background: var(--fond-3); border-color: var(--accent); }
+dialog.index-blocs a[aria-current='true'] { background: var(--fond-3); border-color: var(--trait-fort); }
+dialog.index-blocs .resume { grid-column: 2; color: var(--texte-3); font-size: 0.86rem; }
+
+/* ── Arrangement téléphone ────────────────────────────────────────────────
+   Une colonne, et le schéma **avant** le corps : le dessin oriente, le tableau
+   explique ensuite. C'est la seule chose que l'arrangement téléphone change à
+   l'ordre du contenu, et elle est délibérée. */
+@media (max-width: 44rem) {
+  .scene { height: auto; overflow: visible; }
+  .ecran { overflow: visible; }
+
+  .panneau,
+  .panneau[data-sans-schema] {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+      'claim'
+      'schema'
+      'corps'
+      'aparte';
+    height: auto;
+  }
+
+  .panneau[data-dense] {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      'claim'
+      'schema'
+      'corps'
+      'encadres'
+      'aparte';
+  }
+
+  .repere, .appareil, .demonstration, .interactif { height: auto; }
+  .serie { grid-auto-flow: row; }
+  .barre { position: sticky; top: 0; z-index: 5; background: var(--fond); }
+  /* Tronqué à « La … », le titre du bloc n'apprend rien : à cette largeur, la
+     position suffit, et le titre complet reste dans l'index. */
+  .barre .titre-bloc { display: none; }
+  .barre .commandes { margin-left: auto; }
+  .pied-ecran { flex-wrap: wrap; }
+  .qr { display: none; }
+  .aparte { max-width: none; }
+}

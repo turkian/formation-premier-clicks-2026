@@ -1,0 +1,281 @@
+/**
+ * Les composants interactifs.
+ *
+ * Deux publics, une seule mise en page : l'animateur qui manipule une commande
+ * **sans regarder** en parlant à la salle, et un participant qui refait la même
+ * chose au doigt sur un téléphone. D'où des cibles larges partout et une lecture
+ * dimensionnée pour le fond de la salle.
+ */
+
+.composant {
+  display: grid;
+  gap: var(--pas-2);
+  grid-template-columns: minmax(0, 19rem) minmax(0, 1fr);
+  /* `stretch` et non `start` : les deux colonnes doivent se partager la hauteur
+     disponible, sinon elles la dépassent chacune de leur côté. */
+  align-items: stretch;
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.composant .commandes {
+  display: grid;
+  gap: var(--pas);
+  align-content: start;
+  min-width: 0;
+  min-height: 0;
+}
+
+/* La colonne visuelle absorbe la hauteur restante : le dessin se réduit, la
+   lecture chiffrée ne bouge pas. Sur un projecteur 4:3 c'est la seule façon
+   qu'un composant riche tienne sans rogner sa propre lecture. */
+.composant .visuel {
+  min-width: 0;
+  min-height: 0;
+  display: grid;
+  gap: var(--pas);
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  height: 100%;
+  overflow: hidden;
+}
+
+.composant .commandes { overflow: hidden; }
+
+@media (max-width: 60rem) {
+  .composant { grid-template-columns: minmax(0, 1fr); height: auto; overflow: visible; }
+}
+
+/* ── Une commande ─────────────────────────────────────────────────────────── */
+
+.levier {
+  display: grid;
+  gap: 0.3rem;
+  padding: calc(var(--pas) * 0.9) var(--pas);
+  border: 1px solid var(--trait);
+  border-radius: var(--rayon);
+  background: var(--fond-2);
+}
+
+/* Le seul des quatre leviers qui soit un réglage d'appareil se distingue
+   visiblement des trois qui sont gratuits : c'est le message du bloc, pas une
+   décoration. */
+.levier[data-reglage] {
+  border-color: var(--accent);
+  background: linear-gradient(180deg, color-mix(in oklab, var(--accent) 10%, var(--fond-2)), var(--fond-2));
+}
+
+.levier .etiquette {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--pas);
+  font-size: var(--t-aparte);
+  color: var(--texte-2);
+}
+
+.levier[data-reglage] .etiquette { color: var(--texte); }
+
+.levier .marque-reglage {
+  font-size: 0.78em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.levier .marque-gratuit {
+  font-size: 0.78em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--texte-3);
+}
+
+.levier output {
+  font-size: calc(var(--t-corps) * 1.15);
+  font-weight: var(--graisse-appui);
+  color: var(--texte);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Curseur : haut et large, parce qu'on l'attrape sans le regarder. */
+.levier input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 2.1rem;
+  background: transparent;
+  cursor: pointer;
+  margin: 0;
+}
+.levier input[type='range']::-webkit-slider-runnable-track {
+  height: 0.55rem;
+  border-radius: 999px;
+  background: var(--fond-4);
+}
+.levier input[type='range']::-moz-range-track {
+  height: 0.55rem;
+  border-radius: 999px;
+  background: var(--fond-4);
+}
+.levier input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1.9rem;
+  height: 1.9rem;
+  margin-top: -0.68rem;
+  border-radius: 50%;
+  background: var(--texte);
+  border: 3px solid var(--fond);
+  box-shadow: 0 0 0 1px var(--trait-fort);
+}
+.levier input[type='range']::-moz-range-thumb {
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 50%;
+  background: var(--texte);
+  border: 3px solid var(--fond);
+}
+.levier[data-reglage] input[type='range']::-webkit-slider-thumb { background: var(--accent); }
+.levier[data-reglage] input[type='range']::-moz-range-thumb { background: var(--accent); }
+
+/* Un curseur dont la course est limitée montre la portion interdite plutôt que
+   de laisser croire qu'elle n'existe pas. */
+.levier .course { position: relative; }
+.levier .zone-interdite {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  height: 0.55rem;
+  border-radius: 0 999px 999px 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--alerte) 0 3px,
+    transparent 3px 7px
+  );
+  opacity: 0.5;
+  pointer-events: none;
+}
+.levier .refus {
+  font-size: var(--t-aparte);
+  color: var(--alerte);
+  min-height: 1.3em;
+}
+
+/* ── Boutons segmentés — formats de capteur, modes, préréglages ───────────── */
+
+.segments {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+.segments button {
+  font: inherit;
+  font-size: var(--t-aparte);
+  padding: 0.5em 0.8em;
+  min-height: 2.5em;
+  border-radius: var(--rayon);
+  border: 1px solid var(--trait-fort);
+  background: var(--fond-3);
+  color: var(--texte-2);
+  cursor: pointer;
+}
+.segments button:hover { border-color: var(--accent); color: var(--texte); }
+.segments button[aria-pressed='true'] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--sur-accent);
+  font-weight: var(--graisse-appui);
+}
+
+/* ── La lecture ───────────────────────────────────────────────────────────── */
+
+.lecture {
+  display: grid;
+  gap: 0.25rem;
+  padding: var(--pas) var(--pas-2);
+  border-radius: var(--rayon-2);
+  background: var(--fond-2);
+  border: 1px solid var(--trait);
+}
+
+.lecture .chiffre {
+  font-size: var(--t-chiffre);
+  line-height: 1;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.lecture .bande {
+  font-size: calc(var(--t-corps) * 1.05);
+  font-weight: var(--graisse-appui);
+  color: var(--texte);
+}
+
+.lecture .sens { font-size: var(--t-aparte); color: var(--texte-2); }
+
+.lecture .limites {
+  font-size: var(--t-aparte);
+  color: var(--texte-3);
+  border-top: 1px solid var(--trait);
+  padding-top: 0.4rem;
+  margin-top: 0.2rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Le format décrit par les chiffres affichés est toujours visible : dans une
+   salle où les appareils diffèrent, un chiffre sans son format est trompeur. */
+.etiquette-format {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-size: var(--t-aparte);
+  color: var(--texte-2);
+  border: 1px solid var(--trait-fort);
+  border-radius: 999px;
+  padding: 0.2em 0.8em;
+  justify-self: start;
+}
+.etiquette-format b { color: var(--accent); }
+
+.scene-svg {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  border-radius: var(--rayon);
+  background: var(--fond-2);
+  border: 1px solid var(--trait);
+}
+
+@media (max-width: 60rem) {
+  .composant .visuel { grid-template-rows: auto auto auto; overflow: visible; height: auto; }
+  .composant .commandes { overflow: visible; }
+  .scene-svg { height: auto; }
+}
+
+/* ── Compaction pour un projecteur peu haut ───────────────────────────────
+   Un vidéoprojecteur de salle fait souvent 768 px de haut. Une fois la barre,
+   le pied et l'énoncé retirés, il reste moins de place qu'un écran d'ordinateur
+   n'en offre. Les commandes se resserrent alors — sans jamais descendre sous la
+   cible tactile utilisable, puisque l'animateur les attrape sans regarder. */
+@media (min-width: 60rem) and (max-height: 50rem) {
+  .levier { padding: 0.35rem 0.6rem; gap: 0.15rem; }
+  .levier input[type='range'] { height: 1.7rem; }
+  .levier input[type='range']::-webkit-slider-thumb {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-top: -0.48rem;
+  }
+  .levier input[type='range']::-moz-range-thumb { width: 1.5rem; height: 1.5rem; }
+  .levier .refus { min-height: 0; }
+  .levier .refus:empty { display: none; }
+  .segments button { padding: 0.35em 0.65em; min-height: 2.1em; }
+  .lecture { padding: 0.5rem 0.85rem; gap: 0.15rem; }
+  .composant .commandes { gap: 0.4rem; }
+  .composant .visuel { gap: 0.4rem; }
+  .levier .refus { font-size: calc(var(--t-aparte) * 0.92); line-height: 1.25; }
+  .etiquette-format { padding: 0.1em 0.7em; }
+}

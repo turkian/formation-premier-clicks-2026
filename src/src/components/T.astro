@@ -1,0 +1,26 @@
+---
+/**
+ * Rend une chaîne en appliquant les conventions typographiques françaises.
+ *
+ * Pour le contenu Markdown, le greffon `remarkTypo` s'en charge automatiquement.
+ * Ce composant sert au texte écrit directement dans un gabarit ou provenant de
+ * données structurées (tableaux, étiquettes de composants).
+ *
+ * `texte` accepte un fragment de HTML en ligne : le contenu du site emploie
+ * `<em>`, `<strong>` et `<code>` dans des libellés courts.
+ */
+import { typo } from '../lib/typo';
+
+interface Props {
+  texte: string;
+  /** Élément englobant. `null` pour n'émettre que le texte, sans balise. */
+  balise?: string | null;
+  class?: string;
+}
+
+const { texte, balise = 'span', class: classe } = Astro.props;
+const rendu = typo(texte);
+const Balise = balise as any;
+---
+
+{balise === null ? <Fragment set:html={rendu} /> : <Balise class={classe} set:html={rendu} />}

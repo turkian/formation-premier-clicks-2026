@@ -1,0 +1,72 @@
+nom: Nikon
+rang: 2
+genre: appareil
+menuRapide: "`i`"
+extensionRaw: "`.NEF`"
+sections:
+  - numero: 1
+    entrees:
+      - formation: Tout automatique
+        appareil: "`AUTO`"
+      - formation: Priorité à l'ouverture — je choisis la quantité de lumière
+        appareil: "**`A`**"
+      - formation: Priorité à la vitesse — je choisis la durée
+        appareil: "**`S`**"
+      - formation: Manuel — je décide de tout
+        appareil: "`M`"
+      - formation: Programme
+        appareil: "`P`"
+    note: |
+      ✅ **Bonne nouvelle : Nikon emploie exactement les mots utilisés en formation pour les
+      modes.** Vous n'avez rien à traduire ici.
+  - numero: 2
+    entrees:
+      - formation: "`AF-S` — sujet immobile"
+        appareil: "`AF-S`"
+      - formation: "`AF-C` — sujet qui bouge"
+        appareil: "`AF-C`"
+      - formation: L'appareil choisit lequel des deux
+        appareil: "`AF-A`"
+      - formation: Mise au point manuelle
+        appareil: "`M` ou `MF`"
+      - formation: Un seul collimateur, que je déplace
+        appareil: "`Point sélectif`"
+      - formation: Une petite zone
+        appareil: "`Zone AF dynamique`"
+      - formation: L'appareil choisit tout seul
+        appareil: "`Zone AF auto`"
+      - formation: Détection du visage et de l'œil
+        appareil: "`AF détection visage/yeux`"
+        note: C'est une option **dans** le mode de zone AF.
+    note: |
+      Le menu qui contient tout ça s'appelle `Mode de zone AF` chez Nikon.
+  - numero: 3
+    entrees:
+      - formation: Compensation d'exposition
+        appareil: "Le bouton **`+/−`**, près du déclencheur"
+      - formation: ISO automatique
+        appareil: "`Contrôle sensibilité auto`"
+      - formation: Limite haute de l'ISO auto
+        appareil: "`Sensibilité maximale`"
+      - formation: Vitesse la plus lente acceptée
+        appareil: "`Vitesse d'obturation min.`"
+    note: |
+      **Rappel :** en mode `M`, la molette `+/−` ne fait rien. C'est normal — l'appareil ne
+      décide plus rien, il n'y a donc rien à corriger.
+  - numero: 4
+    entrees:
+      - formation: Qualité d'image / RAW
+        appareil: "**`NEF (RAW) + JPEG`**"
+        chemin: "`Menu Prise de vue photo` → `Qualité d'image`"
+      - formation: Mode de mise au point
+        appareil: "`Mode de mise au point`"
+        chemin: "Bouton `i` — ou `Menu Prise de vue photo`"
+      - formation: Zone AF
+        appareil: "`Mode de zone AF`"
+        chemin: "Même endroit que le mode de mise au point"
+      - formation: Détection visage / œil
+        appareil: "Une option `Détection visage/yeux`"
+        chemin: "Dans `Mode de zone AF`"
+      - formation: Limite de l'ISO auto
+        appareil: "`Sensibilité maximale`"
+        chemin: "`Menu Prise de vue photo` → `Sensibilité ISO` → `Contrôle sensibilité auto`"

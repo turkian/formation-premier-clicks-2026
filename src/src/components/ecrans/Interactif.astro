@@ -1,0 +1,32 @@
+---
+/**
+ * L'écran interactif : il héberge un composant, et rien d'autre.
+ *
+ * Le composant est résolu par son nom depuis le contenu. Le registre est
+ * explicite plutôt qu'un import dynamique : un nom mal orthographié dans un
+ * fichier YAML doit casser la construction, pas produire un écran vide devant
+ * trente personnes.
+ */
+import { mdEnLigne } from '../../lib/md';
+import { COMPOSANTS } from '../interactifs/registre';
+
+interface Props {
+  ecran: any;
+}
+
+const { ecran } = Astro.props;
+const claim = ecran.claim ? await mdEnLigne(ecran.claim) : '';
+
+const Composant = COMPOSANTS[ecran.composant as keyof typeof COMPOSANTS];
+if (!Composant) {
+  throw new Error(
+    `Écran « ${ecran.id} » : le composant interactif « ${ecran.composant} » n'existe pas. ` +
+      `Composants connus : ${Object.keys(COMPOSANTS).join(', ')}.`,
+  );
+}
+---
+
+<div class="ecran interactif">
+  {claim ? <h1 class="claim" set:html={claim} /> : <div />}
+  <Composant {...ecran.props} />
+</div>

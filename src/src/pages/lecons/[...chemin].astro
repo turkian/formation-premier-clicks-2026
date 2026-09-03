@@ -1,0 +1,52 @@
+---
+/**
+ * Toutes les adresses d'écran d'une leçon.
+ *
+ * Une route par arrêt — `…/<bloc>/<ecran>/` pour le premier état, puis
+ * `…/etat-2/`, `…/etat-3/`. Un lien vers un écran mène donc à son début, et un
+ * lien vers un état précis restitue exactement cet état, ce que le partage d'une
+ * adresse doit faire.
+ */
+import type { GetStaticPaths } from 'astro';
+import { getCollection } from 'astro:content';
+import Ecran from '../../layouts/Ecran.astro';
+import Panneau from '../../components/ecrans/Panneau.astro';
+import Demonstration from '../../components/ecrans/Demonstration.astro';
+import Interactif from '../../components/ecrans/Interactif.astro';
+import Repere from '../../components/ecrans/Repere.astro';
+import AppareilEnMain from '../../components/ecrans/AppareilEnMain.astro';
+import { aplatir } from '../../lib/lecon';
+
+export const getStaticPaths = (async () => {
+  const lecons = await getCollection('lecons');
+
+  return lecons.flatMap((entree) => {
+    const arrets = aplatir(entree.data);
+    return arrets.map((arret) => ({
+      // Le chemin est celui calculé par `aplatir`, privé de son préfixe de
+      // route : une seule source décide des adresses.
+      params: { chemin: arret.chemin.replace(`/lecons/${entree.data.numero}/`, `${entree.data.numero}/`) },
+      props: {
+        lecon: entree.data,
+        arret,
+        precedent: arrets[arret.index - 1],
+        suivant: arrets[arret.index + 1],
+        totalArrets: arrets.length,
+      },
+    }));
+  });
+}) satisfies GetStaticPaths;
+
+const { lecon, arret, precedent, suivant, totalArrets } = Astro.props;
+const { ecran } = arret;
+---
+
+<Ecran lecon={lecon} arret={arret} precedent={precedent} suivant={suivant} totalArrets={totalArrets}>
+  {ecran.genre === 'panneau' && <Panneau ecran={ecran} etat={arret.etat} />}
+  {ecran.genre === 'demonstration' && <Demonstration ecran={ecran} />}
+  {ecran.genre === 'interactif' && <Interactif ecran={ecran} />}
+  {ecran.genre === 'repere' && (
+    <Repere ecran={ecran} numeroBloc={arret.numeroBloc} totalBlocs={lecon.blocs.length} />
+  )}
+  {ecran.genre === 'appareil-en-main' && <AppareilEnMain ecran={ecran} />}
+</Ecran>

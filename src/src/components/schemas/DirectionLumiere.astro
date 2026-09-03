@@ -1,0 +1,39 @@
+---
+/**
+ * Les quatre directions de lumière.
+ *
+ * Le geste le plus rentable de la photographie tient en deux pas de côté ; le
+ * schéma montre les quatre positions autour d'un même sujet pour que « bouger »
+ * cesse d'être une abstraction.
+ */
+const POSITIONS = [
+  { angle: 180, nom: 'frontale', note: 'plate, sans relief' },
+  { angle: 270, nom: 'latérale', note: 'le relief apparaît' },
+  { angle: 0, nom: 'contre-jour', note: 'un contour lumineux' },
+  { angle: 90, nom: 'du dessus', note: 'des ombres dures' },
+];
+---
+<svg viewBox="0 0 640 250" role="img" style="width:100%;height:auto"
+     aria-label="Quatre positions du photographe autour d'un sujet éclairé par une fenêtre">
+  {POSITIONS.map((position, i) => {
+    const cx = 80 + i * 160;
+    return (
+      <g>
+        <rect x={cx - 62} y="26" width="18" height="80" rx="2" fill="var(--accent)" fill-opacity="0.3"
+              stroke="var(--accent)" />
+        <text x={cx - 53} y="20" text-anchor="middle" font-size="11" fill="var(--accent)">fenêtre</text>
+        <circle cx={cx} cy="96" r="17" fill="var(--texte)" />
+        <path d={`M ${cx - 44} 66 L ${cx - 20} 82`} stroke="var(--accent)" stroke-width="2" />
+        <path d={`M ${cx - 44} 96 L ${cx - 20} 96`} stroke="var(--accent)" stroke-width="2" />
+        <g transform={`rotate(${position.angle} ${cx} 96)`}>
+          <rect x={cx + 34} y="88" width="22" height="16" rx="3" fill="var(--texte-2)" />
+        </g>
+        <text x={cx} y="184" text-anchor="middle" font-size="15" fill="var(--texte)">{position.nom}</text>
+        <text x={cx} y="204" text-anchor="middle" font-size="12" fill="var(--texte-3)">{position.note}</text>
+      </g>
+    );
+  })}
+  <text x="320" y="240" text-anchor="middle" font-size="14" fill="var(--accent)">
+    Aucun réglage n'a changé. Le photographe a bougé de deux pas.
+  </text>
+</svg>

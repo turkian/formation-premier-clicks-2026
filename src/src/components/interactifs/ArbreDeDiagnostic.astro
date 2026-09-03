@@ -1,0 +1,122 @@
+---
+/**
+ * L'arbre de diagnostic, parcouru pas à pas.
+ *
+ * Symptôme, puis causes, puis correction — jamais dans un autre ordre. En salle,
+ * l'animateur affiche le symptôme, laisse la salle proposer une cause, et
+ * seulement ensuite révèle la correction : c'est le même exercice que le premier
+ * diagnostic de la séance 1, mené par les participants.
+ */
+import { SYMPTOMES } from '../../lib/diagnostic';
+import { typo } from '../../lib/typo';
+import { mdEnLigne } from '../../lib/md';
+import '../../styles/interactif.css';
+
+const symptomes = await Promise.all(
+  SYMPTOMES.map(async (s) => ({
+    ...s,
+    causes: await Promise.all(
+      s.causes.map(async (c) => ({
+        cause: await mdEnLigne(c.cause),
+        correction: await mdEnLigne(c.correction),
+        irreversible: c.irreversible ?? false,
+      })),
+    ),
+  })),
+);
+const donnees = JSON.stringify(symptomes);
+---
+
+<div class="composant" data-diagnostic style="grid-template-columns:minmax(0,1fr)">
+  <div style="display:grid;gap:var(--pas-2);align-content:start">
+    <div>
+      <p class="sens" style="margin-bottom:0.5rem">
+        1 · Le symptôme — la seule chose que vous voyez
+      </p>
+      <div class="segments" role="group" aria-label="Symptôme">
+        {symptomes.map((s, i) => (
+          <button type="button" data-symptome={s.id} aria-pressed={i === 0}>
+            {typo(s.symptome)}
+          </button>
+        ))}
+      </div>
+      <p class="sens" data-sortie="indice" style="margin-top:0.5rem"></p>
+    </div>
+
+    <div data-etape-causes>
+      <p class="sens" style="margin-bottom:0.5rem">2 · La cause — laquelle des trois&nbsp;?</p>
+      <div class="segments" role="group" aria-label="Cause" data-causes></div>
+    </div>
+
+    <div class="lecture" data-etape-correction aria-live="polite" hidden>
+      <div class="sens">3 · La correction</div>
+      <div class="bande" data-sortie="cause"></div>
+      <div class="sens" data-sortie="correction" style="font-size:var(--t-corps)"></div>
+      <div class="limites" data-sortie="irreversible" hidden></div>
+    </div>
+  </div>
+</div>
+
+<script is:inline define:vars={{ donnees }}>
+  /* Les données sont sérialisées à la construction : le composant n'appelle rien
+     et fonctionne hors ligne comme le reste de la leçon. */
+  window.__diagnostic = JSON.parse(donnees);
+</script>
+
+<script>
+  for (const racine of document.querySelectorAll<HTMLElement>('[data-diagnostic]')) demarrer(racine);
+
+  function demarrer(racine: HTMLElement) {
+    const symptomes = (window as any).__diagnostic as any[];
+    let iSymptome = 0;
+    let iCause: number | null = null;
+
+    const q = <T extends Element>(s: string) => racine.querySelector<T>(s)!;
+
+    for (const b of racine.querySelectorAll<HTMLButtonElement>('[data-symptome]')) {
+      b.addEventListener('click', () => {
+        iSymptome = symptomes.findIndex((s) => s.id === b.dataset.symptome);
+        // Changer de symptôme referme la correction : la salle doit reproposer.
+        iCause = null;
+        rendre();
+      });
+    }
+
+    function rendre() {
+      const symptome = symptomes[iSymptome]!;
+
+      for (const b of racine.querySelectorAll<HTMLButtonElement>('[data-symptome]')) {
+        b.setAttribute('aria-pressed', String(b.dataset.symptome === symptome.id));
+      }
+      q('[data-sortie="indice"]').textContent = symptome.indice;
+
+      const causes = q<HTMLElement>('[data-causes]');
+      causes.innerHTML = symptome.causes
+        .map(
+          (c: any, i: number) =>
+            `<button type="button" data-cause="${i}" aria-pressed="${i === iCause}">${c.cause}</button>`,
+        )
+        .join('');
+      for (const b of causes.querySelectorAll<HTMLButtonElement>('[data-cause]')) {
+        b.addEventListener('click', () => {
+          iCause = Number(b.dataset.cause);
+          rendre();
+        });
+      }
+
+      const correction = q<HTMLElement>('[data-etape-correction]');
+      correction.hidden = iCause === null;
+      if (iCause !== null) {
+        const choisie = symptome.causes[iCause]!;
+        q('[data-sortie="cause"]').innerHTML = choisie.cause;
+        q('[data-sortie="correction"]').innerHTML = choisie.correction;
+        const irreversible = q<HTMLElement>('[data-sortie="irreversible"]');
+        irreversible.hidden = !choisie.irreversible;
+        irreversible.textContent =
+          '⚠️ Celle-là ne se répare pas au développement. C’est à la prise de vue que ça se joue.';
+      }
+    }
+
+    rendre();
+  }
+</script>

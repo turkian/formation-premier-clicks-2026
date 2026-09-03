@@ -1,0 +1,111 @@
+---
+/**
+ * Le plan de cours, destiné aux membres qui envisagent de s'inscrire.
+ *
+ * Adapté de `docs/Documents/plan-de-cours.md`. Ce qui relève de la logistique
+ * d'animation reste dans `docs/` ; ce qui répond à « est-ce que cette formation
+ * est pour moi ? » est ici.
+ */
+import Base from '../layouts/Base.astro';
+import { lien } from '../lib/lien';
+import { typo } from '../lib/typo';
+import '../styles/carrefour.css';
+
+const seances = [
+  {
+    numero: 1,
+    titre: 'La lumière et la netteté',
+    points: [
+      'La lumière : quantité, direction, qualité, température de couleur',
+      "La mise au point : modes autofocus, sélection du collimateur, détection du visage et de l'œil",
+      'La profondeur de champ : définition et facteurs qui la modifient',
+      "L'ouverture : notation, effet sur la quantité de lumière et sur la profondeur de champ",
+      "Configuration de l'appareil en mode priorité à l'ouverture",
+    ],
+  },
+  {
+    numero: 2,
+    titre: "L'exposition",
+    points: [
+      "La vitesse d'obturation et le rendu du mouvement",
+      'Le flou de mouvement et le flou de bougé',
+      'La sensibilité ISO et le bruit',
+      "L'exposition : mesure de la lumière et cas où l'appareil se trompe",
+      "Les modes de l'appareil : automatique, priorité à l'ouverture, priorité à la vitesse, manuel",
+      "La compensation d'exposition",
+      'Ateliers pratiques en petits groupes : profondeur de champ, mouvement, lumière, exposition difficile',
+      'Diagnostic : identifier la cause d\'une photo ratée',
+    ],
+  },
+  {
+    numero: 3,
+    titre: 'Composition et développement',
+    points: [
+      "La composition : sujet, cadre, point de vue, arrière-plan, placement",
+      'Exercice pratique de composition',
+      'Les formats de fichier : JPEG et RAW',
+      "Lecture d'une image avant sa modification",
+      'Démonstration de développement : recadrage, balance des blancs, exposition, contraste, couleur',
+      'Corrections locales, netteté et réduction du bruit',
+      'Ce que le développement ne peut pas corriger',
+      'Tri et exportation des images',
+    ],
+  },
+];
+
+const materiel = [
+  'Votre appareil photo, avec une batterie chargée',
+  'Une carte mémoire avec de l\'espace disponible',
+  "Le manuel d'utilisation de votre appareil, si vous l'avez",
+];
+---
+
+<Base
+  titre="Plan de cours"
+  description="Trois séances de deux heures, aucun préalable, tous les types d'appareils — reflex, sans-miroir, compact et cellulaire."
+>
+  <div class="page prose" id="contenu">
+    <nav class="fil">
+      <a href={lien('/')}>Premiers clics</a> <span>·</span> <span>Plan de cours</span>
+    </nav>
+
+    <header class="entete-site">
+      <p class="surtitre">Formation</p>
+      <h1>Les bases de la photographie</h1>
+      <p class="chapeau" set:html={typo(
+        'Trois séances de 2 heures · aucun préalable · tous les types d’appareils.',
+      )} />
+    </header>
+
+    <h2>À qui ça s'adresse</h2>
+    <p set:html={typo(
+      'Cette formation s’adresse aux personnes qui possèdent un appareil photo et qui l’utilisent en mode automatique, ou qui ne connaissent pas les réglages de base.',
+    )} />
+    <p set:html={typo(
+      'Elle convient à tous les types d’appareils : reflex, sans-miroir, compact et téléphone cellulaire. Si votre appareil est votre cellulaire, vous êtes exactement au bon endroit — la majorité de ce qui est vu s’y applique.',
+    )} />
+
+    <h2>Ce qu'il faut apporter</h2>
+    <ul>{materiel.map((m) => <li set:html={typo(m)} />)}</ul>
+    <p set:html={typo(
+      'Aucun ordinateur portable n’est requis. Aucun logiciel n’est à installer. Aucun achat de matériel n’est nécessaire pour suivre la formation.',
+    )} />
+
+    <h2>Contenu</h2>
+    {seances.map((seance) => (
+      <>
+        <h3 set:html={typo(`Séance ${seance.numero} — ${seance.titre}`)} />
+        <ul>{seance.points.map((p) => <li set:html={typo(p)} />)}</ul>
+      </>
+    ))}
+
+    <h2>Après la formation</h2>
+    <p set:html={typo(
+      'Le site reste en ligne. Le lexique de votre marque, les fiches de référence et les explications des trois séances restent consultables — c’est là que la formation sert vraiment, dans les mois qui suivent.',
+    )} />
+
+    <p style="margin-top:2rem">
+      <a href={lien('/')}>← Retour au carrefour</a>
+    </p>
+  </div>
+</Base>

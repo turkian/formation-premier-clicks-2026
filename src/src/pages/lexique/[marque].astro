@@ -1,0 +1,173 @@
+---
+/**
+ * Une feuille de lexique par marque.
+ *
+ * La structure est imposée par le gabarit, pas par le contenu : les quatre
+ * sections numérotées paraissent dans le même ordre sur les huit pages, même
+ * quand une marque n'a rien à dire dans l'une d'elles. C'est ce qui rend
+ * « regardez la section 2 de votre feuille » vrai pour toute la salle.
+ */
+import type { GetStaticPaths } from 'astro';
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import SelecteurMarque from '../../components/SelecteurMarque.astro';
+import RechercheLexique from '../../components/RechercheLexique.astro';
+import { lien } from '../../lib/lien';
+import { typo } from '../../lib/typo';
+import { md, mdEnLigne } from '../../lib/md';
+import { SECTIONS } from '../../lib/marques';
+import { CADRAGE, MODE_DE_LECTURE, INTROUVABLE, CLE_MARQUE } from '../../lib/lexique';
+import '../../styles/carrefour.css';
+import '../../styles/lexique.css';
+
+export const getStaticPaths = (async () => {
+  const marques = await getCollection('marques');
+  return marques.map((marque) => ({ params: { marque: marque.id }, props: { marque } }));
+}) satisfies GetStaticPaths;
+
+const { marque } = Astro.props;
+const toutes = (await getCollection('marques')).sort((a, b) => a.data.rang - b.data.rang);
+
+/**
+ * Les sections sont rendues dans l'ordre canonique, et non dans l'ordre du
+ * fichier : une inversion d'écriture ne peut pas casser la numérotation
+ * partagée.
+ */
+const sections = await Promise.all(
+  SECTIONS.map(async (canonique) => {
+    const donnees = marque.data.sections.find((s) => s.numero === canonique.numero);
+    return {
+      ...canonique,
+      exception: await md(donnees?.exception),
+      note: await md(donnees?.note),
+      entrees: await Promise.all(
+        (donnees?.entrees ?? []).map(async (entree) => ({
+          formation: await mdEnLigne(entree.formation),
+          appareil: await mdEnLigne(entree.appareil),
+          chemin: entree.chemin ? await mdEnLigne(entree.chemin) : '',
+          note: entree.note ? await mdEnLigne(entree.note) : '',
+          /** Texte brut : c'est sur lui que porte la recherche. */
+          recherche: [entree.formation, entree.appareil, entree.chemin, entree.note]
+            .filter(Boolean)
+            .join(' ')
+            .replace(/[*`_]/g, ''),
+        })),
+      ),
+    };
+  }),
+);
+
+const cadrage = await md(CADRAGE);
+const modeDeLecture = await mdEnLigne(MODE_DE_LECTURE);
+const introuvable = await Promise.all(INTROUVABLE.map((point) => mdEnLigne(point)));
+const menuRapide = marque.data.menuRapide ? await mdEnLigne(marque.data.menuRapide) : '';
+const extensionRaw = marque.data.extensionRaw ? await mdEnLigne(marque.data.extensionRaw) : '';
+const nombreEntrees = sections.reduce((n, s) => n + s.entrees.length, 0);
+---
+
+<Base
+  titre={`Votre appareil — ${marque.data.nom}`}
+  description={`Les mots de votre ${marque.data.nom} pour les réglages vus en formation.`}
+  genre="genre-lexique"
+>
+  <div class="cadre-lexique" id="contenu">
+    <nav class="fil">
+      <a href={lien('/')}>Premiers clics</a> <span>·</span>
+      <a href={lien('/lexique')}>Lexique</a> <span>·</span>
+      <span set:html={typo(marque.data.nom)} />
+    </nav>
+
+    <header class="entete-site">
+      <p class="surtitre">Votre appareil</p>
+      <h1 set:html={typo(marque.data.nom)} />
+      {marque.data.sousTitre && <p class="chapeau" set:html={typo(marque.data.sousTitre)} />}
+    </header>
+
+    <SelecteurMarque marques={toutes} courante={marque.id} />
+
+    <div class="cadrage" set:html={cadrage} />
+
+    <p style="color:var(--texte-2);margin-bottom:1.6rem">
+      <strong>Comment lire cette feuille&nbsp;:</strong> <span set:html={modeDeLecture} />
+    </p>
+
+    {(menuRapide || extensionRaw) && (
+      <dl class="fait-marquant">
+        {menuRapide && (
+          <div>
+            <dt>Votre menu rapide</dt>
+            <dd set:html={menuRapide} />
+          </div>
+        )}
+        {extensionRaw && (
+          <div>
+            <dt>Vos fichiers RAW</dt>
+            <dd set:html={extensionRaw} />
+          </div>
+        )}
+      </dl>
+    )}
+
+    <RechercheLexique nombre={nombreEntrees} marque={marque.data.nom} />
+
+    {sections.map((section) => (
+      <section class="section-lexique" id={`section-${section.numero}`} data-section={section.numero}>
+        <h2>
+          <span class="numero" aria-hidden="true">{section.numero}</span>
+          <span set:html={typo(section.titre)} />
+        </h2>
+
+        {section.exception && <div class="exception" set:html={section.exception} />}
+
+        {section.entrees.length > 0 && (
+          <div class="entrees">
+            {section.entrees.map((entree) => (
+              <div class="entree" data-recherche={entree.recherche.toLowerCase()}>
+                <div class="cote-formation" set:html={entree.formation} />
+                <div class="cote-appareil" set:html={entree.appareil} />
+                {entree.chemin && (
+                  <div class="chemin-menu">
+                    <span aria-hidden="true">↳ </span><span set:html={entree.chemin} />
+                  </div>
+                )}
+                {entree.note && <div class="note-entree" set:html={entree.note} />}
+              </div>
+            ))}
+          </div>
+        )}
+
+        <p class="aucun-resultat" data-aucun hidden>
+          Aucune entrée de cette section ne correspond à votre recherche.
+        </p>
+
+        {section.note && <div class="note-section" set:html={section.note} />}
+      </section>
+    ))}
+
+    <section class="introuvable">
+      <h2 style="font-size:1.15rem;margin-bottom:0.7rem">Si vous ne trouvez pas</h2>
+      <ol>{introuvable.map((point) => <li set:html={point} />)}</ol>
+    </section>
+
+    <footer class="pied-site">
+      <p set:html={typo(
+        'Premiers clics — formation photo du club. À conserver avec vos fiches de référence.',
+      )} />
+    </footer>
+  </div>
+</Base>
+
+<script is:inline define:vars={{ cle: CLE_MARQUE, marque: marque.id }}>
+  /**
+   * Visiter une feuille, c'est choisir sa marque : le choix est mémorisé ici
+   * plutôt que par un bouton séparé, qu'il faudrait penser à actionner.
+   *
+   * Le stockage peut être indisponible — navigation privée, cookies bloqués —
+   * et la page doit alors fonctionner exactement pareil, sans mémoire.
+   */
+  try {
+    localStorage.setItem(cle, marque);
+  } catch {
+    /* Sans mémoire, la page reste entièrement utilisable. */
+  }
+</script>

@@ -1,0 +1,180 @@
+---
+/**
+ * Le cadre d'un écran de leçon.
+ *
+ * Chaque arrêt est une **page à part entière**, avec sa propre adresse. Ce n'est
+ * pas le choix le plus économe en octets, mais c'est celui qui rend les liens
+ * profonds, le bouton retour, le code QR et le service travailleur corrects sans
+ * mécanisme supplémentaire — et un écran mis en cache reste navigable quand le
+ * réseau de la salle tombe.
+ */
+import Base from './Base.astro';
+import IndexBlocs from '../components/IndexBlocs.astro';
+import CodeQr from '../components/CodeQr.astro';
+import { lien } from '../lib/lien';
+import { typo } from '../lib/typo';
+import { porteLeCodeQr } from '../lib/lecon';
+import '../styles/lecon.css';
+
+interface Props {
+  lecon: any;
+  arret: any;
+  precedent?: any;
+  suivant?: any;
+  totalArrets: number;
+}
+
+const { lecon, arret, precedent, suivant, totalArrets } = Astro.props;
+const totalBlocs = lecon.blocs.length;
+const qr = porteLeCodeQr(arret.ecran);
+
+const titre = arret.ecran.titre ?? arret.bloc.titre;
+---
+
+<Base titre={`${titre} — séance ${lecon.numero}`} genre="genre-lecon" pleinEcran>
+  <div
+    class="scene"
+    data-scene
+    data-etats={arret.totalEtats}
+    data-etat={arret.etat}
+    data-genre={arret.ecran.genre}
+    data-precedent={precedent ? lien(precedent.chemin) : undefined}
+    data-suivant={suivant ? lien(suivant.chemin) : undefined}
+  >
+    <header class="barre">
+      <span class="position">{typo(`Bloc ${arret.numeroBloc} / ${totalBlocs}`)}</span>
+      <span class="titre-bloc" set:html={typo(arret.bloc.titre)} />
+      <span class="commandes">
+        <button type="button" data-ouvrir-index aria-haspopup="dialog">Index</button>
+        <button type="button" data-plein-ecran aria-pressed="false">Plein écran</button>
+        <a class="bouton" href={lien(`/lecons/${lecon.numero}`)}>Sommaire</a>
+      </span>
+    </header>
+
+    <main id="contenu">
+      <slot />
+    </main>
+
+    <footer class="pied-ecran">
+      {arret.totalEtats > 1 && (
+        <span class="etats-points" aria-label={typo(`État ${arret.etat + 1} sur ${arret.totalEtats}`)}>
+          {Array.from({ length: arret.totalEtats }, (_, i) => (
+            <span data-atteint={i <= arret.etat ? '' : undefined}></span>
+          ))}
+        </span>
+      )}
+
+      {qr && <CodeQr chemin={arret.chemin} />}
+
+      <span class="navigation">
+        {precedent ? (
+          <a href={lien(precedent.chemin)} rel="prev">← Précédent</a>
+        ) : (
+          <span style="opacity:0.4">← Précédent</span>
+        )}
+        <span>{typo(`${arret.index + 1} / ${totalArrets}`)}</span>
+        {suivant ? (
+          <a href={lien(suivant.chemin)} rel="next">Suivant →</a>
+        ) : (
+          <span style="opacity:0.4">Suivant →</span>
+        )}
+      </span>
+    </footer>
+  </div>
+
+  <IndexBlocs lecon={lecon} blocCourant={arret.bloc.id} />
+</Base>
+
+<script>
+  /**
+   * Navigation au clavier.
+   *
+   * L'animateur pilote depuis le clavier ou une télécommande de présentation —
+   * laquelle envoie précisément les touches `PageDown` / `PageUp` et les
+   * flèches. Aller à l'arrêt suivant est une navigation ordinaire : l'adresse
+   * change, le bouton retour fonctionne, et le service travailleur a déjà la
+   * page en cache.
+   */
+  const scene = document.querySelector<HTMLElement>('[data-scene]');
+  if (scene) {
+    const suivant = scene.dataset.suivant;
+    const precedent = scene.dataset.precedent;
+    const dialogue = document.querySelector<HTMLDialogElement>('[data-index-blocs]');
+
+    // Préchargement discret : la page suivante est déjà là quand la touche
+    // arrive, ce qui compte dans une salle dont le wifi est incertain.
+    for (const adresse of [suivant, precedent]) {
+      if (!adresse) continue;
+      const balise = document.createElement('link');
+      balise.rel = 'prefetch';
+      balise.href = adresse;
+      document.head.append(balise);
+    }
+
+    const avancer = () => { if (suivant) location.href = suivant; };
+    const reculer = () => { if (precedent) location.href = precedent; };
+
+    document.addEventListener('keydown', (evenement) => {
+      if (evenement.metaKey || evenement.ctrlKey || evenement.altKey) return;
+      const cible = evenement.target as HTMLElement | null;
+      // Une commande d'un composant interactif garde ses flèches : on ne
+      // détourne pas le clavier de quelqu'un en train de régler un curseur.
+      if (cible && /^(INPUT|TEXTAREA|SELECT)$/.test(cible.tagName)) return;
+
+      switch (evenement.key) {
+        case 'ArrowRight':
+        case 'PageDown':
+        case ' ':
+          evenement.preventDefault();
+          avancer();
+          break;
+        case 'ArrowLeft':
+        case 'PageUp':
+          evenement.preventDefault();
+          reculer();
+          break;
+        case 'i':
+        case 'I':
+          evenement.preventDefault();
+          dialogue?.showModal();
+          break;
+        case 'f':
+        case 'F':
+          evenement.preventDefault();
+          basculerPleinEcran();
+          break;
+      }
+    });
+
+    document.querySelector('[data-ouvrir-index]')?.addEventListener('click', () => {
+      dialogue?.showModal();
+    });
+    dialogue?.addEventListener('click', (evenement) => {
+      if (evenement.target === dialogue) dialogue.close();
+    });
+
+    const boutonPleinEcran = document.querySelector<HTMLButtonElement>('[data-plein-ecran]');
+    boutonPleinEcran?.addEventListener('click', basculerPleinEcran);
+
+    function basculerPleinEcran() {
+      if (document.fullscreenElement) document.exitFullscreen();
+      else document.documentElement.requestFullscreen().catch(() => {});
+    }
+
+    document.addEventListener('fullscreenchange', () => {
+      boutonPleinEcran?.setAttribute('aria-pressed', String(Boolean(document.fullscreenElement)));
+    });
+
+    /* Au téléphone, on avance aussi du doigt. */
+    let depart: number | null = null;
+    scene.addEventListener('touchstart', (e) => { depart = e.changedTouches[0]!.clientX; }, { passive: true });
+    scene.addEventListener('touchend', (e) => {
+      if (depart === null) return;
+      const ecart = e.changedTouches[0]!.clientX - depart;
+      depart = null;
+      if (Math.abs(ecart) < 70) return;
+      if (ecart < 0) avancer();
+      else reculer();
+    }, { passive: true });
+  }
+</script>

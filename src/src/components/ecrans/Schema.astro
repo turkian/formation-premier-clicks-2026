@@ -1,0 +1,33 @@
+---
+/**
+ * Un schéma à l'intérieur d'un panneau.
+ *
+ * En SVG dessiné, donc net à toutes les résolutions — c'est ce qui permet au
+ * même panneau d'être projeté et relu sur un téléphone sans deuxième dessin.
+ */
+import { typo } from '../../lib/typo';
+import { SCHEMAS } from '../schemas/registre';
+
+interface Props {
+  schema: { composant: string; props?: Record<string, unknown>; legende?: string };
+}
+
+const { schema } = Astro.props;
+const Dessin = SCHEMAS[schema.composant as keyof typeof SCHEMAS];
+if (!Dessin) {
+  throw new Error(
+    `Le schéma « ${schema.composant} » n'existe pas. ` +
+      `Schémas connus : ${Object.keys(SCHEMAS).join(', ')}.`,
+  );
+}
+---
+
+<figure style="margin:0;display:grid;gap:var(--pas);min-height:0;align-content:center">
+  <Dessin {...(schema.props ?? {})} />
+  {schema.legende && (
+    <figcaption
+      style="font-size:var(--t-aparte);color:var(--texte-3);text-align:center"
+      set:html={typo(schema.legende)}
+    />
+  )}
+</figure>

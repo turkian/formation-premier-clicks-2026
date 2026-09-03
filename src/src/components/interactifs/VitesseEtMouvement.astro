@@ -1,0 +1,218 @@
+---
+/**
+ * Vitesse d'obturation et mouvement.
+ *
+ * Deux flous, deux causes, **deux commandes séparées** — c'est la distinction
+ * essentielle du bloc, et la seule façon honnête de la montrer est de laisser
+ * bouger l'une sans l'autre :
+ *
+ *   — le **sujet** bouge : lui seul est flou, le décor reste net ;
+ *   — **vous** bougez : toute l'image est floue, dans le même sens.
+ *
+ * Un participant qui sait lequel des deux il regarde sait quoi corriger. Un
+ * participant qui ne le sait pas monte l'ISO au hasard.
+ */
+import { typo } from '../../lib/typo';
+import '../../styles/interactif.css';
+---
+
+<div class="composant" data-vitesse>
+  <div class="commandes">
+    <div class="levier" data-reglage>
+      <div class="etiquette">
+        <span>La vitesse <span class="marque-reglage">un réglage</span></span>
+        <output data-sortie="vitesse"></output>
+      </div>
+      <input type="range" data-levier="vitesse" min="0" max="12" step="1" aria-label="Vitesse d'obturation" />
+    </div>
+
+    <div class="levier">
+      <div class="etiquette">
+        <span>Le sujet bouge</span>
+        <output data-sortie="sujet"></output>
+      </div>
+      <input type="range" data-levier="sujet" min="0" max="10" step="1" aria-label="Vitesse du sujet" />
+    </div>
+
+    <div class="levier">
+      <div class="etiquette">
+        <span>Vous bougez</span>
+        <output data-sortie="bouge"></output>
+      </div>
+      <input type="range" data-levier="bouge" min="0" max="10" step="1" aria-label="Tremblement de l'appareil" />
+    </div>
+
+    <div class="segments" role="group" aria-label="Points de départ">
+      <button type="button" data-preregle="marche">Personne qui marche</button>
+      <button type="button" data-preregle="course">Enfant qui court</button>
+      <button type="button" data-preregle="sport">Sport</button>
+      <button type="button" data-preregle="file">Filé</button>
+    </div>
+  </div>
+
+  <div class="visuel">
+    <svg class="scene-svg" viewBox="0 0 640 300" role="img" data-scene-vitesse
+         aria-label="Une scène où le sujet et le décor se brouillent séparément">
+      <defs>
+        <filter id="flou-sujet" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur data-flou-sujet stdDeviation="0 0" />
+        </filter>
+        <filter id="flou-bouge" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur data-flou-bouge stdDeviation="0" />
+        </filter>
+      </defs>
+
+      <!-- Tout ce qui subit le bougé de l'appareil est dans ce groupe : le
+           décor **et** le sujet. C'est ce qui fait la différence visible entre
+           les deux flous. -->
+      <g filter="url(#flou-bouge)">
+        <rect x="0" y="0" width="640" height="300" fill="var(--fond-2)" />
+        <g fill="var(--fond-4)">
+          <rect x="30" y="120" width="70" height="130" rx="4" />
+          <rect x="120" y="90" width="52" height="160" rx="4" />
+          <rect x="470" y="105" width="64" height="145" rx="4" />
+          <rect x="556" y="140" width="58" height="110" rx="4" />
+        </g>
+        <line x1="0" y1="250" x2="640" y2="250" stroke="var(--trait-fort)" stroke-width="2" />
+        <g fill="var(--trait)">
+          <circle cx="90" cy="70" r="5" /><circle cx="300" cy="52" r="4" /><circle cx="520" cy="66" r="5" />
+        </g>
+        <text x="20" y="288" font-size="12" fill="var(--trait-fort)">le décor</text>
+
+        <g data-sujet filter="url(#flou-sujet)">
+          <circle cx="320" cy="150" r="20" fill="var(--accent)" />
+          <rect x="306" y="174" width="28" height="66" rx="10" fill="var(--accent)" />
+          <text x="320" y="262" text-anchor="middle" font-size="12" fill="var(--texte-2)">le sujet</text>
+        </g>
+      </g>
+    </svg>
+
+    <div class="lecture" aria-live="polite">
+      <div class="bande" data-sortie="verdict"></div>
+      <div class="sens" data-sortie="correction"></div>
+    </div>
+
+    <p class="sens" set:html={typo(
+      'Mettez « vous bougez » à zéro et faites bouger le sujet : lui seul se brouille. Puis l’inverse : c’est toute l’image qui part. Deux flous, deux corrections.',
+    )} />
+  </div>
+</div>
+
+<script>
+  import { typo } from '../../lib/typo';
+
+  const VITESSES = [
+    { texte: '1 s', valeur: 1 },
+    { texte: '1/4 s', valeur: 1 / 4 },
+    { texte: '1/15 s', valeur: 1 / 15 },
+    { texte: '1/30 s', valeur: 1 / 30 },
+    { texte: '1/60 s', valeur: 1 / 60 },
+    { texte: '1/125 s', valeur: 1 / 125 },
+    { texte: '1/250 s', valeur: 1 / 250 },
+    { texte: '1/500 s', valeur: 1 / 500 },
+    { texte: '1/1000 s', valeur: 1 / 1000 },
+    { texte: '1/2000 s', valeur: 1 / 2000 },
+    { texte: '1/4000 s', valeur: 1 / 4000 },
+    { texte: '1/8000 s', valeur: 1 / 8000 },
+  ];
+
+  const SUJETS = [
+    'immobile', 'quelqu’un qui pose', 'une personne qui marche', 'un chien qui trotte',
+    'un enfant qui court', 'un cycliste', 'une voiture en ville', 'un coureur de sport',
+    'un oiseau en vol', 'une voiture sur l’autoroute', 'une balle frappée',
+  ];
+
+  const PREREGLAGES: Record<string, { vitesse: string; sujet: number }> = {
+    marche: { vitesse: '1/250 s', sujet: 2 },
+    course: { vitesse: '1/500 s', sujet: 4 },
+    sport: { vitesse: '1/1000 s', sujet: 7 },
+    file: { vitesse: '1/30 s', sujet: 6 },
+  };
+
+  for (const racine of document.querySelectorAll<HTMLElement>('[data-vitesse]')) demarrer(racine);
+
+  function demarrer(racine: HTMLElement) {
+    const etat = { iVitesse: 6, sujet: 2, bouge: 0 };
+    const q = <T extends Element>(s: string) => racine.querySelector<T>(s)!;
+    q<HTMLInputElement>('[data-levier="vitesse"]').max = String(VITESSES.length - 1);
+
+    racine.addEventListener('input', (e) => {
+      const c = e.target as HTMLInputElement;
+      if (c.dataset.levier === 'vitesse') etat.iVitesse = Number(c.value);
+      if (c.dataset.levier === 'sujet') etat.sujet = Number(c.value);
+      if (c.dataset.levier === 'bouge') etat.bouge = Number(c.value);
+      rendre();
+    });
+
+    for (const b of racine.querySelectorAll<HTMLButtonElement>('[data-preregle]')) {
+      b.addEventListener('click', () => {
+        const p = PREREGLAGES[b.dataset.preregle!]!;
+        etat.iVitesse = VITESSES.findIndex((v) => v.texte === p.vitesse);
+        etat.sujet = p.sujet;
+        rendre();
+      });
+    }
+
+    function rendre() {
+      const vitesse = VITESSES[etat.iVitesse]!;
+      q<HTMLInputElement>('[data-levier="vitesse"]').value = String(etat.iVitesse);
+      q<HTMLInputElement>('[data-levier="sujet"]').value = String(etat.sujet);
+      q<HTMLInputElement>('[data-levier="bouge"]').value = String(etat.bouge);
+      q('[data-sortie="vitesse"]').textContent = typo(vitesse.texte);
+      q('[data-sortie="sujet"]').textContent = SUJETS[etat.sujet]!;
+      q('[data-sortie="bouge"]').textContent =
+        etat.bouge === 0 ? 'pas du tout' : etat.bouge < 4 ? 'un peu' : etat.bouge < 8 ? 'beaucoup' : 'énormément';
+
+      /*
+       * Les deux flous se calculent séparément et s'appliquent à deux endroits
+       * différents du dessin : celui du sujet au sujet seul, celui du bougé au
+       * groupe entier. C'est la structure du SVG qui porte la distinction, pas
+       * un commentaire.
+       */
+      const dureeRelative = vitesse.valeur * 500;
+      const flouSujet = Math.min(14, etat.sujet * dureeRelative * 1.4);
+      const flouBouge = Math.min(9, etat.bouge * dureeRelative * 0.85);
+
+      // Le flou de sujet est directionnel — un sujet qui traverse le cadre file
+      // horizontalement. Le bougé, lui, brouille dans tous les sens.
+      q<SVGFEGaussianBlurElement>('[data-flou-sujet]').setAttribute(
+        'stdDeviation',
+        `${flouSujet.toFixed(2)} ${(flouSujet / 5).toFixed(2)}`,
+      );
+      q<SVGFEGaussianBlurElement>('[data-flou-bouge]').setAttribute(
+        'stdDeviation',
+        flouBouge.toFixed(2),
+      );
+
+      const sujetFlou = flouSujet > 1.1;
+      const bougeFlou = flouBouge > 1.1;
+
+      let verdict: string;
+      let correction: string;
+      if (!sujetFlou && !bougeFlou) {
+        verdict = 'Tout est net.';
+        correction = typo(`${vitesse.texte} suffit pour ${SUJETS[etat.sujet]}.`);
+      } else if (sujetFlou && !bougeFlou) {
+        verdict = 'Le décor est net, le sujet est flou.';
+        correction = typo(
+          `C'est le sujet qui a bougé pendant la pose. Montez la vitesse, ou passez en AF-C s'il se déplace vers vous.`,
+        );
+      } else if (!sujetFlou && bougeFlou) {
+        verdict = "Toute l'image est floue, dans le même sens.";
+        correction = typo(
+          `Celui-là, c'est vous. Montez la vitesse, calez vos coudes, ou appuyez-vous sur quelque chose. Le bruit d'un ISO plus haut se répare un peu ; ce flou-là, jamais.`,
+        );
+      } else {
+        verdict = 'Les deux à la fois.';
+        correction = typo(
+          `Le sujet file **et** l'image tremble. Montez franchement la vitesse : les deux problèmes ont la même solution.`,
+        ).replace(/\*\*/g, '');
+      }
+
+      q('[data-sortie="verdict"]').textContent = verdict;
+      q('[data-sortie="correction"]').textContent = correction;
+    }
+
+    rendre();
+  }
+</script>

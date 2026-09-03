@@ -1,0 +1,43 @@
+---
+/**
+ * La division, posée : focale ÷ nombre `f` = le diamètre réel.
+ *
+ * Le dessin sert de support statique quand le composant interactif serait de
+ * trop — dans un panneau de concept, à côté du texte qui l'explique.
+ */
+import { diametre } from '../../lib/profondeur-de-champ';
+import { nombre } from '../../lib/typo';
+
+interface Props {
+  focale?: number;
+  ouvertures?: number[];
+}
+const { focale = 50, ouvertures = [2, 4, 5.6, 16] } = Astro.props;
+const disques = ouvertures.map((o) => ({ ouverture: o, mm: diametre(focale, o) }));
+const maximum = Math.max(...disques.map((d) => d.mm));
+---
+<svg viewBox="0 0 640 230" role="img" style="width:100%;height:auto"
+     aria-label={`Le diamètre réel du trou d'un ${focale} mm, aux ouvertures comparées à la même échelle`}>
+  <text x="320" y="22" text-anchor="middle" font-size="15" fill="var(--texte-2)">
+    Un {focale} mm — la focale divisée par le chiffre
+  </text>
+  {disques.map((disque, i) => {
+    const cx = 80 + i * (480 / (disques.length - 1));
+    const r = (disque.mm / maximum) * 52;
+    return (
+      <g>
+        <circle cx={cx} cy="112" r={r} fill="var(--accent)" fill-opacity="0.22"
+                stroke="var(--accent)" stroke-width="2" />
+        <text x={cx} y="188" text-anchor="middle" font-size="16" font-weight="620" fill="var(--texte)">
+          f/{disque.ouverture}
+        </text>
+        <text x={cx} y="208" text-anchor="middle" font-size="13" fill="var(--accent)">
+          {focale} ÷ {String(disque.ouverture).replace('.', ',')} = {nombre(disque.mm, disque.mm < 20 ? 1 : 0)} mm
+        </text>
+      </g>
+    );
+  })}
+  <text x="320" y="226" text-anchor="middle" font-size="12" fill="var(--trait-fort)">
+    Les disques sont à la même échelle.
+  </text>
+</svg>

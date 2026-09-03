@@ -1,0 +1,93 @@
+---
+/**
+ * Le panneau de concept : quatre régions nommées, une grille pour la
+ * projection, une autre pour le téléphone (décision D4).
+ *
+ * Il est **autonome** : un participant qui n'a lu que cet écran comprend le
+ * concept, ce qui est le contrat de l'écran dense tenu cinq à huit minutes.
+ *
+ * Quand le panneau a des états, ceux-ci **s'ajoutent** — rien de ce qui est
+ * affiché n'est jamais retiré. Au dernier état, le panneau est l'explication
+ * complète du bloc, et cette même image sert de résumé écrit après coup.
+ */
+import { md, mdEnLigne } from '../../lib/md';
+import { regionsCumulees } from '../../lib/lecon';
+import Schema from './Schema.astro';
+
+interface Props {
+  ecran: any;
+  etat: number;
+}
+
+const { ecran, etat } = Astro.props;
+const cumule = regionsCumulees(ecran, etat);
+
+const claim = await mdEnLigne(cumule.claim);
+const corps = await Promise.all(cumule.corps.map((bloc: string) => md(bloc)));
+const apartes = await Promise.all(cumule.aparte.map((bloc: string) => md(bloc)));
+const ajouts = await Promise.all(
+  cumule.ajouts.map(async (a) => ({
+    ...a,
+    corpsHtml: await md(a.corps),
+    encadreHtml: await md(a.encadre),
+  })),
+);
+const sansSchema = !cumule.schema;
+/*
+ * « Dense » signifie : ce panneau accumule, et son corps grossit à chaque état.
+ * C'est le seul cas où la mise en colonnes se justifie — un panneau statique
+ * garde une colonne unique, plus facile à suivre depuis le fond de la salle.
+ */
+const dense = Boolean(ecran.etats?.length) && ajouts.length > 0;
+---
+
+<div
+  class="ecran panneau"
+  data-sans-schema={sansSchema ? '' : undefined}
+  data-dense={dense ? '' : undefined}
+  data-sans-encadres={undefined}
+>
+  <div class="region-claim">
+    <h1 class="claim" set:html={claim} />
+  </div>
+
+  <div class="region-corps corps">
+    {corps.map((html) => <div set:html={html} />)}
+    {!dense &&
+      ajouts.map((a) => (
+        <>
+          {a.corpsHtml && <div set:html={a.corpsHtml} />}
+          {a.encadreHtml && (
+            <div class="encadre" data-ton={a.ton} data-revele={a.revele ? '' : undefined} set:html={a.encadreHtml} />
+          )}
+        </>
+      ))}
+  </div>
+
+  {dense && (
+    <div class="region-encadres corps">
+      {ajouts.map((a) => (
+        <>
+          {a.corpsHtml && (
+            <div data-revele={a.revele ? '' : undefined} set:html={a.corpsHtml} />
+          )}
+          {a.encadreHtml && (
+            <div class="encadre" data-ton={a.ton} data-revele={a.revele ? '' : undefined} set:html={a.encadreHtml} />
+          )}
+        </>
+      ))}
+    </div>
+  )}
+
+  {cumule.schema && (
+    <div class="region-schema">
+      <Schema schema={cumule.schema} />
+    </div>
+  )}
+
+  {apartes.length > 0 && (
+    <div class="region-aparte aparte">
+      {apartes.map((html) => <div set:html={html} />)}
+    </div>
+  )}
+</div>

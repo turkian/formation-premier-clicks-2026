@@ -1,0 +1,194 @@
+---
+/**
+ * La molette des modes : qui décide quoi.
+ *
+ * Le composant répond à une seule question, mode par mode — **qui tient
+ * l'ouverture, qui tient la vitesse** — et à la question qui prouve la
+ * compréhension du bloc : pourquoi la compensation ne fait rien en manuel.
+ *
+ * En `M`, la commande `+/−` est affichée **inerte**, avec la raison énoncée.
+ * La masquer laisserait croire qu'elle n'existe pas ; la laisser active
+ * mentirait. Elle est là, désactivée, et elle explique pourquoi.
+ */
+import { typo } from '../../lib/typo';
+import '../../styles/interactif.css';
+
+const MODES = [
+  { id: 'auto', molette: 'AUTO', canon: null },
+  { id: 'p', molette: 'P', canon: null },
+  { id: 'a', molette: 'A', canon: 'Av' },
+  { id: 's', molette: 'S', canon: 'Tv' },
+  { id: 'm', molette: 'M', canon: null },
+];
+---
+
+<div class="composant" data-modes>
+  <div class="commandes">
+    <div class="segments" role="group" aria-label="Mode de l'appareil">
+      {MODES.map((mode) => (
+        <button type="button" data-mode={mode.id} aria-pressed={mode.id === 'a'}>
+          {mode.molette}{mode.canon && <span style="opacity:0.7"> · {mode.canon}</span>}
+        </button>
+      ))}
+    </div>
+
+    <p class="refus" style="color:var(--texte-2)" set:html={typo(
+      'Sur un Canon, la molette porte `Av` et `Tv` là où on dit `A` et `S`. Sur un Fujifilm, le mode résulte de la bague d’ouverture et de la molette de vitesse — chacune a une position `A`.',
+    )} />
+
+    <div class="levier" data-compensation>
+      <div class="etiquette">
+        <span>La compensation <code>+/−</code></span>
+        <output data-sortie="compensation"></output>
+      </div>
+      <input type="range" data-levier="compensation" min="-30" max="30" step="3"
+             aria-label="Compensation d'exposition" />
+      <p class="refus" data-inerte aria-live="polite"></p>
+    </div>
+  </div>
+
+  <div class="visuel">
+    <div style="display:grid;gap:var(--pas)">
+      <div class="lecture" data-qui="ouverture">
+        <div class="sens">L'ouverture</div>
+        <div class="bande" data-sortie="qui-ouverture"></div>
+      </div>
+      <div class="lecture" data-qui="vitesse">
+        <div class="sens">La vitesse</div>
+        <div class="bande" data-sortie="qui-vitesse"></div>
+      </div>
+      <div class="lecture">
+        <div class="sens">La compensation <code>+/−</code></div>
+        <div class="bande" data-sortie="qui-compensation"></div>
+      </div>
+    </div>
+
+    <div class="lecture" aria-live="polite">
+      <div class="bande" data-sortie="titre"></div>
+      <div class="sens" data-sortie="explication"></div>
+    </div>
+  </div>
+</div>
+
+<style>
+  [data-qui] { grid-template-columns: minmax(0, 1fr) auto; align-items: center; }
+  [data-qui] .sens { grid-column: 1; }
+  [data-qui] .bande { grid-column: 2; text-align: right; }
+  [data-qui][data-porteur='vous'] { border-color: var(--accent); }
+  [data-qui][data-porteur='vous'] .bande { color: var(--accent); }
+  [data-compensation][data-inactif] { opacity: 0.55; }
+  [data-compensation][data-inactif] input { cursor: not-allowed; }
+</style>
+
+<script>
+  import { typo } from '../../lib/typo';
+
+  interface Mode {
+    ouverture: 'vous' | 'appareil';
+    vitesse: 'vous' | 'appareil';
+    titre: string;
+    explication: string;
+  }
+
+  const MODES: Record<string, Mode> = {
+    auto: {
+      ouverture: 'appareil',
+      vitesse: 'appareil',
+      titre: "L'appareil décide des deux.",
+      explication:
+        "Il répond à votre place aux quatre questions du début, et il y répond mal — il ne sait pas ce que vous voulez montrer.",
+    },
+    p: {
+      ouverture: 'appareil',
+      vitesse: 'appareil',
+      titre: "L'appareil décide des deux, mais vous laisse les décaler.",
+      explication:
+        "Le mode programme choisit un couple ouverture-vitesse et vous permet de le glisser. Utile, rarement nécessaire.",
+    },
+    a: {
+      ouverture: 'vous',
+      vitesse: 'appareil',
+      titre: "Vous choisissez l'ouverture.",
+      explication:
+        "Donc l'épaisseur de la zone nette. C'est votre mode par défaut pour les trois prochaines semaines : la question « qu'est-ce qui doit être net ? » est celle qui revient le plus souvent.",
+    },
+    s: {
+      ouverture: 'appareil',
+      vitesse: 'vous',
+      titre: 'Vous choisissez la vitesse.',
+      explication:
+        "Donc le rendu du mouvement : figé, ou visible. C'est le mode à prendre quand le mouvement est la question.",
+    },
+    m: {
+      ouverture: 'vous',
+      vitesse: 'vous',
+      titre: 'Vous décidez de tout.',
+      explication:
+        "L'appareil ne décide plus rien de l'exposition. La compensation d'exposition n'a donc rien à corriger : elle sert à dire à l'appareil « plus clair » ou « plus sombre » **que ce qu'il avait décidé**, et il n'a rien décidé.",
+    },
+  };
+
+  for (const racine of document.querySelectorAll<HTMLElement>('[data-modes]')) demarrer(racine);
+
+  function demarrer(racine: HTMLElement) {
+    let courant = 'a';
+    let compensation = 0;
+    const q = <T extends Element>(s: string) => racine.querySelector<T>(s)!;
+
+    for (const b of racine.querySelectorAll<HTMLButtonElement>('[data-mode]')) {
+      b.addEventListener('click', () => {
+        courant = b.dataset.mode!;
+        rendre();
+      });
+    }
+
+    racine.addEventListener('input', (e) => {
+      const c = e.target as HTMLInputElement;
+      if (c.dataset.levier === 'compensation') compensation = Number(c.value) / 10;
+      rendre();
+    });
+
+    function rendre() {
+      const mode = MODES[courant]!;
+      const enManuel = courant === 'm';
+
+      for (const b of racine.querySelectorAll<HTMLButtonElement>('[data-mode]')) {
+        b.setAttribute('aria-pressed', String(b.dataset.mode === courant));
+      }
+
+      const nommer = (porteur: string) => (porteur === 'vous' ? 'vous' : "l'appareil");
+      q('[data-sortie="qui-ouverture"]').textContent = nommer(mode.ouverture);
+      q('[data-sortie="qui-vitesse"]').textContent = nommer(mode.vitesse);
+      q<HTMLElement>('[data-qui="ouverture"]').dataset.porteur = mode.ouverture;
+      q<HTMLElement>('[data-qui="vitesse"]').dataset.porteur = mode.vitesse;
+
+      q('[data-sortie="qui-compensation"]').textContent = enManuel
+        ? 'sans effet'
+        : 'vous, toujours';
+
+      /*
+       * La commande reste visible et devient inerte. C'est le test qui prouve
+       * la compréhension du bloc — la masquer priverait la salle de la question.
+       */
+      const bloc = q<HTMLElement>('[data-compensation]');
+      const curseur = q<HTMLInputElement>('[data-levier="compensation"]');
+      curseur.disabled = enManuel;
+      bloc.toggleAttribute('data-inactif', enManuel);
+      q('[data-inerte]').textContent = enManuel
+        ? typo(
+            "Sans effet en manuel : l'appareil ne décide plus rien de l'exposition, il n'y a donc rien à corriger.",
+          )
+        : '';
+
+      const signe = compensation > 0 ? '+' : '';
+      q('[data-sortie="compensation"]').textContent = enManuel
+        ? '—'
+        : typo(`${signe}${compensation.toLocaleString('fr-CA', { minimumFractionDigits: 1 })} IL`);
+
+      q('[data-sortie="titre"]').textContent = typo(mode.titre);
+      q('[data-sortie="explication"]').textContent = typo(mode.explication).replace(/\*\*/g, '');
+    }
+
+    rendre();
+  }
+</script>

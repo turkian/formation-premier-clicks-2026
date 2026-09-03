@@ -1,0 +1,75 @@
+nom: Lumix
+rang: 5
+genre: appareil
+menuRapide: "`Q.MENU`"
+extensionRaw: "`.RW2`"
+sections:
+  - numero: 1
+    entrees:
+      - formation: Tout automatique
+        appareil: "`iA`"
+      - formation: Priorité à l'ouverture — je choisis la quantité de lumière
+        appareil: "**`A`**"
+      - formation: Priorité à la vitesse — je choisis la durée
+        appareil: "**`S`**"
+      - formation: Manuel — je décide de tout
+        appareil: "`M`"
+      - formation: Programme
+        appareil: "`P`"
+    note: |
+      ✅ **Lumix emploie exactement les mots utilisés en formation** pour les modes. Vous n'avez
+      rien à traduire ici.
+  - numero: 2
+    exception: |
+      **Chez vous, le mode de mise au point est souvent un petit levier** autour du bouton `AF`,
+      sur le dessus ou l'arrière du boîtier. Regardez-y avant de fouiller les menus.
+    entrees:
+      - formation: "`AF-S` — sujet immobile"
+        appareil: "**`AFS`** *(sans tiret)*"
+      - formation: "`AF-C` — sujet qui bouge"
+        appareil: "**`AFC`** *(sans tiret)*"
+      - formation: L'appareil choisit lequel des deux
+        appareil: "`AFF`"
+      - formation: Mise au point manuelle
+        appareil: "`MF`"
+      - formation: Un seul collimateur, que je déplace
+        appareil: "`1-aire`"
+      - formation: Une petite zone
+        appareil: "`Personnalisé`"
+      - formation: L'appareil choisit tout seul
+        appareil: "`Multiple`"
+      - formation: Détection du visage et de l'œil
+        appareil: "`Détection visage/œil` — l'icône de visage dans le `Mode AF`"
+      - formation: Suivi d'un sujet
+        appareil: "`Suivi`"
+  - numero: 3
+    entrees:
+      - formation: Compensation d'exposition
+        appareil: "Le bouton ou la molette **`+/−`**"
+      - formation: ISO automatique
+        appareil: "`ISO AUTO`"
+      - formation: Limite haute de l'ISO auto
+        appareil: "`Réglage limite ISO`"
+    note: |
+      **Rappel :** en mode `M`, la molette `+/−` ne fait rien. C'est normal — l'appareil ne
+      décide plus rien, il n'y a donc rien à corriger.
+  - numero: 4
+    entrees:
+      - formation: Qualité d'image / RAW
+        appareil: "**`RAW+`**"
+        chemin: "`Photo` → `Qualité`"
+      - formation: Mode de mise au point
+        appareil: "Le levier `AFS / AFC / MF` autour du bouton `AF`"
+        chemin: "Ou `Photo` → `Mode de mise au point`"
+      - formation: Zone AF
+        appareil: "`Mode AF`"
+        chemin: "Le bouton `AF`, souvent à gauche du pavé directionnel"
+      - formation: Détection visage / œil
+        appareil: "L'icône de visage"
+        chemin: "Dans `Mode AF`"
+      - formation: Limite de l'ISO auto
+        appareil: "`Réglage limite ISO`"
+        chemin: "`Photo` → `Sensibilité ISO`"
+    note: |
+      Lumix range ses menus par icônes : appareil photo = photo, caméra = vidéo,
+      clé = réglages.

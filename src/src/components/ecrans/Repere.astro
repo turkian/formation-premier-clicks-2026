@@ -1,0 +1,36 @@
+---
+/**
+ * Le repère : ouverture de bloc, pause, bloc de questions, transition, clôture.
+ *
+ * Peu de contenu, volontairement. Un repère ne sert pas à expliquer : il sert à
+ * ce que toute la salle sache où on en est, y compris quelqu'un qui revient de
+ * la pause ou qui vient d'arriver.
+ */
+import { md, mdEnLigne } from '../../lib/md';
+
+interface Props {
+  ecran: any;
+  numeroBloc: number;
+  totalBlocs: number;
+}
+
+const { ecran, numeroBloc, totalBlocs } = Astro.props;
+const claim = await mdEnLigne(ecran.claim);
+const corps = await md(ecran.corps);
+const aparte = await md(ecran.aparte);
+
+const ETIQUETTES: Record<string, string> = {
+  ouverture: `Bloc ${numeroBloc} sur ${totalBlocs}`,
+  pause: 'Pause',
+  questions: 'Vos questions',
+  transition: 'On enchaîne',
+  cloture: 'Pour finir',
+};
+---
+
+<div class="ecran repere" data-variante={ecran.variante} data-dense={corps ? '' : undefined}>
+  <p class="numero-bloc">{ETIQUETTES[ecran.variante] ?? ecran.variante}</p>
+  <h1 class="claim" set:html={claim} />
+  {corps && <div class="corps" set:html={corps} />}
+  {aparte && <div class="aparte" set:html={aparte} />}
+</div>

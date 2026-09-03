@@ -1,0 +1,44 @@
+---
+/**
+ * Le relais vers le téléphone (décision D5).
+ *
+ * Un hébergement statique ne peut rien pousser. Le projecteur devient donc
+ * lui-même le canal de diffusion : l'écran affiche un code encodant l'adresse
+ * de cet écran, un participant le vise avec son téléphone et arrive exactement
+ * là. Aucune infrastructure, rien à synchroniser, rien qui tombe quand le wifi
+ * de la salle faiblit.
+ *
+ * Le code est produit à la construction, pas dans le navigateur : la page ne
+ * charge aucune bibliothèque pour l'afficher, ce qui compte sur une page qui
+ * doit se charger sur trente téléphones à la fois.
+ */
+import QRCode from 'qrcode';
+import { lienAbsolu } from '../lib/lien';
+
+interface Props {
+  /** Chemin de l'écran, relatif à la racine du site. */
+  chemin: string;
+  libelle?: string;
+}
+
+const { chemin, libelle = 'Ouvrez cet écran sur votre téléphone' } = Astro.props;
+const adresse = lienAbsolu(chemin, Astro.site);
+
+const image = await QRCode.toDataURL(adresse, {
+  errorCorrectionLevel: 'M',
+  margin: 0,
+  scale: 8,
+  color: { dark: '#15171b', light: '#ffffff' },
+});
+
+/** Adresse abrégée : lisible de loin par qui préfère la taper. */
+const abregee = adresse.replace(/^https?:\/\//, '').replace(/\/$/, '');
+---
+
+<div class="qr" data-qr>
+  <img src={image} alt={`Code à scanner menant à ${abregee}`} width="256" height="256" />
+  <div>
+    <div>{libelle}</div>
+    <div class="adresse">{abregee}</div>
+  </div>
+</div>

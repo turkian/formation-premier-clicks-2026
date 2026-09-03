@@ -1,0 +1,156 @@
+/**
+ * Le carrefour : la page d'accueil et les pages de section qui l'entourent.
+ *
+ * Un participant y arrive depuis un feuillet papier, sur un téléphone, dans un
+ * stationnement. La page doit donc être lisible et navigable à la largeur d'un
+ * téléphone sans défilement horizontal — d'où une seule colonne fluide et des
+ * grilles qui se replient d'elles-mêmes.
+ */
+
+.page {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: clamp(1.5rem, 5vw, 4rem) clamp(1rem, 4vw, 2.5rem) 5rem;
+}
+
+.entete-site {
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+.entete-site .surtitre {
+  font-size: var(--t-etiquette);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: var(--graisse-appui);
+  margin-bottom: 0.6rem;
+}
+
+.entete-site h1 {
+  font-size: clamp(2.1rem, 7vw, 3.6rem);
+  margin-bottom: 0.5rem;
+}
+
+.entete-site .chapeau {
+  color: var(--texte-2);
+  font-size: clamp(1rem, 2.4vw, 1.2rem);
+  max-width: 44ch;
+}
+
+.section-carrefour {
+  margin-bottom: clamp(2rem, 5vw, 3.25rem);
+}
+
+.section-carrefour > h2 {
+  font-size: clamp(1.15rem, 3vw, 1.5rem);
+  margin-bottom: 0.9rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--trait);
+}
+
+/* `auto-fit` + `minmax` : la grille se replie en une colonne sous 22 rem sans
+   qu'aucun point de rupture n'ait à le prévoir. */
+.grille {
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(19rem, 100%), 1fr));
+}
+
+.carte {
+  display: block;
+  background: var(--fond-2);
+  border: 1px solid var(--trait);
+  border-radius: var(--rayon-2);
+  padding: 1.1rem 1.2rem;
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 120ms, background 120ms, transform 120ms;
+}
+
+.carte:hover,
+.carte:focus-visible {
+  border-color: var(--accent);
+  background: var(--fond-3);
+  color: inherit;
+}
+
+.carte .etiquette {
+  font-size: var(--t-etiquette);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--texte-3);
+  font-weight: var(--graisse-appui);
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.carte h3 {
+  font-size: clamp(1.05rem, 2.6vw, 1.3rem);
+  margin-bottom: 0.3rem;
+}
+
+.carte p {
+  color: var(--texte-2);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* La leçon de la séance en cours se distingue sans qu'on ait à lire le lien. */
+.carte[data-courante] {
+  border-color: var(--accent);
+  background: linear-gradient(180deg, rgba(255, 180, 84, 0.09), transparent 60%), var(--fond-2);
+}
+
+.carte[data-courante] .etiquette {
+  color: var(--accent);
+}
+
+.liste-simple {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.4rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr));
+}
+
+.liste-simple a {
+  display: block;
+  padding: 0.62rem 0.85rem;
+  border-radius: var(--rayon);
+  background: var(--fond-2);
+  border: 1px solid var(--trait);
+  text-decoration: none;
+  color: var(--texte);
+}
+
+.liste-simple a:hover,
+.liste-simple a:focus-visible {
+  border-color: var(--accent);
+  background: var(--fond-3);
+}
+
+.fil {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: var(--t-etiquette);
+  color: var(--texte-3);
+  margin-bottom: 1.4rem;
+}
+
+.fil a { color: var(--texte-2); }
+
+.pied-site {
+  margin-top: 3.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--trait);
+  color: var(--texte-3);
+  font-size: 0.9rem;
+}
+
+.prose h2 { font-size: clamp(1.2rem, 3vw, 1.55rem); margin: 2rem 0 0.7rem; }
+.prose h3 { font-size: clamp(1.02rem, 2.4vw, 1.2rem); margin: 1.5rem 0 0.5rem; color: var(--accent); }
+.prose ul { margin-bottom: 1rem; }
+.prose > *:first-child { margin-top: 0; }

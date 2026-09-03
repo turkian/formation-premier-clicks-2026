@@ -1,0 +1,87 @@
+---
+/**
+ * L'entrée du lexique.
+ *
+ * Elle rend le sélecteur complet et fonctionne sans JavaScript ni mémoire. Quand
+ * une marque a déjà été choisie sur cet appareil, la page mène directement à
+ * cette feuille — c'est ce qu'un participant qui revient une semaine plus tard
+ * attend. Le lien « choisir une autre marque » revient ici en désactivant la
+ * reprise, pour que le sélecteur reste joignable.
+ */
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import SelecteurMarque from '../../components/SelecteurMarque.astro';
+import { lien } from '../../lib/lien';
+import { typo } from '../../lib/typo';
+import { md } from '../../lib/md';
+import { CADRAGE, CLE_MARQUE, PARAM_CHOISIR } from '../../lib/lexique';
+import { SECTIONS } from '../../lib/marques';
+import '../../styles/carrefour.css';
+import '../../styles/lexique.css';
+
+const marques = (await getCollection('marques')).sort((a, b) => a.data.rang - b.data.rang);
+const cadrage = await md(CADRAGE);
+const racineLexique = lien('/lexique');
+---
+
+<Base
+  titre="Lexique par fabricant"
+  description="Le même réglage porte huit noms différents. Voici celui de votre marque."
+  genre="genre-lexique"
+>
+  <div class="cadre-lexique" id="contenu">
+    <nav class="fil">
+      <a href={lien('/')}>Premiers clics</a> <span>·</span> <span>Lexique</span>
+    </nav>
+
+    <header class="entete-site">
+      <p class="surtitre">Lexique</p>
+      <h1>Les mots de votre marque</h1>
+      <p class="chapeau" set:html={typo(
+        'Choisissez votre marque une fois. Le site s’en souviendra sur cet appareil.',
+      )} />
+    </header>
+
+    <SelecteurMarque marques={marques} />
+
+    <div class="cadrage" set:html={cadrage} />
+
+    <section class="section-carrefour">
+      <h2>La même structure sur les huit feuilles</h2>
+      <p set:html={typo(
+        'Les quatre sections paraissent dans le même ordre, quelle que soit la marque. Quand on dit en salle « regardez la section 2 de votre feuille », c’est vrai pour tout le monde.',
+      )} />
+      <ol style="margin-top:0.8rem">
+        {SECTIONS.map((section) => <li set:html={typo(section.titre)} />)}
+      </ol>
+    </section>
+
+    <footer class="pied-site">
+      <p set:html={typo(
+        'Vous ne savez pas quelle marque choisir ? C’est écrit sur le devant de votre appareil, près de l’objectif. Si vous photographiez avec votre téléphone, prenez iPhone ou Android.',
+      )} />
+    </footer>
+  </div>
+</Base>
+
+<script is:inline define:vars={{ cle: CLE_MARQUE, param: PARAM_CHOISIR, racine: racineLexique }}>
+  /**
+   * Reprise de la marque mémorisée.
+   *
+   * `location.replace` plutôt qu'une navigation ordinaire : sans cela, le retour
+   * arrière depuis la feuille ramènerait ici, qui renverrait aussitôt là-bas —
+   * le participant serait prisonnier de la boucle.
+   *
+   * Le paramètre `?choisir` désactive la reprise, ce qui garde le sélecteur
+   * accessible à qui veut changer de marque.
+   */
+  try {
+    const veutChoisir = new URLSearchParams(location.search).has(param);
+    const memorisee = localStorage.getItem(cle);
+    if (!veutChoisir && memorisee && /^[a-z0-9-]+$/.test(memorisee)) {
+      location.replace(`${racine}${memorisee}/`);
+    }
+  } catch {
+    /* Stockage indisponible : le sélecteur ci-dessus fait très bien le travail. */
+  }
+</script>

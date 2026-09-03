@@ -1,0 +1,64 @@
+---
+/**
+ * Cadre partagé par toutes les pages du site.
+ *
+ * Il porte les jetons, la police auto-hébergée, la langue et le service
+ * travailleur. Il ne porte aucune chrome de navigation : les quatre genres du
+ * site — carrefour, leçon, lexique, fiche — ont des besoins d'en-tête
+ * incompatibles, et une barre commune servirait mal les quatre.
+ */
+import Polices from '../components/Polices.astro';
+import EnregistrerServiceTravailleur from '../components/EnregistrerServiceTravailleur.astro';
+import { typo } from '../lib/typo';
+import { asset, lien } from '../lib/lien';
+import '../styles/jetons.css';
+import '../styles/base.css';
+
+interface Props {
+  titre: string;
+  description?: string;
+  /** Classe posée sur `<body>`, pour les mises en page propres à un genre. */
+  genre?: string;
+  /** Un écran de leçon projeté n'a pas de marge ni de défilement de page. */
+  pleinEcran?: boolean;
+}
+
+const { titre, description, genre, pleinEcran = false } = Astro.props;
+const titreComplet = typo(titre === 'Premiers clics' ? titre : `${titre} · Premiers clics`);
+---
+
+<!doctype html>
+<html lang="fr-CA" data-plein-ecran={pleinEcran ? 'oui' : undefined}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{titreComplet}</title>
+    {description && <meta name="description" content={typo(description)} />}
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#15171b" />
+    <link rel="icon" href={asset('/icone.svg')} type="image/svg+xml" />
+    <link rel="manifest" href={asset('/manifeste.webmanifest')} />
+    <Polices />
+  </head>
+  <body class={genre}>
+    <a class="saut-au-contenu" href="#contenu">Aller au contenu</a>
+    <slot />
+    <EnregistrerServiceTravailleur />
+    {pleinEcran && (
+      <style is:inline>
+        html[data-plein-ecran='oui'],
+        html[data-plein-ecran='oui'] body {
+          height: 100%;
+          overflow: hidden;
+        }
+        @media (max-width: 44rem) {
+          html[data-plein-ecran='oui'],
+          html[data-plein-ecran='oui'] body {
+            height: auto;
+            overflow: visible;
+          }
+        }
+      </style>
+    )}
+  </body>
+</html>
