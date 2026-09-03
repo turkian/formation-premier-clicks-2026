@@ -47,6 +47,7 @@ Chaque séance a **trois fichiers** : ce qu'il faut préparer, le déroulé en s
 | [Lexique par fabricant](Documents/lexique-par-fabricant/) | **Les participants** — 8 feuilles, une par marque : Canon, Nikon, Sony, Fujifilm, Lumix, Olympus/OM, iPhone, Android. Chacun reçoit uniquement la sienne. |
 | [Tableau résumé toutes marques](Documents/lexique-par-fabricant/tableau-resume-animateurs.md) | **Les animateurs** — la correspondance croisée en une page, plus les cinq pièges |
 | [Feuillets à remettre](Documents/feuillets-a-remettre.md) | **Les participants** — 3 demi-pages distribuées en main propre à la fin de chaque séance |
+| [Plan de cours](Documents/plan-de-cours.md) | **Le club** — clientèle visée, matériel requis et contenu des trois séances, en trois longueurs |
 
 ---
 
