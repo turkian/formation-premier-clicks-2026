@@ -56,7 +56,7 @@ Each demonstration slot SHALL carry a priority. The following SHALL be marked es
 focus-distance series, the subject-to-background distance series, the out-of-focus versus
 camera-shake pair, the subject-blur versus camera-shake pair, the « nette mais bruitée » versus
 « propre mais floue » pair, the three metering-failure pairs, the composition before-and-after
-pairs, and the development demonstration photograph.
+pairs, the development demonstration photograph, and its seven cumulative states.
 
 #### Scenario: The animator can only prepare part of the set
 
@@ -74,3 +74,27 @@ SHALL be presented by components, not photographs.
 
 - **WHEN** the shot list is reviewed
 - **THEN** no slot is declared for a concept presented by an interactive component
+
+### Requirement: The development demonstration is backed by cumulative pre-rendered states
+
+The seven-gestures development demonstration SHALL declare, in addition to its starting
+photograph, seven cumulative image states — one per geste, each showing every gesture applied so
+far. These SHALL be declared as demonstration slots like any other image, and SHALL degrade to
+their specification when absent.
+
+#### Scenario: The animator demonstrates live
+
+- **WHEN** the animator performs the seven gestures live in editing software
+- **THEN** the screens carry the fixed order and the principle repeated at each gesture
+- **AND** the pre-rendered states are available as the block's support
+
+#### Scenario: The editing software fails during the session
+
+- **WHEN** the live demonstration cannot be performed
+- **THEN** the seven cumulative states present the sequence in order
+- **AND** each state shows the result of every gesture up to and including its own
+
+#### Scenario: The animator skips a geste
+
+- **WHEN** the animator chooses to skip a geste for time
+- **THEN** the remaining states are still reachable in order without the skipped one breaking the sequence

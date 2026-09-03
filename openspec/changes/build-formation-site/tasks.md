@@ -1,11 +1,13 @@
 ## 1. Project setup and deployment
 
 - [ ] 1.1 Fill in `openspec/config.yaml` `context`: stack (Astro, static, GitHub Pages project path), French-Québec typography conventions, projection legibility floors, and the rule that `docs/` holds logistics while the site is canonical for concept explanations
-- [ ] 1.2 Initialize the Astro project in `src/`, configured for a GitHub Pages repository sub-path
+- [ ] 1.2 Initialize the Astro project in `src/`, with the base path set to the repository name for the default `github.io` project URL
 - [ ] 1.3 Add the GitHub Actions workflow that builds and deploys to Pages on push to `main`
 - [ ] 1.4 Verify a deep link to a nested page resolves correctly under the deployed sub-path
-- [ ] 1.5 Establish the shared design tokens: colour (dark neutral ground suited to displaying photographs), the three typographic tiers for projection, and the phone and print scales
-- [ ] 1.6 Implement the French typography helpers — non-breaking spaces before `:` `;` `!` `?`, `« »` with non-breaking inner spaces, non-breaking spaces in numbers and units — and apply them site-wide
+- [ ] 1.5 Choose the typeface from Google Fonts per design decision D10 — modern legible sans, real weight range, tall x-height, unambiguous figures, full French accent and `« »` coverage including accented capitals
+- [ ] 1.6 Self-host the font files rather than linking the Google CDN, so the offline path and the local copy keep the typeface
+- [ ] 1.7 Establish the shared design tokens: colour (dark neutral ground suited to displaying photographs), the three typographic tiers for projection, and the phone and print scales
+- [ ] 1.8 Implement the French typography helpers — non-breaking spaces before `:` `;` `!` `?`, `« »` with non-breaking inner spaces, non-breaking spaces in numbers and units — and apply them site-wide
 
 ## 2. Content authoring model
 
@@ -107,11 +109,12 @@
 - [ ] 11.3 Build the composition screens for the five réflexes and the on-the-spot exercise
 - [ ] 11.4 Build the JPEG and RAW screens and the « lire une image avant de la modifier » screens
 - [ ] 11.5 Build the seven-gestures screens: the fixed order, the principle repeated at each gesture, and what no RAW recovers
-- [ ] 11.6 Build the masques, netteté, and bruit screens
-- [ ] 11.7 Build the trier and exporter screens, linked to the export-recipes reference sheet
-- [ ] 11.8 Build the « et maintenant ? » closing screens: sortie photo, parrainage, question channels, défi mensuel, soirée critique
-- [ ] 11.9 Declare lesson 3's demonstration slots, including the development demonstration photograph
-- [ ] 11.10 Rehearse lesson 3 end to end at projection size and at phone width
+- [ ] 11.6 Declare the seven cumulative pre-rendered states per design decision D11, each showing every gesture applied so far, reachable in order and tolerant of a skipped geste
+- [ ] 11.7 Build the masques, netteté, and bruit screens
+- [ ] 11.8 Build the trier and exporter screens, linked to the export-recipes reference sheet
+- [ ] 11.9 Build the « et maintenant ? » closing screens: sortie photo, parrainage, question channels, défi mensuel, soirée critique
+- [ ] 11.10 Declare lesson 3's remaining demonstration slots, including the starting development photograph
+- [ ] 11.11 Rehearse lesson 3 end to end at projection size and at phone width
 
 ## 12. Offline and fallback
 

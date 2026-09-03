@@ -39,6 +39,10 @@ finished before lesson 2 is started, and the animator's photographs arrive over 
 - No authoring UI. Content is edited as files in the repository.
 - The animator-facing logistics in `docs/` (préparation, suivi, fiches d'animateurs, minutage)
   are not ported to the site.
+- No cross-brand search in the lexique. Search is scoped to the selected brand, which is what a
+  participant looking up their own camera needs; searching all eight at once would return seven
+  irrelevant matches.
+- No custom domain. The site is served from the default `github.io` project path.
 
 ## Decisions
 
@@ -47,7 +51,8 @@ finished before lesson 2 is started, and the animator's photographs arrive over 
 The site has to be four different things at once. Astro was chosen because the reference sheets
 and the eight lexique pages are content collections almost by definition, interactive components
 can be islands so the lexique and print pages ship no JavaScript at all, and everything builds to
-static files a GitHub Pages project path can serve.
+static files a GitHub Pages project path can serve. The site is served from the default
+`github.io` project path, so the base path is the repository name.
 
 *Alternatives considered.* **Slidev / reveal.js** give keyboard navigation, fit-to-screen, and
 speaker view for free, and were the strongest option for the lessons alone — but the lexique and
@@ -194,6 +199,35 @@ also the rollback path in D10.
 The scripts' own instruction (« prépare le plan B projeté même si tu comptes faire les démos en
 direct ») applies to the site as much as to the demos.
 
+### D10 — Typeface: a modern legible Google Fonts face
+
+The type has to survive three very different jobs: a headline claim read from the back of a room,
+a table read from the middle of it, and a reference sheet read on paper at arm's length. The face
+is chosen from Google Fonts for a modern, highly legible sans with a genuine range of weights, a
+tall x-height, unambiguous figures, and complete coverage of French punctuation and accents
+including small-caps-safe `« »` and the accented capitals Québec French requires.
+
+Self-hosting the font files rather than linking the Google CDN, so that D9's offline behaviour and
+the local-copy fallback do not silently lose the typeface when the room has no network.
+
+### D11 — Lesson 3's development demonstration uses pre-rendered image states
+
+The seven-gestures block stays a live demonstration, but its fallback and its on-screen support
+are **pre-rendered images: one starting photograph plus seven cumulative states**, one per geste.
+
+This makes the block behave like every other demonstration in the formation — declared slots with
+specifications, degrading to their spec when absent — instead of being a special case. It also
+means the block is deliverable if the editing software misbehaves on the night, which for a
+30-minute live demo in front of thirty people is a real possibility.
+
+*Alternatives considered.* **A recorded screen pass** shows the gestures but cannot be paused
+against a question from the room, and cannot be reordered when the animator chooses to skip a
+geste. **CSS-filter simulation** was rejected as dishonest about what RAW development does.
+
+These seven states are *derived* assets, not additional photographs: they are exports from a
+single editing pass on one image, so they add almost nothing to the shooting workload described in
+`specs/demo-media`.
+
 ## Risks / Trade-offs
 
 **Thirty phones on club wifi at once** → « Appareil en main » pages are text-only and small and
@@ -213,9 +247,8 @@ arrangement is for review, not for delivery.
 
 **Lesson 3's seven-gestures development demonstration is the least screen-shaped block in the
 formation** — 30 minutes of live editing → Left as a live demonstration with screens carrying the
-fixed order and the principle repeated at each gesture. Whether the fallback is pre-rendered
-image states or a recorded pass is deferred (see Open Questions); CSS-filter simulation was
-considered and rejected as dishonest about what RAW development does.
+fixed order and the principle repeated at each gesture, backed by the pre-rendered cumulative
+states of D11 so the block survives a software failure on the night.
 
 **The site depends on ~45–55 photographs the animator must shoot**, about 20 of them essential →
 The asset-slot contract (`specs/demo-media`) makes every lesson projectable with zero photographs
@@ -247,12 +280,3 @@ the site itself is not ready for a given evening, that session falls back to the
 run-of-show and the scripts' own projected plan B — the formation was designed to be deliverable
 without the site.
 
-## Open Questions
-
-- **Typeface.** Needs a projection-legible face with proper French punctuation support; deferrable
-  to implementation without affecting specs or layout structure.
-- **Lesson 3's development-demonstration fallback** — pre-rendered image states versus a recorded
-  pass. Answerable after lesson 1 ships, and only affects lesson 3's asset slots.
-- **Cross-brand search in the lexique.** The spec requires search within the selected brand;
-  whether to also search across all eight is an additive nicety.
-- **Custom domain versus the `github.io` project path.** Affects only the base path configuration.
