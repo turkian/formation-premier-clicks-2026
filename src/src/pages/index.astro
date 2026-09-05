@@ -15,7 +15,9 @@ import { MARQUES_ORDRE } from '../lib/marques';
 import '../styles/carrefour.css';
 
 const lecons = (await getCollection('lecons')).sort((a, b) => a.data.numero - b.data.numero);
-const fiches = (await getCollection('fiches')).sort((a, b) => a.data.rang - b.data.rang);
+const fiches = (await getCollection('fiches')).sort(
+  (a, b) => a.data.rang - b.data.rang || a.data.titre.localeCompare(b.data.titre, 'fr'),
+);
 ---
 
 <Base
@@ -71,13 +73,17 @@ const fiches = (await getCollection('fiches')).sort((a, b) => a.data.rang - b.da
 
     <section class="section-carrefour">
       <h2>Les fiches, une par une</h2>
-      <ul class="liste-simple">
+      <div class="grille">
         {fiches.map((fiche) => (
-          <li>
-            <a href={lien(`/fiches/${fiche.id}`)} set:html={typo(fiche.data.titre)} />
-          </li>
+          <a class="carte" href={lien(`/fiches/${fiche.id}`)}>
+            <span class="etiquette">
+              {fiche.data.seance ? typo(`Séance ${fiche.data.seance}`) : 'Référence'}
+            </span>
+            <h3 set:html={typo(fiche.data.titre)} />
+            {fiche.data.sousTitre && <p set:html={typo(fiche.data.sousTitre)} />}
+          </a>
         ))}
-      </ul>
+      </div>
     </section>
 
     <footer class="pied-site">

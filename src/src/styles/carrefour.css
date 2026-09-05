@@ -104,8 +104,16 @@
   grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr));
 }
 
+/* Chaque `li` s'étire à la hauteur de sa rangée, mais le lien qu'il contient
+   ne suivait pas : un titre d'une ligne laissait une tuile courte à côté d'un
+   titre qui en prend deux. En `flex`, le lien s'étire avec son `li`. */
+.liste-simple li {
+  display: flex;
+}
+
 .liste-simple a {
   display: block;
+  width: 100%;
   padding: 0.62rem 0.85rem;
   border-radius: var(--rayon);
   background: var(--fond-2);
