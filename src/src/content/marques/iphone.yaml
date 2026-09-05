@@ -44,7 +44,7 @@ sections:
         appareil: "Toujours automatique, sauf en application tierce"
     note: |
       **C'est le réglage le plus utile de votre téléphone, et presque personne ne sait qu'il
-      existe.** C'est exactement la compensation d'exposition dont on parle toute la soirée :
+      existe.** C'est exactement la compensation d'exposition dont on parle toute la séance :
       neige trop grise, glissez vers le haut ; scène sombre trop pâle, glissez vers le bas.
   - numero: 4
     exception: |
@@ -65,7 +65,7 @@ sections:
         appareil: "`Conserver les réglages`"
         chemin: "`Réglages` → `Appareil photo`"
     note: |
-      **Faites les deux premiers ce soir.** La grille est le meilleur outil gratuit qui existe
+      **Faites les deux premiers dès maintenant.** La grille est le meilleur outil gratuit qui existe
       pour vos quatre coins et vos horizons droits.
 
       Activez le RAW seulement quand vous comptez développer la photo : les fichiers sont lourds.

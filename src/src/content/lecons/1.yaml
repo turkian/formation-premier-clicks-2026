@@ -42,7 +42,7 @@ blocs:
           3. **ce qui vous frustre le plus en ce moment** avec lui.
         aparte: |
           La troisième est la plus importante des trois. C'est elle qui donne les vrais exemples
-          de la soirée — des problèmes que vous avez réellement.
+          de la séance — des problèmes que vous avez réellement.
 
       - id: avant-chaque-photo
         genre: panneau
@@ -306,7 +306,7 @@ blocs:
 
           **Si une question vous vient et que vous ne voulez pas interrompre, écrivez-la et
           collez-la là.** Sans votre nom si vous préférez. On y répond en revenant, ou à la
-          prochaine séance.
+          séance 2.
         aparte: |
           C'est aussi le moment de venir poser une question à voix basse plutôt qu'à voix haute.
           C'est prévu, et c'est bienvenu.
@@ -319,7 +319,7 @@ blocs:
         corps: |
           On commence par les papillons du mur, puis par ce qui vient.
 
-          Si une question dépasse le cadre de ce soir, elle est notée et reprise à la séance 3
+          Si une question dépasse le cadre de cette séance, elle est notée et reprise à la séance 3
           plutôt qu'expédiée en deux mots.
 
   # ─────────────────────────────────────────────────────────────────────────
@@ -333,7 +333,7 @@ blocs:
         titre: La profondeur de champ
         claim: Quelle épaisseur est nette ?
         corps: |
-          C'est le sujet central de la soirée. L'ouverture, qu'on verra juste après, n'est qu'un
+          C'est le sujet central de la séance. L'ouverture, qu'on verra juste après, n'est qu'un
           des moyens de la contrôler — et pas le plus accessible.
 
       - id: la-definition
@@ -702,9 +702,9 @@ blocs:
           Les mots changent d'une marque à l'autre — c'est le moment de vous servir de votre
           feuille, **sections 1 et 4**.
 
-          Sur le `+/−`, une seule consigne ce soir, sans théorie : **si votre photo est trop
+          Sur le `+/−`, une seule consigne pour l'instant, sans théorie : **si votre photo est trop
           sombre, tournez vers le `+`. Trop claire, vers le `−`.** C'est tout, et ça marche. On
-          verra pourquoi à la prochaine séance.
+          verra pourquoi à la séance 2.
 
       - id: le-defi
         genre: panneau
@@ -718,13 +718,13 @@ blocs:
           - Une photo dans une **lumière que vous trouvez intéressante**
 
           **Si elles sont ratées, elles sont encore plus utiles :** on va les regarder ensemble
-          et comprendre pourquoi. C'est exactement ce qu'on fait à la prochaine séance.
+          et comprendre pourquoi. C'est exactement ce qu'on fait à la séance 2.
         aparte: |
           Rien à envoyer. Apportez votre carte mémoire avec vos photos dessus, on les regardera
           sur vos écrans. Et si vous n'avez pas eu le temps, **venez quand même** — vous ne serez
           pas les seuls.
 
-          Ouvrez ce site avant d'arriver à la prochaine séance : il restera consultable même si
+          Ce site fonctionne hors ligne une fois qu'il a été ouvert une première fois — utile si
           le réseau de la salle faiblit.
 
       - id: derniere-question

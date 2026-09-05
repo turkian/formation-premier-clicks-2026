@@ -3,7 +3,7 @@
  *
  * Chacun fonctionne sans aucune photographie de démonstration : ils calculent
  * ou dessinent leur propre contenu. C'est ce qui rend une leçon projetable le
- * premier soir, avant que la moindre image ait été prise.
+ * la séance 1, avant que la moindre image ait été prise.
  */
 import ProfondeurDeChamp from './ProfondeurDeChamp.astro';
 import OuvertureDivision from './OuvertureDivision.astro';

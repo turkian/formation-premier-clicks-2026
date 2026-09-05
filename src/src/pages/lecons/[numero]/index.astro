@@ -2,17 +2,17 @@
 /**
  * Le sommaire d'une leçon.
  *
- * Sur le projecteur, c'est le point de départ de la soirée. Sur un téléphone,
+ * Sur le projecteur, c'est le point de départ de la séance. Sur un téléphone,
  * c'est la table des matières de la relecture — d'où la liste complète des blocs
- * et de leurs écrans plutôt qu'un simple bouton « commencer ».
+ * et de leurs écrans plutôt qu'un simple bouton « commencer » : on entre dans
+ * une leçon par où l'on veut, et personne ne choisit à la place du lecteur.
  */
 import type { GetStaticPaths } from 'astro';
 import { getCollection } from 'astro:content';
 import Base from '../../../layouts/Base.astro';
 import { lien } from '../../../lib/lien';
 import { typo } from '../../../lib/typo';
-import { aplatir, nombreEtats } from '../../../lib/lecon';
-import { dateLisible } from '../../../lib/calendrier';
+import { nombreEtats } from '../../../lib/lecon';
 import '../../../styles/carrefour.css';
 
 export const getStaticPaths = (async () => {
@@ -24,9 +24,6 @@ export const getStaticPaths = (async () => {
 }) satisfies GetStaticPaths;
 
 const { lecon } = Astro.props;
-const arrets = aplatir(lecon);
-const premier = arrets[0]!;
-const date = dateLisible(lecon.numero);
 
 const GENRES: Record<string, string> = {
   panneau: 'concept',
@@ -45,7 +42,7 @@ const GENRES: Record<string, string> = {
     </nav>
 
     <header class="entete-site">
-      <p class="surtitre">{typo(`Séance ${lecon.numero}${date ? ` · ${date}` : ''}`)}</p>
+      <p class="surtitre">{typo(`Séance ${lecon.numero}`)}</p>
       <h1 set:html={typo(lecon.titre)} />
       <p class="chapeau" set:html={typo(lecon.filConducteur)} />
     </header>
@@ -53,17 +50,9 @@ const GENRES: Record<string, string> = {
     {lecon.question && (
       <p
         style="border-left:3px solid var(--accent);background:var(--fond-2);padding:0.9rem 1.1rem;border-radius:0 var(--rayon) var(--rayon) 0;margin-bottom:1.8rem"
-        set:html={typo(`Cette soirée traite une seule question : ${lecon.question}`)}
+        set:html={typo(`Cette séance traite une seule question : ${lecon.question}`)}
       />
     )}
-
-    <p style="margin-bottom:2rem">
-      <a class="carte" style="display:inline-block" href={lien(premier.chemin)}>
-        <span class="etiquette">Commencer</span>
-        <h3 set:html={typo(`${lecon.blocs.length} blocs · ${arrets.length} écrans`)} />
-        <p>Les flèches pour naviguer, <code>i</code> pour l'index, <code>f</code> pour le plein écran.</p>
-      </a>
-    </p>
 
     {lecon.blocs.map((bloc, i) => (
       <section class="section-carrefour">
@@ -95,7 +84,7 @@ const GENRES: Record<string, string> = {
 
     <footer class="pied-site">
       <p set:html={typo(
-        'Les explications de cette séance restent en ligne. C’est ici qu’il faut revenir dans trois semaines, quand la question se posera pour de vrai.',
+        'Les explications de cette séance restent en ligne. C’est ici qu’il faut revenir quand la question se posera pour de vrai.',
       )} />
     </footer>
   </div>

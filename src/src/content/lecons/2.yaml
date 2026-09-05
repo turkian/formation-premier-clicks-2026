@@ -24,14 +24,14 @@ blocs:
         corps: |
           Qui a essayé le mode `A` depuis trois semaines ? Et qui a trouvé ça déroutant ?
 
-          **Les difficultés sont de bonnes nouvelles** : ce sont les questions de ce soir.
+          **Les difficultés sont de bonnes nouvelles** : ce sont les questions de cette séance.
         aparte: |
           Gardez votre carte dans l'appareil : vos photos serviront aux ateliers.
 
       - id: le-programme
         genre: panneau
         titre: Le programme
-        claim: Ce soir, vous allez comprendre ce que votre appareil décide à votre place.
+        claim: Vous allez comprendre ce que votre appareil décide à votre place.
         corps: |
           La séance 1 a traité tout ce qui décide de **la netteté**. Celle-ci regroupe tout ce
           qui décide de **l'exposition**.
@@ -41,7 +41,7 @@ blocs:
           | | Ce qu'elle règle | Vue |
           |---|---|---|
           | **L'ouverture** | la **taille** du trou | séance 1 |
-          | **La vitesse** | la **durée** pendant laquelle il reste ouvert | ce soir |
+          | **La vitesse** | la **durée** pendant laquelle il reste ouvert | séance 2 |
 
           Les quatre modes de votre molette ne seront qu'une conséquence de ces deux-là.
         aparte: |
@@ -83,7 +83,7 @@ blocs:
         aparte: |
           Ce qui vous stabilise : votre posture, la focale — plus c'est long, plus ça tremble —,
           la stabilisation du boîtier ou de l'objectif, et le trépied. Cette distinction revient
-          à chaque diagnostic de la soirée.
+          à chaque diagnostic de la séance.
 
       - id: explorer-le-mouvement
         genre: interactif
@@ -217,7 +217,7 @@ blocs:
               La compensation donne **80 % du bénéfice** de sortir du mode automatique, pour
               20 % de l'effort.
 
-              S'il ne faut retenir qu'une chose de la soirée, que ce soit celle-là.
+              S'il ne faut retenir qu'une chose de la séance, que ce soit celle-là.
             ton: regle
 
       - id: qui-decide-quoi
@@ -335,7 +335,7 @@ blocs:
         gestes:
           - "**Faites le tour de votre molette** — `Auto`, `A` ou `Av`, `S` ou `Tv`, `M`."
           - "**Arrêtez-vous sur `M` et tournez le `+/−`.** Rien ne bouge — et maintenant vous savez pourquoi."
-          - "**Revenez sur `A` · `Av`** — c'est là que votre appareil reste en partant ce soir."
+          - "**Revenez sur `A` · `Av`** — c'est là que votre appareil reste quand vous le rangez."
           - "**ISO automatique**, limite haute à 3200 ou 6400."
           - "**Trouvez le bouton `+/−` au toucher**, sans regarder : `−1`, `+1`, retour à `0`."
           - "**Format `RAW + JPEG`** si votre appareil le permet. On en aura besoin à la séance 3."

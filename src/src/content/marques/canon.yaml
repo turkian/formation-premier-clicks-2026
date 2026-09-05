@@ -46,7 +46,7 @@ sections:
         appareil: "`Détection visage + suivi` · `Détection œil` · `Sujet à détecter`"
     note: |
       ⚠️ **Vos menus ne contiennent ni `AF-S` ni `AF-C`.** Ces deux mots reviendront pourtant
-      toute la soirée. Retenez la traduction : **immobile = `One Shot`, qui bouge = `AI Servo`**
+      toute la séance. Retenez la traduction : **immobile = `One Shot`, qui bouge = `AI Servo`**
       *(ou `Servo` sur un boîtier série R)*.
   - numero: 3
     entrees:

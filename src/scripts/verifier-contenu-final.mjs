@@ -189,6 +189,113 @@ for (const { nom, donnees } of marques) {
   );
 }
 
+/* ── 13.5 · Une séance se nomme par son rang, jamais par un moment ──────── */
+
+console.log('\n13.5 · Aucun texte ne situe une séance dans le temps du lecteur');
+
+/**
+ * Le site est lu deux fois : le soir de la séance, et des mois plus tard par
+ * quelqu'un qui n'était pas dans la salle. Tout ce qui est écrit doit rester
+ * vrai dans les deux cas — donc « la séance 2 », jamais « ce soir » ni « la
+ * prochaine séance ».
+ *
+ * La règle se vérifie ici plutôt que de se rappeler : le risque n'est pas le
+ * texte corrigé aujourd'hui, c'est celui qu'on écrira dans six mois en
+ * adaptant un passage de `docs/`, où « ce soir » est parfaitement légitime.
+ */
+
+/**
+ * Le radical `soir` — « ce soir », « soirée », « soirées ».
+ *
+ * Les bornes viennent de `HORS_MOT` / `FIN_MOT` et non de `\b` : « soirée »
+ * finit par une lettre accentuée, que `\b` ne reconnaît pas comme lettre.
+ */
+const SOIR = new RegExp(`${HORS_MOT}soir\\p{L}*${FIN_MOT}`, 'giu');
+
+/**
+ * Une séance située par rapport au lecteur plutôt que nommée par son rang.
+ *
+ * « dernière » n'y figure pas : sur la séance 3, « notre dernière séance
+ * ensemble » énonce un fait de structure, pas une position dans l'agenda de
+ * qui lit.
+ */
+const SEANCE_RELATIVE = new RegExp(
+  `${HORS_MOT}(?:prochaine|précédente)\\s+séance${FIN_MOT}`
+    + `|${HORS_MOT}séance\\s+(?:prochaine|précédente)${FIN_MOT}`,
+  'giu',
+);
+
+/**
+ * Les emplois de « soirée » qui ne désignent pas une séance de la formation.
+ *
+ * Cette liste est volontairement close : toute nouvelle occurrence fait échouer
+ * la vérification, et c'est un humain qui décide, une fois, dans un diff, s'il
+ * s'agit d'une exception de plus ou d'une rechute.
+ */
+const SOIR_AUTORISE = [
+  { fichier: '2.yaml', phrase: 'photos de soirée', raison: 'une fête photographiée, pas une séance' },
+  { fichier: '3.yaml', phrase: 'soirée critique', raison: 'le nom d’une activité du club' },
+];
+
+const OU_MODIFIER = 'src/scripts/verifier-contenu-final.mjs · SOIR_AUTORISE';
+
+/** Toutes les chaînes du document, avec le chemin où elles se trouvent. */
+function chaines(valeur, chemin = '') {
+  if (typeof valeur === 'string') return [{ chemin, texte: valeur }];
+  if (Array.isArray(valeur)) return valeur.flatMap((v, i) => chaines(v, `${chemin}[${i}]`));
+  if (valeur && typeof valeur === 'object') {
+    return Object.entries(valeur).flatMap(([c, v]) => chaines(v, chemin ? `${chemin}.${c}` : c));
+  }
+  return [];
+}
+
+/** Le radical trouvé fait-il partie d'une tournure explicitement autorisée ? */
+function autorise(fichier, texte, position) {
+  return SOIR_AUTORISE.some(({ fichier: f, phrase }) => {
+    if (f !== fichier) return false;
+    for (let i = texte.indexOf(phrase); i !== -1; i = texte.indexOf(phrase, i + 1)) {
+      if (position >= i && position < i + phrase.length) return true;
+    }
+    return false;
+  });
+}
+
+/** Le texte autour de la faute, pour qu'on la reconnaisse sans ouvrir le fichier. */
+function extrait(texte, position, longueur) {
+  const debut = Math.max(0, position - 30);
+  const fin = Math.min(texte.length, position + longueur + 30);
+  return `${debut > 0 ? '…' : ''}${texte.slice(debut, fin).replace(/\s+/g, ' ')}${fin < texte.length ? '…' : ''}`;
+}
+
+for (const { nom, donnees } of [...lecons, ...marques]) {
+  const fautes = [];
+
+  for (const { chemin, texte } of chaines(donnees)) {
+    for (const t of texte.matchAll(SOIR)) {
+      if (autorise(nom, texte, t.index)) continue;
+      fautes.push({ chemin, phrase: t[0], extrait: extrait(texte, t.index, t[0].length) });
+    }
+    for (const t of texte.matchAll(SEANCE_RELATIVE)) {
+      fautes.push({ chemin, phrase: t[0], extrait: extrait(texte, t.index, t[0].length) });
+    }
+  }
+
+  // Toutes les fautes sont listées, pas seulement les quatre premières : cette
+  // sortie est l'inventaire de travail de la correction.
+  for (const f of fautes) {
+    console.log(`      ${nom} · ${f.chemin} — « ${f.phrase} » : ${f.extrait}`);
+  }
+
+  verifier(
+    fautes.length === 0,
+    fautes.length === 0
+      ? `${nom} — une séance y est nommée par son rang`
+      : `${nom} — ${fautes.length} mention(s) temporelle(s) d’une séance.`
+        + ` Corriger le texte, ou, si « soirée » n’y désigne pas une séance,`
+        + ` ajouter la tournure à ${OU_MODIFIER}`,
+  );
+}
+
 function liste(items) {
   return items.length === 0 ? '' : ` — ${items.slice(0, 4).join(', ')}${items.length > 4 ? '…' : ''}`;
 }

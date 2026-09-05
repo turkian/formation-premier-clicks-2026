@@ -95,16 +95,6 @@
   margin: 0;
 }
 
-/* La leçon de la séance en cours se distingue sans qu'on ait à lire le lien. */
-.carte[data-courante] {
-  border-color: var(--accent);
-  background: linear-gradient(180deg, rgba(255, 180, 84, 0.09), transparent 60%), var(--fond-2);
-}
-
-.carte[data-courante] .etiquette {
-  color: var(--accent);
-}
-
 .liste-simple {
   list-style: none;
   padding: 0;

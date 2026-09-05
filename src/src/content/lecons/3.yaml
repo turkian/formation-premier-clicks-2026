@@ -47,7 +47,7 @@ blocs:
         titre: La composition
         claim: Cinq réflexes. Aucun réglage, aucun menu, aucun vocabulaire.
         corps: |
-          Ce soir, on rend vos photos meilleures **des deux côtés du déclenchement** : mieux
+          On rend vos photos meilleures **des deux côtés du déclenchement** : mieux
           composer à la prise de vue, puis comprendre ce qu'on peut faire après.
 
           Tout ce qui suit s'applique intégralement au cellulaire.
@@ -135,18 +135,18 @@ blocs:
         titre: Pause
         claim: Dix minutes.
         corps: |
-          Les papillons adhésifs sont au mur depuis le début de la soirée. C'est aussi le moment
+          Les papillons adhésifs sont au mur depuis le début de la séance. C'est aussi le moment
           de venir montrer une photo sur votre écran.
 
       - id: vos-questions
         genre: repere
         variante: questions
         titre: Vos questions
-        claim: C'est notre dernière soirée ensemble, alors profitez-en.
+        claim: C'est notre dernière séance ensemble, alors profitez-en.
         corps: |
           On commence par les papillons du mur.
 
-          **Même les questions qui n'ont rien à voir avec ce soir** — matériel, choix d'objectif,
+          **Même les questions qui n'ont rien à voir avec cette séance** — matériel, choix d'objectif,
           « pourquoi mes photos ne ressemblent pas à celles d'Instagram ».
         aparte: |
           Les questions auxquelles on ne peut pas répondre en deux minutes deviennent les sujets
@@ -166,7 +166,7 @@ blocs:
           **couleurs**, la **netteté**, la **réduction du bruit** et la **balance des blancs**.
 
           Exactement comme pour l'exposition en mode automatique, à la séance 1. C'est le même
-          fil conducteur depuis le premier soir : **qu'est-ce que mon appareil décide à ma
+          fil conducteur depuis la séance 1 : **qu'est-ce que mon appareil décide à ma
           place ?**
         aparte: |
           Le RAW porte un nom différent chez chaque fabricant — `.CR3`, `.NEF`, `.ARW`, `.RAF`,
@@ -269,7 +269,7 @@ blocs:
           exactement ça.
         schema:
           composant: point-et-zone
-          legende: Le même raisonnement qu'au premier soir, appliqué après la prise de vue.
+          legende: Le même raisonnement qu'à la séance 1, appliqué après la prise de vue.
         aparte: |
           Ce qu'on va corriger, c'est ce que la salle vient de nommer. Le développement répond à
           un diagnostic, pas à une envie de bouger des curseurs.
@@ -289,7 +289,7 @@ blocs:
           curseurs portent parfois d'autres noms, ils sont parfois ailleurs à l'écran : c'est la
           même chose.
 
-          **Vous n'avez rien à installer ce soir.**
+          **Vous n'avez rien à installer.**
 
           À chaque geste, trois éléments : **le problème → l'intention → l'outil.**
         aparte: |
@@ -478,7 +478,7 @@ blocs:
           flou de bougé. Poussée trop loin, elle crée des halos et fait ressortir le bruit.
 
           **Le bruit, lui, se corrige en partie** — et les outils modernes sont réellement
-          impressionnants. Voilà pourquoi, au premier soir : **une photo nette avec du bruit vaut
+          impressionnants. Voilà pourquoi, à la séance 1 : **une photo nette avec du bruit vaut
           mieux qu'une photo propre mais floue.**
         aparte: |
           Le piège inverse : trop de réduction de bruit donne une image lisse et plastique. **Le
@@ -545,7 +545,7 @@ blocs:
         genre: repere
         variante: ouverture
         titre: Et maintenant ?
-        claim: Ce qui compte ne se joue pas ce soir. Ça se joue dans les six prochains mois.
+        claim: Ce qui compte ne se joue pas pendant ces trois séances. Ça se joue dans les six prochains mois.
         corps: |
           - 📅 **La prochaine sortie photo** — une date, un lieu, une heure. *Vous êtes tous
             invités, et j'y serai.*
@@ -567,7 +567,7 @@ blocs:
         titre: La question de fin
         claim: Qui se sent à l'aise, aujourd'hui, de sortir son appareil du mode automatique ?
         corps: |
-          À main levée, exactement comme au premier soir.
+          À main levée, exactement comme à la séance 1.
 
           Puis, avant de partir : **qu'est-ce qui vous a le plus servi ?**
         aparte: |

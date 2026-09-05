@@ -45,7 +45,7 @@ sections:
         chemin: "Mode `Pro`"
     note: |
       **C'est le réglage le plus utile de votre téléphone, et presque personne ne sait qu'il
-      existe.** C'est exactement la compensation d'exposition dont on parle toute la soirée.
+      existe.** C'est exactement la compensation d'exposition dont on parle toute la séance.
   - numero: 4
     exception: |
       Presque tout se trouve **dans l'application appareil photo elle-même**, derrière
@@ -65,7 +65,7 @@ sections:
         appareil: "`Format et résolution`"
         chemin: "Application appareil photo → ⚙️"
     note: |
-      **Faites la grille ce soir.** C'est le meilleur outil gratuit qui existe pour vos quatre
+      **Faites la grille dès maintenant.** C'est le meilleur outil gratuit qui existe pour vos quatre
       coins et vos horizons droits.
 
       Activez le RAW seulement quand vous comptez développer la photo : les fichiers sont lourds.

@@ -11,13 +11,11 @@ import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import { lien } from '../lib/lien';
 import { typo } from '../lib/typo';
-import { seanceCourante, dateLisible } from '../lib/calendrier';
 import { MARQUES_ORDRE } from '../lib/marques';
 import '../styles/carrefour.css';
 
 const lecons = (await getCollection('lecons')).sort((a, b) => a.data.numero - b.data.numero);
 const fiches = (await getCollection('fiches')).sort((a, b) => a.data.rang - b.data.rang);
-const courante = seanceCourante();
 ---
 
 <Base
@@ -29,30 +27,20 @@ const courante = seanceCourante();
       <p class="surtitre">Formation photo du club</p>
       <h1>Premiers clics</h1>
       <p class="chapeau" set:html={typo(
-        'Trois soirées pour sortir du mode automatique, et de quoi y revenir pendant les mois qui suivent.',
+        'Trois séances pour sortir du mode automatique, et de quoi y revenir pendant les mois qui suivent.',
       )} />
     </header>
 
     <section class="section-carrefour">
       <h2>Les trois séances</h2>
       <div class="grille">
-        {lecons.map((lecon) => {
-          const date = dateLisible(lecon.data.numero);
-          return (
-            <a
-              class="carte"
-              href={lien(`/lecons/${lecon.data.numero}`)}
-              data-courante={lecon.data.numero === courante ? '' : undefined}
-            >
-              <span class="etiquette">
-                Séance {lecon.data.numero}
-                {lecon.data.numero === courante && ' · ce soir'}
-              </span>
-              <h3 set:html={typo(lecon.data.titre)} />
-              <p set:html={typo(date ?? lecon.data.filConducteur)} />
-            </a>
-          );
-        })}
+        {lecons.map((lecon) => (
+          <a class="carte" href={lien(`/lecons/${lecon.data.numero}`)}>
+            <span class="etiquette">Séance {lecon.data.numero}</span>
+            <h3 set:html={typo(lecon.data.titre)} />
+            <p set:html={typo(lecon.data.filConducteur)} />
+          </a>
+        ))}
       </div>
     </section>
 

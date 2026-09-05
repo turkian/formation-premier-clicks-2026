@@ -36,7 +36,7 @@ sections:
       - formation: Détection du visage et de l'œil
         appareil: "`Priorité visage` · `Priorité pupille`"
     note: |
-      ⚠️ **Vos menus inversent les lettres.** On dira `AF-S` et `AF-C` toute la soirée ; sur
+      ⚠️ **Vos menus inversent les lettres.** On dira `AF-S` et `AF-C` toute la séance ; sur
       votre appareil, c'est **`S-AF`** et **`C-AF`**. C'est exactement la même chose, écrite
       à l'envers.
   - numero: 3
