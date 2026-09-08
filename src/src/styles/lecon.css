@@ -286,7 +286,6 @@
   height: 100%;
   grid-template-rows: auto minmax(0, 1fr);
   gap: var(--pas-2);
-  border: 2px solid var(--accent);
   border-radius: var(--rayon-2);
   padding: var(--pas-2) var(--pas-3);
   background: linear-gradient(180deg, color-mix(in oklab, var(--accent) 8%, transparent), transparent 45%);
@@ -302,13 +301,9 @@
   color: var(--accent);
   font-weight: 700;
 }
-.appareil .banniere::before {
-  content: '';
+.banniere-icone {
   width: 1.1em;
   height: 1.1em;
-  border-radius: 3px;
-  border: 2px solid var(--accent);
-  border-top-width: 5px;
   flex: 0 0 auto;
 }
 
@@ -345,6 +340,42 @@
   font-size: 0.82em;
 }
 
+/* Un repère variante activité porte le même genre de consigne — des pas numérotés à
+   suivre tout de suite — d'où le même cercle numéroté que « appareil en main ». Ici le
+   contenu vient du markdown (gras, liens...) : les enfants du <li> sont un mélange de
+   texte et d'éléments, donc `display: grid` sur le <li> (comme pour .gestes) fabriquerait
+   un item par nœud au lieu d'un seul — d'où un cercle positionné en absolu plutôt qu'un
+   deuxième item de grille. */
+.repere[data-variante="activite"] .corps ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: var(--pas);
+  counter-reset: geste;
+}
+.repere[data-variante="activite"] .corps ol li {
+  position: relative;
+  padding-left: calc(1.7em + var(--pas-2));
+  counter-increment: geste;
+  min-height: 1.7em;
+}
+.repere[data-variante="activite"] .corps ol li::before {
+  content: counter(geste);
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: grid;
+  place-items: center;
+  width: 1.7em;
+  height: 1.7em;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--sur-accent);
+  font-weight: 700;
+  font-size: 0.82em;
+}
+
 .variantes {
   display: grid;
   gap: var(--pas);
@@ -358,12 +389,19 @@
   color: var(--texte-2);
 }
 .variante b {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: calc(var(--pas) * 0.4);
   color: var(--accent);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-size: 0.86em;
   margin-bottom: 0.25em;
+}
+.variante-icone {
+  width: 1em;
+  height: 1em;
+  flex: 0 0 auto;
 }
 
 /* ── Démonstration : les photographies occupent l'espace, seules ──────────── */

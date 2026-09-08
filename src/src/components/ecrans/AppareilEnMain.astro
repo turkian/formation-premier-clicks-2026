@@ -11,6 +11,7 @@
  * photographie avec son téléphone doit avoir un exercice à faire, pas
  * l'impression d'être toléré.
  */
+import { Icon } from 'astro-icon/components';
 import { md, mdEnLigne } from '../../lib/md';
 
 interface Props {
@@ -27,7 +28,7 @@ const aparte = await md(ecran.aparte);
 
 <div class="ecran appareil">
   <div>
-    <p class="banniere">Appareil en main</p>
+    <p class="banniere"><Icon name="lucide:camera" class="banniere-icone" />Appareil en main</p>
     <h1 class="claim" set:html={claim} />
   </div>
 
@@ -39,7 +40,10 @@ const aparte = await md(ecran.aparte);
     {(cellulaire || reflex) && (
       <div class="variantes">
         {cellulaire && (
-          <p class="variante"><b>Cellulaire</b><span set:html={cellulaire} /></p>
+          <p class="variante">
+            <b><Icon name="lucide:smartphone" class="variante-icone" />Cellulaire</b>
+            <span set:html={cellulaire} />
+          </p>
         )}
         {reflex && <p class="variante"><b>Reflex</b><span set:html={reflex} /></p>}
       </div>
