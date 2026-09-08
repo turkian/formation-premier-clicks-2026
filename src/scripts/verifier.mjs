@@ -177,7 +177,7 @@ async function verifierCodesQr(navigateur, site, ecrans) {
 
     const autorise =
       etat.genre === 'appareil-en-main' ||
-      (etat.genre === 'repere' && etat.variante === 'ouverture');
+      (etat.genre === 'repere' && (etat.variante === 'ouverture' || etat.variante === 'activite'));
 
     if (etat.qr > 0) avec += 1;
     verifier(

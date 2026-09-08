@@ -35,14 +35,20 @@ blocs:
           - La photo est pleine de vocabulaire inutilement compliqué. **Si un mot n'est pas
             clair, arrêtez-moi.**
 
-          À votre table, chacun se présente aux autres — pas devant les trente :
+      - id: tour-de-table
+        genre: repere
+        variante: activite
+        titre: Tour de table
+        claim: Présentez-vous aux gens de votre table.
+        corps: |
+          Avec les gens de votre table :
 
           1. votre **prénom** ;
           2. **quel appareil** vous avez ;
-          3. **ce qui vous frustre le plus en ce moment** avec lui.
-        aparte: |
-          La troisième est la plus importante des trois. C'est elle qui donne les vrais exemples
-          de la séance — des problèmes que vous avez réellement.
+          3. **ce qui est le plus frustrant ou le plus difficile pour vous, en photo** — pas
+             seulement avec votre appareil.
+
+          Une feuille est sur votre table : notez-y votre réponse à la troisième question.
 
       - id: avant-chaque-photo
         genre: panneau

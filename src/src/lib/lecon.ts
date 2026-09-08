@@ -75,18 +75,19 @@ export function aplatir(lecon: Lecon): Arret[] {
 }
 
 /**
- * Le code QR n'apparaît que sur les ouvertures de bloc et les écrans
- * « appareil en main » (décision D5).
+ * Le code QR n'apparaît que sur les ouvertures de bloc, les écrans
+ * « appareil en main » et les écrans repère d'activité (décision D5).
  *
  * Ce n'est pas un choix technique : pendant un panneau de concept, l'animateur
  * veut des yeux levés, et trente personnes sur leur téléphone est le mode de
- * défaillance. Pendant un « appareil en main », les têtes sont penchées sur les
- * appareils et l'écran d'instructions est derrière eux — c'est exactement là que
- * les consignes doivent être dans leurs mains.
+ * défaillance. Pendant un « appareil en main » ou une activité en équipe, les
+ * têtes sont tournées vers les appareils ou les tablées et l'écran de
+ * consignes est derrière elles — c'est exactement là que les consignes
+ * doivent être dans leurs mains.
  */
 export function porteLeCodeQr(ecran: Ecran): boolean {
   if (ecran.genre === 'appareil-en-main') return true;
-  return ecran.genre === 'repere' && ecran.variante === 'ouverture';
+  return ecran.genre === 'repere' && (ecran.variante === 'ouverture' || ecran.variante === 'activite');
 }
 
 /**

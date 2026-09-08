@@ -141,10 +141,10 @@ const ecranInteractif = baseEcran.extend({
   aparte: z.string().optional(),
 });
 
-/** 4 · Repère — ouverture de bloc, pause, questions, transition. */
+/** 4 · Repère — ouverture de bloc, pause, questions, transition, activité. */
 const ecranRepere = baseEcran.extend({
   genre: z.literal('repere'),
-  variante: z.enum(['ouverture', 'pause', 'questions', 'transition', 'cloture']),
+  variante: z.enum(['ouverture', 'pause', 'questions', 'transition', 'cloture', 'activite']),
   claim: z.string(),
   corps: z.string().optional(),
   aparte: z.string().optional(),
