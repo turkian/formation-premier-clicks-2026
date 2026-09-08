@@ -9,8 +9,9 @@
  *                 téléphone
  *   projection  — aucun écran de leçon ne déborde en 4:3 (1024 × 768) ni en 16:9
  *   liens       — tout lien interne résout sous le sous-chemin du dépôt
+ *   alignement  — deux éléments côte à côte sur une rangée font la même hauteur
  *
- * Usage : node scripts/verifier.mjs [impression|telephone|projection|liens|tout]
+ * Usage : node scripts/verifier.mjs [impression|telephone|projection|liens|alignement|tout]
  */
 import { chromium } from 'playwright';
 import { readdir } from 'node:fs/promises';
@@ -21,6 +22,7 @@ const RACINE = new URL('../dist/', import.meta.url);
 const TELEPHONE = { width: 390, height: 844 };
 const PROJECTION_43 = { width: 1024, height: 768 };
 const PROJECTION_169 = { width: 1280, height: 720 };
+const BUREAU = { width: 1600, height: 1200 };
 
 const echecs = [];
 const reussites = [];
@@ -62,6 +64,7 @@ async function main() {
     if (quoi === 'tout' || quoi === 'telephone') await verifierTelephone(navigateur, site, toutes);
     if (quoi === 'tout' || quoi === 'projection') await verifierProjection(navigateur, site, ecrans);
     if (quoi === 'tout' || quoi === 'qr') await verifierCodesQr(navigateur, site, ecrans);
+    if (quoi === 'tout' || quoi === 'alignement') await verifierAlignement(navigateur, site, toutes);
   } finally {
     await navigateur.close();
     await site.fermer();
@@ -263,6 +266,87 @@ async function verifierProjection(navigateur, site, ecrans) {
             : `tient entièrement en ${nom}`,
       );
     }
+    await contexte.close();
+  }
+}
+
+/* ── Deux éléments sur une rangée font la même hauteur ─────────────────────
+   Une liste peut être de la prose ou une mise en page. Quand elle est une mise
+   en page, ses éléments sont étirés à la hauteur de leur rangée — mais c'est la
+   **boîte de marge** qui est étirée, pas la boîte de bordure : une marge sur
+   l'élément est retirée de ce que le lecteur voit. Une marge de prose héritée
+   rendait ainsi chaque carte plus courte que sa rangée, sauf la dernière, d'un
+   écart d'une dizaine de pixels — assez pour être vu, trop peu pour être vu à
+   coup sûr. Une inspection à l'œil a déjà laissé passer celui-là.
+
+   Le regroupement se fait donc par géométrie — les `li` qui partagent un bord
+   supérieur —, jamais par classe ni par `display`. C'est ce qui fait que la
+   vérification survit à une mise en page construite autrement : grille, flex,
+   flex qui se replie, ou ce qu'une section future emploiera. */
+async function verifierAlignement(navigateur, site, toutes) {
+  const vues = [
+    ['téléphone', TELEPHONE],
+    ['projection 4:3', PROJECTION_43],
+    ['bureau', BUREAU],
+  ];
+
+  for (const [nom, viewport] of vues) {
+    const contexte = await navigateur.newContext({ viewport });
+    const page = await contexte.newPage();
+
+    for (const chemin of toutes) {
+      await page.goto(site.url(chemin), { waitUntil: 'networkidle' });
+      const inegales = await page.evaluate(() => {
+        // Un `<dialog>` fermé ne se mesure pas. L'index des blocs est une
+        // grille de `li` comme une autre : on l'ouvre pour la mesurer.
+        for (const dialogue of document.querySelectorAll('dialog:not([open])')) {
+          dialogue.setAttribute('open', '');
+        }
+
+        const trouvees = [];
+        for (const liste of document.querySelectorAll('ul, ol')) {
+          const elements = [...liste.children].filter((e) => e.tagName === 'LI');
+          if (elements.length < 2) continue;
+
+          const rangees = new Map();
+          for (const element of elements) {
+            const boite = element.getBoundingClientRect();
+            if (boite.height === 0) continue;
+            const cle = Math.round(boite.top);
+            if (!rangees.has(cle)) rangees.set(cle, []);
+            rangees.get(cle).push(Math.round(boite.height * 10) / 10);
+          }
+
+          for (const hauteurs of rangees.values()) {
+            if (hauteurs.length < 2) continue;
+            // Un demi-pixel de tolérance : les pistes d'une grille ne tombent
+            // pas sur des largeurs entières (452,797 px contre 452,812 px), et
+            // l'égalité exacte serait le mauvais test.
+            const ecart = Math.max(...hauteurs) - Math.min(...hauteurs);
+            if (ecart > 0.5) {
+              trouvees.push({
+                liste: liste.className || `<${liste.tagName.toLowerCase()}>`,
+                hauteurs,
+                ecart: Math.round(ecart * 10) / 10,
+              });
+            }
+          }
+        }
+        return trouvees;
+      });
+
+      verifier(
+        inegales.length === 0,
+        chemin,
+        inegales.length === 0
+          ? `aligne toutes ses rangées en ${nom}`
+          : `désaligne ${inegales.length} rangée(s) en ${nom} : ` +
+            inegales
+              .map((r) => `${r.liste} ${r.hauteurs.join('/')} px (écart ${r.ecart} px)`)
+              .join(' ; '),
+      );
+    }
+
     await contexte.close();
   }
 }

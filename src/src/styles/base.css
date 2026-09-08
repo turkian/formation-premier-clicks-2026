@@ -51,8 +51,32 @@ p { margin: 0 0 0.7em; }
 p:last-child { margin-bottom: 0; }
 
 ul, ol { margin: 0; padding-left: 1.3em; }
-li { margin-bottom: 0.32em; }
-li:last-child { margin-bottom: 0; }
+
+/* Le rythme vertical appartient à la prose, pas au `<li>`.
+ *
+ * Une liste peut être de la prose ou une mise en page. Quand elle est une mise
+ * en page — une grille de cartes, une rangée de jetons — ses éléments sont
+ * espacés par le `gap` qu'elle déclare, et une marge sur l'élément est retirée
+ * de ce que le lecteur voit : en grille comme en flex, un élément est étiré
+ * pour que sa **boîte de marge** remplisse la rangée, pas sa boîte de bordure.
+ * Une règle `li` sans portée rendait donc chaque carte plus courte que sa
+ * rangée, sauf la dernière — et obligeait chaque mise en page à la désarmer.
+ *
+ * D'où la portée : la prose demande son rythme, la mise en page n'hérite de
+ * rien. Ajouter une portée à cette liste est la façon d'étendre la règle ;
+ * ajouter `li { margin-bottom: 0 }` au-dessus est la façon de la casser — à
+ * (0,0,1) cette remise à zéro l'emporterait sur les deux règles ci-dessous.
+ *
+ * Tout est enveloppé dans `:where()`, `li:last-child` compris : `:last-child`
+ * vaut (0,1,0), et sans l'enveloppe la seconde règle égalerait `.corps li`,
+ * `.fiche-corps li` et `.introuvable li` puis gagnerait par l'ordre du
+ * document. À (0,0,0), ces trois portées gardent exactement leur valeur. */
+:where(.prose, .corps, .aparte, .fiche-corps) :where(ul, ol) > :where(li) {
+  margin-bottom: 0.32em;
+}
+:where(.prose, .corps, .aparte, .fiche-corps) :where(ul, ol) > :where(li:last-child) {
+  margin-bottom: 0;
+}
 
 a {
   color: var(--accent);

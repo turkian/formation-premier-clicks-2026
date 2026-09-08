@@ -101,12 +101,15 @@
   margin: 0;
   display: grid;
   gap: 0.4rem;
-  grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr));
+  grid-template-columns: 1fr;
 }
 
-/* Chaque `li` s'étire à la hauteur de sa rangée, mais le lien qu'il contient
-   ne suivait pas : un titre d'une ligne laissait une tuile courte à côté d'un
-   titre qui en prend deux. En `flex`, le lien s'étire avec son `li`. */
+/* Le lien remplit son `li`, quelle que soit la hauteur de la rangée : un titre
+   d'une ligne donnerait sinon une surface cliquable courte à côté d'un titre qui
+   en prend deux. En `flex`, le lien s'étire avec son `li`.
+   Ce n'est pas ce qui aligne les rangées entre elles — c'est le `li` lui-même
+   qui s'y étire, et il ne le faisait pas tant qu'il portait une marge de prose
+   (voir le rythme des listes dans `base.css`). */
 .liste-simple li {
   display: flex;
 }

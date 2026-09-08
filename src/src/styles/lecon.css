@@ -310,7 +310,6 @@
   gap: 0 var(--pas-2);
   align-items: baseline;
   counter-increment: geste;
-  margin: 0;
 }
 .gestes li::before {
   content: counter(geste);
@@ -428,7 +427,7 @@ dialog.index-blocs::backdrop { background: rgba(0, 0, 0, 0.68); }
 dialog.index-blocs .dedans { padding: var(--pas-3); }
 dialog.index-blocs h2 { font-size: 1.1rem; margin-bottom: var(--pas-2); }
 dialog.index-blocs ol { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.3rem; counter-reset: b; }
-dialog.index-blocs li { margin: 0; counter-increment: b; }
+dialog.index-blocs li { counter-increment: b; }
 dialog.index-blocs a {
   display: grid;
   grid-template-columns: 2.2rem minmax(0, 1fr);
