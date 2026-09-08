@@ -1,0 +1,26 @@
+---
+/**
+ * L'appareil photo, dans un schéma de position d'éclairage.
+ *
+ * Reste toujours droit : c'est la ligne de visée (dessinée par l'appelant,
+ * voir `traits.ts`), pas la rotation de l'icône, qui indique où il vise —
+ * une caméra pivotée à 90°/180° ne se lit pas comme « visant par là ».
+ */
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  x: number;
+  y: number;
+  taille?: number;
+}
+
+const { x, y, taille = 26 } = Astro.props;
+---
+<Icon
+  name="lucide:camera"
+  x={x - taille / 2}
+  y={y - taille / 2}
+  width={taille}
+  height={taille}
+  style="color: var(--texte-2)"
+/>

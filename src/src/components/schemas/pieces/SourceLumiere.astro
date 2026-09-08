@@ -1,0 +1,34 @@
+---
+/**
+ * La source de lumière (la fenêtre), dans un schéma de position d'éclairage.
+ *
+ * Le rectangle reste une fenêtre — c'est l'objet réel de la leçon. Le trait de
+ * lumière (dessiné par l'appelant, voir `traits.ts`) porte déjà le message
+ * « ceci émet de la lumière » ; un faisceau de rayons ici ferait doublon et,
+ * combiné à ce trait, brouillait plutôt qu'il n'aidait.
+ */
+interface Props {
+  x: number;
+  y: number;
+  largeur?: number;
+  hauteur?: number;
+  etiquette?: string;
+}
+
+const { x, y, largeur = 18, hauteur = 80, etiquette } = Astro.props;
+---
+<rect
+  x={x}
+  y={y}
+  width={largeur}
+  height={hauteur}
+  rx="2"
+  fill="var(--accent)"
+  fill-opacity="0.3"
+  stroke="var(--accent)"
+/>
+{etiquette && (
+  <text x={x + largeur / 2} y={y - 6} text-anchor="middle" font-size="11" fill="var(--accent)">
+    {etiquette}
+  </text>
+)}

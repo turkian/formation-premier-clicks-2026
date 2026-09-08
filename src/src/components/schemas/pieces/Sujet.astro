@@ -1,0 +1,22 @@
+---
+/**
+ * Le sujet photographié, dans un schéma de position d'éclairage.
+ */
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  x: number;
+  y: number;
+  taille?: number;
+}
+
+const { x, y, taille = 30 } = Astro.props;
+---
+<Icon
+  name="lucide:user-round"
+  x={x - taille / 2}
+  y={y - taille / 2}
+  width={taille}
+  height={taille}
+  style="color: var(--texte)"
+/>

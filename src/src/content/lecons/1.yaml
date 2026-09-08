@@ -85,11 +85,6 @@ blocs:
           | **Couleur** | Chaude ou froide. Votre appareil essaie de la deviner, et se trompe parfois. |
         schema:
           composant: direction-lumiere
-          legende: Même sujet, même réglages. Le photographe s'est déplacé.
-        aparte: |
-          Une petite source donne des ombres tranchées, une grande source des ombres douces : un
-          ciel couvert est une source géante, donc douce. Se déplacer de deux pas est **le geste
-          le plus rentable de toute la photographie**, et il ne demande aucun menu.
 
       - id: la-lumiere-en-images
         genre: demonstration
