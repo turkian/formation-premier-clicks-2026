@@ -180,8 +180,11 @@ blocs:
         titre: La mise au point
         claim: Où est le point net ?
         corps: |
-          Deux mots se ressemblent, et deux réglages n'ont rien à voir. On règle le premier
-          maintenant, le second au bloc suivant.
+          Deux mots se ressemblent. Avant qu'on les définisse, que changent-ils, chacun,
+          selon vous ?
+        termes:
+          - La mise au point
+          - La profondeur de champ
 
       - id: point-ou-zone
         genre: panneau

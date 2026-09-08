@@ -159,6 +159,11 @@ const ecranRepere = baseEcran.extend({
   claim: z.string(),
   corps: z.string().optional(),
   aparte: z.string().optional(),
+  /**
+   * Deux mots que la salle est invitée à deviner avant qu'un écran suivant
+   * les définisse — aucune définition, aucune indication de moment.
+   */
+  termes: z.tuple([z.string(), z.string()]).optional(),
 });
 
 /** 5 · Appareil en main — les gestes à poser, reconnaissable du fond. */

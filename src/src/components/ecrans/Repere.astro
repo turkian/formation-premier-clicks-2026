@@ -33,5 +33,10 @@ const ETIQUETTES: Record<string, string> = {
   <p class="numero-bloc">{ETIQUETTES[ecran.variante] ?? ecran.variante}</p>
   <h1 class="claim" set:html={claim} />
   {corps && <div class="corps" set:html={corps} />}
+  {ecran.termes && (
+    <div class="termes">
+      {ecran.termes.map((terme: string) => <p>{terme}</p>)}
+    </div>
+  )}
   {aparte && <div class="aparte" set:html={aparte} />}
 </div>

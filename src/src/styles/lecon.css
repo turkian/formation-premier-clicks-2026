@@ -376,6 +376,26 @@
   font-size: 0.82em;
 }
 
+/* Deux termes qu'on ne définit pas encore : le repère les nomme côte à côte, sans
+   définition ni indication de moment, pour que la salle s'interroge avant que l'écran
+   suivant tranche. Toujours deux, jamais plus — d'où deux colonnes fixes plutôt que
+   l'`auto-fit` de `.variantes`. */
+.termes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--pas-2);
+  width: 100%;
+}
+.termes p {
+  margin: 0;
+  padding: var(--pas) var(--pas-2);
+  border: 1px solid var(--accent);
+  border-radius: var(--rayon);
+  text-align: center;
+  font-weight: var(--graisse-appui);
+  font-size: var(--t-corps);
+}
+
 .variantes {
   display: grid;
   gap: var(--pas);
@@ -502,6 +522,7 @@
   }
 
   .repere, .appareil, .demonstration, .interactif { height: auto; }
+  .termes { grid-template-columns: 1fr; }
   .serie { grid-auto-flow: row; }
   .barre { position: sticky; top: 0; z-index: 5; background: var(--fond); }
   /* Tronqué à « La … », le titre du bloc n'apprend rien : à cette largeur, la
