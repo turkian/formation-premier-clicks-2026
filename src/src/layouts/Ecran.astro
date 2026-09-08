@@ -9,7 +9,6 @@
  * réseau de la salle tombe.
  */
 import Base from './Base.astro';
-import IndexBlocs from '../components/IndexBlocs.astro';
 import CodeQr from '../components/CodeQr.astro';
 import { lien } from '../lib/lien';
 import { typo } from '../lib/typo';
@@ -45,9 +44,14 @@ const titre = arret.ecran.titre ?? arret.bloc.titre;
       <span class="position">{typo(`Bloc ${arret.numeroBloc} / ${totalBlocs}`)}</span>
       <span class="titre-bloc" set:html={typo(arret.bloc.titre)} />
       <span class="commandes">
-        <button type="button" data-ouvrir-index aria-haspopup="dialog">Index</button>
-        <button type="button" data-plein-ecran aria-pressed="false">Plein écran</button>
-        <a class="bouton" href={lien(`/lecons/${lecon.numero}`)}>Sommaire</a>
+        <button type="button" data-bouton-plein-ecran aria-pressed="false">Plein écran</button>
+        <a
+          class="bouton"
+          href={lien(`/lecons/${lecon.numero}/${lecon.blocs[0].id}/${lecon.blocs[0].ecrans[0].id}`)}
+        >
+          Début
+        </a>
+        <a class="bouton" href={lien('/')}>Premiers clics</a>
       </span>
     </header>
 
@@ -81,8 +85,6 @@ const titre = arret.ecran.titre ?? arret.bloc.titre;
       </span>
     </footer>
   </div>
-
-  <IndexBlocs lecon={lecon} blocCourant={arret.bloc.id} />
 </Base>
 
 <script>
@@ -99,7 +101,6 @@ const titre = arret.ecran.titre ?? arret.bloc.titre;
   if (scene) {
     const suivant = scene.dataset.suivant;
     const precedent = scene.dataset.precedent;
-    const dialogue = document.querySelector<HTMLDialogElement>('[data-index-blocs]');
 
     // Préchargement discret : la page suivante est déjà là quand la touche
     // arrive, ce qui compte dans une salle dont le wifi est incertain.
@@ -133,11 +134,6 @@ const titre = arret.ecran.titre ?? arret.bloc.titre;
           evenement.preventDefault();
           reculer();
           break;
-        case 'i':
-        case 'I':
-          evenement.preventDefault();
-          dialogue?.showModal();
-          break;
         case 'f':
         case 'F':
           evenement.preventDefault();
@@ -146,14 +142,7 @@ const titre = arret.ecran.titre ?? arret.bloc.titre;
       }
     });
 
-    document.querySelector('[data-ouvrir-index]')?.addEventListener('click', () => {
-      dialogue?.showModal();
-    });
-    dialogue?.addEventListener('click', (evenement) => {
-      if (evenement.target === dialogue) dialogue.close();
-    });
-
-    const boutonPleinEcran = document.querySelector<HTMLButtonElement>('[data-plein-ecran]');
+    const boutonPleinEcran = document.querySelector<HTMLButtonElement>('[data-bouton-plein-ecran]');
     boutonPleinEcran?.addEventListener('click', basculerPleinEcran);
 
     function basculerPleinEcran() {

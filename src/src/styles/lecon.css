@@ -412,39 +412,6 @@
 }
 .qr .adresse { font-size: 0.86em; color: var(--texte-3); word-break: break-all; }
 
-/* ── Index des blocs ──────────────────────────────────────────────────────── */
-
-dialog.index-blocs {
-  border: 1px solid var(--trait-fort);
-  border-radius: var(--rayon-2);
-  background: var(--fond-2);
-  color: var(--texte);
-  padding: 0;
-  max-width: min(46rem, 92vw);
-  width: 100%;
-}
-dialog.index-blocs::backdrop { background: rgba(0, 0, 0, 0.68); }
-dialog.index-blocs .dedans { padding: var(--pas-3); }
-dialog.index-blocs h2 { font-size: 1.1rem; margin-bottom: var(--pas-2); }
-dialog.index-blocs ol { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.3rem; counter-reset: b; }
-dialog.index-blocs li { counter-increment: b; }
-dialog.index-blocs a {
-  display: grid;
-  grid-template-columns: 2.2rem minmax(0, 1fr);
-  gap: var(--pas);
-  align-items: baseline;
-  padding: 0.55rem 0.7rem;
-  border-radius: var(--rayon);
-  border: 1px solid transparent;
-  text-decoration: none;
-  color: var(--texte);
-  font-size: 1rem;
-}
-dialog.index-blocs a::before { content: counter(b); color: var(--accent); font-weight: 700; }
-dialog.index-blocs a:hover, dialog.index-blocs a:focus-visible { background: var(--fond-3); border-color: var(--accent); }
-dialog.index-blocs a[aria-current='true'] { background: var(--fond-3); border-color: var(--trait-fort); }
-dialog.index-blocs .resume { grid-column: 2; color: var(--texte-3); font-size: 0.86rem; }
-
 /* ── Arrangement téléphone ────────────────────────────────────────────────
    Une colonne, et le schéma **avant** le corps : le dessin oriente, le tableau
    explique ensuite. C'est la seule chose que l'arrangement téléphone change à
