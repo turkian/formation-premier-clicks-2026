@@ -73,7 +73,7 @@ const formats = FORMATS.map((f) => ({ id: f.id, nom: f.nom }));
         <input type="range" data-levier="ouverture" min="0" max="20" step="1" aria-label="Ouverture" />
         <div class="zone-interdite" data-interdit hidden></div>
       </div>
-      <p class="refus" data-refus aria-live="polite"></p>
+      {kit && <p class="refus" data-refus aria-live="polite"></p>}
     </div>
 
     <div class="levier">
@@ -276,7 +276,8 @@ const formats = FORMATS.map((f) => ({ id: f.id, nom: f.nom }));
       sortie('distance').textContent = typo(`${distance.toLocaleString('fr-CA')} m`);
       sortie('focale').textContent = typo(`${focale} mm`);
       sortie('fond').textContent = typo(`${fond.toLocaleString('fr-CA')} m`);
-      racine.querySelector<HTMLElement>('[data-refus]')!.textContent = refus;
+      const refusEl = racine.querySelector<HTMLElement>('[data-refus]');
+      if (refusEl) refusEl.textContent = refus;
       racine.querySelector<HTMLElement>('[data-nom-format]')!.textContent = f.nom;
 
       const interdit = racine.querySelector<HTMLElement>('[data-interdit]')!;
