@@ -96,20 +96,20 @@ blocs:
               sujet: le même
               réglages: identiques
               objectif: 50 mm
-            legende: Quatre positions autour d'une fenêtre.
+            legende: Quatre positions autour d'une source lumineuse.
             images:
               - id: l1-lum-frontale
-                specification: Sujet devant la fenêtre, lumière frontale · 50 mm · f/5.6
+                specification: Sujet devant la source lumineuse, lumière frontale · 50 mm · f/5.6
                 valeur: frontale
                 priorite: utile
                 reglages: { direction: frontale, focale: 50 mm, ouverture: f/5.6 }
               - id: l1-lum-laterale
-                specification: Sujet de côté par rapport à la fenêtre · 50 mm · f/5.6
+                specification: Sujet de côté par rapport à la source lumineuse · 50 mm · f/5.6
                 valeur: latérale
                 priorite: utile
                 reglages: { direction: latérale, focale: 50 mm, ouverture: f/5.6 }
               - id: l1-lum-contre-jour
-                specification: Sujet dos à la fenêtre, en contre-jour · 50 mm · f/5.6
+                specification: Sujet dos à la source lumineuse, en contre-jour · 50 mm · f/5.6
                 valeur: contre-jour
                 priorite: utile
                 reglages: { direction: contre-jour, focale: 50 mm, ouverture: f/5.6 }
