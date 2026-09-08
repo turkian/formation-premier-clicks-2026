@@ -150,14 +150,25 @@ export function ouvertureMaxKit(focaleMm: number): number {
   return valeur;
 }
 
-/** Les crans d'ouverture d'un tiers de diaphragme, tels qu'affichés en salle. */
+/**
+ * Les crans d'ouverture d'un tiers de diaphragme, tels qu'affichés en salle.
+ * Utilisé par `OuvertureDivision.astro` — ne pas modifier pour le simulateur
+ * de profondeur de champ, qui utilise `CRANS_OUVERTURE_PLEINS` ci-dessous.
+ */
 export const CRANS_OUVERTURE = [
   1.4, 1.8, 2, 2.8, 3.5, 4, 4.5, 5, 5.6, 6.3, 7.1, 8, 9, 10, 11, 13, 14, 16, 18, 20, 22,
 ];
 
+/**
+ * Les crans d'ouverture par diaphragme entier, de `f/1` à `f/22`. Utilisé par le
+ * simulateur de profondeur de champ, dont le curseur n'a pas besoin de la
+ * précision au tiers de cran de `CRANS_OUVERTURE`.
+ */
+export const CRANS_OUVERTURE_PLEINS = [1, 1.4, 2, 2.8, 4, 5.6, 8, 11, 16, 22];
+
 /** Le cran disponible le plus ouvert, une fois la limite du zoom appliquée. */
-export function cranLePlusOuvert(limite: number): number {
-  return CRANS_OUVERTURE.find((cran) => cran >= limite - 1e-9) ?? CRANS_OUVERTURE[0]!;
+export function cranLePlusOuvert(limite: number, crans: number[] = CRANS_OUVERTURE): number {
+  return crans.find((cran) => cran >= limite - 1e-9) ?? crans[0]!;
 }
 
 /** Diamètre réel de l'ouverture, en millimètres : `f/N` est une division. */

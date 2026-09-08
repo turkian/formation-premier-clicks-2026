@@ -58,17 +58,15 @@ const formats = FORMATS.map((f) => ({ id: f.id, nom: f.nom }));
   data-kit={kit ? '' : undefined}
 >
   <div class="commandes">
-    <div class="segments" role="group" aria-label="Format du capteur">
+    <select class="champ-format" data-champ-format aria-label="Format du capteur">
       {formats.map((f) => (
-        <button type="button" data-format-choix={f.id} aria-pressed={f.id === format}>
-          {f.nom}
-        </button>
+        <option value={f.id} selected={f.id === format}>{f.nom}</option>
       ))}
-    </div>
+    </select>
 
     <div class="levier" data-reglage>
       <div class="etiquette">
-        <span>1 · L'ouverture <span class="marque-reglage">un réglage</span></span>
+        <span>1 · L'ouverture</span>
         <output data-sortie="ouverture"></output>
       </div>
       <div class="course">
@@ -80,7 +78,7 @@ const formats = FORMATS.map((f) => ({ id: f.id, nom: f.nom }));
 
     <div class="levier">
       <div class="etiquette">
-        <span>2 · Votre distance au sujet <span class="marque-gratuit">gratuit</span></span>
+        <span>2 · Distance au sujet</span>
         <output data-sortie="distance"></output>
       </div>
       <input type="range" data-levier="distance" min="0" max="100" step="1" aria-label="Distance de mise au point" />
@@ -88,7 +86,7 @@ const formats = FORMATS.map((f) => ({ id: f.id, nom: f.nom }));
 
     <div class="levier">
       <div class="etiquette">
-        <span>3 · La focale <span class="marque-gratuit">gratuit</span></span>
+        <span>3 · La focale</span>
         <output data-sortie="focale"></output>
       </div>
       <input type="range" data-levier="focale" min="0" max="100" step="1" aria-label="Focale" />
@@ -96,7 +94,7 @@ const formats = FORMATS.map((f) => ({ id: f.id, nom: f.nom }));
 
     <div class="levier">
       <div class="etiquette">
-        <span>4 · Distance du sujet au fond <span class="marque-gratuit">gratuit</span></span>
+        <span>4 · Distance au fond</span>
         <output data-sortie="fond"></output>
       </div>
       <input type="range" data-levier="fond" min="0" max="100" step="1" aria-label="Distance du sujet à l'arrière-plan" />
@@ -171,7 +169,7 @@ const formats = FORMATS.map((f) => ({ id: f.id, nom: f.nom }));
     format as trouverFormat,
     bande as trouverBande,
     distanceLisible,
-    CRANS_OUVERTURE,
+    CRANS_OUVERTURE_PLEINS,
     ouvertureMaxKit,
     cranLePlusOuvert,
   } from '../../lib/profondeur-de-champ';
@@ -198,8 +196,8 @@ const formats = FORMATS.map((f) => ({ id: f.id, nom: f.nom }));
       format: racine.dataset.format ?? 'aps-c',
       iDistance: DISTANCES.indexOf(plusProche(DISTANCES, Number(racine.dataset.distance ?? 3))),
       iFocale: FOCALES.indexOf(plusProche(FOCALES, Number(racine.dataset.focale ?? 50))),
-      iOuverture: CRANS_OUVERTURE.indexOf(
-        plusProche([...CRANS_OUVERTURE], Number(racine.dataset.ouverture ?? 5.6)),
+      iOuverture: CRANS_OUVERTURE_PLEINS.indexOf(
+        plusProche([...CRANS_OUVERTURE_PLEINS], Number(racine.dataset.ouverture ?? 5.6)),
       ),
       iFond: FONDS.indexOf(plusProche(FONDS, Number(racine.dataset.fond ?? 3))),
     };
@@ -209,7 +207,7 @@ const formats = FORMATS.map((f) => ({ id: f.id, nom: f.nom }));
     const sortie = (nom: string) => racine.querySelector<HTMLElement>(`[data-sortie="${nom}"]`)!;
 
     for (const [nom, liste] of [
-      ['ouverture', CRANS_OUVERTURE],
+      ['ouverture', CRANS_OUVERTURE_PLEINS],
       ['distance', DISTANCES],
       ['focale', FOCALES],
       ['fond', FONDS],
@@ -231,12 +229,11 @@ const formats = FORMATS.map((f) => ({ id: f.id, nom: f.nom }));
       rendre();
     });
 
-    for (const bouton of racine.querySelectorAll<HTMLButtonElement>('[data-format-choix]')) {
-      bouton.addEventListener('click', () => {
-        etat.format = bouton.dataset.formatChoix!;
-        rendre();
-      });
-    }
+    const champFormat = racine.querySelector<HTMLSelectElement>('[data-champ-format]')!;
+    champFormat.addEventListener('change', () => {
+      etat.format = champFormat.value;
+      rendre();
+    });
 
     function rendre() {
       const f = trouverFormat(etat.format);
@@ -252,8 +249,8 @@ const formats = FORMATS.map((f) => ({ id: f.id, nom: f.nom }));
       let iMin = 0;
       let refus = '';
       if (kit) {
-        const limite = cranLePlusOuvert(ouvertureMaxKit(focale));
-        iMin = CRANS_OUVERTURE.indexOf(limite);
+        const limite = cranLePlusOuvert(ouvertureMaxKit(focale), CRANS_OUVERTURE_PLEINS);
+        iMin = CRANS_OUVERTURE_PLEINS.indexOf(limite);
         if (etat.iOuverture < iMin) {
           etat.iOuverture = iMin;
           refus = typo(
@@ -262,7 +259,7 @@ const formats = FORMATS.map((f) => ({ id: f.id, nom: f.nom }));
         }
       }
 
-      const ouverture = CRANS_OUVERTURE[etat.iOuverture]!;
+      const ouverture = CRANS_OUVERTURE_PLEINS[etat.iOuverture]!;
       const distance = DISTANCES[etat.iDistance]!;
       const fond = FONDS[etat.iFond]!;
 
@@ -278,20 +275,18 @@ const formats = FORMATS.map((f) => ({ id: f.id, nom: f.nom }));
       sortie('ouverture').textContent = `f/${ouverture}`;
       sortie('distance').textContent = typo(`${distance.toLocaleString('fr-CA')} m`);
       sortie('focale').textContent = typo(`${focale} mm`);
-      sortie('fond').textContent = typo(`${fond.toLocaleString('fr-CA')} m derrière`);
+      sortie('fond').textContent = typo(`${fond.toLocaleString('fr-CA')} m`);
       racine.querySelector<HTMLElement>('[data-refus]')!.textContent = refus;
       racine.querySelector<HTMLElement>('[data-nom-format]')!.textContent = f.nom;
 
       const interdit = racine.querySelector<HTMLElement>('[data-interdit]')!;
       interdit.hidden = iMin === 0;
-      interdit.style.width = `${(iMin / (CRANS_OUVERTURE.length - 1)) * 100}%`;
+      interdit.style.width = `${(iMin / (CRANS_OUVERTURE_PLEINS.length - 1)) * 100}%`;
       interdit.style.right = 'auto';
       interdit.style.left = '0';
       interdit.style.borderRadius = '999px 0 0 999px';
 
-      for (const bouton of racine.querySelectorAll<HTMLButtonElement>('[data-format-choix]')) {
-        bouton.setAttribute('aria-pressed', String(bouton.dataset.formatChoix === etat.format));
-      }
+      champFormat.value = etat.format;
 
       /*
        * Deux tiers de la lecture : le chiffre, puis ce qu'il veut dire. Un

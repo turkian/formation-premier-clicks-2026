@@ -157,10 +157,13 @@
   opacity: 0.5;
   pointer-events: none;
 }
+/* Réservée pour deux lignes même quand le message est vide ou tient sur une
+   seule : sinon son apparition/disparition (au gré du préréglage de kit)
+   change la hauteur totale de la colonne des commandes. */
 .levier .refus {
   font-size: var(--t-aparte);
   color: var(--alerte);
-  min-height: 1.3em;
+  min-height: 2.6em;
 }
 
 /* ── Boutons segmentés — formats de capteur, modes, préréglages ───────────── */
@@ -188,6 +191,26 @@
   color: var(--sur-accent);
   font-weight: var(--graisse-appui);
 }
+
+/* ── Le sélecteur de format ────────────────────────────────────────────────
+   Un `<select>` natif plutôt que des boutons segmentés : sa largeur ne
+   dépend pas du nombre ni de la longueur des options, donc il ne peut pas
+   passer à la ligne comme le faisait la rangée de boutons. Propre à ce
+   contrôle — n'affecte pas `.segments`, utilisé ailleurs. */
+.champ-format {
+  font: inherit;
+  font-size: var(--t-aparte);
+  width: 100%;
+  padding: 0.5em 0.8em;
+  min-height: 2.5em;
+  border-radius: var(--rayon);
+  border: 1px solid var(--trait-fort);
+  background: var(--fond-3);
+  color: var(--texte-2);
+  cursor: pointer;
+}
+.champ-format:hover { border-color: var(--accent); color: var(--texte); }
+.champ-format:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 
 /* ── La lecture ───────────────────────────────────────────────────────────── */
 

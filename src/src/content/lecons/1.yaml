@@ -415,11 +415,6 @@ blocs:
           focale: 50
           ouverture: 5.6
           fond: 3
-          kit: true
-        aparte: |
-          Le préréglage est celui du zoom de kit : en zoomant, l'ouverture maximale se referme
-          d'elle-même de `f/3.5` à `f/5.6`, et la commande refuse d'aller plus loin. Ce n'est pas
-          un réglage — c'est l'objectif.
 
       - id: trois-frustrations
         genre: panneau
