@@ -196,8 +196,12 @@
 .corps th { color: var(--accent); font-size: 0.88em; letter-spacing: 0.04em; text-transform: uppercase; }
 .corps td:first-child { color: var(--texte); }
 .corps ul, .corps ol { padding-left: 1.15em; }
-.corps li { margin-bottom: 0.3em; }
+.corps li { margin-bottom: 0.55em; }
 .corps > *:last-child { margin-bottom: 0; }
+
+/* L'encadré statique respire, quel que soit ce qui le précède — une liste sans
+   marge propre (ul/ol n'ont pas de marge, décision globale) ou un paragraphe. */
+.region-corps.corps > .encadre { margin: calc(var(--pas) * 1.4) 0; }
 
 .aparte {
   font-size: var(--t-aparte);
@@ -211,6 +215,9 @@
 /* Un encadré : la réponse, la règle, l'avertissement. C'est ce qu'un état
    cumulatif ajoute le plus souvent. */
 .encadre {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--pas-2);
   border-left: 4px solid var(--accent);
   background: var(--fond-2);
   border-radius: 0 var(--rayon) var(--rayon) 0;
@@ -221,7 +228,21 @@
 .encadre[data-ton='reponse'] { border-left-color: var(--succes); background: color-mix(in oklab, var(--succes) 9%, var(--fond-2)); }
 .encadre[data-ton='regle'] { border-left-color: var(--accent); background: color-mix(in oklab, var(--accent) 10%, var(--fond-2)); }
 .encadre[data-ton='avertissement'] { border-left-color: var(--alerte); background: color-mix(in oklab, var(--alerte) 9%, var(--fond-2)); }
-.encadre > *:last-child { margin-bottom: 0; }
+.encadre > div { flex: 1 1 auto; min-width: 0; }
+.encadre > div > *:last-child { margin-bottom: 0; }
+
+/* L'icône reprend la couleur du trait, pour rester un même signal — pas un
+   ajout décoratif. */
+.encadre-icone {
+  flex: 0 0 auto;
+  width: 1.3em;
+  height: 1.3em;
+  margin-top: 0.15em;
+  color: var(--accent);
+}
+.encadre[data-ton='reponse'] .encadre-icone { color: var(--succes); }
+.encadre[data-ton='regle'] .encadre-icone { color: var(--accent); }
+.encadre[data-ton='avertissement'] .encadre-icone { color: var(--alerte); }
 
 /* Ce qu'un état vient d'ajouter s'annonce, brièvement. La salle a regardé
    ailleurs pendant que l'animateur parlait. */

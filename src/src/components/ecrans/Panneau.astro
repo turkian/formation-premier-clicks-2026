@@ -10,6 +10,7 @@
  * affiché n'est jamais retiré. Au dernier état, le panneau est l'explication
  * complète du bloc, et cette même image sert de résumé écrit après coup.
  */
+import { Icon } from 'astro-icon/components';
 import { md, mdEnLigne } from '../../lib/md';
 import { regionsCumulees } from '../../lib/lecon';
 import Schema from './Schema.astro';
@@ -25,6 +26,13 @@ const cumule = regionsCumulees(ecran, etat);
 const claim = await mdEnLigne(cumule.claim);
 const corps = await Promise.all(cumule.corps.map((bloc: string) => md(bloc)));
 const apartes = await Promise.all(cumule.aparte.map((bloc: string) => md(bloc)));
+/**
+ * L'encadré statique du panneau lui-même — distinct des encadrés d'états
+ * cumulatifs (`ajouts`) : il ne s'ajoute pas, il est là dès le premier rendu.
+ */
+const encadre = ecran.encadre ? await md(ecran.encadre) : null;
+/** La conclusion statique, hors de l'encadré — rendue juste après lui. */
+const suite = ecran.suite ? await md(ecran.suite) : null;
 const ajouts = await Promise.all(
   cumule.ajouts.map(async (a) => ({
     ...a,
@@ -53,12 +61,21 @@ const dense = Boolean(ecran.etats?.length) && ajouts.length > 0;
 
   <div class="region-corps corps">
     {corps.map((html) => <div set:html={html} />)}
+    {encadre && (
+      <div class="encadre" data-ton={ecran.ton}>
+        {ecran.icone && <Icon name={ecran.icone} class="encadre-icone" />}
+        <div set:html={encadre} />
+      </div>
+    )}
+    {suite && <div set:html={suite} />}
     {!dense &&
       ajouts.map((a) => (
         <>
           {a.corpsHtml && <div set:html={a.corpsHtml} />}
           {a.encadreHtml && (
-            <div class="encadre" data-ton={a.ton} data-revele={a.revele ? '' : undefined} set:html={a.encadreHtml} />
+            <div class="encadre" data-ton={a.ton} data-revele={a.revele ? '' : undefined}>
+              <div set:html={a.encadreHtml} />
+            </div>
           )}
         </>
       ))}
@@ -72,7 +89,9 @@ const dense = Boolean(ecran.etats?.length) && ajouts.length > 0;
             <div data-revele={a.revele ? '' : undefined} set:html={a.corpsHtml} />
           )}
           {a.encadreHtml && (
-            <div class="encadre" data-ton={a.ton} data-revele={a.revele ? '' : undefined} set:html={a.encadreHtml} />
+            <div class="encadre" data-ton={a.ton} data-revele={a.revele ? '' : undefined}>
+              <div set:html={a.encadreHtml} />
+            </div>
           )}
         </>
       ))}

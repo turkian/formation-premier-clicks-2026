@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import icon from 'astro-icon';
 import { remarkTypo } from './src/lib/remark-typo.mjs';
 import { rehypeTableaux } from './src/lib/rehype-tableaux.mjs';
 import { verifierContenu } from './src/integrations/verifier-contenu.mjs';
@@ -33,6 +34,6 @@ export default defineConfig({
     format: 'directory',
     assets: 'ressources',
   },
-  integrations: [verifierContenu()],
+  integrations: [icon(), verifierContenu()],
   devToolbar: { enabled: false },
 });

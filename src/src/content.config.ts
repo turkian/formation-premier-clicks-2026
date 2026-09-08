@@ -111,6 +111,17 @@ const ecranPanneau = baseEcran.extend({
   corps: z.string().optional(),
   schema: schemaDessine.optional(),
   aparte: z.string().optional(),
+  /**
+   * Encadré mis en évidence sur un panneau statique — le pivot de l'argument,
+   * distinct du corps ordinaire. Rendu après le corps, sans jamais rendre le
+   * panneau cumulatif : contrairement aux états, il n'y a rien à avancer.
+   */
+  encadre: z.string().optional(),
+  ton: z.enum(['neutre', 'reponse', 'regle', 'avertissement']).default('neutre'),
+  /** Icône Iconify (ex. « lucide:triangle-alert ») affichée dans l'encadré. */
+  icone: z.string().optional(),
+  /** Texte statique rendu après l'encadré — la conclusion, hors de la boîte. */
+  suite: z.string().optional(),
   /** États cumulatifs, dans l'ordre. Absent = panneau statique. */
   etats: z.array(etatPanneau).optional(),
 });

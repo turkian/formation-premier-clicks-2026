@@ -53,24 +53,19 @@ blocs:
       - id: avant-chaque-photo
         genre: panneau
         titre: Les quatre questions
-        claim: Avant chaque photo, quatre questions. Toute la formation consiste à les traiter une par une.
+        claim: Avant chaque photo, quatre questions.
         corps: |
           1. **Qu'est-ce que je veux montrer ?**
           2. **Qu'est-ce qui doit être net ?**
           3. **Comment est-ce que je veux représenter le mouvement ?**
           4. **Quelle lumière ai-je à ma disposition ?**
-
+        ton: avertissement
+        icone: lucide:triangle-alert
+        encadre: |
           En mode automatique, l'appareil répond à ces quatre questions **à votre place**, et il y
           répond mal — parce qu'il ne sait pas ce que vous voulez montrer.
-
-          Sortir du mode automatique, ce n'est pas devenir technique : c'est **reprendre ces
-          quatre décisions**.
-        aparte: |
-          Chaque fabricant a inventé son propre vocabulaire pour désigner exactement les mêmes
-          choses. Quand un mot ne se trouve pas sur votre appareil, ce n'est jamais parce qu'il
-          est moins bon : c'est qu'il l'appelle autrement. Votre feuille de marque a la
-          correspondance, et les huit feuilles ont la même structure — section 1, les modes ;
-          section 2, la mise au point ; section 3, l'exposition ; section 4, les menus.
+        suite: |
+          Sortir du mode automatique, c'est **reprendre ces quatre décisions**.
 
   # ─────────────────────────────────────────────────────────────────────────
   - id: lumiere
