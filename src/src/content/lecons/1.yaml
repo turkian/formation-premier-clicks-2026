@@ -679,7 +679,7 @@ blocs:
           - "**Mode `A`** *(ou `Av` sur un Canon)*."
           - "**ISO automatique**, avec une limite haute à 3200 ou 6400."
           - "**`AF-S`**, collimateur unique ou détection de l'œil."
-          - "**Repérez le bouton `+/−` au toucher**, sans regarder. Faites `−1`, puis `+1`, puis revenez à `0`."
+          - "**Repérez le bouton `+/−` au toucher**, sans regarder. Faites `−1`, puis `+1`, puis revenez à `0`. Si votre photo est trop sombre, tournez vers le `+`. Trop claire, vers le `−`. C'est tout, et ça marche. On verra pourquoi à la séance 2."
           - "**Format `RAW + JPEG`** si votre appareil le permet. On s'en servira à la troisième séance."
         cellulaire: |
           Activez la **grille** de composition, et repérez le geste de compensation : touchez
@@ -688,10 +688,6 @@ blocs:
         aparte: |
           Les mots changent d'une marque à l'autre — c'est le moment de vous servir de votre
           feuille, **sections 1 et 4**.
-
-          Sur le `+/−`, une seule consigne pour l'instant, sans théorie : **si votre photo est trop
-          sombre, tournez vers le `+`. Trop claire, vers le `−`.** C'est tout, et ça marche. On
-          verra pourquoi à la séance 2.
 
       - id: le-defi
         genre: panneau
