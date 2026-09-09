@@ -57,13 +57,15 @@ const nombreDeRangs = series.length + (libres.length > 0 ? 1 : 0);
             />
           ))}
         </div>
-        <figcaption class="legende-serie">
-          <b set:html={typo(`Seule chose qui change : ${serie.variable}.`)} />
-          {serie.constantes && (
-            <span set:html={typo(` Identiques d'une image à l'autre : ${serie.constantes}.`)} />
-          )}
-          {serie.legende && <span set:html={` ${serie.legende}`} />}
-        </figcaption>
+        {(serie.constantes || serie.legende) && (
+          <figcaption class="legende-serie">
+            <b set:html={typo(`Seule chose qui change : ${serie.variable}.`)} />
+            {serie.constantes && (
+              <span set:html={typo(` Identiques d'une image à l'autre : ${serie.constantes}.`)} />
+            )}
+            {serie.legende && <span set:html={` ${serie.legende}`} />}
+          </figcaption>
+        )}
       </figure>
     ))}
 

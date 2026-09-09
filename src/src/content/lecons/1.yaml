@@ -234,11 +234,6 @@ blocs:
         claim: Où l'appareil a-t-il fait le point, et où le photographe voulait-il le faire ?
         series:
           - variable: l'endroit où le point a été fait
-            constantes:
-              sujet: le même portrait
-              ouverture: f/2.8
-              focale: 85 mm
-            legende: Le premier exercice de diagnostic de la formation. Il reviendra à chaque séance.
             images:
               - id: l1-map-oeil
                 specification: Portrait, point sur l'œil · 85 mm · f/2.8
@@ -261,6 +256,8 @@ blocs:
             specification: Sujet hors mise au point, décor net · vitesse suffisante, 1/250 s
             valeur: le point est ailleurs — le décor est net
             priorite: essentiel
+
+        aparte: "Seule chose qui change : l'endroit où le point a été fait."
 
       - id: designer-le-point
         genre: appareil-en-main
