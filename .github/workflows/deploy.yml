@@ -1,0 +1,64 @@
+name: Déployer sur GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Nécessaire pour que l'action de déploiement puisse publier sur Pages.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Un seul déploiement à la fois ; on ne coupe pas celui qui est en cours.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configurer Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: src/package-lock.json
+
+      - name: Installer les dépendances
+        working-directory: src
+        run: npm ci
+
+      - name: Construire le site
+        working-directory: src
+        # `site` est réécrit avec l'URL réelle de Pages afin que les codes QR
+        # et les liens absolus pointent vers le site déployé.
+        run: npm run build
+        env:
+          SITE_URL: ${{ format('https://{0}.github.io', github.repository_owner) }}
+          BASE_PATH: /${{ github.event.repository.name }}
+
+      - name: Vérifier le modèle et le contenu
+        working-directory: src
+        run: npm run verifier:modele && npm run verifier:contenu
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: src/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

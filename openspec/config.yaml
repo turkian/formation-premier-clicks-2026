@@ -1,32 +1,78 @@
 schema: spec-driven
 
-# Project context (optional)
-# This is shown to AI when creating artifacts.
-# Add your tech stack, conventions, style guides, domain knowledge, etc.
-# Example:
-#   context: |
-#     Tech stack: TypeScript, React, Node.js
-#     We use conventional commits
-#     Domain: e-commerce platform
+context: |
+  ## Projet
 
-# Per-artifact rules (optional)
-# Add custom rules for specific artifacts.
-# Example:
-#   rules:
-#     proposal:
-#       - Keep proposals under 500 words
-#       - Always include a "Non-goals" section
-#     tasks:
-#       - Break tasks into chunks of max 2 hours
+  Site statique de la formation photo « Premiers clics » (club photo, trois séances,
+  débutants, français québécois). Le site remplace le PowerPoint : il sert à la fois de
+  support projeté, de lexique consultable et de fiches de référence imprimables.
 
-# Per-operation guidance (optional)
-# Add advisory guidance for how apply and archive work should be conducted.
-# This is separate from artifact rules above.
-# Example:
-#   operations:
-#     apply:
-#       guidance:
-#         - Keep test summaries concise
-#     archive:
-#       guidance:
-#         - Summarize the archive outcome before finishing
+  ## Stack
+
+  - Astro (site 100 % statique, aucun backend, aucun service temps réel tiers).
+  - Racine du projet Astro : `src/` (le dépôt lui-même n'est pas la racine npm).
+  - Déploiement : GitHub Pages, chemin de projet `github.io` par défaut.
+    `base` = nom du dépôt (`/formation-premier-clicks-2026`). Tout lien interne, tout
+    asset et tout lien profond doit passer par `BASE_URL` — jamais un chemin absolu écrit à la main.
+  - Composants interactifs = îlots Astro. Le lexique et les fiches imprimables
+    n'embarquent aucun JavaScript.
+  - Police auto-hébergée (fichiers dans le dépôt / bundlés au build), jamais le CDN Google,
+    afin que le mode hors ligne et la copie locale conservent la typographie.
+
+  ## Typographie française du Québec
+
+  Obligatoire partout où du texte est rendu :
+
+  - espace insécable fine avant `:` `;` `!` `?`
+  - guillemets français `« »` avec espaces insécables intérieures
+  - espace insécable dans les nombres et les unités : `1 h 50`, `f/5.6`, `10 × 15 cm`, `50 mm`
+  - virgule décimale : `2,6 cm`, jamais `2.6 cm`
+  - capitales accentuées conservées : `À`, `É`, `Ç`
+
+  Ces règles sont appliquées par un utilitaire partagé, pas à la main dans le contenu.
+
+  ## Références aux séances
+
+  Le site est lu deux fois : pendant la séance, et des mois plus tard par quelqu'un qui
+  n'était pas dans la salle. Tout texte rendu doit rester vrai dans les deux cas.
+
+  - une séance se nomme par son rang : « la séance 2 », « depuis la séance 1 » ;
+  - jamais par un moment relatif au lecteur : « ce soir », « cette soirée »,
+    « la prochaine séance », « la séance précédente », « dans trois semaines » ;
+  - le site ne calcule ni n'affirme quelle séance est en cours, imminente ou passée.
+
+  La règle est vérifiée, pas seulement rappelée : la section 13.5 de
+  `src/scripts/verifier-contenu-final.mjs` refuse le radical `soir` dans
+  `content/lecons/` et `content/marques/`. Deux tournures y sont explicitement
+  autorisées parce que « soirée » n'y désigne pas une séance — « photos de soirée »
+  (une fête photographiée) et « soirée critique » (une activité du club). Toute autre
+  occurrence fait échouer la vérification : c'est voulu, et c'est à un humain de
+  trancher, une fois, dans un diff.
+
+  ## Planchers de lisibilité en projection
+
+  Une salle d'environ trente personnes, projecteur pas nécessairement 16:9 :
+
+  - le contenu doit rester entièrement visible en 4:3 (1024 × 768) comme en 16:9 ;
+  - trois paliers typographiques seulement : l'énoncé (lisible du fond), le corps
+    (lisible du milieu), l'aparté (détail sans coût) ;
+  - rien de nécessaire pour suivre le bloc ne peut reposer sur le plus petit palier ;
+  - un panneau de concept tient environ 100 mots plus un schéma ou un tableau.
+
+  Trois échelles typographiques cohabitent : projection, téléphone, papier.
+
+  ## Partage docs/ ↔ site
+
+  `docs/` reste le carnet de production privé de l'animateur : minutage, équipe,
+  matériel, préparation, suivi, fiches d'animateurs, plans de repli. Rien de tout cela
+  n'apparaît sur le site.
+
+  Le site est canonique pour les explications de concepts. Règle d'adaptation :
+
+  - les blocs de citation de `docs/` (déjà écrits en « vous ») deviennent le texte à l'écran ;
+  - les tableaux deviennent du contenu d'écran ;
+  - les directives destinées à la salle deviennent des éléments affichés que les
+    participants lisent aussi ;
+  - le rythme et la préparation destinés au seul animateur sont retirés du site.
+
+  Aucun écran ne s'adresse à l'animateur. Aucune note de présentateur, aucun volet latéral.

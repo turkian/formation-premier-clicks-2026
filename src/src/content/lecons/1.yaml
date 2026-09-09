@@ -191,15 +191,14 @@ blocs:
         titre: Mise au point ou profondeur de champ
         claim: La mise au point, c'est *où*. La profondeur de champ, c'est *quelle épaisseur*.
         corps: |
-          - **La mise au point**, c'est **où** l'appareil fait le point. **Un seul endroit.**
+          - **La mise au point** — ce qu'on appelle souvent « faire le focus » — c'est **où**
+            l'appareil fait le point. **Un seul endroit.**
           - **La profondeur de champ**, c'est **l'épaisseur** de la zone qui paraît nette autour
             de cet endroit.
-
-          C'est la confusion la plus fréquente chez les débutants — et les deux réglages se
-          règlent séparément.
         schema:
           composant: point-et-zone
-        aparte: |
+        icone: lucide:focus
+        encadre: |
           Ce que fait réellement l'autofocus : il fait le point sur **ce que vous lui désignez**.
           Si vous ne désignez rien, il choisit tout seul — généralement ce qui est le plus près,
           ou le plus contrasté.

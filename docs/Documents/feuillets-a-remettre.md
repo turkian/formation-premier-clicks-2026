@@ -55,10 +55,31 @@ Il n'y a aucun courriel dans cette formation. Tout ce qui devait être communiqu
 │   VOS RÉGLAGES DE DÉPART                             │
 │   Mode A (ou Av) · ISO auto · le +/− sous le pouce   │
 │                                                      │
+│  ──────────────────────────────────────────────────  │
+│                                                      │
+│   TOUT LE CONTENU EST EN LIGNE                       │
+│                                                      │
+│   Le lexique de votre marque, les fiches à           │
+│   imprimer et les explications des trois soirées :   │
+│                                                      │
+│      ______________________________________          │
+│                                                      │
+│   OUVREZ-LE UNE FOIS AVANT D'ARRIVER.                │
+│   Le wifi de la salle est capricieux; une page       │
+│   déjà ouverte une fois reste consultable même       │
+│   sans réseau.                                       │
+│                                                      │
 │   Prochaine séance :  ______________________         │
 │                                                      │
 └──────────────────────────────────────────────────────┘
 ```
+
+> **Écris l'adresse du site à la main sur chaque feuillet**, ou fais-la recopier en salle —
+> comme la date. Un lien qu'on n'a pas dans la main n'est jamais visité.
+>
+> La consigne « ouvrez-le avant d'arriver » n'est pas décorative : trente téléphones qui
+> chargent le site en même temps sur le wifi du local, c'est le mode de défaillance qu'on
+> évite. Une page visitée une fois reste servie par le cache du navigateur.
 
 ---
 
