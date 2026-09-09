@@ -262,7 +262,7 @@ blocs:
       - id: designer-le-point
         genre: appareil-en-main
         titre: Appareil en main — désigner le point
-        claim: Trois gestes, dans l'ordre. Personne ne range son sac avant de les avoir faits.
+        claim: Trois gestes, dans l'ordre.
         gestes:
           - "**Trouvez votre sélecteur de zone AF** et mettez-le sur un **collimateur unique** — ou « zone flexible », selon les marques."
           - "**Déplacez le collimateur** : pavé directionnel, joystick, ou écran tactile sur les sans-miroir."
@@ -271,7 +271,7 @@ blocs:
           Touchez l'écran à l'endroit où vous voulez le point. Un petit carré apparaît. C'est
           exactement le même geste. Maintenez le doigt une seconde pour le verrouiller.
         aparte: |
-          Les mots changent d'une marque à l'autre : c'est la **section 2** de votre feuille.
+          Attention les mots changent d'une marque à l'autre.
 
   # ─────────────────────────────────────────────────────────────────────────
   - id: pause
