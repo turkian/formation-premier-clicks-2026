@@ -212,18 +212,21 @@ blocs:
           |---|---|---|
           | **`AF-S`** · Single · One Shot | le sujet ne bouge pas | le point est fait, puis verrouillé |
           | **`AF-C`** · Continuous · AI Servo | le sujet bouge | l'appareil corrige en continu |
+        ton: avertissement
+        icone: lucide:triangle-alert
+        encadre: |
+          Toutes les marques n'utilisent pas les mêmes mots.
 
-          Et pour désigner **où** :
-
-          - **un collimateur unique**, que vous déplacez — c'est celui qu'il faut apprendre ;
-          - une **zone**, quand le sujet est mobile mais reste dans un coin du cadre ;
-          - la **détection du visage et de l'œil**, probablement la meilleure fonction de votre
-            génération d'appareils — et beaucoup de gens ne l'allument jamais.
-        aparte: |
-          ⚠️ **Deux marques n'utilisent pas ces mots.** **Canon** dit `One Shot` (immobile) et
-          `AI Servo` ou `Servo` (qui bouge) : chercher « AF-C » dans ses menus ne donne rien.
-          **Olympus / OM System** inverse les lettres : `S-AF` et `C-AF`. C'est la **section 2**
-          de votre feuille, sur les huit marques.
+      - id: zone-af
+        genre: panneau
+        titre: Désigner où viser
+        claim: "Et pour désigner où : trois façons."
+        corps: |
+          | Méthode | Quand | Ce qu'il fait |
+          |---|---|---|
+          | **Collimateur unique** | vous voulez choisir vous-même l'endroit exact | un seul point actif, que vous déplacez avec le joystick ou le pavé directionnel |
+          | **Zone** | le sujet bouge mais reste dans un coin du cadre | l'appareil corrige parmi plusieurs collimateurs de cette zone |
+          | **Détection visage / œil** | il y a un visage dans le cadre | l'appareil détecte le visage — et l'œil, s'il est visible — puis y verrouille le point |
 
       - id: ou-le-point-a-ete-fait
         genre: demonstration
