@@ -9,18 +9,22 @@ for the same kind of ground-line drawing with a `vous` marker anchoring the line
 photographer's position. `point-et-zone` never adopted it.
 
 Separately, the diagram's two twin panels (mise au point / profondeur de champ) sit side
-by side inside a `640×250` viewBox, sized down to the panel's schema column width. That
-column isn't height-constrained — stacking the panels vertically instead lets the same
-column width render a taller, more legible diagram, with room for the new origin marker.
+by side inside a `640×250` viewBox, sized down to the panel's schema column width.
+Stacking the panels vertically instead reads better as two related, comparable drawings.
+**Correction made during implementation:** the schema column is not, in fact, free of
+height constraints — real measurement in a browser found the available height/width ratio
+is as low as ~0.88 at the tightest supported breakpoint (1280×720), far under what two
+generously-spaced stacked panels need. The stacked layout that shipped is compact
+(smaller type, no arrow annotation) to fit under that real ceiling — see design.md.
 
 ## What Changes
 
 - `PointEtZone.astro`'s two panels each gain a `vous` origin marker at the near end of
   their horizontal line, anchoring "the point moves along this line" to "how far from
   you."
-- The two panels move from side-by-side to stacked vertically in one SVG (roughly
-  `340×480` instead of `640×250`), using the schema column's already-idle vertical room
-  instead of splitting its width.
+- The two panels move from side-by-side to stacked vertically in one SVG (`300×236`,
+  compact — smaller type, no arrow annotation — to fit the real available height at every
+  supported projection breakpoint; see design.md).
 - The `vous` marker is extracted into a shared `pieces/Vous.astro` (mirroring the existing
   `pieces/AppareilPhoto.astro` pattern), and `ZoneNette.astro` is switched to use it too —
   so the two distance diagrams stay visually identical by construction, not by convention.
@@ -53,3 +57,7 @@ two panels are arranged relative to each other, changes.
 - Component: `src/src/components/schemas/pieces/Vous.astro` — new shared piece.
 - Component: `src/src/components/schemas/ZoneNette.astro` — inline `vous` markup replaced
   with the shared piece (no visual change intended).
+- Content: `point-et-zone` renders on two screens, not just the one that motivated this
+  change — `src/src/content/lecons/1.yaml`'s `point-ou-zone` and
+  `src/src/content/lecons/3.yaml`'s `definir-une-intention` (a callback panel reusing the
+  same diagram). Not identified until implementation; both are verified in tasks.md.

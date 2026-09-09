@@ -7,6 +7,8 @@
  * dessin doit rendre visible — d'où le dégradé plutôt qu'un rectangle net : la
  * netteté ne s'arrête pas net, elle se dégrade progressivement.
  */
+import Vous from './pieces/Vous.astro';
+
 interface Props {
   /** Proportion de la scène occupée par la zone nette, de 0 à 1. */
   epaisseur?: number;
@@ -30,10 +32,7 @@ const x = 320 - largeur / 2;
   <rect x={x} y="46" width={largeur} height="122" fill="url(#zn-degrade)" />
   <line x1="60" y1="168" x2="620" y2="168" stroke="var(--trait)" />
 
-  <g transform="translate(60,168)">
-    <rect x="-14" y="-22" width="28" height="18" rx="3" fill="var(--texte-2)" />
-    <text x="0" y="20" text-anchor="middle" font-size="13" fill="var(--texte-3)">vous</text>
-  </g>
+  <Vous x={60} y={168} />
 
   <line x1="320" y1="40" x2="320" y2="176" stroke="var(--texte)" stroke-width="2" />
   <circle cx="320" cy="108" r="8" fill="var(--texte)" />

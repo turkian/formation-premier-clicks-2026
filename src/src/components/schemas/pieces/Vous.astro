@@ -1,0 +1,18 @@
+---
+/**
+ * Le photographe, à l'origine d'une ligne de distance.
+ *
+ * Ancre une ligne de sol : sans ce repère, un point qui s'y déplace se lit
+ * comme un endroit arbitraire plutôt que comme une distance depuis vous.
+ */
+interface Props {
+  x: number;
+  y: number;
+}
+
+const { x, y } = Astro.props;
+---
+<g transform={`translate(${x},${y})`}>
+  <rect x="-14" y="-22" width="28" height="18" rx="3" fill="var(--texte-2)" />
+  <text x="0" y="20" text-anchor="middle" font-size="13" fill="var(--texte-3)">vous</text>
+</g>
