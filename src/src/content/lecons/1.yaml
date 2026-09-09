@@ -280,9 +280,6 @@ blocs:
         cellulaire: |
           Touchez l'écran à l'endroit où vous voulez le point. Un petit carré apparaît. C'est
           exactement le même geste. Maintenez le doigt une seconde pour le verrouiller.
-        reflex: |
-          Activez la détection de l'œil si votre appareil l'a. C'est probablement sa meilleure
-          fonction, et beaucoup de gens ne l'allument jamais.
         aparte: |
           Les mots changent d'une marque à l'autre : c'est la **section 2** de votre feuille.
 
