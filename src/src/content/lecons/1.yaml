@@ -256,20 +256,10 @@ blocs:
                 priorite: utile
                 reglages: { point: arrière-plan, ouverture: f/2.8, focale: 85 mm }
 
-        # Ces deux-là ne forment pas une série comparative : elles diffèrent par
-        # la cause **et** par la vitesse, et c'est inévitable — un flou de bougé
-        # suppose une vitesse lente, un flou de mise au point non. Ce sont deux
-        # exemples à opposer, pas une comparaison à variable unique, et la
-        # vérification de construction a raison de refuser qu'on les déclare
-        # ainsi.
         images:
           - id: l1-hors-focus
             specification: Sujet hors mise au point, décor net · vitesse suffisante, 1/250 s
             valeur: le point est ailleurs — le décor est net
-            priorite: essentiel
-          - id: l1-bouge
-            specification: Toute l'image floue dans le même sens · 1/8 s à main levée
-            valeur: c'est la main qui a bougé — tout est flou
             priorite: essentiel
 
       - id: designer-le-point

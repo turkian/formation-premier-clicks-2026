@@ -85,6 +85,20 @@ blocs:
           la stabilisation du boîtier ou de l'objectif, et le trépied. Cette distinction revient
           à chaque diagnostic de la séance.
 
+      - id: deux-flous-en-images
+        genre: demonstration
+        titre: Les deux flous, en images
+        claim: Un sujet flou sur un décor net. Une image entièrement floue. Ce n'est pas le même flou.
+        images:
+          - id: l2-sujet-bouge
+            specification: Sujet en mouvement, décor net · vitesse insuffisante pour le figer
+            valeur: c'est le sujet qui a bougé — le décor est net
+            priorite: essentiel
+          - id: l1-bouge
+            specification: Toute l'image floue dans le même sens · 1/8 s à main levée
+            valeur: c'est la main qui a bougé — tout est flou
+            priorite: essentiel
+
       - id: explorer-le-mouvement
         genre: interactif
         titre: Explorer le mouvement
