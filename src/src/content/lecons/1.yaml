@@ -324,9 +324,6 @@ blocs:
         variante: ouverture
         titre: La profondeur de champ
         claim: Quelle épaisseur est nette ?
-        corps: |
-          C'est le sujet central de la séance. L'ouverture, qu'on verra juste après, n'est qu'un
-          des moyens de la contrôler — et pas le plus accessible.
 
       - id: la-definition
         genre: panneau
