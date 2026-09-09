@@ -430,7 +430,7 @@ blocs:
           **Ce n'est pas une erreur de mise au point, c'est de la physique** : fermez à `f/2.8`
           ou `f/4`, ou reculez d'un pas. De 8 cm à 2,6 cm, la zone est divisée par trois.
 
-      - id: le-mythe-du-f18
+      - id: le-quatrieme-facteur
         genre: panneau
         titre: Le quatrième facteur
         claim: La distance entre votre sujet et le fond ne change pas la zone nette. Elle change tout au flou du fond.
@@ -462,7 +462,7 @@ blocs:
     titre: L'ouverture
     resume: Une question d'abord, la règle en conclusion.
     ecrans:
-      - id: bloc
+      - id: ouverture
         genre: repere
         variante: ouverture
         titre: L'ouverture
