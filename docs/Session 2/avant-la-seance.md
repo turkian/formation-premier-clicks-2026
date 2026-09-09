@@ -74,6 +74,7 @@ La composition étant passée en séance 3, les seules autres images projetées 
 - **Feuilles du lexique** manquantes, si le dépouillement des fiches d'îlot a révélé une marque que tu n'avais pas en stock
 - **[Feuillet « Préparer la séance 3 »](../Documents/feuillets-a-remettre.md#feuillet-2--préparer-la-séance-3)** — 35 copies, à remettre en main propre à la fin
 - **La liste des cinq groupes**, composée après la séance 1 et imprimée
+- **Le tableau à questions** — une grande feuille au mur, un paquet de papillons adhésifs et des crayons. Il sert aux séances 2 et 3, prépare-le une fois ici (la séance 1 ne l'utilise plus).
 
 ### Salle
 

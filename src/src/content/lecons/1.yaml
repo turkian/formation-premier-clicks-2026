@@ -284,11 +284,11 @@ blocs:
         titre: Pause
         claim: Dix minutes.
         corps: |
-          Il y a une feuille au mur et des papillons adhésifs.
+          Une nouvelle feuille est posée sur votre table — pas celle du tour de table.
 
-          **Si une question vous vient et que vous ne voulez pas interrompre, écrivez-la et
-          collez-la là.** Sans votre nom si vous préférez. On y répond en revenant, ou à la
-          séance 2.
+          **Si une question vous vient, écrivez-la sur la feuille.** Elle reste sur la table
+          pendant la pause. Quand tout le monde revient, votre table essaie d'y répondre
+          ensemble, avant qu'on en parle en groupe.
         aparte: |
           C'est aussi le moment de venir poser une question à voix basse plutôt qu'à voix haute.
           C'est prévu, et c'est bienvenu.
@@ -297,12 +297,12 @@ blocs:
         genre: repere
         variante: questions
         titre: Vos questions
-        claim: Vos questions, maintenant.
+        claim: Ce que vos tables n'ont pas réglé.
         corps: |
-          On commence par les papillons du mur, puis par ce qui vient.
+          Chaque table a essayé de répondre à ses propres questions.
 
-          Si une question dépasse le cadre de cette séance, elle est notée et reprise à la séance 3
-          plutôt qu'expédiée en deux mots.
+          **Ce qui reste, on le met en commun.** Une autre table a peut-être déjà la réponse —
+          n'importe qui peut répondre, pas seulement l'animateur ou l'animatrice.
 
   # ─────────────────────────────────────────────────────────────────────────
   - id: profondeur-de-champ

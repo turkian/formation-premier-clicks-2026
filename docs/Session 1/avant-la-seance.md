@@ -15,7 +15,7 @@
 | **1 semaine avant** | **Préparer les images de démonstration** — c'est le poste le plus long |
 | **1 semaine avant** | Envoyer les cartes aide-mémoire à l'impression (35 jeux, plastifiés) |
 | **1 semaine avant** | Imprimer les [feuilles du lexique par fabricant](../Documents/lexique-par-fabricant/) — **un stock de toutes les marques**, voir ci-dessous |
-| **1 semaine avant** | Imprimer les [fiches d'îlot](#les-fiches-dîlot) et le [feuillet du défi](../Documents/feuillets-a-remettre.md#feuillet-1--le-défi) |
+| **1 semaine avant** | Imprimer les [fiches d'îlot](#les-fiches-dîlot), les [feuilles de questions](#la-feuille-de-questions) et le [feuillet du défi](../Documents/feuillets-a-remettre.md#feuillet-1--le-défi) |
 | **La veille** | Tester le projecteur avec ton appareil · charger tes batteries · imprimer les feuillets lexique |
 | **Le jour même** | Arriver 45 min avant · disposer les îlots · afficher le mot de passe wifi |
 
@@ -51,6 +51,23 @@ Chacun remplit sa ligne pendant que les autres se présentent. Tu ramasses les c
 
 ---
 
+### La feuille de questions
+
+**Une feuille par table, distincte de la fiche d'îlot.** Elle n'est pas posée d'avance : dépose-la sur chaque table au début de la pause (`0:50`), voir le déroulé. Chacun peut y écrire une question pendant la pause; au retour, la table essaie d'y répondre elle-même avant le bloc « vos questions ».
+
+```
+QUESTIONS — TABLE n° ____
+
+_____________________________________________
+_____________________________________________
+_____________________________________________
+_____________________________________________
+```
+
+Contrairement à la fiche d'îlot, tu ne la ramasses pas : elle reste à la table pour la discussion, et ne te sert pas de matière première pour la séance 2.
+
+---
+
 ### Équipe
 
 Avec 30 participants, prévois **2 à 3 membres du club qui circulent** pendant les moments « appareil en main ». Leur seul rôle : aider quelqu'un à trouver un menu. Sans eux, tu passeras tes 5 minutes avec une seule personne pendant que 29 attendent.
@@ -62,8 +79,8 @@ Brief à leur donner : *« Ne prends jamais l'appareil des mains de la personne.
 - Projecteur + moyen de projeter tes images (voir « Démonstrations » plus bas)
 - **Cartes aide-mémoire imprimées et plastifiées** ([aide-memoire-participants.md](../Documents/aide-memoire-participants.md)) — 35 copies
 - **[Fiches d'îlot](#les-fiches-dîlot)** — 5 copies, une par table, plus des crayons
+- **[Feuilles de questions](#la-feuille-de-questions)** — 5 copies, une par table, à déposer à la pause
 - **[Feuillet du défi](../Documents/feuillets-a-remettre.md#feuillet-1--le-défi)** — 35 copies, à remettre en main propre à la fin
-- **Le tableau à questions** — une grande feuille au mur, un paquet de papillons adhésifs et des crayons. Il sert aux trois séances, prépare-le une fois.
 - **[Lexique par fabricant](../Documents/lexique-par-fabricant/)** — **une feuille recto verso par participant, celle de sa marque**. C'est le document le plus consulté des moments « appareil en main » : chaque fois que quelqu'un ne trouve pas un réglage, la réponse y est.
 
   **Comme tu ne sais pas d'avance qui a quoi, imprime un stock et distribue-le pendant le tour de table**, au moment où chacun dit sa marque. Répartition raisonnable pour 30 personnes :

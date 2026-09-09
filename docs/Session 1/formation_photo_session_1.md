@@ -227,7 +227,7 @@ Dix minutes annoncées, qui en dureront treize. C'est prévu dans l'horaire.
 
 **Ce n'est pas du temps perdu.** C'est là que les nouveaux membres se parlent, et que ceux qui n'osent pas lever la main viennent te voir. Reste disponible dans la salle, ne va pas préparer tes diapos.
 
-**Installe le tableau à questions maintenant**, si ce n'est pas déjà fait — voir le bloc suivant.
+**Dépose une feuille de questions sur chaque table maintenant** — voir le bloc suivant.
 
 ---
 
@@ -237,19 +237,21 @@ Dix minutes annoncées, qui en dureront treize. C'est prévu dans l'horaire.
 
 Les gens formulent leurs questions pendant la pause, et surtout ils les ont dites à leur voisin avant de te les dire. Une question déjà prononcée à voix basse se pose beaucoup plus facilement à voix haute.
 
-### Le tableau à questions
+### La feuille de questions
 
-**Une feuille au mur et des papillons adhésifs**, à disposition dès le début de la soirée.
+**Une feuille par table**, posée au début de la pause — distincte de la fiche d'îlot, déjà ramassée à ce moment-là. Chacun peut y écrire une question pendant la pause.
 
-> « Si une question vous vient et que vous ne voulez pas interrompre, écrivez-la et collez-la là. Sans votre nom si vous préférez. J'y réponds après la pause, ou à la prochaine séance. »
+**Au retour, chaque table essaie de répondre à ses propres questions avant que tu ouvres le bloc.** Même principe que le tour de table : les tables sont mélangées en niveau, et quelqu'un a souvent déjà la réponse.
 
-C'est le seul mécanisme qui capte les questions de ceux qui ne lèveront jamais la main — et **ce sont exactement les gens qui décrochent**. Ne le saute pas parce que ça semble scolaire : ça fonctionne.
+> ⚠️ **Ce que ça coûte, par rapport à l'ancien tableau à questions**
+>
+> L'ancien mécanisme (mur + papillons anonymes) était le seul qui captait les questions de ceux qui ne lèveraient jamais la main — les gens qui décrochent. Écrire sur la feuille de table, devant ses voisins, n'offre plus cet anonymat. À surveiller lors des premières séances : si personne d'effacé n'écrit rien, ce n'est pas parce qu'il n'y a pas de question.
 
 ### Comment mener le bloc
 
-- **Commence par les papillons**, pas par « avez-vous des questions? ». Une salle à qui on demande si elle a des questions répond non.
-- **Lis la question à voix haute** avant d'y répondre. Ça la valide, et ça permet aux autres de découvrir qu'ils avaient la même.
-- **Si une question dépasse le niveau du soir** — « c'est quoi la différence entre plein format et APS-C? » — réponds en une phrase et note-la pour la séance 3. Ne pars pas dans une digression de dix minutes devant vingt-neuf personnes qui ne suivent plus.
+- **Laisse une minute ou deux aux tables** pour comparer ce qu'elles ont trouvé, avant de demander ce qu'il reste.
+- **Demande ce qui n'a pas trouvé de réponse à table, et ouvre-le à toute la salle avant de répondre toi-même** — une autre table a souvent déjà la réponse.
+- **Si une question dépasse le niveau du soir** — « c'est quoi la différence entre plein format et APS-C? » — réponds en une phrase et enchaîne. Ne pars pas dans une digression de dix minutes devant vingt-neuf personnes qui ne suivent plus. **Ne promets pas d'y revenir à la séance 2** : les tables ne seront plus les mêmes, rien ne garantit que la question survive au changement de groupe.
 - **S'il n'y a rien**, ce qui arrive, n'insiste pas : reprends deux minutes sur le concept qui t'a semblé le moins bien passé et enchaîne. Le bloc n'est jamais perdu.
 
 ---
