@@ -401,18 +401,21 @@ blocs:
         titre: Trois frustrations que vous avez déjà vécues
         claim: Ces trois situations ne sont pas des erreurs de votre part. C'est de la physique.
         corps: |
-          | | Pourquoi |
-          |---|---|
-          | **Un seul œil net** en portrait rapproché | Avec un 50 mm `f/1.8` à 1 m, la zone tombe à **2,6 cm** sur APS-C. Un visage de trois-quarts est plus épais que ça. |
-          | **Un seul pétale net** en gros plan | En macro, la zone se compte en **millimètres**. Ce n'est pas votre faute. |
-          | **Le paysage où `f/16` est inutile** | À quelques mètres, tout est net **de toute façon** — déjà à `f/5.6`. |
+          | Problème | Pourquoi | Comment faire |
+          |---|---|---|
+          | **Un seul œil net** en portrait rapproché | Avec un 50 mm `f/1.8` à 1 m, la zone tombe à **2,6 cm** sur APS-C. Un visage de trois-quarts est plus épais que ça. | Fermez à `f/2.8` ou `f/4`, ou reculez d'un pas. |
+          | **Un seul pétale net** en gros plan | En macro, la zone se compte en **millimètres**. | Fermez à `f/8` ou `f/11`, et compensez la perte de lumière avec un trépied. |
+          | **`f/16` et exposition trop longue** | À quelques mètres, tout est déjà net **de toute façon** — dès `f/5.6`. `f/16` ne fait que voler de la lumière. | Ouvrez à `f/5.6` ou `f/8` : même netteté, vitesse plus rapide. |
 
-          Fermer à `f/16` « pour être sûr » donne une vitesse trop lente, et un paysage bougé.
-          **`f/5.6` ou `f/8` suffisent presque toujours.**
-        aparte: |
-          Beaucoup achètent un `f/1.8`, obtiennent des portraits ratés et croient s'être trompés.
-          **Ce n'est pas une erreur de mise au point, c'est de la physique** : fermez à `f/2.8`
-          ou `f/4`, ou reculez d'un pas. De 8 cm à 2,6 cm, la zone est divisée par trois.
+      - id: paysage-deux-causes
+        genre: panneau
+        titre: Le paysage a deux causes de flou possibles
+        claim: Un paysage flou n'a pas toujours la même cause.
+        corps: |
+          | Problème | Pourquoi | Comment faire |
+          |---|---|---|
+          | **Paysage flou à `f/2`** | Une ouverture trop large rétrécit la zone nette sous ce qu'il faut au paysage. | Fermez un peu — `f/5.6` ou `f/8` couvrent tout le paysage. |
+          | **Premier plan ou fond flou** malgré la bonne ouverture | Ce n'est pas l'ouverture — la zone nette est bien là, mais mal placée. | Déplacez le point de mise au point : ce n'est pas la même chose que fermer davantage. |
 
       - id: le-quatrieme-facteur
         genre: panneau
