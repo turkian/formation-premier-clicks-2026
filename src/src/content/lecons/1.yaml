@@ -346,16 +346,11 @@ blocs:
           | **1 · L'ouverture** | Grand trou → zone **mince**. Petit trou → zone **épaisse**. |
           | **2 · La distance à laquelle vous faites le point** | Plus votre sujet est **près**, plus la zone est **mince**. |
           | **3 · La focale** | Plus vous êtes **zoomé**, plus la zone paraît **mince**. |
-
-          Deux des trois ne demandent aucun menu.
         schema:
           composant: zone-nette
           props:
             epaisseur: 0.22
           legende: Fermer l'ouverture épaissit la zone. Le point, lui, ne bouge pas.
-        aparte: |
-          Le deuxième est celui que presque personne ne connaît — et c'est le sujet de l'écran
-          suivant.
 
       # ★ Panneau cumulatif nº 1 : le tableau est la surprise du bloc. Il ne peut
       #   pas être affiché pendant qu'on annonce que seule la distance change,
@@ -384,8 +379,6 @@ blocs:
               De **3 m à 1 m**, votre zone nette est **divisée par dix** — sans avoir touché à un
               seul réglage.
             ton: regle
-        aparte: |
-          Chiffres calculés pour un capteur APS-C. L'écran suivant les refait pour le vôtre.
 
       - id: explorer-la-zone-nette
         genre: interactif
