@@ -40,13 +40,23 @@ const ajouts = await Promise.all(
     encadreHtml: await md(a.encadre),
   })),
 );
-const sansSchema = !cumule.schema;
 /*
  * « Dense » signifie : ce panneau accumule, et son corps grossit à chaque état.
  * C'est le seul cas où la mise en colonnes se justifie — un panneau statique
  * garde une colonne unique, plus facile à suivre depuis le fond de la salle.
  */
 const dense = Boolean(ecran.etats?.length) && ajouts.length > 0;
+/*
+ * La grille « dense » réserve corps + encadrés, sans troisième colonne pour un
+ * schéma — un panneau cumulatif n'en avait jamais porté avant celui-ci. Un
+ * schéma de mise en situation n'a donc de place que tant que le panneau n'a
+ * rien révélé : dès le premier état accumulé, il cède toute la largeur aux
+ * encadrés, comme tout autre panneau cumulatif du site.
+ */
+const schema = dense ? undefined : cumule.schema;
+/* Réservé au cas non-dense : une fois dense, la grille du panneau cumulatif
+   régit déjà tout l'agencement, et ce data-attribut ne doit pas s'y ajouter. */
+const sansSchema = !dense && !schema;
 ---
 
 <div
@@ -98,9 +108,9 @@ const dense = Boolean(ecran.etats?.length) && ajouts.length > 0;
     </div>
   )}
 
-  {cumule.schema && (
+  {schema && (
     <div class="region-schema">
-      <Schema schema={cumule.schema} />
+      <Schema schema={schema} />
     </div>
   )}
 

@@ -9,6 +9,7 @@ import DiametreOuverture from './DiametreOuverture.astro';
 import QuatreLeviers from './QuatreLeviers.astro';
 import DirectionLumiere from './DirectionLumiere.astro';
 import PointEtZone from './PointEtZone.astro';
+import DistanceSujet from './DistanceSujet.astro';
 
 export const SCHEMAS = {
   'zone-nette': ZoneNette,
@@ -16,4 +17,5 @@ export const SCHEMAS = {
   'quatre-leviers': QuatreLeviers,
   'direction-lumiere': DirectionLumiere,
   'point-et-zone': PointEtZone,
+  'distance-sujet': DistanceSujet,
 };

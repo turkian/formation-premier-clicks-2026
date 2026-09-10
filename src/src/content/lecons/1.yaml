@@ -360,21 +360,25 @@ blocs:
         titre: Le facteur invisible
         claim: Même objectif, même ouverture. Seule la distance du sujet change.
         corps: |
-          Le **zoom de kit 18-55 mm**, réglé à 50 mm : à cette focale, son ouverture maximale est
-          `f/5.6`. C'est tout ce qu'il peut faire, et c'est très bien.
+          Capteur **APS-C**, objectif courant réglé à **50 mm** : à cette focale, son ouverture
+          maximale — celle qui laisse passer le plus de lumière — est `f/5.6`.
 
           De combien la zone nette change-t-elle entre un sujet à **3 mètres** et un sujet à
           **1 mètre** ?
+        schema:
+          composant: distance-sujet
+          props:
+            distances: [1, 3]
+          legende: Même appareil, même objectif, même ouverture — seule la distance change.
         etats:
           - etiquette: La question
           - etiquette: Les chiffres
             corps: |
-              | Kit à 50 mm, `f/5.6`, capteur APS-C | Zone nette |
+              | 50 mm, `f/5.6`, capteur APS-C | Zone nette |
               |---|---|
               | Sujet à **1 mètre** | environ **8 cm** |
               | Sujet à **3 mètres** | environ **77 cm** |
               | Sujet à **10 mètres** | **plusieurs mètres — en pratique, tout** |
-          - etiquette: Le rapport
             encadre: |
               De **3 m à 1 m**, votre zone nette est **divisée par dix** — sans avoir touché à un
               seul réglage.
@@ -555,7 +559,6 @@ blocs:
         series:
           - variable: la distance de mise au point
             constantes:
-              objectif: zoom de kit
               focale: 50 mm
               ouverture: f/5.6
             legende: >-
@@ -564,12 +567,12 @@ blocs:
               l'autre.
             images:
               - id: l1-pdc-distance-1m
-                specification: Zoom de kit à 50 mm, f/5.6, sujet à 1 m — même cadrage du sujet
+                specification: 50 mm, f/5.6, sujet à 1 m — même cadrage du sujet
                 valeur: sujet à 1 m
                 priorite: essentiel
                 reglages: { distance: 1 m, focale: 50 mm, ouverture: f/5.6 }
               - id: l1-pdc-distance-5m
-                specification: Zoom de kit à 50 mm, f/5.6, sujet à 5 m — même cadrage du sujet
+                specification: 50 mm, f/5.6, sujet à 5 m — même cadrage du sujet
                 valeur: sujet à 5 m
                 priorite: essentiel
                 reglages: { distance: 5 m, focale: 50 mm, ouverture: f/5.6 }
@@ -596,8 +599,8 @@ blocs:
                 priorite: utile
                 reglages: { ouverture: f/1.8, distance: 2 m, focale: 50 mm }
               - id: l1-pdc-ouverture-56
-                specification: Même sujet, f/5.6 au zoom de kit · 50 mm · 2 m · sujet bien détaché du fond
-                valeur: f/5.6 au zoom de kit
+                specification: Même sujet, f/5.6 · 50 mm · 2 m · sujet bien détaché du fond
+                valeur: f/5.6
                 priorite: essentiel
                 reglages: { ouverture: f/5.6, distance: 2 m, focale: 50 mm }
               - id: l1-pdc-ouverture-11
@@ -610,15 +613,15 @@ blocs:
               ouverture: f/5.6
               focale: 50 mm
               distance au sujet: 2 m
-            legende: Au zoom de kit — la preuve qu'il n'y a rien à acheter. Celle qui démonte le mythe du f/1.8.
+            legende: Avec le même objectif — la preuve qu'il n'y a rien à acheter. Celle qui démonte le mythe du f/1.8.
             images:
               - id: l1-pdc-fond-colle
-                specification: Zoom de kit, f/5.6 · sujet collé au mur · photographe à 2 m
+                specification: 50 mm, f/5.6 · sujet collé au mur · photographe à 2 m
                 valeur: sujet collé au mur
                 priorite: essentiel
                 reglages: { fond: collé, ouverture: f/5.6, focale: 50 mm }
               - id: l1-pdc-fond-loin
-                specification: Zoom de kit, f/5.6 · sujet à 3 m du mur · photographe à 2 m
+                specification: 50 mm, f/5.6 · sujet à 3 m du mur · photographe à 2 m
                 valeur: sujet à 3 m du mur
                 priorite: essentiel
                 reglages: { fond: 3 m, ouverture: f/5.6, focale: 50 mm }

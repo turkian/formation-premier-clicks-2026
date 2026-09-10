@@ -1,0 +1,50 @@
+---
+/**
+ * Même appareil, même objectif, même ouverture — deux distances au sujet,
+ * côte à côte.
+ *
+ * Chaque ligne de sol part de vous (`pieces/Vous.astro`), comme tout schéma
+ * de distance du site. Aucun dégradé, aucun indice de flou : ce dessin montre
+ * la mise en situation, pas le résultat — la réponse reste dans les états du
+ * panneau qui l'accueille.
+ */
+import Vous from './pieces/Vous.astro';
+import Sujet from './pieces/Sujet.astro';
+
+interface Props {
+  /** Les deux distances comparées, en mètres. */
+  distances?: [number, number];
+  /** Distance représentée par la pleine longueur d'une ligne de sol, en mètres. */
+  echelle?: number;
+}
+
+const { distances = [1, 3], echelle = 4 } = Astro.props;
+const [gauche, droite] = distances;
+
+const DEBUT = 30;
+const LARGEUR = 260;
+const DECALAGE = 340;
+
+function xSujet(distance: number) {
+  const t = Math.max(0, Math.min(1, distance / echelle));
+  return DEBUT + t * LARGEUR;
+}
+---
+<svg viewBox="0 0 640 150" role="img" style="width:100%;height:auto"
+     aria-label={`Même appareil, même objectif, même ouverture : un sujet à ${gauche} m, un autre à ${droite} m`}>
+  <line x1={DEBUT} y1="70" x2={DEBUT + LARGEUR} y2="70" stroke="var(--trait)" />
+  <Vous x={DEBUT} y={70} />
+  <Sujet x={xSujet(gauche)} y={70} />
+  <text x={DEBUT + LARGEUR / 2} y="112" text-anchor="middle" font-size="14" fill="var(--texte)">
+    sujet à {gauche} m
+  </text>
+
+  <line x1="320" y1="14" x2="320" y2="130" stroke="var(--trait)" stroke-dasharray="3 4" />
+
+  <line x1={DEBUT + DECALAGE} y1="70" x2={DEBUT + LARGEUR + DECALAGE} y2="70" stroke="var(--trait)" />
+  <Vous x={DEBUT + DECALAGE} y={70} />
+  <Sujet x={xSujet(droite) + DECALAGE} y={70} />
+  <text x={DEBUT + LARGEUR / 2 + DECALAGE} y="112" text-anchor="middle" font-size="14" fill="var(--texte)">
+    sujet à {droite} m
+  </text>
+</svg>
