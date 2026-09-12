@@ -156,7 +156,7 @@ export function ouvertureMaxKit(focaleMm: number): number {
  * de profondeur de champ, qui utilise `CRANS_OUVERTURE_PLEINS` ci-dessous.
  */
 export const CRANS_OUVERTURE = [
-  1.4, 1.8, 2, 2.8, 3.5, 4, 4.5, 5, 5.6, 6.3, 7.1, 8, 9, 10, 11, 13, 14, 16, 18, 20, 22,
+  1.4, 1.8, 2, 2.4, 2.8, 3.5, 4, 4.5, 5, 5.6, 6.3, 7.1, 8, 9, 10, 11, 13, 14, 16, 18, 20, 22,
 ];
 
 /**

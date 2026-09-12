@@ -2,67 +2,77 @@
 /**
  * `f/` est une division.
  *
- * Le composant dessine le trou **à l'échelle relative réelle** : `f/5.6` sur un
- * 24 mm et sur un 200 mm ne donnent pas le même trou, et c'est en voyant les
- * deux disques côte à côte qu'on comprend pourquoi la notation est une fraction
+ * Le composant dessine le trou **à l'échelle relative réelle** pour deux
+ * objectifs indépendants, chacun avec sa propre focale et sa propre ouverture,
+ * dessinés à la même échelle dans le même `<svg>` — c'est en voyant les deux
+ * disques côte à côte qu'on comprend pourquoi la notation est une fraction
  * plutôt qu'une convention absurde.
  *
- * Il porte aussi la deuxième moitié de l'explication, celle qui rend le système
- * utile : deux trous complètement différents donnent pourtant **la même
- * exposition**, parce que le téléobjectif étale sa lumière sur une image plus
- * agrandie.
+ * Il ne dit rien de l'exposition : le chiffre `f/` est un rapport géométrique,
+ * pas une mesure de transmission lumineuse, et deux objectifs au même chiffre
+ * `f/` peuvent transmettre des quantités de lumière mesurablement différentes.
+ * Le composant affiche seulement les deux diamètres calculés et leur écart.
  */
 import { CRANS_OUVERTURE } from '../../lib/profondeur-de-champ';
 import { typo } from '../../lib/typo';
 import '../../styles/interactif.css';
 
 interface Props {
-  focale?: number;
-  ouverture?: number;
-  /** Afficher d'emblée la paire 24 mm / 200 mm à `f/2.8`. */
-  comparaison?: boolean;
+  focaleA?: number;
+  ouvertureA?: number;
+  focaleB?: number;
+  ouvertureB?: number;
 }
 
-const { focale = 50, ouverture = 5.6, comparaison = false } = Astro.props;
+const { focaleA = 50, ouvertureA = 2.4, focaleB = 50, ouvertureB = 22 } = Astro.props;
 ---
 
-<div class="composant" data-ouverture data-focale={focale} data-ouverture-init={ouverture}
-     data-comparaison={comparaison ? '' : undefined}>
+<div class="composant" data-ouverture
+     data-focale-a={focaleA} data-ouverture-a={ouvertureA}
+     data-focale-b={focaleB} data-ouverture-b={ouvertureB}>
   <div class="commandes">
-    <div class="levier">
-      <div class="etiquette">
-        <span>La focale de l'objectif</span>
-        <output data-sortie="focale"></output>
+    <div class="panneau-objectif">
+      <p class="titre-panneau">Objectif A</p>
+      <div class="levier">
+        <div class="etiquette">
+          <span>La focale</span>
+          <output data-sortie="focale-a"></output>
+        </div>
+        <input type="range" data-levier="focale-a" min="0" max="10" step="1" aria-label="Focale, objectif A" />
       </div>
-      <input type="range" data-levier="focale" min="0" max="10" step="1" aria-label="Focale" />
-    </div>
-
-    <div class="levier" data-reglage>
-      <div class="etiquette">
-        <span>Le chiffre `f/` <span class="marque-reglage">un réglage</span></span>
-        <output data-sortie="ouverture"></output>
+      <div class="levier" data-reglage>
+        <div class="etiquette">
+          <span>Le chiffre `f/` <span class="marque-reglage">un réglage</span></span>
+          <output data-sortie="ouverture-a"></output>
+        </div>
+        <input type="range" data-levier="ouverture-a" min="0" max={CRANS_OUVERTURE.length - 1} step="1"
+               aria-label="Nombre f, objectif A" />
       </div>
-      <input type="range" data-levier="ouverture" min="0" max={CRANS_OUVERTURE.length - 1} step="1"
-             aria-label="Nombre f" />
+      <p class="calcul-panneau" data-sortie="calcul-a"></p>
     </div>
 
-    <div class="segments" role="group" aria-label="Comparaisons préparées">
-      <button type="button" data-paire="24-200">24 mm et 200 mm à f/2.8</button>
-      <button type="button" data-paire="kit">Le kit à 50 mm, f/5.6</button>
-      <button type="button" data-paire="400">Le 400 mm f/2.8</button>
+    <div class="panneau-objectif">
+      <p class="titre-panneau">Objectif B</p>
+      <div class="levier">
+        <div class="etiquette">
+          <span>La focale</span>
+          <output data-sortie="focale-b"></output>
+        </div>
+        <input type="range" data-levier="focale-b" min="0" max="10" step="1" aria-label="Focale, objectif B" />
+      </div>
+      <div class="levier" data-reglage>
+        <div class="etiquette">
+          <span>Le chiffre `f/` <span class="marque-reglage">un réglage</span></span>
+          <output data-sortie="ouverture-b"></output>
+        </div>
+        <input type="range" data-levier="ouverture-b" min="0" max={CRANS_OUVERTURE.length - 1} step="1"
+               aria-label="Nombre f, objectif B" />
+      </div>
+      <p class="calcul-panneau" data-sortie="calcul-b"></p>
     </div>
-
-    <p class="refus" style="color:var(--texte-2)" set:html={typo(
-      'Vous n’avez pas à retenir que c’est à l’envers. Vous avez juste à vous rappeler que c’est une division.',
-    )} />
   </div>
 
   <div class="visuel">
-    <div class="lecture">
-      <div class="chiffre" data-sortie="calcul"></div>
-      <div class="sens" data-sortie="explication"></div>
-    </div>
-
     <svg class="scene-svg" viewBox="0 0 640 300" role="img" data-scene-ouverture
          aria-label="Les diamètres d'ouverture, dessinés à l'échelle relative réelle">
       <g data-disques></g>
@@ -70,91 +80,110 @@ const { focale = 50, ouverture = 5.6, comparaison = false } = Astro.props;
             data-echelle></text>
     </svg>
 
-    <p class="sens" data-sortie="exposition" style="font-size:var(--t-corps)"></p>
+    <p class="sens" data-sortie="comparaison" style="font-size:var(--t-corps)"></p>
   </div>
 </div>
+
+<style>
+  .composant .visuel { grid-template-rows: minmax(0, 1fr) auto; }
+
+  .panneau-objectif {
+    display: grid;
+    gap: 0.3rem;
+  }
+
+  .titre-panneau {
+    margin: 0;
+    font-size: var(--t-aparte);
+    font-weight: var(--graisse-appui);
+    color: var(--texte-2);
+  }
+
+  .calcul-panneau {
+    margin: 0;
+    font-size: var(--t-aparte);
+    color: var(--texte);
+    font-variant-numeric: tabular-nums;
+  }
+</style>
 
 <script>
   import { CRANS_OUVERTURE, diametre } from '../../lib/profondeur-de-champ';
   import { typo, nombre } from '../../lib/typo';
 
   const FOCALES = [18, 24, 35, 50, 85, 105, 135, 200, 300, 400, 600];
+  const PANNEAUX = ['a', 'b'] as const;
+  type Panneau = (typeof PANNEAUX)[number];
+
+  /** Diamètre lisible, à la française, sans zéro décimal superflu (« 22 mm », mais « 20,8 mm »). */
+  const formatMm = (mm: number) => mm.toLocaleString('fr-CA', { maximumFractionDigits: 1 });
 
   for (const racine of document.querySelectorAll<HTMLElement>('[data-ouverture]')) demarrer(racine);
 
   function demarrer(racine: HTMLElement) {
-    const etat = {
-      iFocale: FOCALES.indexOf(50),
-      iOuverture: CRANS_OUVERTURE.indexOf(5.6),
-      /** Focale comparée, ou `null` quand on n'affiche qu'un seul objectif. */
-      focaleComparee: racine.hasAttribute('data-comparaison') ? 200 : (null as number | null),
+    const etat: Record<Panneau, { iFocale: number; iOuverture: number }> = {
+      a: {
+        iFocale: FOCALES.indexOf(Number(racine.dataset.focaleA)),
+        iOuverture: CRANS_OUVERTURE.indexOf(Number(racine.dataset.ouvertureA)),
+      },
+      b: {
+        iFocale: FOCALES.indexOf(Number(racine.dataset.focaleB)),
+        iOuverture: CRANS_OUVERTURE.indexOf(Number(racine.dataset.ouvertureB)),
+      },
     };
-    if (etat.focaleComparee) etat.iFocale = FOCALES.indexOf(24);
-    if (racine.hasAttribute('data-comparaison')) etat.iOuverture = CRANS_OUVERTURE.indexOf(2.8);
 
     const q = <T extends Element>(s: string) => racine.querySelector<T>(s)!;
-    q<HTMLInputElement>('[data-levier="focale"]').max = String(FOCALES.length - 1);
+
+    for (const panneau of PANNEAUX) {
+      q<HTMLInputElement>(`[data-levier="focale-${panneau}"]`).max = String(FOCALES.length - 1);
+      q<HTMLInputElement>(`[data-levier="ouverture-${panneau}"]`).max = String(CRANS_OUVERTURE.length - 1);
+    }
 
     racine.addEventListener('input', (e) => {
       const cible = e.target as HTMLInputElement;
-      if (cible.dataset.levier === 'focale') etat.iFocale = Number(cible.value);
-      if (cible.dataset.levier === 'ouverture') etat.iOuverture = Number(cible.value);
-      etat.focaleComparee = null;
+      const levier = cible.dataset.levier ?? '';
+      const panneau = levier.endsWith('-a') ? 'a' : levier.endsWith('-b') ? 'b' : null;
+      if (!panneau) return;
+      if (levier.startsWith('focale')) etat[panneau].iFocale = Number(cible.value);
+      if (levier.startsWith('ouverture')) etat[panneau].iOuverture = Number(cible.value);
       rendre();
     });
 
-    for (const bouton of racine.querySelectorAll<HTMLButtonElement>('[data-paire]')) {
-      bouton.addEventListener('click', () => {
-        if (bouton.dataset.paire === '24-200') {
-          etat.iFocale = FOCALES.indexOf(24);
-          etat.iOuverture = CRANS_OUVERTURE.indexOf(2.8);
-          etat.focaleComparee = 200;
-        } else if (bouton.dataset.paire === 'kit') {
-          etat.iFocale = FOCALES.indexOf(50);
-          etat.iOuverture = CRANS_OUVERTURE.indexOf(5.6);
-          etat.focaleComparee = null;
-        } else {
-          etat.iFocale = FOCALES.indexOf(400);
-          etat.iOuverture = CRANS_OUVERTURE.indexOf(2.8);
-          etat.focaleComparee = null;
-        }
-        rendre();
-      });
-    }
-
     function rendre() {
-      const focale = FOCALES[etat.iFocale]!;
-      const ouverture = CRANS_OUVERTURE[etat.iOuverture]!;
-      const objectifs = [focale, ...(etat.focaleComparee ? [etat.focaleComparee] : [])];
+      const disques = PANNEAUX.map((panneau) => {
+        const focale = FOCALES[etat[panneau].iFocale]!;
+        const ouverture = CRANS_OUVERTURE[etat[panneau].iOuverture]!;
+        const d = diametre(focale, ouverture);
 
-      q<HTMLInputElement>('[data-levier="focale"]').value = String(etat.iFocale);
-      q<HTMLInputElement>('[data-levier="ouverture"]').value = String(etat.iOuverture);
-      q('[data-sortie="focale"]').textContent = typo(`${focale} mm`);
-      q('[data-sortie="ouverture"]').textContent = `f/${ouverture}`;
+        q<HTMLInputElement>(`[data-levier="focale-${panneau}"]`).value = String(etat[panneau].iFocale);
+        q<HTMLInputElement>(`[data-levier="ouverture-${panneau}"]`).value = String(etat[panneau].iOuverture);
+        q(`[data-sortie="focale-${panneau}"]`).textContent = typo(`${focale} mm`);
+        q(`[data-sortie="ouverture-${panneau}"]`).textContent = `f/${ouverture}`;
+        q(`[data-sortie="calcul-${panneau}"]`).textContent = typo(
+          `${focale} ÷ ${String(ouverture).replace('.', ',')} = ${formatMm(d)} mm`,
+        );
 
-      const d = diametre(focale, ouverture);
-      q('[data-sortie="calcul"]').textContent = typo(
-        `${focale} ÷ ${String(ouverture).replace('.', ',')} = ${nombre(d, d < 20 ? 1 : 0)} mm`,
+        return { focale, ouverture, d };
+      });
+
+      const [dA, dB] = disques as [
+        { focale: number; ouverture: number; d: number },
+        { focale: number; ouverture: number; d: number },
+      ];
+      const [plusGrand, plusPetit] = dA.d >= dB.d ? [dA, dB] : [dB, dA];
+      const memeTaille = Math.abs(plusGrand.d - plusPetit.d) < 0.05;
+
+      q('[data-sortie="comparaison"]').textContent = typo(
+        memeTaille
+          ? `Le ${plusGrand.focale} mm à f/${plusGrand.ouverture} et le ${plusPetit.focale} mm à f/${plusPetit.ouverture} font tous les deux un trou d’environ ${formatMm(plusGrand.d)} mm de diamètre. ` +
+              `Plus le diviseur est grand, plus le résultat est petit.`
+          : `Le ${plusGrand.focale} mm à f/${plusGrand.ouverture} fait ${formatMm(plusGrand.d)} mm de diamètre, contre ` +
+              `${formatMm(plusPetit.d)} mm pour le ${plusPetit.focale} mm à f/${plusPetit.ouverture} — ` +
+              `${nombre(plusGrand.d / plusPetit.d, plusGrand.d / plusPetit.d < 5 ? 1 : 0)} fois plus petit. ` +
+              `Plus le diviseur est grand, plus le résultat est petit.`,
       );
-      q('[data-sortie="explication"]').textContent = typo(
-        `Le trou de votre ${focale} mm à f/${ouverture} fait vraiment ${nombre(d, d < 20 ? 1 : 0)} mm de diamètre. ` +
-          `Plus le diviseur est grand, plus le résultat est petit — comme un quart de tarte est plus petit qu'un demi.`,
-      );
 
-      q('[data-sortie="exposition"]').textContent =
-        objectifs.length > 1
-          ? typo(
-              `Deux trous complètement différents — ${nombre(diametre(objectifs[0]!, ouverture), 1)} mm et ` +
-                `${nombre(diametre(objectifs[1]!, ouverture), 1)} mm — et pourtant **la même exposition**. Le ` +
-                `${objectifs[1]} mm laisse entrer beaucoup plus de lumière, mais il l'étale sur une image beaucoup ` +
-                `plus agrandie. Les deux effets s'annulent : c'est tout l'intérêt du système.`,
-            ).replace(/\*\*/g, '')
-          : typo(
-              `f/${ouverture} donne la même exposition sur n'importe quel objectif, de n'importe quelle marque, ` +
-                `depuis cent ans. Sans cette convention, il faudrait recalculer à chaque changement d'objectif.`,
-            );
-
-      dessiner(racine, objectifs, ouverture);
+      dessiner(racine, disques);
     }
 
     rendre();
@@ -165,34 +194,30 @@ const { focale = 50, ouverture = 5.6, comparaison = false } = Astro.props;
    * de diamètre vaut le même nombre de pixels dans les deux disques. Une
    * échelle par disque annulerait toute la démonstration.
    */
-  function dessiner(racine: HTMLElement, focales: number[], ouverture: number) {
-    const diametres = focales.map((f) => diametre(f, ouverture));
-    const maximum = Math.max(...diametres, 12);
+  function dessiner(racine: HTMLElement, disques: { focale: number; ouverture: number; d: number }[]) {
+    const maximum = Math.max(...disques.map((x) => x.d), 12);
     const rayonMax = 108;
     const enPixels = (mm: number) => (mm / maximum) * rayonMax * 2;
 
-    const largeurCase = 640 / focales.length;
-    const disques = racine.querySelector<SVGGElement>('[data-disques]')!;
+    const largeurCase = 640 / disques.length;
+    const g = racine.querySelector<SVGGElement>('[data-disques]')!;
 
-    disques.innerHTML = focales
-      .map((focale, i) => {
-        const mm = diametres[i]!;
-        const r = enPixels(mm) / 2;
+    g.innerHTML = disques
+      .map((x, i) => {
+        const r = enPixels(x.d) / 2;
         const cx = largeurCase * (i + 0.5);
         return `
           <circle cx="${cx}" cy="140" r="${r.toFixed(1)}" fill="var(--accent)" fill-opacity="0.22"
                   stroke="var(--accent)" stroke-width="2" />
           <text x="${cx}" y="34" text-anchor="middle" font-size="17" font-weight="620"
-                fill="var(--texte)">${focale} mm à f/${ouverture}</text>
+                fill="var(--texte)">${x.focale} mm à f/${x.ouverture}</text>
           <text x="${cx}" y="56" text-anchor="middle" font-size="14"
-                fill="var(--accent)">${mm.toLocaleString('fr-CA', { maximumFractionDigits: 1 })} mm de diamètre</text>`;
+                fill="var(--accent)">${formatMm(x.d)} mm de diamètre</text>`;
       })
       .join('');
 
     racine.querySelector<SVGTextElement>('[data-echelle]')!.textContent = typo(
-      focales.length > 1
-        ? 'Les deux disques sont à la même échelle. Ce sont vraiment ces deux trous-là.'
-        : 'Le disque est dessiné à l’échelle du diamètre calculé.',
+      'Les deux disques sont à la même échelle. Ce sont vraiment ces deux trous-là.',
     );
   }
 </script>

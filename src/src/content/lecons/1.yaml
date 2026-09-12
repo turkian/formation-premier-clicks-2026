@@ -343,15 +343,17 @@ blocs:
       - id: le-f-est-une-division
         genre: interactif
         titre: Le `f/` est une division
-        claim: Le même chiffre `f/`, deux objectifs, deux trous complètement différents.
+        claim: '`f/2.4` et `f/22`, sur le même 50 mm : deux trous très différents.'
         composant: ouverture-division
         props:
-          comparaison: true
+          focaleA: 50
+          ouvertureA: 2.4
+          focaleB: 50
+          ouvertureB: 22
         aparte: |
-          Le 200 mm laisse entrer beaucoup plus de lumière, mais il l'étale sur une image
-          beaucoup plus agrandie. Les deux effets s'annulent, et c'est tout l'intérêt du système :
-          `f/5.6` donne la même exposition sur n'importe quel objectif, de n'importe quelle
-          marque, depuis cent ans.
+          Le chiffre `f/` est un rapport, pas une mesure : deux objectifs au même `f/` peuvent
+          transmettre des quantités de lumière différentes selon leurs lentilles. C'est pour ça
+          que le cinéma utilise plutôt les T-stops.
 
       - id: deux-retombees
         genre: panneau
@@ -372,46 +374,36 @@ blocs:
             focale: 50
             ouvertures: [2, 4, 5.6, 16]
           legende: Un 50 mm, quatre réglages, quatre trous — à la même échelle.
-        aparte: |
-          C'est pour ça que vos photos zoomées en intérieur sont plus souvent floues. Et le prix
-          d'un téléobjectif lumineux n'est pas du marketing : c'est de l'arithmétique.
 
       - id: les-quatre-leviers
         genre: panneau
         titre: Les quatre leviers
-        claim: Pour contrôler ce qui est flou, vous avez quatre leviers. Un seul est un réglage.
+        claim: Pour contrôler ce qui est flou, vous avez quatre leviers.
         corps: |
           1. **L'ouverture** — le réglage
           2. **Votre distance au sujet** — vos pieds
           3. **La focale** — votre zoom
           4. **La distance entre le sujet et le fond** — les pieds de votre sujet
 
-          C'est le message à retenir du bloc, davantage que la mécanique de l'ouverture.
+          C'est l'important à retenir.
         schema:
           composant: quatre-leviers
-        aparte: |
-          Ceux qui avaient répondu `f/22` tout à l'heure ne le rediront plus jamais.
 
       - id: la-definition
         genre: panneau
-        titre: La définition
-        claim: La zone qui semble suffisamment nette, devant et derrière l'endroit où vous avez fait le point.
+        titre: La profondeur de champ
+        claim: La profondeur de champ est la zone qui semble suffisamment nette, devant et derrière l'endroit où vous avez fait le point.
         corps: |
           Trois mots comptent : **une zone**, pas un plan ; **devant et derrière** le point ; qui
-          **semble** nette — une impression, pas une mesure.
+          **semble** nette.
 
           | | À quoi ça sert |
           |---|---|
-          | **Zone mince** | Le sujet se détache, le reste fond. Portrait, détail, sujet isolé dans le désordre. |
+          | **Zone mince** | Le sujet se détache, le reste fond. Portrait, détail, sujet isolé. |
           | **Zone épaisse** | Tout est lisible du premier plan à l'horizon. Paysage, groupe, photo de rue. |
         schema:
           composant: zone-nette
-          legende: Une zone, pas un plan — et elle s'étend des deux côtés.
-        aparte: |
-          **Ni l'une ni l'autre n'est meilleure** : c'est une décision, comme figer ou laisser
-          voir le mouvement. La netteté ne s'arrête d'ailleurs pas net — elle se dégrade
-          progressivement, et sur un téléphone la même photo paraîtra plus nette que sur un
-          grand écran.
+          legende: Une zone et elle s'étend des deux côtés.
 
       - id: ce-qui-change-l-epaisseur
         genre: panneau
@@ -512,10 +504,6 @@ blocs:
                 valeur: sujet à 5 m
                 priorite: essentiel
                 reglages: { distance: 5 m, focale: 50 mm, ouverture: f/5.6 }
-        aparte: |
-          Si une seule série pouvait être préparée, ce serait celle-là. L'effet de l'ouverture, vous le
-          sentirez vous-même plus tard dans ce bloc, en manipulant votre appareil. L'effet de la
-          distance, non — il faut vous le montrer maintenant.
 
       - id: explorer-la-zone-nette
         genre: interactif
