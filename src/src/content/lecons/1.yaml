@@ -305,149 +305,9 @@ blocs:
           n'importe qui peut répondre, pas seulement l'animateur ou l'animatrice.
 
   # ─────────────────────────────────────────────────────────────────────────
-  - id: profondeur-de-champ
-    titre: La profondeur de champ
-    resume: L'épaisseur de la zone nette, et les quatre choses qui la changent.
-    ecrans:
-      - id: ouverture
-        genre: repere
-        variante: ouverture
-        titre: La profondeur de champ
-        claim: Quelle épaisseur est nette ?
-
-      - id: la-definition
-        genre: panneau
-        titre: La définition
-        claim: La zone qui semble suffisamment nette, devant et derrière l'endroit où vous avez fait le point.
-        corps: |
-          Trois mots comptent : **une zone**, pas un plan ; **devant et derrière** le point ; qui
-          **semble** nette — une impression, pas une mesure.
-
-          | | À quoi ça sert |
-          |---|---|
-          | **Zone mince** | Le sujet se détache, le reste fond. Portrait, détail, sujet isolé dans le désordre. |
-          | **Zone épaisse** | Tout est lisible du premier plan à l'horizon. Paysage, groupe, photo de rue. |
-        schema:
-          composant: zone-nette
-          legende: Une zone, pas un plan — et elle s'étend des deux côtés.
-        aparte: |
-          **Ni l'une ni l'autre n'est meilleure** : c'est une décision, comme figer ou laisser
-          voir le mouvement. La netteté ne s'arrête d'ailleurs pas net — elle se dégrade
-          progressivement, et sur un téléphone la même photo paraîtra plus nette que sur un
-          grand écran.
-
-      - id: ce-qui-change-l-epaisseur
-        genre: panneau
-        titre: Ce qui change l'épaisseur
-        claim: Trois choses changent l'épaisseur de la zone nette. Deux n'ont rien à voir avec les réglages.
-        corps: |
-          | | Effet sur la zone nette |
-          |---|---|
-          | **1 · L'ouverture** | Grand trou → zone **mince**. Petit trou → zone **épaisse**. |
-          | **2 · La distance à laquelle vous faites le point** | Plus votre sujet est **près**, plus la zone est **mince**. |
-          | **3 · La focale** | Plus vous êtes **zoomé**, plus la zone paraît **mince**. |
-        schema:
-          composant: zone-nette
-          props:
-            epaisseur: 0.22
-          legende: Fermer l'ouverture épaissit la zone. Le point, lui, ne bouge pas.
-
-      # ★ Panneau cumulatif nº 1 : le tableau est la surprise du bloc. Il ne peut
-      #   pas être affiché pendant qu'on annonce que seule la distance change,
-      #   sinon il ne reste rien à découvrir.
-      - id: le-facteur-invisible
-        genre: panneau
-        titre: Le facteur invisible
-        claim: Même objectif, même ouverture. Seule la distance du sujet change.
-        corps: |
-          Capteur **APS-C**, objectif courant réglé à **50 mm** : à cette focale, son ouverture
-          maximale — celle qui laisse passer le plus de lumière — est `f/5.6`.
-
-          De combien la zone nette change-t-elle entre un sujet à **3 mètres** et un sujet à
-          **1 mètre** ?
-        schema:
-          composant: distance-sujet
-          props:
-            distances: [1, 3]
-          legende: Même appareil, même objectif, même ouverture — seule la distance change.
-        etats:
-          - etiquette: La question
-          - etiquette: Les chiffres
-            corps: |
-              | 50 mm, `f/5.6`, capteur APS-C | Zone nette |
-              |---|---|
-              | Sujet à **1 mètre** | environ **8 cm** |
-              | Sujet à **3 mètres** | environ **77 cm** |
-              | Sujet à **10 mètres** | **plusieurs mètres — en pratique, tout** |
-            encadre: |
-              De **3 m à 1 m**, votre zone nette est **divisée par dix** — sans avoir touché à un
-              seul réglage.
-            ton: regle
-
-      - id: explorer-la-zone-nette
-        genre: interactif
-        titre: Explorer la zone nette
-        claim: Quatre leviers. Un seul est un réglage.
-        composant: profondeur-de-champ
-        props:
-          format: aps-c
-          distance: 3
-          focale: 50
-          ouverture: 5.6
-          fond: 3
-
-      - id: trois-frustrations
-        genre: panneau
-        titre: Trois frustrations que vous avez déjà vécues
-        claim: Ces trois situations ne sont pas des erreurs de votre part. C'est de la physique.
-        corps: |
-          | Problème | Pourquoi | Comment faire |
-          |---|---|---|
-          | **Un seul œil net** en portrait rapproché | Avec un 50 mm `f/1.8` à 1 m, la zone tombe à **2,6 cm** sur APS-C. Un visage de trois-quarts est plus épais que ça. | Fermez à `f/2.8` ou `f/4`, ou reculez d'un pas. |
-          | **Un seul pétale net** en gros plan | En macro, la zone se compte en **millimètres**. | Fermez à `f/8` ou `f/11`, et compensez la perte de lumière avec un trépied. |
-          | **`f/16` et exposition trop longue** | À quelques mètres, tout est déjà net **de toute façon** — dès `f/5.6`. `f/16` ne fait que voler de la lumière. | Ouvrez à `f/5.6` ou `f/8` : même netteté, vitesse plus rapide. |
-
-      - id: paysage-deux-causes
-        genre: panneau
-        titre: Le paysage a deux causes de flou possibles
-        claim: Un paysage flou n'a pas toujours la même cause.
-        corps: |
-          | Problème | Pourquoi | Comment faire |
-          |---|---|---|
-          | **Paysage flou à `f/2`** | Une ouverture trop large rétrécit la zone nette sous ce qu'il faut au paysage. | Fermez un peu — `f/5.6` ou `f/8` couvrent tout le paysage. |
-          | **Premier plan ou fond flou** malgré la bonne ouverture | Ce n'est pas l'ouverture — la zone nette est bien là, mais mal placée. | Déplacez le point de mise au point : ce n'est pas la même chose que fermer davantage. |
-
-      - id: le-quatrieme-facteur
-        genre: panneau
-        titre: Le quatrième facteur
-        claim: La distance entre votre sujet et le fond ne change pas la zone nette. Elle change tout au flou du fond.
-        corps: |
-          Ce quatrième facteur est d'une autre nature que les trois autres : il **ne modifie pas**
-          l'épaisseur de la zone nette, mais **plus l'arrière-plan est loin en dehors de cette
-          zone, plus il paraît flou**.
-        etats:
-          - etiquette: Le quatrième facteur
-          - etiquette: Le malentendu
-            encadre: |
-              **`f/1.8` ne garantit pas un arrière-plan flou.**
-
-              Le mur derrière votre sujet était dans la zone nette, ou juste à côté. Aucune
-              ouverture au monde n'y aurait changé grand-chose.
-            ton: avertissement
-            aparte: |
-              Beaucoup achètent un objectif lumineux, n'obtiennent pas l'effet attendu et
-              concluent qu'ils sont mauvais photographes. Ils ont simplement photographié
-              quelqu'un debout à 30 cm d'un mur.
-          - etiquette: La solution
-            encadre: |
-              **Éloignez votre sujet du fond, ou rapprochez-vous de lui.** C'est gratuit, et ça
-              marche mieux qu'un objectif à mille dollars.
-            ton: regle
-
-  # ─────────────────────────────────────────────────────────────────────────
-  - id: ouverture
-    titre: L'ouverture
-    resume: Une question d'abord, la règle en conclusion.
+  - id: ouverture-et-profondeur-de-champ
+    titre: L'ouverture et la profondeur de champ
+    resume: Ce que change le trou de l'objectif — la lumière, et l'épaisseur de ce qui est net.
     ecrans:
       - id: ouverture
         genre: repere
@@ -555,46 +415,54 @@ blocs:
         aparte: |
           Ceux qui avaient répondu `f/22` tout à l'heure ne le rediront plus jamais.
 
-      - id: demo-la-distance
-        genre: demonstration
-        titre: La série la plus importante
-        claim: Même objectif, même ouverture. Seule la distance change.
-        series:
-          - variable: la distance de mise au point
-            constantes:
-              focale: 50 mm
-              ouverture: f/5.6
-            legende: >-
-              C'est la série la plus importante des trois : elle montre le facteur invisible. Le
-              même réglage donne un fond fondu dans un cas et un fond parfaitement lisible dans
-              l'autre.
-            images:
-              - id: l1-pdc-distance-1m
-                specification: 50 mm, f/5.6, sujet à 1 m — même cadrage du sujet
-                valeur: sujet à 1 m
-                priorite: essentiel
-                reglages: { distance: 1 m, focale: 50 mm, ouverture: f/5.6 }
-              - id: l1-pdc-distance-5m
-                specification: 50 mm, f/5.6, sujet à 5 m — même cadrage du sujet
-                valeur: sujet à 5 m
-                priorite: essentiel
-                reglages: { distance: 5 m, focale: 50 mm, ouverture: f/5.6 }
-        aparte: |
-          Si une seule série pouvait être préparée, ce serait celle-là. L'effet de l'ouverture,
-          vous le verrez vous-même dans trois minutes en manipulant votre appareil. L'effet de la
-          distance, non — il faut vous le montrer.
+      - id: la-definition
+        genre: panneau
+        titre: La définition
+        claim: La zone qui semble suffisamment nette, devant et derrière l'endroit où vous avez fait le point.
+        corps: |
+          Trois mots comptent : **une zone**, pas un plan ; **devant et derrière** le point ; qui
+          **semble** nette — une impression, pas une mesure.
 
-      - id: demo-ouverture-et-fond
+          | | À quoi ça sert |
+          |---|---|
+          | **Zone mince** | Le sujet se détache, le reste fond. Portrait, détail, sujet isolé dans le désordre. |
+          | **Zone épaisse** | Tout est lisible du premier plan à l'horizon. Paysage, groupe, photo de rue. |
+        schema:
+          composant: zone-nette
+          legende: Une zone, pas un plan — et elle s'étend des deux côtés.
+        aparte: |
+          **Ni l'une ni l'autre n'est meilleure** : c'est une décision, comme figer ou laisser
+          voir le mouvement. La netteté ne s'arrête d'ailleurs pas net — elle se dégrade
+          progressivement, et sur un téléphone la même photo paraîtra plus nette que sur un
+          grand écran.
+
+      - id: ce-qui-change-l-epaisseur
+        genre: panneau
+        titre: Ce qui change l'épaisseur
+        claim: Trois choses changent l'épaisseur de la zone nette. Deux n'ont rien à voir avec les réglages.
+        corps: |
+          | | Effet sur la zone nette |
+          |---|---|
+          | **1 · L'ouverture** | Grand trou → zone **mince**. Petit trou → zone **épaisse**. |
+          | **2 · La distance à laquelle vous faites le point** | Plus votre sujet est **près**, plus la zone est **mince**. |
+          | **3 · La focale** | Plus vous êtes **zoomé**, plus la zone paraît **mince**. |
+        schema:
+          composant: zone-nette
+          props:
+            epaisseur: 0.22
+          legende: Fermer l'ouverture épaissit la zone. Le point, lui, ne bouge pas.
+
+      - id: demo-ouverture
         genre: demonstration
-        titre: L'ouverture, et la distance au fond
-        claim: L'une demande un réglage. L'autre ne demande que de bouger.
+        titre: L'ouverture, en photos
+        claim: Même sujet, même distance, même focale. Seul le chiffre `f/` change.
         series:
           - variable: l'ouverture
             constantes:
               sujet: le même
               distance: 2 m
               focale: 50 mm
-            legende: Celle que vous attendez, et la moins surprenante des trois.
+            legende: "Rien de surprenant ici : plus le trou est grand, plus le fond se dissout."
             images:
               - id: l1-pdc-ouverture-18
                 specification: Même sujet, f/1.8 · 50 mm · sujet à 2 m
@@ -611,12 +479,137 @@ blocs:
                 valeur: f/11
                 priorite: utile
                 reglages: { ouverture: f/11, distance: 2 m, focale: 50 mm }
+
+      # ★ Panneau cumulatif nº 1 : le tableau est la surprise du bloc. Il ne peut
+      #   pas être affiché pendant qu'on annonce que seule la distance change,
+      #   sinon il ne reste rien à découvrir.
+      - id: le-facteur-invisible
+        genre: panneau
+        titre: Le facteur invisible
+        claim: Même objectif, même ouverture. Seule la distance du sujet change.
+        corps: |
+          Capteur **APS-C**, objectif courant réglé à **50 mm** : à cette focale, son ouverture
+          maximale — celle qui laisse passer le plus de lumière — est `f/5.6`.
+
+          De combien la zone nette change-t-elle entre un sujet à **3 mètres** et un sujet à
+          **1 mètre** ?
+        schema:
+          composant: distance-sujet
+          props:
+            distances: [1, 3]
+          legende: Même appareil, même objectif, même ouverture — seule la distance change.
+        etats:
+          - etiquette: La question
+          - etiquette: Les chiffres
+            corps: |
+              | 50 mm, `f/5.6`, capteur APS-C | Zone nette |
+              |---|---|
+              | Sujet à **1 mètre** | environ **8 cm** |
+              | Sujet à **3 mètres** | environ **77 cm** |
+              | Sujet à **10 mètres** | **plusieurs mètres — en pratique, tout** |
+            encadre: |
+              De **3 m à 1 m**, votre zone nette est **divisée par dix** — sans avoir touché à un
+              seul réglage.
+            ton: regle
+
+      - id: demo-la-distance
+        genre: demonstration
+        titre: La série la plus importante
+        claim: Même objectif, même ouverture. Seule la distance change.
+        series:
+          - variable: la distance de mise au point
+            constantes:
+              focale: 50 mm
+              ouverture: f/5.6
+            legende: >-
+              Elle montre le facteur invisible : le même réglage donne un fond fondu dans un cas et un
+              fond parfaitement lisible dans l'autre.
+            images:
+              - id: l1-pdc-distance-1m
+                specification: 50 mm, f/5.6, sujet à 1 m — même cadrage du sujet
+                valeur: sujet à 1 m
+                priorite: essentiel
+                reglages: { distance: 1 m, focale: 50 mm, ouverture: f/5.6 }
+              - id: l1-pdc-distance-5m
+                specification: 50 mm, f/5.6, sujet à 5 m — même cadrage du sujet
+                valeur: sujet à 5 m
+                priorite: essentiel
+                reglages: { distance: 5 m, focale: 50 mm, ouverture: f/5.6 }
+        aparte: |
+          Si une seule série pouvait être préparée, ce serait celle-là. L'effet de l'ouverture, vous le
+          sentirez vous-même plus tard dans ce bloc, en manipulant votre appareil. L'effet de la
+          distance, non — il faut vous le montrer maintenant.
+
+      - id: explorer-la-zone-nette
+        genre: interactif
+        titre: Explorer la zone nette
+        claim: Quatre leviers. Un seul est un réglage.
+        composant: profondeur-de-champ
+        props:
+          format: aps-c
+          distance: 3
+          focale: 50
+          ouverture: 5.6
+          fond: 3
+
+      - id: trois-frustrations
+        genre: panneau
+        titre: Trois frustrations que vous avez déjà vécues
+        claim: Ces trois situations ne sont pas des erreurs de votre part. C'est de la physique.
+        corps: |
+          | Problème | Pourquoi | Comment faire |
+          |---|---|---|
+          | **Un seul œil net** en portrait rapproché | Avec un 50 mm `f/1.8` à 1 m, la zone tombe à **2,6 cm** sur APS-C. Un visage de trois-quarts est plus épais que ça. | Fermez à `f/2.8` ou `f/4`, ou reculez d'un pas. |
+          | **Un seul pétale net** en gros plan | En macro, la zone se compte en **millimètres**. | Fermez à `f/8` ou `f/11`, et compensez la perte de lumière avec un trépied. |
+          | **`f/16` et exposition trop longue** | À quelques mètres, tout est déjà net **de toute façon** — dès `f/5.6`. `f/16` ne fait que voler de la lumière. | Ouvrez à `f/5.6` ou `f/8` : même netteté, vitesse plus rapide. |
+
+      - id: paysage-deux-causes
+        genre: panneau
+        titre: Le paysage a deux causes de flou possibles
+        claim: Un paysage flou n'a pas toujours la même cause.
+        corps: |
+          | Problème | Pourquoi | Comment faire |
+          |---|---|---|
+          | **Paysage flou à `f/2`** | Une ouverture trop large rétrécit la zone nette sous ce qu'il faut au paysage. | Fermez un peu — `f/5.6` ou `f/8` couvrent tout le paysage. |
+          | **Premier plan ou fond flou** malgré la bonne ouverture | Ce n'est pas l'ouverture — la zone nette est bien là, mais mal placée. | Déplacez le point de mise au point : ce n'est pas la même chose que fermer davantage. |
+
+      - id: le-probleme
+        genre: panneau
+        titre: Le problème
+        claim: La distance entre votre sujet et le fond ne change pas la zone nette. Elle change tout au flou du fond.
+        corps: |
+          Ce quatrième facteur est d'une autre nature que les trois autres : il **ne modifie pas**
+          l'épaisseur de la zone nette, mais **plus l'arrière-plan est loin en dehors de cette
+          zone, plus il paraît flou**.
+        encadre: |
+          **`f/1.8` ne garantit pas un arrière-plan flou.** Si le mur derrière votre sujet est dans
+          la zone nette, ou juste à côté, aucune ouverture n'y change grand-chose.
+        ton: neutre
+
+      - id: la-solution
+        genre: panneau
+        titre: La solution
+        claim: Éloignez votre sujet du fond, ou rapprochez-vous de lui.
+        corps: |
+          Ce n'est pas un réglage : c'est une position. Le fond ne se floute pas parce que
+          l'objectif est lumineux, mais parce qu'il est loin **derrière** la zone nette — et vous
+          choisissez cette distance en bougeant.
+        encadre: |
+          **Éloignez votre sujet du fond, ou rapprochez-vous de lui.** C'est gratuit, et ça marche
+          mieux qu'un objectif à mille dollars.
+        ton: regle
+
+      - id: exemple-fond-flou
+        genre: demonstration
+        titre: Collé au mur, ou loin derrière
+        claim: Même objectif, même ouverture. Seule la distance entre le sujet et le fond change.
+        series:
           - variable: la distance entre le sujet et le fond
             constantes:
               ouverture: f/5.6
               focale: 50 mm
               distance au sujet: 2 m
-            legende: Avec le même objectif — la preuve qu'il n'y a rien à acheter. Celle qui démonte le mythe du f/1.8.
+            legende: Avec le même objectif — la preuve qu'on peut faire beaucoup avec une seule lentille.
             images:
               - id: l1-pdc-fond-colle
                 specification: 50 mm, f/5.6 · sujet collé au mur · photographe à 2 m
@@ -628,9 +621,6 @@ blocs:
                 valeur: sujet à 3 m du mur
                 priorite: essentiel
                 reglages: { fond: 3 m, ouverture: f/5.6, focale: 50 mm }
-        aparte: |
-          La deuxième série s'obtient avec l'objectif que vous avez déjà. Sans elle, la moitié de
-          la salle conclut de la première qu'il lui faut acheter un objectif.
 
       - id: tourner-la-molette
         genre: appareil-en-main
