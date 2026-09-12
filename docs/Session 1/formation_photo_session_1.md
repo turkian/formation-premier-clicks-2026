@@ -552,8 +552,8 @@ C'est volontaire : ils vont **utiliser** le mode `A` et le `+/−` pendant trois
 
 - Une photo avec un arrière-plan flou
 - Une photo où une grande partie de la scène est nette
-- Une photo où le mouvement est figé
-- Une photo où le mouvement est visible
+- Une photo où vous avez choisi l'endroit précis de la mise au point
+- Une photo où l'on voit clairement d'où vient la lumière
 - Une photo dans une lumière que vous trouvez intéressante
 
 > Si elles sont ratées, elles sont encore **plus** utiles : on va les regarder ensemble et comprendre pourquoi. C'est exactement ce qu'on fait à la prochaine séance.

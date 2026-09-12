@@ -27,8 +27,10 @@ Il n'y a aucun courriel dans cette formation. Tout ce qui devait être communiqu
 │                                                      │
 │   ☐  Une photo avec un arrière-plan flou             │
 │   ☐  Une photo où une grande partie est nette        │
-│   ☐  Une photo où le mouvement est figé              │
-│   ☐  Une photo où le mouvement est visible           │
+│   ☐  Une photo où vous avez choisi l'endroit précis  │
+│      de la mise au point                             │
+│   ☐  Une photo où l'on voit clairement d'où vient la │
+│      lumière                                         │
 │   ☐  Une photo dans une lumière que vous trouvez     │
 │      intéressante                                    │
 │                                                      │
