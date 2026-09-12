@@ -284,7 +284,7 @@ blocs:
         titre: Pause
         claim: Dix minutes.
         corps: |
-          Une nouvelle feuille est posée sur votre table — pas celle du tour de table.
+          Une feuille est posée sur votre table.
 
           **Si une question vous vient, écrivez-la sur la feuille.** Elle reste sur la table
           pendant la pause. Quand tout le monde revient, votre table essaie d'y répondre
@@ -316,8 +316,6 @@ blocs:
         claim: L'ouverture, c'est la grandeur du trou qui laisse passer la lumière dans votre objectif.
         corps: |
           On l'indique avec un `f` suivi d'un chiffre : `f/2.4`, `f/11`, `f/22`.
-
-          Rien de plus pour l'instant.
 
       # ★ Panneau cumulatif nº 2 : le vote.
       #
