@@ -554,14 +554,17 @@ blocs:
       - id: la-solution
         genre: panneau
         titre: La solution
-        claim: Éloignez votre sujet du fond, ou rapprochez-vous de lui.
+        claim: "Les quatre leviers marchent dans les deux sens : le même geste qui floute le fond peut aussi le garder net."
         corps: |
-          Ce n'est pas un réglage : c'est une position. Le fond ne se floute pas parce que
-          l'objectif est lumineux, mais parce qu'il est loin **derrière** la zone nette — et vous
-          choisissez cette distance en bougeant.
+          | Levier | Fond flou | Fond net |
+          |---|---|---|
+          | **Ouverture** | ouvrez (`f/1.8`) | fermez (`f/11`) |
+          | **Distance au sujet** | rapprochez-vous | éloignez-vous |
+          | **Focale** | zoomez | dézoomez |
+          | **Distance du fond** | éloignez-le du sujet | rapprochez-le du sujet |
         encadre: |
-          **Éloignez votre sujet du fond, ou rapprochez-vous de lui.** C'est gratuit, et ça marche
-          mieux qu'un objectif à mille dollars.
+          Vous n'avez peut-être pas besoin d'un nouvel objectif : vous avez besoin de comprendre
+          comment il fonctionne.
         ton: regle
 
       - id: exemple-fond-flou
