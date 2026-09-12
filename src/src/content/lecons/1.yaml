@@ -317,49 +317,28 @@ blocs:
         corps: |
           On l'indique avec un `f` suivi d'un chiffre : `f/2.4`, `f/11`, `f/22`.
 
-      # ★ Panneau cumulatif nº 2 : le vote.
-      #
-      #   La réponse et la règle ne peuvent pas être à l'écran pendant qu'on
-      #   vote — sinon il ne reste rien à comprendre. Le panneau accumule donc,
-      #   et son budget est réparti sur les quatre états : chacun ajoute un
-      #   encadré court, jamais un nouveau tableau. Au dernier état, le panneau
-      #   entier tient encore sur l'écran et sert de résumé écrit du bloc.
-      - id: le-vote
-        genre: panneau
+      # ★ Activité puis révélation : la-question fait discuter les tables une
+      #   minute sans rien montrer d'autre ; la-reponse est un panneau statique
+      #   séparé qui révèle la réponse et rassure les tables qui ont dit f/22.
+      - id: la-question
+        genre: repere
+        variante: activite
         titre: La question
         claim: Entre `f/2.4` et `f/22`, lequel laisse passer le plus de lumière ?
         corps: |
-          **À main levée. Personne n'est nommé, personne n'a à se justifier.**
+          **Une minute.** À votre table, mettez-vous d'accord sur une réponse.
 
-          Qui dit `f/2.4` ? Qui dit `f/22` ? Qui n'en a aucune idée ?
-        aparte: |
-          C'est presque toujours moitié-moitié. Et les deux camps ont de bonnes raisons.
-        etats:
-          - etiquette: Le vote
-          - etiquette: La réponse
-            encadre: |
-              **C'est `f/2.4`.** Si vous avez répondu `f/22`, votre raisonnement était logique :
-              22 est plus grand que 2,4. **C'est la notation qui est piégeuse, pas vous.**
-            ton: reponse
-          - etiquette: Pourquoi
-            encadre: |
-              **La barre oblique est une vraie division.** `f/5.6`, c'est la **focale divisée par
-              5,6** — et le résultat est le diamètre réel du trou. Sur votre kit à 50 mm :
-              50 ÷ 5,6 ≈ **9 mm**.
-            ton: reponse
-            aparte: |
-              Plus le diviseur est grand, plus le résultat est petit — un quart de tarte est plus
-              petit qu'un demi.
-          - etiquette: La règle
-            encadre: |
-              **Petit chiffre, grand trou, fond flou.** Six mots, et ça couvre 90 % des cas.
-
-              L'ouverture règle **la quantité de lumière** — et change du même coup
-              **l'épaisseur de la zone nette**.
-            ton: regle
-            aparte: |
-              ⚠️ L'ouverture ne choisit pas **où** est le point net — ça, c'est la mise au point.
-              Elle choisit **combien de chose est net autour**.
+      - id: la-reponse
+        genre: panneau
+        titre: La réponse
+        claim: C'est `f/2.4`.
+        corps: |
+          Le chiffre après le `f/` est plus grand pour `f/22` — et pourtant c'est l'inverse : plus
+          ce chiffre est grand, plus le trou est petit.
+        encadre: |
+          **C'est `f/2.4`.** Si vous avez répondu `f/22`, votre raisonnement était logique : 22 est
+          plus grand que 2,4. **C'est la notation qui est piégeuse, pas vous.**
+        ton: reponse
 
       - id: le-f-est-une-division
         genre: interactif
