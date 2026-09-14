@@ -40,6 +40,19 @@ const emplacementDemo = z.object({
   reglages: z.record(z.string()).default({}),
   /** Ce que vaut la variable déclarée de la série, pour cette image. */
   valeur: z.string().optional(),
+  /**
+   * Cadrage de repos : un point focal (pourcentages) et un facteur
+   * d'agrandissement. Absent, l'image se présente entière (`object-fit:
+   * contain`), comme avant. Présent, la vue de repos cadre ce point à ce
+   * grossissement, quelle que soit la forme de l'écran — projecteur, téléphone
+   * ou page imprimée.
+   */
+  cadrage: z
+    .object({
+      point: z.tuple([z.number().min(0).max(100), z.number().min(0).max(100)]),
+      zoom: z.number().min(1),
+    })
+    .optional(),
 });
 
 /**

@@ -24,15 +24,29 @@ interface Props {
   alt?: string;
   valeur?: string;
   priorite?: string;
+  /**
+   * Cadrage de repos : cadre la vue de repos sur ce point à ce grossissement
+   * plutôt que de montrer le cadre entier. Absent, la vue de repos montre le
+   * cadre entier, comme avant.
+   */
+  cadrage?: { point: [number, number]; zoom: number };
 }
 
-const { id, fichier, specification, alt, valeur, priorite } = Astro.props;
+const { id, fichier, specification, alt, valeur, priorite, cadrage } = Astro.props;
 const image = await trouverImage(id, fichier);
+const texteAlt = alt ?? specification;
+const styleCadrage = cadrage
+  ? `transform: scale(${cadrage.zoom}); transform-origin: ${cadrage.point[0]}% ${cadrage.point[1]}%;`
+  : undefined;
 ---
 
 <figure class="emplacement" data-presente={image ? '' : undefined}>
   {image ? (
-    <img src={asset(`/demos/${image}`)} alt={alt ?? specification} loading="lazy" />
+    <div class="marco">
+      <button type="button" class="declencheur" data-ouvrir aria-label={`Agrandir la photographie : ${texteAlt}`}>
+        <img src={asset(`/demos/${image}`)} alt={texteAlt} loading="lazy" style={styleCadrage} />
+      </button>
+    </div>
   ) : (
     <div class="a-photographier">
       <p class="mention">Photographie à préparer</p>
@@ -42,7 +56,15 @@ const image = await trouverImage(id, fichier);
       )}
     </div>
   )}
-  {valeur && <figcaption set:html={typo(valeur)} />}
+  {valeur && <figcaption class="etiquette-repos" set:html={typo(valeur)} />}
+  {image && (
+    <dialog class="agrandi" data-dialogue aria-label={texteAlt}>
+      <button type="button" class="fermeture" data-fermer aria-label="Réduire la photographie">
+        <img src={asset(`/demos/${image}`)} alt={texteAlt} />
+      </button>
+      {valeur && <figcaption set:html={typo(valeur)} />}
+    </dialog>
+  )}
 </figure>
 
 <style>
@@ -54,11 +76,32 @@ const image = await trouverImage(id, fichier);
     min-height: 0;
   }
 
-  .emplacement img {
+  /* Le cadre de repos : ce qui recadre, c'est le `transform` posé sur l'image
+     elle-même (voir le style en ligne) ; ce conteneur ne fait que le rogner. */
+  .marco {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+    border-radius: var(--rayon);
+  }
+
+  .declencheur {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .marco img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    border-radius: var(--rayon);
     min-height: 0;
   }
 
@@ -131,4 +174,85 @@ const image = await trouverImage(id, fichier);
     text-align: center;
     font-weight: var(--graisse-appui);
   }
+
+  /* L'étiquette de repos reste hors de vue tant que personne ne pointe ou ne
+     s'attarde sur l'image : la vue de repos reste aussi dégagée que le cadrage
+     la rend, et l'étiquette demeure disponible sur demande (`:hover` couvre la
+     souris, `:focus-within` couvre le clavier — aucun script requis). */
+  .etiquette-repos {
+    visibility: hidden;
+  }
+  .emplacement:hover .etiquette-repos,
+  .emplacement:focus-within .etiquette-repos {
+    visibility: visible;
+  }
+
+  /* La photographie agrandie : plein cadre, au-dessus de l'écran assombri. */
+  .agrandi {
+    max-width: min(92vw, 1400px);
+    max-height: 90vh;
+    padding: var(--pas-2);
+    border: none;
+    border-radius: var(--rayon-2);
+    background: var(--fond-2);
+  }
+
+  .agrandi::backdrop {
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  .agrandi .fermeture {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .agrandi img {
+    display: block;
+    max-width: 100%;
+    max-height: 80vh;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+    border-radius: var(--rayon);
+  }
+
+  .agrandi figcaption {
+    padding-top: var(--pas);
+  }
 </style>
+
+<script>
+  /**
+   * Agrandissement d'une photographie de démonstration.
+   *
+   * Le natif `<dialog>` donne l'échappement par Escape, l'empilement
+   * au-dessus du reste de l'écran et le piégeage du focus sans rien coder de
+   * ça à la main. Le script se limite à l'ouvrir et à le fermer.
+   */
+  for (const figure of document.querySelectorAll<HTMLElement>('.emplacement')) {
+    demarrer(figure);
+  }
+
+  function demarrer(figure: HTMLElement) {
+    const ouvrir = figure.querySelector<HTMLButtonElement>('[data-ouvrir]');
+    const dialogue = figure.querySelector<HTMLDialogElement>('[data-dialogue]');
+    const fermer = figure.querySelector<HTMLButtonElement>('[data-fermer]');
+    if (!ouvrir || !dialogue) return;
+
+    ouvrir.addEventListener('click', () => dialogue.showModal());
+    fermer?.addEventListener('click', () => dialogue.close());
+
+    // Cliquer sur le fond assombri (le `::backdrop`) ferme aussi : seul un
+    // clic directement sur le `<dialog>` lui-même, jamais sur son contenu,
+    // atteint cette cible.
+    dialogue.addEventListener('click', (evenement) => {
+      if (evenement.target === dialogue) dialogue.close();
+    });
+  }
+</script>
