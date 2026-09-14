@@ -12,6 +12,7 @@ numero: 3
 titre: Composer, développer, continuer
 filConducteur: Composer → lire → développer → trier → continuer
 question: comment faire une image, puis la finir ?
+pret: false
 
 blocs:
   # ─────────────────────────────────────────────────────────────────────────

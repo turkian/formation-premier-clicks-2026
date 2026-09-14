@@ -43,7 +43,14 @@ await rm(SORTIE, { recursive: true, force: true });
 
 await executer('npx', ['astro', 'build', '--outDir', SORTIE], {
   cwd: RACINE,
-  env: { ...process.env, BASE_PATH: BASE, SITE_URL: 'https://exemple.invalid' },
+  env: {
+    ...process.env,
+    BASE_PATH: BASE,
+    SITE_URL: 'https://exemple.invalid',
+    // Le vrai repli de la soirée : toutes les séances, prêtes ou non — jamais
+    // la restriction de publication qui gate un `astro build` ordinaire.
+    SEANCES_TOUJOURS_PRETES: '1',
+  },
 });
 
 /** Tous les fichiers réécrivables de la copie. */

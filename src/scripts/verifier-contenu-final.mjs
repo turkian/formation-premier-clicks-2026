@@ -165,6 +165,25 @@ for (const { lecon, bloc, ecran } of cumulatifs) {
   verifier(!suppression, `${ou} — aucun état ne retire de contenu`);
 }
 
+/* ── Le marqueur de disponibilité à la publication ──────────────────────── */
+
+console.log('\nLa disponibilité à la publication est déclarée sur chaque séance');
+
+/**
+ * Le schéma de contenu (`content.config.ts`) donne `pret` une valeur par
+ * défaut (`false`) : un fichier qui l'omet construit quand même, gaté en
+ * silence — le mode de défaillance sûr, mais silencieux. Cette vérification
+ * lit le YAML brut, sans ce défaut, pour distinguer « omis » de « faux » et
+ * faire échouer la construction bruyamment plutôt que de laisser une séance
+ * gatée par oubli.
+ */
+for (const { nom, donnees } of lecons) {
+  verifier(
+    typeof donnees.pret === 'boolean',
+    `séance ${donnees.numero ?? nom} — le champ « pret » est déclaré et booléen`,
+  );
+}
+
 /* ── 13.4 · « Section 2 de votre feuille » vaut pour les huit marques ───── */
 
 console.log('\n13.4 · Les quatre sections, dans le même ordre, sur les huit marques');

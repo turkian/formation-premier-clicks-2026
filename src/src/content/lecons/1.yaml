@@ -14,6 +14,7 @@ numero: 1
 titre: La lumière et la netteté
 filConducteur: Lumière → où est le point net → quelle épaisseur est nette
 question: qu'est-ce qui est net dans mon image, et pourquoi ?
+pret: true
 
 blocs:
   # ─────────────────────────────────────────────────────────────────────────

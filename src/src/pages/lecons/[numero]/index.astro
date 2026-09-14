@@ -13,6 +13,7 @@ import Base from '../../../layouts/Base.astro';
 import { lien } from '../../../lib/lien';
 import { typo } from '../../../lib/typo';
 import { nombreEtats } from '../../../lib/lecon';
+import { constructionGatee } from '../../../lib/publication';
 import '../../../styles/carrefour.css';
 
 export const getStaticPaths = (async () => {
@@ -24,6 +25,7 @@ export const getStaticPaths = (async () => {
 }) satisfies GetStaticPaths;
 
 const { lecon } = Astro.props;
+const gatee = constructionGatee() && !lecon.pret;
 
 const GENRES: Record<string, string> = {
   panneau: 'concept',
@@ -47,45 +49,54 @@ const GENRES: Record<string, string> = {
       <p class="chapeau" set:html={typo(lecon.filConducteur)} />
     </header>
 
-    {lecon.question && (
+    {gatee ? (
       <p
-        style="border-left:3px solid var(--accent);background:var(--fond-2);padding:0.9rem 1.1rem;border-radius:0 var(--rayon) var(--rayon) 0;margin-bottom:1.8rem"
-        set:html={typo(`Cette séance traite une seule question : ${lecon.question}`)}
+        style="border-left:3px solid var(--accent);background:var(--fond-2);padding:0.9rem 1.1rem;border-radius:0 var(--rayon) var(--rayon) 0"
+        set:html={typo('Cette séance n’est pas encore publiée.')}
       />
-    )}
-
-    {lecon.blocs.map((bloc, i) => (
-      <section class="section-carrefour">
-        <h2>
-          <span style="color:var(--accent)">{i + 1}.</span>
-          <span set:html={typo(bloc.titre)} />
-        </h2>
-        {bloc.resume && (
-          <p style="color:var(--texte-2);margin-bottom:0.8rem" set:html={typo(bloc.resume)} />
+    ) : (
+      <>
+        {lecon.question && (
+          <p
+            style="border-left:3px solid var(--accent);background:var(--fond-2);padding:0.9rem 1.1rem;border-radius:0 var(--rayon) var(--rayon) 0;margin-bottom:1.8rem"
+            set:html={typo(`Cette séance traite une seule question : ${lecon.question}`)}
+          />
         )}
-        <ul class="liste-simple">
-          {bloc.ecrans.map((ecran) => {
-            const etats = nombreEtats(ecran);
-            return (
-              <li>
-                <a href={lien(`/lecons/${lecon.numero}/${bloc.id}/${ecran.id}`)}>
-                  <span style="font-size:var(--t-etiquette);letter-spacing:0.1em;text-transform:uppercase;color:var(--texte-3);display:block">
-                    {GENRES[ecran.genre]}
-                    {etats > 1 && typo(` · ${etats} états`)}
-                  </span>
-                  <span set:html={typo(ecran.titre ?? (ecran as any).claim ?? bloc.titre)} />
-                </a>
-              </li>
-            );
-          })}
-        </ul>
-      </section>
-    ))}
 
-    <footer class="pied-site">
-      <p set:html={typo(
-        'Les explications de cette séance restent en ligne. C’est ici qu’il faut revenir quand la question se posera pour de vrai.',
-      )} />
-    </footer>
+        {lecon.blocs.map((bloc, i) => (
+          <section class="section-carrefour">
+            <h2>
+              <span style="color:var(--accent)">{i + 1}.</span>
+              <span set:html={typo(bloc.titre)} />
+            </h2>
+            {bloc.resume && (
+              <p style="color:var(--texte-2);margin-bottom:0.8rem" set:html={typo(bloc.resume)} />
+            )}
+            <ul class="liste-simple">
+              {bloc.ecrans.map((ecran) => {
+                const etats = nombreEtats(ecran);
+                return (
+                  <li>
+                    <a href={lien(`/lecons/${lecon.numero}/${bloc.id}/${ecran.id}`)}>
+                      <span style="font-size:var(--t-etiquette);letter-spacing:0.1em;text-transform:uppercase;color:var(--texte-3);display:block">
+                        {GENRES[ecran.genre]}
+                        {etats > 1 && typo(` · ${etats} états`)}
+                      </span>
+                      <span set:html={typo(ecran.titre ?? (ecran as any).claim ?? bloc.titre)} />
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        ))}
+
+        <footer class="pied-site">
+          <p set:html={typo(
+            'Les explications de cette séance restent en ligne. C’est ici qu’il faut revenir quand la question se posera pour de vrai.',
+          )} />
+        </footer>
+      </>
+    )}
   </div>
 </Base>

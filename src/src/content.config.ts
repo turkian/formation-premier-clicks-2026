@@ -205,6 +205,8 @@ const lecons = defineCollection({
     filConducteur: z.string(),
     /** Ce que la soirée règle, en une phrase. */
     question: z.string().optional(),
+    /** Prête à publier. Tant que c'est faux, un build gaté n'en montre rien. */
+    pret: z.boolean().default(false),
     blocs: z.array(bloc).min(1),
   }),
 });

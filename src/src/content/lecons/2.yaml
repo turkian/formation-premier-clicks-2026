@@ -9,6 +9,7 @@ numero: 2
 titre: L'exposition
 filConducteur: La durée → la sensibilité → qui décide quoi → et on met les mains dedans
 question: qu'est-ce que mon appareil décide à ma place, et pourquoi ?
+pret: false
 
 blocs:
   # ─────────────────────────────────────────────────────────────────────────

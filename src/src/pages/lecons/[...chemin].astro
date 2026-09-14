@@ -16,11 +16,14 @@ import Interactif from '../../components/ecrans/Interactif.astro';
 import Repere from '../../components/ecrans/Repere.astro';
 import AppareilEnMain from '../../components/ecrans/AppareilEnMain.astro';
 import { aplatir } from '../../lib/lecon';
+import { constructionGatee } from '../../lib/publication';
 
 export const getStaticPaths = (async () => {
   const lecons = await getCollection('lecons');
+  const gatee = constructionGatee();
 
   return lecons.flatMap((entree) => {
+    if (gatee && !entree.data.pret) return [];
     const arrets = aplatir(entree.data);
     return arrets.map((arret) => ({
       // Le chemin est celui calculé par `aplatir`, privé de son préfixe de
