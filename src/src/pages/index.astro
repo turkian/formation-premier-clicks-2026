@@ -2,8 +2,8 @@
 /**
  * Le carrefour.
  *
- * Une règle : les trois leçons, le lexique et l'index des fiches sont chacun à
- * un clic. Rien n'est imbriqué derrière une section intermédiaire, parce que
+ * Une règle : les trois leçons, le lexique et chaque fiche sont chacun à un
+ * clic. Rien n'est imbriqué derrière une section intermédiaire, parce que
  * l'usage réel est un participant debout dehors, sur un téléphone, avec un
  * feuillet papier dans l'autre main.
  */
@@ -54,13 +54,6 @@ const fiches = (await getCollection('fiches')).sort(
           <h3>Les mots de votre marque</h3>
           <p set:html={typo(
             `Le même réglage porte huit noms. ${MARQUES_ORDRE.length} feuilles, la même structure, la vôtre en un clic.`,
-          )} />
-        </a>
-        <a class="carte" href={lien('/fiches')}>
-          <span class="etiquette">Fiches de référence</span>
-          <h3>À imprimer, ou à garder sur le téléphone</h3>
-          <p set:html={typo(
-            `${fiches.length} fiches d'une page, conçues pour s'imprimer proprement sur une feuille.`,
           )} />
         </a>
         <a class="carte" href={lien('/plan-de-cours')}>

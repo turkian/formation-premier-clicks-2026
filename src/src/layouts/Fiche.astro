@@ -27,7 +27,7 @@ const { titre, sousTitre, seance, colonnes = 'deux', densite = 'normale' } = Ast
   <div class="fiche" id="contenu">
     <nav class="fil sans-impression">
       <a href={lien('/')}>Premiers clics</a> <span>·</span>
-      <a href={lien('/fiches')}>Fiches</a> <span>·</span>
+      <a href={lien('/')}>Fiches</a> <span>·</span>
       <span set:html={typo(titre)} />
     </nav>
 
@@ -46,7 +46,7 @@ const { titre, sousTitre, seance, colonnes = 'deux', densite = 'normale' } = Ast
     <footer class="fiche-pied">
       <span set:html={typo('Premiers clics — formation photo du club')} />
       <span class="sans-impression">
-        <a href={lien('/fiches')}>Toutes les fiches</a>
+        <a href={lien('/')}>Toutes les fiches</a>
       </span>
     </footer>
   </div>

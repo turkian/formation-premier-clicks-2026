@@ -1,10 +1,5 @@
-# printable-references Specification
+## MODIFIED Requirements
 
-## Purpose
-The reference sheets participants keep: an extensible set of pages that each read well on screen
-and print clean on a single Letter sheet, so the club can add a new concept later by adding one
-page.
-## Requirements
 ### Requirement: References are a set of independent one-page sheets
 
 The reference section SHALL be a collection of individual sheets, not a single combined page.
@@ -37,25 +32,3 @@ participants' cards, and the « ma photo est ratée » diagnostic tree.
 - **WHEN** a participant opens the starting-recipe sheet
 - **THEN** the default mode, the ISO limit, the autofocus setting, the exposure compensation
   reminder, and the file format recommendation are all present
-
-### Requirement: Printed output excludes site furniture
-
-When a reference sheet is printed, the output SHALL contain only the sheet's own content.
-
-#### Scenario: A sheet is sent to a printer
-
-- **WHEN** a reference sheet is printed
-- **THEN** site navigation, links, controls, and interactive elements are absent from the output
-- **AND** the sheet's title and the club attribution are present
-
-### Requirement: Reference sheets are readable on a phone
-
-Each reference sheet SHALL be legible and navigable at phone width, since a participant is as
-likely to consult it on a phone in the field as on paper.
-
-#### Scenario: A participant consults a sheet while shooting
-
-- **WHEN** a reference sheet is opened at phone width
-- **THEN** its full content is readable without horizontal scrolling
-- **AND** any table reflows or scrolls within its own bounds rather than widening the page
-
