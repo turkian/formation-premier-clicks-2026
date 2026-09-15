@@ -141,7 +141,7 @@ for (const { donnees } of lecons) {
   }
 }
 
-verifier(cumulatifs.length >= 4, `${cumulatifs.length} panneaux cumulatifs déclarés (au moins 4 attendus)`);
+verifier(cumulatifs.length >= 3, `${cumulatifs.length} panneaux cumulatifs déclarés (au moins 3 attendus)`);
 
 for (const { lecon, bloc, ecran } of cumulatifs) {
   const ou = `séance ${lecon} · ${bloc}/${ecran.id}`;

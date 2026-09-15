@@ -60,7 +60,15 @@ blocs:
         corps: |
           - **Figer** — on lit le détail, l'instant est suspendu.
           - **Laisser le mouvement apparaître** — on lit la vitesse, l'énergie.
+        aparte: |
+          Votre choix dépend de ce que vous voulez raconter : c'est **la question 3** de votre
+          fiche.
 
+      - id: points-de-depart
+        genre: panneau
+        titre: Des points de départ
+        claim: Des points de départ, pas des règles.
+        corps: |
           | Situation | Point de départ |
           |---|---|
           | Personne qui marche | `1/250 s` |
@@ -68,9 +76,6 @@ blocs:
           | Sport, oiseau en vol | `1/1000 s` et plus |
           | Filé — suivre un sujet qui passe | `1/30 s` |
           | Eau de rivière soyeuse | `1/4 s` à `1 s`, sur trépied |
-        aparte: |
-          Votre choix dépend de ce que vous voulez raconter : c'est **la question 3** de votre
-          fiche. Ces chiffres sont des points de départ, pas des règles.
 
       - id: deux-flous
         genre: panneau
@@ -83,8 +88,7 @@ blocs:
           | **Toute l'image** est floue, dans le même sens | vous | montez la vitesse, calez vos coudes |
         aparte: |
           Ce qui vous stabilise : votre posture, la focale — plus c'est long, plus ça tremble —,
-          la stabilisation du boîtier ou de l'objectif, et le trépied. Cette distinction revient
-          à chaque diagnostic de la séance.
+          la stabilisation du boîtier ou de l'objectif, et le trépied.
 
       - id: deux-flous-en-images
         genre: demonstration
@@ -137,11 +141,13 @@ blocs:
           2. Je veux **`1/500 s`** pour figer mon sujet.
           3. Il manque de lumière.
           4. → **J'augmente l'ISO.**
-
-          Ce que ça coûte : du **bruit**, de la perte de détail fin, une dynamique réduite.
         aparte: |
           Activez l'**ISO automatique** avec une limite haute — 3200 ou 6400 selon votre
-          appareil. Vous récupérez la souplesse sans avoir à y penser.
+          appareil.
+        ton: avertissement
+        icone: lucide:triangle-alert
+        encadre: |
+          Ce que ça coûte : du **bruit**, de la perte de détail fin, une dynamique réduite.
 
       - id: nette-et-bruitee
         genre: interactif
@@ -248,9 +254,13 @@ blocs:
           | **M** | **vous** | **vous** | L'appareil ne décide plus rien. |
         aparte: |
           `Av` et `A` sont **le même mode** : Canon dit `Av`, les autres disent `A`. Même chose
-          pour `Tv` et `S`. **Fujifilm n'a pas cette molette** : le mode résulte de la bague
-          d'ouverture et de la molette de vitesse, chacune ayant une position `A` — les quatre
-          combinaisons sont en tête de votre feuille. Pour tous les autres : **section 1**.
+          pour `Tv` et `S`.
+        ton: avertissement
+        icone: lucide:triangle-alert
+        encadre: |
+          **Fujifilm n'a pas cette molette** : le mode résulte de la bague d'ouverture et de la
+          molette de vitesse, chacune ayant une position `A` — les quatre combinaisons sont en
+          tête de votre feuille. Pour tous les autres : **section 1**.
 
       - id: l-effet-secondaire
         genre: panneau
@@ -264,8 +274,10 @@ blocs:
 
           Portrait dans un parc → fond flou → **`A`**, ouvert en grand.
           Votre enfant qui court → le figer → **`S`**, à `1/500`.
-        aparte: |
-          ⚠️ **L'ouverture n'est pas la mise au point.** Le mode `A` ne choisit pas *ce qui* est
+        ton: avertissement
+        icone: lucide:triangle-alert
+        encadre: |
+          **L'ouverture n'est pas la mise au point.** Le mode `A` ne choisit pas *ce qui* est
           net — ça, c'est votre collimateur, dans tous les modes. Il choisit **combien de chose**
           sera net autour de votre sujet.
 
@@ -321,8 +333,9 @@ blocs:
           jusqu'à ce que ce soit beau. **Reflex :** le viseur optique montre toujours la même
           chose. Regardez l'écran après la photo, ou passez en visée par l'écran.
 
-      - id: quatre-situations
-        genre: panneau
+      - id: la-question-de-vitesse
+        genre: repere
+        variante: activite
         titre: Quatre situations
         claim: Quel mode, et pourquoi ? Partez de la question, pas du réglage.
         corps: |
@@ -330,18 +343,18 @@ blocs:
           2. Un enfant qui court.
           3. Paysage, tout net du premier plan à l'horizon.
           4. Concert sombre.
-        aparte: |
-          Il n'y a pas toujours une seule bonne réponse, et c'est un bon message à retenir.
-        etats:
-          - etiquette: Les quatre situations
-          - etiquette: Les réponses
-            corps: |
-              | | La réponse |
-              |---|---|
-              | Portrait, détacher du fond | **`A · Av`** — l'épaisseur de la zone nette |
-              | Un enfant qui court | **`S · Tv`** — la question est le mouvement |
-              | Paysage, tout net | **`A · Av`** — l'épaisseur, en sens inverse |
-              | Concert sombre | **`S · Tv`** pour tenir la vitesse — et surtout **`−1`** |
+
+      - id: vos-reponses
+        genre: panneau
+        titre: Vos réponses
+        claim: Il n'y a pas toujours une seule bonne réponse.
+        corps: |
+          | | La réponse |
+          |---|---|
+          | Portrait, détacher du fond | **`A · Av`** — l'épaisseur de la zone nette |
+          | Un enfant qui court | **`S · Tv`** — la question est le mouvement |
+          | Paysage, tout net | **`A · Av`** — l'épaisseur, en sens inverse |
+          | Concert sombre | **`S · Tv`** pour tenir la vitesse — et surtout **`−1`** |
 
       - id: le-tour-de-la-molette
         genre: appareil-en-main
