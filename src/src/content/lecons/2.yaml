@@ -436,11 +436,10 @@ blocs:
         claim: Le symptôme, puis la cause, puis la correction.
         composant: arbre-de-diagnostic
 
-      # ★ Panneau cumulatif : la salle propose l'exposition corrigée avant de la voir.
-      - id: le-cas-du-posemetre
+      - id: le-cas-du-posemetre-neige
         genre: demonstration
-        titre: Les trois échecs du posemètre
-        claim: Deux scènes où l'appareil se trompe systématiquement.
+        titre: Le posemètre et la neige
+        claim: Une scène blanche pousse l'appareil à sous-exposer — la neige sort grise.
         series:
           - variable: la compensation appliquée
             constantes:
@@ -458,6 +457,13 @@ blocs:
                 valeur: compensation +1
                 priorite: essentiel
                 reglages: { compensation: "+1", scène: neige, mode: A }
+
+      # ★ Panneau cumulatif : la salle propose l'exposition corrigée avant de la voir.
+      - id: le-cas-du-posemetre-contre-jour
+        genre: demonstration
+        titre: Le posemètre et le contre-jour
+        claim: Un fond lumineux pousse l'appareil à exposer pour lui, pas pour le sujet.
+        series:
           - variable: la compensation appliquée
             constantes:
               scène: sujet à contre-jour

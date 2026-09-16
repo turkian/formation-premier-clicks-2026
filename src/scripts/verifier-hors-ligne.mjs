@@ -45,9 +45,9 @@ async function attendreServiceTravailleur() {
 console.log('\nAvec le réseau — l’animateur prépare sa séance');
 
 const parcours = [
-  '/lecons/1/profondeur-de-champ/la-definition/',
-  '/lecons/1/profondeur-de-champ/ce-qui-change-l-epaisseur/',
-  '/lecons/1/profondeur-de-champ/explorer-la-zone-nette/',
+  '/lecons/1/ouverture-et-profondeur-de-champ/la-definition/',
+  '/lecons/1/ouverture-et-profondeur-de-champ/ce-qui-change-l-epaisseur/',
+  '/lecons/1/ouverture-et-profondeur-de-champ/explorer-la-zone-nette/',
   '/fiches/ma-photo-est-ratee/',
   '/lexique/canon/',
 ];
@@ -71,7 +71,7 @@ for (const chemin of parcours) {
 }
 
 console.log('\nLa navigation continue');
-await page.goto(site.url('/lecons/1/profondeur-de-champ/la-definition/'), {
+await page.goto(site.url('/lecons/1/ouverture-et-profondeur-de-champ/la-definition/'), {
   waitUntil: 'domcontentloaded',
 });
 await page.keyboard.press('ArrowRight');
@@ -91,7 +91,7 @@ const revenu = await page
 verifier(revenu, 'la touche ← revient à l’écran précédent, sans réseau');
 
 console.log('\nLes composants répondent encore');
-await page.goto(site.url('/lecons/1/profondeur-de-champ/explorer-la-zone-nette/'), {
+await page.goto(site.url('/lecons/1/ouverture-et-profondeur-de-champ/explorer-la-zone-nette/'), {
   waitUntil: 'domcontentloaded',
 });
 await page.waitForSelector('[data-pdc]');

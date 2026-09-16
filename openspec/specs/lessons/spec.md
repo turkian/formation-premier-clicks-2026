@@ -77,6 +77,36 @@ that both keep full usable space. Diagrams MAY appear inside a concept panel.
 - **AND** a caption names the single variable that changed between them
 - **AND** no concept panel body text competes for that space
 
+### Requirement: A demonstration screen shows at most three photographs
+
+A demonstration screen SHALL NOT display more than three photographs at once, counted across
+every comparison series and every free (non-series) image declared on that screen. A block whose
+demonstration content exceeds three photographs SHALL be authored as multiple sibling
+demonstration screens within the same block instead, each carrying its own claim, so that no
+single screen crowds its photographs below a legible size.
+
+#### Scenario: A block needs four comparison photographs
+
+- **WHEN** a block's demonstration content is authored with four or more photographs across its
+  series and free images
+- **THEN** that content is split across two or more demonstration screens, each with three or
+  fewer photographs
+- **AND** each resulting screen carries its own claim
+
+#### Scenario: A single comparison series itself has more than three images
+
+- **WHEN** one comparison series alone declares more than three images
+- **THEN** that series is split across two or more demonstration screens, each with three or
+  fewer images from that series
+- **AND** each resulting screen's claim and caption still identify the single variable the
+  series compares
+
+#### Scenario: A build is produced with an oversized demonstration screen
+
+- **WHEN** a demonstration screen is authored with more than three photographs across its series
+  and free images
+- **THEN** the content verification SHALL fail the build and identify that screen
+
 ### Requirement: Panels that must withhold an answer accumulate in place
 
 A concept panel MAY be authored with ordered states. Advancing a state SHALL add content to the
@@ -384,4 +414,27 @@ unanswered will be taken up at a later session.
   aloud
 - **AND** it does not state or imply that an unresolved question will be answered at the
   next session
+
+### Requirement: A repère screen with a list corps does not also carry an aparte
+
+A repère screen whose `corps` is authored as an enumerated or bulleted list SHALL NOT also carry
+an `aparte`. A repère's contract is a small amount of wayfinding content; a list-shaped corps
+already carries as much content as that budget allows, and repère has no mechanism — unlike a
+concept panel — to shrink or paginate `corps` or `aparte` content that overflows the projection
+floor. A block whose repère content needs both a list and an aparte's worth of material SHALL be
+authored as multiple sibling repère screens within the same block instead, each carrying its own
+claim.
+
+#### Scenario: A repère needs both a list and additional necessary content
+
+- **WHEN** a repère screen's content is authored with a list corps and material that would
+  otherwise go in an aparte
+- **THEN** that content is split across two or more repère screens, each with its own claim
+- **AND** any content necessary to follow the block is placed in a screen's claim or corps, never
+  left in an aparte
+
+#### Scenario: A build is produced with a repère combining a list corps and an aparte
+
+- **WHEN** a repère screen is authored with a list-shaped `corps` and a non-empty `aparte`
+- **THEN** the content verification SHALL fail the build and identify that lesson and screen
 

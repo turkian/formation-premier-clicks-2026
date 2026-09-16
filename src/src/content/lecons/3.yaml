@@ -70,10 +70,10 @@ blocs:
           sujet. C'est pour ça que ce réflexe-là change tout. La règle des tiers est un point de
           départ, pas une loi.
 
-      - id: avant-apres
+      - id: avant-apres-distance
         genre: demonstration
-        titre: Avant, après
-        claim: Même scène, un seul réflexe appliqué.
+        titre: Avant, après — la distance
+        claim: Même scène, un seul réflexe appliqué — se rapprocher.
         series:
           - variable: la distance au sujet
             constantes:
@@ -91,6 +91,12 @@ blocs:
                 valeur: de près
                 priorite: essentiel
                 reglages: { distance: près, scène: la même }
+
+      - id: avant-apres-hauteur
+        genre: demonstration
+        titre: Avant, après — la hauteur
+        claim: Même scène, un autre réflexe appliqué — changer de hauteur.
+        series:
           - variable: la hauteur du point de vue
             constantes:
               sujet: le même
@@ -546,7 +552,7 @@ blocs:
         genre: repere
         variante: ouverture
         titre: Et maintenant ?
-        claim: Ce qui compte ne se joue pas pendant ces trois séances. Ça se joue dans les six prochains mois.
+        claim: Ce qui compte ne se joue pas pendant ces trois séances. Ça commence tout de suite.
         corps: |
           - 📅 **La prochaine sortie photo** — une date, un lieu, une heure. *Vous êtes tous
             invités, et j'y serai.*
@@ -554,13 +560,19 @@ blocs:
             nom est sur votre feuillet. **Trouvez-le dans la salle avant de partir.**
           - 💬 **Où poser une question bête** — le groupe du club, mon adresse, et la demi-heure
             avant chaque réunion mensuelle. Tout est sur le feuillet.
+
+      - id: rester-dans-le-mouvement
+        genre: repere
+        variante: ouverture
+        titre: Rester dans le mouvement
+        claim: Et après ces trois séances, ça continue — à votre rythme.
+        corps: |
           - 🎯 **Un défi mensuel** — une contrainte à la fois. « Ce mois-ci, une photo à
             contre-jour. »
           - 🖼️ **La soirée critique** — on vous expliquera qui parle, dans quel ordre, et ce
             qu'on y cherche, avant que vous y veniez.
-        aparte: |
-          Un **atelier pratique de retouche** en petit groupe est prévu plus tard : la retouche
-          s'apprend mal à trente, et c'est une occasion de plus de se revoir.
+          - 🖌️ **Un atelier de retouche** — en petit groupe, plus tard. La retouche s'apprend mal
+            à trente, et c'est une occasion de plus de se revoir.
 
       - id: la-question-de-fin
         genre: repere

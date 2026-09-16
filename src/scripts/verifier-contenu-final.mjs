@@ -315,6 +315,66 @@ for (const { nom, donnees } of [...lecons, ...marques]) {
   );
 }
 
+/* ── 13.6 · Une démonstration ne montre pas plus de trois photographies ── */
+
+console.log('\n13.6 · Aucun écran de démonstration ne dépasse trois photographies');
+
+/**
+ * Une photographie de démonstration est une preuve, pas une illustration :
+ * elle se regarde en grand. Au-delà de trois sur un même écran, chacune
+ * rétrécit sous ce que projecteur et salle peuvent encore lire. La règle a
+ * déjà un précédent dans le contenu lui-même (`ouverture-et-profondeur-de-
+ * champ` est trois écrans plutôt qu'un seul chargé) ; cette vérification la
+ * rend automatique plutôt que seulement rappelée.
+ */
+for (const { donnees } of lecons) {
+  for (const bloc of donnees.blocs) {
+    for (const ecran of bloc.ecrans) {
+      if (ecran.genre !== 'demonstration') continue;
+      const total = (ecran.images?.length ?? 0)
+        + (ecran.series ?? []).reduce((somme, serie) => somme + serie.images.length, 0);
+      verifier(
+        total <= 3,
+        `séance ${donnees.numero} · ${bloc.id}/${ecran.id} — ${total} photographies sur un écran de démonstration (3 au plus)`,
+      );
+    }
+  }
+}
+
+/* ── 13.7 · Un repère à corps-liste ne porte pas d'aparté ── */
+
+console.log('\n13.7 · Un repère dont le corps est une liste ne porte pas d’aparté');
+
+/**
+ * Un repère sert au repérage, pas à l'explication : « peu de contenu,
+ * volontairement » (doc du composant). Un corps déjà organisé en liste porte
+ * à lui seul tout le budget de contenu d'un repère ; y ajouter un aparté
+ * pousse du contenu nécessaire dans le palier typographique le plus petit,
+ * et c'est exactement la combinaison qui a fait déborder `la-suite` en
+ * projection. Contrairement à un tableau ou à un texte suivi, une liste n'a
+ * pas d'autre endroit où loger du contenu additionnel : il faut un autre
+ * écran, pas un aparté.
+ */
+function estCorpsListe(corps) {
+  const lignes = corps.split('\n').filter((l) => l.trim() !== '');
+  const ligneDeTete = lignes.filter((l) => !/^\s/.test(l));
+  return ligneDeTete.length > 0 && ligneDeTete.every((l) => /^(-|\*|\d+\.)\s/.test(l));
+}
+
+for (const { donnees } of lecons) {
+  for (const bloc of donnees.blocs) {
+    for (const ecran of bloc.ecrans) {
+      if (ecran.genre !== 'repere') continue;
+      if (!ecran.corps || !estCorpsListe(ecran.corps)) continue;
+      const aParte = typeof ecran.aparte === 'string' && ecran.aparte.trim() !== '';
+      verifier(
+        !aParte,
+        `séance ${donnees.numero} · ${bloc.id}/${ecran.id} — repère à corps-liste avec aparté (à scinder en deux repères)`,
+      );
+    }
+  }
+}
+
 function liste(items) {
   return items.length === 0 ? '' : ` — ${items.slice(0, 4).join(', ')}${items.length > 4 ? '…' : ''}`;
 }

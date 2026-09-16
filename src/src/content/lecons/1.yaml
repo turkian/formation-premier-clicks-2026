@@ -87,17 +87,17 @@ blocs:
         schema:
           composant: direction-lumiere
 
-      - id: la-lumiere-en-images
+      - id: la-lumiere-en-images-angles-courants
         genre: demonstration
         titre: La lumière, en images
-        claim: Aucun réglage n'a changé d'une image à l'autre.
+        claim: Aucun réglage n'a changé d'une image à l'autre. Deux angles courants d'abord.
         series:
           - variable: la direction de la lumière
             constantes:
               sujet: le même
               réglages: identiques
               objectif: 50 mm
-            legende: Quatre positions autour d'une source lumineuse.
+            legende: Frontale, puis latérale — deux angles qu'on croise tous les jours.
             images:
               - id: l1-lum-frontale
                 specification: Sujet devant la source lumineuse, lumière frontale · 50 mm · f/5.6
@@ -111,6 +111,19 @@ blocs:
                 priorite: utile
                 reglages: { direction: latérale, focale: 50 mm, ouverture: f/5.6 }
                 cadrage: { point: [46, 42], zoom: 1.6 }
+
+      - id: la-lumiere-en-images-angles-particuliers
+        genre: demonstration
+        titre: La lumière, en images — deux angles de plus
+        claim: Les deux mêmes réglages, pour deux angles moins habituels.
+        series:
+          - variable: la direction de la lumière
+            constantes:
+              sujet: le même
+              réglages: identiques
+              objectif: 50 mm
+            legende: Contre-jour, puis du dessus — les deux autres positions autour de la même source.
+            images:
               - id: l1-lum-contre-jour
                 specification: Sujet dos à la source lumineuse, en contre-jour · 50 mm · f/5.6
                 valeur: contre-jour
@@ -123,6 +136,12 @@ blocs:
                 priorite: utile
                 reglages: { direction: du dessus, focale: 50 mm, ouverture: f/5.6 }
                 cadrage: { point: [50, 40], zoom: 1.6 }
+
+      - id: la-qualite-de-la-lumiere
+        genre: demonstration
+        titre: La qualité de la lumière
+        claim: Aucun réglage n'a changé d'une image à l'autre — seule la taille de la source change.
+        series:
           - variable: la qualité de la lumière
             constantes:
               sujet: le même
@@ -255,14 +274,17 @@ blocs:
                 valeur: sur l'arrière-plan
                 priorite: utile
                 reglages: { point: arrière-plan, ouverture: f/2.8, focale: 85 mm }
+        aparte: "Seule chose qui change : l'endroit où le point a été fait."
 
+      - id: le-point-est-ailleurs
+        genre: demonstration
+        titre: Et si le point est ailleurs ?
+        claim: Le point peut être ailleurs, sans que le décor cesse d'être net.
         images:
           - id: l1-hors-focus
             specification: Sujet hors mise au point, décor net · vitesse suffisante, 1/250 s
             valeur: le point est ailleurs — le décor est net
             priorite: essentiel
-
-        aparte: "Seule chose qui change : l'endroit où le point a été fait."
 
       - id: designer-le-point
         genre: appareil-en-main
