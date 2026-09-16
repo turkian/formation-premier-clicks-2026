@@ -1,0 +1,76 @@
+---
+/**
+ * Les exercices d'une séance.
+ *
+ * Un ensemble de prompts autonomes, sans ordre imposé et sans suivi
+ * d'achèvement : contrairement au sommaire d'une leçon, il n'y a rien à
+ * commencer ni à terminer ici, seulement des choses à essayer, dans n'importe
+ * quel ordre, autant de fois qu'on veut.
+ */
+import type { GetStaticPaths } from 'astro';
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { lien } from '../../lib/lien';
+import { typo } from '../../lib/typo';
+import { mdEnLigne } from '../../lib/md';
+import '../../styles/carrefour.css';
+import '../../styles/exercices.css';
+
+export const getStaticPaths = (async () => {
+  const exercices = await getCollection('exercices');
+  return exercices.map((entree) => ({
+    params: { numero: String(entree.data.numero) },
+    props: { seance: entree.data },
+  }));
+}) satisfies GetStaticPaths;
+
+const { seance } = Astro.props;
+
+const items = await Promise.all(
+  seance.exercices.map(async (ex) => ({
+    ...ex,
+    consigne: await mdEnLigne(ex.consigne),
+    cellulaire: await mdEnLigne(ex.cellulaire),
+  })),
+);
+---
+
+<Base
+  titre={`Exercices — Séance ${seance.numero}`}
+  description={`Des prompts de pratique autonome pour la séance ${seance.numero} : ${seance.titre}.`}
+>
+  <div class="page" id="contenu">
+    <nav class="fil">
+      <a href={lien('/')}>Premiers clics</a> <span>·</span>
+      <span>{typo(`Exercices — séance ${seance.numero}`)}</span>
+    </nav>
+
+    <header class="entete-site">
+      <p class="surtitre">{typo(`Exercices · Séance ${seance.numero}`)}</p>
+      <h1 set:html={typo(seance.titre)} />
+      <p class="chapeau" set:html={typo(
+        'Des prompts à essayer par vous-même, dans l’ordre qui vous plaît, autant de fois que vous voulez. Rien à envoyer, rien à réussir.',
+      )} />
+    </header>
+
+    <ul class="liste-exercices">
+      {items.map((ex) => (
+        <li class="exercice">
+          <h3 set:html={typo(ex.titre)} />
+          <p set:html={ex.consigne} />
+          {ex.cellulaire && (
+            <p class="exercice-cellulaire">
+              <b>Cellulaire</b> <span set:html={ex.cellulaire} />
+            </p>
+          )}
+        </li>
+      ))}
+    </ul>
+
+    <footer class="pied-site">
+      <p set:html={typo(
+        'Ces exercices restent en ligne après la séance : revenez-y quand vous voulez, avec l’appareil que vous avez en main.',
+      )} />
+    </footer>
+  </div>
+</Base>

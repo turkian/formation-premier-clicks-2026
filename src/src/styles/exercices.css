@@ -1,0 +1,45 @@
+/**
+ * Les exercices d'une séance.
+ *
+ * Lecture d'écran seulement — pas d'impression, contrairement aux fiches. Une
+ * seule colonne empilée : il n'y a pas de rangée à aligner, donc pas de grille
+ * à répliquer depuis `carrefour.css`.
+ */
+
+.liste-exercices {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.exercice {
+  background: var(--fond-2);
+  border: 1px solid var(--trait);
+  border-radius: var(--rayon-2);
+  padding: 1.1rem 1.2rem;
+}
+
+.exercice h3 {
+  font-size: var(--t-corps);
+  margin-bottom: 0.45rem;
+}
+
+.exercice p {
+  font-size: var(--t-corps);
+  color: var(--texte-2);
+}
+
+.exercice-cellulaire {
+  margin-top: 0.7rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--trait);
+  font-size: var(--t-aparte);
+}
+
+.exercice-cellulaire b {
+  color: var(--accent);
+  font-weight: var(--graisse-appui);
+  margin-right: 0.35em;
+}

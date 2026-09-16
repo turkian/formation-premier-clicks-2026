@@ -18,6 +18,7 @@ const lecons = (await getCollection('lecons')).sort((a, b) => a.data.numero - b.
 const fiches = (await getCollection('fiches')).sort(
   (a, b) => a.data.rang - b.data.rang || a.data.titre.localeCompare(b.data.titre, 'fr'),
 );
+const exercices = (await getCollection('exercices')).sort((a, b) => a.data.numero - b.data.numero);
 ---
 
 <Base
@@ -41,6 +42,19 @@ const fiches = (await getCollection('fiches')).sort(
             <span class="etiquette">Séance {lecon.data.numero}</span>
             <h3 set:html={typo(lecon.data.titre)} />
             <p set:html={typo(lecon.data.filConducteur)} />
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="section-carrefour">
+      <h2>Exercices</h2>
+      <div class="grille">
+        {exercices.map((exercice) => (
+          <a class="carte" href={lien(`/exercices/${exercice.data.numero}`)}>
+            <span class="etiquette">Séance {exercice.data.numero}</span>
+            <h3 set:html={typo(exercice.data.titre)} />
+            <p>Des prompts de pratique autonome, à essayer après la séance — pas la leçon elle-même.</p>
           </a>
         ))}
       </div>

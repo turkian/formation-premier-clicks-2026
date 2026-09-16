@@ -1,10 +1,11 @@
 /**
  * Modèle d'écriture du contenu.
  *
- * Trois collections :
- *   — `lecons`   : les trois leçons, en blocs et en écrans (YAML)
- *   — `marques`  : les huit feuilles du lexique (YAML)
- *   — `fiches`   : les fiches de référence imprimables (Markdown)
+ * Quatre collections :
+ *   — `lecons`    : les trois leçons, en blocs et en écrans (YAML)
+ *   — `marques`   : les huit feuilles du lexique (YAML)
+ *   — `fiches`    : les fiches de référence imprimables (Markdown)
+ *   — `exercices` : les prompts de pratique autonome, par séance (YAML)
  *
  * Les leçons sont en YAML plutôt qu'en Markdown parce qu'un panneau de concept
  * a quatre régions nommées et, parfois, des états ordonnés : une structure que
@@ -306,4 +307,29 @@ const fiches = defineCollection({
   }),
 });
 
-export const collections = { lecons, marques, fiches };
+/* ──────────────────────────────────────────────────────────────────────────
+   Exercices de pratique autonome
+   ────────────────────────────────────────────────────────────────────────── */
+
+/**
+ * Un prompt de pratique : un titre, une consigne, et une note optionnelle pour
+ * qui photographie avec un cellulaire — seulement là où un cellulaire ne peut
+ * pas faire ce qu'un appareil fait (par exemple choisir l'ouverture).
+ */
+const exercice = z.object({
+  id: z.string(),
+  titre: z.string(),
+  consigne: z.string(),
+  cellulaire: z.string().optional(),
+});
+
+const exercices = defineCollection({
+  loader: glob({ pattern: '*.yaml', base: './src/content/exercices' }),
+  schema: z.object({
+    numero: z.number().int().min(1).max(3),
+    titre: z.string(),
+    exercices: z.array(exercice).min(1),
+  }),
+});
+
+export const collections = { lecons, marques, fiches, exercices };

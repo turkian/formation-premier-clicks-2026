@@ -1,0 +1,51 @@
+# Séance 1 — six exercices de pratique autonome, tirés des concepts de la
+# séance (la lumière, la mise au point, les quatre leviers de la profondeur de
+# champ). Chaque exercice est phrasé pour un appareil comme pour un
+# cellulaire ; une note « cellulaire » n'apparaît que là où un cellulaire ne
+# peut pas faire ce qu'un appareil fait (choisir l'ouverture).
+
+numero: 1
+titre: La lumière et la netteté
+
+exercices:
+  - id: lumiere-direction
+    titre: Une lumière qui change de côté
+    consigne: >-
+      Choisissez un objet immobile. Photographiez-le une première fois, puis déplacez-vous de
+      quelques pas pour que la lumière l'atteigne d'un côté différent, et refaites la photo.
+      Comparez les deux : qu'est-ce qui change, à part l'angle ?
+
+  - id: lumiere-qualite
+    titre: Une ombre dure, une ombre douce
+    consigne: >-
+      Trouvez une petite source de lumière (une lampe, le soleil en plein ciel dégagé) et une
+      grande (une fenêtre, un ciel couvert). Photographiez le même sujet sous chacune, et comparez
+      la netteté du bord de l'ombre.
+
+  - id: designer-le-point
+    titre: Choisir où le point se fait
+    consigne: >-
+      Photographiez une scène avec deux objets placés à des distances différentes. Désignez
+      vous-même l'endroit précis de la mise au point — jamais l'endroit choisi automatiquement —
+      puis refaites la photo en visant l'autre objet.
+
+  - id: sujet-immobile-ou-non
+    titre: Un sujet qui bouge, un sujet qui ne bouge pas
+    consigne: >-
+      Photographiez un objet immobile, puis une personne ou un animal en mouvement. Observez, sur
+      chacune des deux photos, si le point est resté exactement où vous l'aviez désigné.
+
+  - id: ouverture-flou
+    titre: Le fond qui se dissout, ou qui reste lisible
+    consigne: >-
+      Photographiez un sujet avec le fond le plus flou possible, puis le même sujet, sans bouger,
+      avec le fond le plus net possible.
+    cellulaire: >-
+      Vous n'avez pas d'ouverture réglable. Utilisez le mode Portrait pour le fond flou, et le
+      mode photo normal pour le fond net.
+
+  - id: distance-du-fond
+    titre: Se rapprocher du fond, s'en éloigner
+    consigne: >-
+      Sans changer aucun réglage, photographiez un sujet collé à un mur, puis le même sujet
+      plusieurs pas devant ce mur. Comparez le flou du fond entre les deux photos.

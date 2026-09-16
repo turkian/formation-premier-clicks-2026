@@ -11,6 +11,7 @@ import { parse } from 'yaml';
 
 const LECONS = new URL('../src/content/lecons/', import.meta.url);
 const MARQUES = new URL('../src/content/marques/', import.meta.url);
+const EXERCICES = new URL('../src/content/exercices/', import.meta.url);
 
 const echecs = [];
 let passes = 0;
@@ -28,6 +29,7 @@ async function charger(dossier) {
 
 const lecons = await charger(LECONS);
 const marques = await charger(MARQUES);
+const exercices = await charger(EXERCICES);
 
 /** Tout le texte destiné à l'écran, écran par écran. */
 function textesDEcran(lecon) {
@@ -286,7 +288,7 @@ function extrait(texte, position, longueur) {
   return `${debut > 0 ? '…' : ''}${texte.slice(debut, fin).replace(/\s+/g, ' ')}${fin < texte.length ? '…' : ''}`;
 }
 
-for (const { nom, donnees } of [...lecons, ...marques]) {
+for (const { nom, donnees } of [...lecons, ...marques, ...exercices]) {
   const fautes = [];
 
   for (const { chemin, texte } of chaines(donnees)) {
