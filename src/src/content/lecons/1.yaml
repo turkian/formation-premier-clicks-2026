@@ -276,16 +276,6 @@ blocs:
                 reglages: { point: arrière-plan, ouverture: f/2.8, focale: 85 mm }
         aparte: "Seule chose qui change : l'endroit où le point a été fait."
 
-      - id: le-point-est-ailleurs
-        genre: demonstration
-        titre: Et si le point est ailleurs ?
-        claim: Le point peut être ailleurs, sans que le décor cesse d'être net.
-        images:
-          - id: l1-hors-focus
-            specification: Sujet hors mise au point, décor net · vitesse suffisante, 1/250 s
-            valeur: le point est ailleurs — le décor est net
-            priorite: essentiel
-
       - id: designer-le-point
         genre: appareil-en-main
         titre: Appareil en main — désigner le point
@@ -454,11 +444,6 @@ blocs:
         claim: Même sujet, même distance, même focale. Seul le chiffre `f/` change.
         series:
           - variable: l'ouverture
-            constantes:
-              sujet: le même
-              distance: 2 m
-              focale: 50 mm
-            legende: "Rien de surprenant ici : plus le trou est grand, plus le fond se dissout."
             images:
               - id: l1-pdc-ouverture-18
                 specification: Même sujet, f/1.8 · 50 mm · sujet à 2 m
