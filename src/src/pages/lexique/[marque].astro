@@ -85,9 +85,9 @@ const nombreEntrees = sections.reduce((n, s) => n + s.entrees.length, 0);
 
     <SelecteurMarque marques={toutes} courante={marque.id} />
 
-    <div class="cadrage" set:html={cadrage} />
+    <div class="cadrage sans-impression" set:html={cadrage} />
 
-    <p style="color:var(--texte-2);margin-bottom:1.6rem">
+    <p class="sans-impression" style="color:var(--texte-2);margin-bottom:1.6rem">
       <strong>Comment lire cette feuille&nbsp;:</strong> <span set:html={modeDeLecture} />
     </p>
 

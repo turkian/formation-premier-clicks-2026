@@ -198,3 +198,125 @@
 .fait-marquant dd { margin: 0; }
 
 mark { background: var(--accent-sourd); color: var(--texte); border-radius: 2px; }
+
+/* ── Impression ─────────────────────────────────────────────────────────── */
+
+@page {
+  size: letter;
+  margin: 11mm 12mm;
+}
+
+@media print {
+  /* Tout le mobilier de site disparaît, comme dans les fiches imprimables. */
+  .sans-impression,
+  .saut-au-contenu,
+  nav,
+  .fil,
+  .pied-site {
+    display: none !important;
+  }
+
+  html, body { background: #fff; }
+
+  /* `min-height: 100vh` vaut la hauteur totale de la feuille à l'impression,
+     marges comprises : la page déborde alors de quelques millimètres et
+     l'imprimante en sort une seconde, vide. */
+  body { min-height: 0; }
+
+  /* Une recherche active en cours d'impression ne doit pas amputer la
+     feuille : les entrées et sections que le filtre a masquées reparaissent,
+     et le message « aucun résultat » — qui contredirait ce retour — disparaît. */
+  .entree[hidden] { display: grid; }
+  .section-lexique[hidden] { display: block; }
+  .aucun-resultat { display: none !important; }
+
+  .cadre-lexique {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    column-count: 2;
+    column-gap: 8mm;
+    column-fill: auto;
+  }
+
+  /* L'en-tête et les faits marquants restent pleine largeur, avant que le
+     contenu des sections ne se répartisse en deux colonnes. */
+  .entete-site,
+  .fait-marquant,
+  .introuvable {
+    column-span: all;
+  }
+
+  .entete-site { margin-bottom: 4pt; }
+  .entete-site .surtitre { font-size: 7pt; margin-bottom: 2pt; }
+  .entete-site h1 { font-size: 15pt; }
+  .entete-site .chapeau { font-size: 8.5pt; }
+
+  .fait-marquant {
+    padding: 4pt 6pt;
+    margin: 0 0 6pt;
+    gap: 2pt 8pt;
+    font-size: 7.9pt;
+    background: #f2f2f2;
+    border-color: #bbb;
+  }
+  .fait-marquant dt { font-size: 6.5pt; margin-bottom: 0.5pt; }
+
+  .section-lexique {
+    margin-bottom: 6pt;
+    break-inside: avoid;
+  }
+  .section-lexique > h2 {
+    font-size: 8.8pt;
+    margin: 5pt 0 2.5pt;
+    padding-bottom: 1.5pt;
+    border-bottom: 0.6pt solid #999;
+    color: #000;
+    break-after: avoid;
+  }
+  .section-lexique > h2 .numero {
+    width: 1.4em;
+    height: 1.4em;
+    font-size: 0.68em;
+    background: #000;
+    color: #fff;
+  }
+
+  .exception, .note-section {
+    padding: 3pt 4pt;
+    margin-bottom: 4pt;
+    font-size: 7.7pt;
+    background: #f2f2f2;
+    border-color: #bbb;
+    break-inside: avoid;
+  }
+  .exception table { font-size: 7.5pt; }
+
+  .entrees { margin: 0; }
+
+  /* La grille à deux colonnes de l'entrée (formation | appareil) redevient la
+     disposition étroite déjà réglée pour le téléphone : imbriquée dans une
+     colonne d'impression, la grille large romprait mal. */
+  .entree {
+    grid-template-columns: 1fr;
+    gap: 0.5pt;
+    padding: 3pt 0;
+    break-inside: avoid;
+  }
+  .entree .cote-formation::after { content: ' →'; color: #666; }
+  .entree .cote-formation,
+  .entree .cote-appareil,
+  .entree .chemin-menu,
+  .entree .note-entree {
+    font-size: 7.9pt;
+  }
+  .entree .cote-appareil { color: #000; }
+  .entree .cote-formation { color: #333; }
+  .entree .chemin-menu, .entree .note-entree { color: #444; }
+
+  .introuvable { margin-top: 6pt; }
+  .introuvable ol { padding-left: 3.6mm; font-size: 7.9pt; }
+  .introuvable li { margin-bottom: 1.5pt; }
+
+  a { color: #000; text-decoration: none; }
+}
