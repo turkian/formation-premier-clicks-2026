@@ -97,7 +97,7 @@ const TUTOIEMENT = [
 ];
 
 /**
- * Vocabulaire de production réservé à `docs/`.
+ * Vocabulaire de production réservé au carnet de l'animateur.
  *
  * Le mot « animateur » n'y figure pas : un écran peut légitimement dire aux
  * participants à qui s'adresser. Ce qui est proscrit, c'est la **consigne de
@@ -222,7 +222,8 @@ console.log('\n13.5 · Aucun texte ne situe une séance dans le temps du lecteur
  *
  * La règle se vérifie ici plutôt que de se rappeler : le risque n'est pas le
  * texte corrigé aujourd'hui, c'est celui qu'on écrira dans six mois en
- * adaptant un passage de `docs/`, où « ce soir » est parfaitement légitime.
+ * adaptant un passage écrit du point de vue de l'animateur, où « ce soir »
+ * est parfaitement légitime.
  */
 
 /**

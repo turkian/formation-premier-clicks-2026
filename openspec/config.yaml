@@ -60,19 +60,3 @@ context: |
   - un panneau de concept tient environ 100 mots plus un schéma ou un tableau.
 
   Trois échelles typographiques cohabitent : projection, téléphone, papier.
-
-  ## Partage docs/ ↔ site
-
-  `docs/` reste le carnet de production privé de l'animateur : minutage, équipe,
-  matériel, préparation, suivi, fiches d'animateurs, plans de repli. Rien de tout cela
-  n'apparaît sur le site.
-
-  Le site est canonique pour les explications de concepts. Règle d'adaptation :
-
-  - les blocs de citation de `docs/` (déjà écrits en « vous ») deviennent le texte à l'écran ;
-  - les tableaux deviennent du contenu d'écran ;
-  - les directives destinées à la salle deviennent des éléments affichés que les
-    participants lisent aussi ;
-  - le rythme et la préparation destinés au seul animateur sont retirés du site.
-
-  Aucun écran ne s'adresse à l'animateur. Aucune note de présentateur, aucun volet latéral.

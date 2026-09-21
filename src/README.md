@@ -3,9 +3,9 @@
 Site statique de la formation photo du club : trois leçons projetées, le lexique
 par fabricant, et les fiches de référence à imprimer.
 
-La racine du projet Astro est ce dossier `src/`. Le dépôt lui-même contient aussi
-`docs/`, qui reste le carnet de production privé de l'animateur — minutage,
-équipe, matériel, fiches d'ateliers. **Rien de tout cela n'apparaît sur le site.**
+Site en ligne : <https://turkian.github.io/formation-premier-clicks-2026/>
+
+La racine du projet Astro est ce dossier `src/`.
 
 ## Au quotidien
 
@@ -22,6 +22,7 @@ npm run build
 | Une leçon | `src/content/lecons/<n>.yaml` | — |
 | Une feuille de lexique | `src/content/marques/<marque>.yaml` | un fichier |
 | Une fiche de référence | `src/content/fiches/<nom>.md` | **un fichier**, l'index se met à jour seul |
+| Des exercices de pratique autonome | `src/content/exercices/<n>.yaml` | — |
 
 Le texte est écrit normalement : les espaces insécables du français
 (`ouverture : f/5.6`, `« comme ceci »`, `50 mm`) sont posées au rendu.
