@@ -150,7 +150,7 @@ const formats = FORMATS.map((f) => ({ id: f.id, nom: f.nom }));
       <g data-sujet>
         <circle cy="150" r="13" fill="var(--texte)" />
         <rect y="163" x="-9" width="18" height="33" rx="6" fill="var(--texte)" />
-        <text y="216" text-anchor="middle" font-size="12" fill="var(--texte-2)">sujet</text>
+        <text y="234" text-anchor="middle" font-size="12" fill="var(--texte-2)">sujet</text>
       </g>
     </svg>
 
@@ -177,9 +177,10 @@ const formats = FORMATS.map((f) => ({ id: f.id, nom: f.nom }));
 
   /** Les crans de distance, resserrés là où l'effet est le plus fort. */
   const DISTANCES = [
-    0.3, 0.4, 0.5, 0.6, 0.75, 1, 1.25, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10, 15, 20, 30, 50,
+    0.3, 0.4, 0.5, 0.6, 0.75, 1, 1.25, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10, 15, 20, 30, 50, 75, 100, 150,
+    200, 300,
   ];
-  const FOCALES = [18, 24, 28, 35, 50, 70, 85, 105, 135, 200, 300];
+  const FOCALES = [9, 12, 16, 18, 24, 28, 35, 50, 70, 85, 105, 135, 200, 300, 400, 500, 600];
   const FONDS = [0.1, 0.3, 0.5, 1, 2, 3, 5, 10, 20, 50];
 
   const plusProche = (liste: number[], valeur: number) =>
@@ -329,7 +330,7 @@ const formats = FORMATS.map((f) => ({ id: f.id, nom: f.nom }));
     const X0 = 54;
     const X1 = 600;
     const MIN = 0.2;
-    const MAX = 80;
+    const MAX = 400;
     const enX = (metres: number) => {
       const borne = Math.min(Math.max(metres, MIN), MAX);
       const t = (Math.log(borne) - Math.log(MIN)) / (Math.log(MAX) - Math.log(MIN));
@@ -376,7 +377,7 @@ const formats = FORMATS.map((f) => ({ id: f.id, nom: f.nom }));
     // Graduations : sans repère chiffré, le dessin logarithmique tromperait.
     const graduations = q<SVGGElement>('[data-graduations]');
     if (!graduations.childNodes.length) {
-      for (const metres of [0.3, 1, 3, 10, 30]) {
+      for (const metres of [0.3, 1, 3, 10, 30, 100, 300]) {
         const x = enX(metres);
         graduations.insertAdjacentHTML(
           'beforeend',
