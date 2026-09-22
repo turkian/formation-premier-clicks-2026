@@ -20,6 +20,7 @@
  * Tout est calculé, rien n'est photographié : le composant fonctionne dès la
  * séance 1, avant qu'une seule image de démonstration existe.
  */
+import { Icon } from 'astro-icon/components';
 import { FORMATS } from '../../lib/profondeur-de-champ';
 import { typo } from '../../lib/typo';
 import '../../styles/interactif.css';
@@ -105,54 +106,85 @@ const formats = FORMATS.map((f) => ({ id: f.id, nom: f.nom }));
   </div>
 
   <div class="visuel">
-    <p class="etiquette-format">
-      Chiffres pour&nbsp;: <b data-nom-format></b>
-    </p>
+    <div class="ligne-format">
+      <p class="etiquette-format">
+        Chiffres pour&nbsp;: <b data-nom-format></b>
+      </p>
 
-    <svg class="scene-svg" viewBox="0 0 640 260" role="img" data-scene-pdc
-         aria-label="Vue de dessus : l'appareil, le sujet, la zone nette et l'arrière-plan">
-      <defs>
-        <linearGradient id="pdc-zone" x1="0" x2="1" y1="0" y2="0">
-          <stop offset="0" stop-color="var(--accent)" stop-opacity="0" />
-          <stop offset="0.5" stop-color="var(--accent)" stop-opacity="0.4" />
-          <stop offset="1" stop-color="var(--accent)" stop-opacity="0" />
-        </linearGradient>
-      </defs>
+      <div class="segments" role="group" aria-label="Vue">
+        <button type="button" data-vue="schema" aria-pressed="true">Schéma</button>
+        <button type="button" data-vue="apercu" aria-pressed="false">Aperçu</button>
+      </div>
+    </div>
 
-      <!-- Le sol, gradué : la scène est vue de dessus, donc les distances sont
-           lisibles telles quelles. -->
-      <g data-graduations></g>
-      <line x1="40" y1="196" x2="620" y2="196" stroke="var(--trait)" stroke-width="1" />
+    <div class="scene-conteneur">
+      <svg class="scene-svg" viewBox="0 0 640 260" role="img" data-scene-pdc
+           aria-label="Vue de dessus : l'appareil, le sujet, la zone nette et l'arrière-plan">
+        <defs>
+          <linearGradient id="pdc-zone" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0" stop-color="var(--accent)" stop-opacity="0" />
+            <stop offset="0.5" stop-color="var(--accent)" stop-opacity="0.4" />
+            <stop offset="1" stop-color="var(--accent)" stop-opacity="0" />
+          </linearGradient>
+        </defs>
 
-      <!-- La zone nette : sa largeur est l'épaisseur calculée, son centre suit
-           le point de mise au point. Deux choses distinctes, deux commandes. -->
-      <rect data-zone x="0" y="86" width="0" height="110" fill="url(#pdc-zone)" />
-      <line data-bord-proche y1="86" y2="196" stroke="var(--accent)" stroke-width="2" stroke-dasharray="4 3" />
-      <line data-bord-lointain y1="86" y2="196" stroke="var(--accent)" stroke-width="2" stroke-dasharray="4 3" />
+        <!-- Le sol, gradué : la scène est vue de dessus, donc les distances sont
+             lisibles telles quelles. -->
+        <g data-graduations></g>
+        <line x1="40" y1="196" x2="620" y2="196" stroke="var(--trait)" stroke-width="1" />
 
-      <!-- L'appareil -->
-      <g transform="translate(40,196)">
-        <rect x="-14" y="-24" width="28" height="20" rx="3" fill="var(--texte-2)" />
-        <rect x="-5" y="-30" width="10" height="7" rx="2" fill="var(--texte-2)" />
-        <text x="0" y="18" text-anchor="middle" font-size="12" fill="var(--texte-3)">vous</text>
-      </g>
+        <!-- La zone nette : sa largeur est l'épaisseur calculée, son centre suit
+             le point de mise au point. Deux choses distinctes, deux commandes. -->
+        <rect data-zone x="0" y="86" width="0" height="110" fill="url(#pdc-zone)" />
+        <line data-bord-proche y1="86" y2="196" stroke="var(--accent)" stroke-width="2" stroke-dasharray="4 3" />
+        <line data-bord-lointain y1="86" y2="196" stroke="var(--accent)" stroke-width="2" stroke-dasharray="4 3" />
 
-      <!-- L'arrière-plan : son flou est rendu par un filtre dont l'intensité
-           suit sa distance hors de la zone nette. -->
-      <g data-fond-groupe>
-        <rect data-fond-mur x="0" y="60" width="8" height="136" fill="var(--fond-4)" />
-        <text data-fond-texte y="52" text-anchor="middle" font-size="12" fill="var(--texte-3)">fond</text>
-      </g>
+        <!-- L'appareil -->
+        <g transform="translate(40,196)">
+          <rect x="-14" y="-24" width="28" height="20" rx="3" fill="var(--texte-2)" />
+          <rect x="-5" y="-30" width="10" height="7" rx="2" fill="var(--texte-2)" />
+          <text x="0" y="18" text-anchor="middle" font-size="12" fill="var(--texte-3)">vous</text>
+        </g>
 
-      <!-- Le sujet : le point de mise au point. Il ne bouge que lorsqu'on
-           change la distance de mise au point — jamais lorsqu'on ouvre ou
-           qu'on ferme. -->
-      <g data-sujet>
-        <circle cy="150" r="13" fill="var(--texte)" />
-        <rect y="163" x="-9" width="18" height="33" rx="6" fill="var(--texte)" />
-        <text y="234" text-anchor="middle" font-size="12" fill="var(--texte-2)">sujet</text>
-      </g>
-    </svg>
+        <!-- L'arrière-plan : son flou est rendu par un filtre dont l'intensité
+             suit sa distance hors de la zone nette. -->
+        <g data-fond-groupe>
+          <rect data-fond-mur x="0" y="60" width="8" height="136" fill="var(--fond-4)" />
+          <text data-fond-texte y="52" text-anchor="middle" font-size="12" fill="var(--texte-3)">fond</text>
+        </g>
+
+        <!-- Le sujet : le point de mise au point. Il ne bouge que lorsqu'on
+             change la distance de mise au point — jamais lorsqu'on ouvre ou
+             qu'on ferme. -->
+        <g data-sujet>
+          <circle cy="150" r="13" fill="var(--texte)" />
+          <rect y="163" x="-9" width="18" height="33" rx="6" fill="var(--texte)" />
+          <text y="234" text-anchor="middle" font-size="12" fill="var(--texte-2)">sujet</text>
+        </g>
+      </svg>
+
+      <!-- L'aperçu simulé : ce que la photo montrerait, pas où se trouvent les
+           choses. Composition fixe (voir design.md, décision 1) — seul le flou
+           de chaque plan est calculé, à partir des mêmes limites que le schéma
+           de dessus. -->
+      <svg class="scene-svg" viewBox="0 0 640 260" role="img" data-scene-pdc-apercu {...{ hidden: true }}
+           aria-label="Aperçu simulé de la photo : le sujet reste net ; l'arrière-plan et l'avant-plan sont nets ou flous selon la zone nette calculée ; chacun affiche sa distance à l'appareil">
+        <g data-fond-apercu>
+          <Icon name="lucide:trees" x={515} y={35} width={50} height={50} style="color: var(--texte-3)" />
+          <text data-fond-apercu-texte x="540" y="26" text-anchor="middle" font-size="12" fill="var(--texte-3)"></text>
+        </g>
+
+        <g data-sujet-apercu>
+          <Icon name="lucide:user-round" x={280} y={90} width={120} height={120} style="color: var(--texte)" />
+          <text data-sujet-apercu-texte x="340" y="226" text-anchor="middle" font-size="12" fill="var(--texte-2)"></text>
+        </g>
+
+        <g data-avant-plan>
+          <Icon name="lucide:leaf" x={35} y={135} width={190} height={190} style="color: var(--texte-2)" />
+          <text data-avant-plan-texte x="130" y="128" text-anchor="middle" font-size="12" fill="var(--texte-3)"></text>
+        </g>
+      </svg>
+    </div>
 
     <div class="lecture" aria-live="polite">
       <div class="chiffre" data-sortie="epaisseur"></div>
@@ -236,6 +268,31 @@ const formats = FORMATS.map((f) => ({ id: f.id, nom: f.nom }));
       rendre();
     });
 
+    /*
+     * Le bouton Schéma/Aperçu n'affecte que l'affichage : les deux SVGs
+     * partagent le même état et sont redessinés à chaque `input`, qu'ils
+     * soient visibles ou non (voir `rendre()`) — basculer ne peut donc
+     * jamais montrer une image périmée.
+     */
+    const svgSchema = racine.querySelector<HTMLElement>('[data-scene-pdc]')!;
+    const svgApercu = racine.querySelector<HTMLElement>('[data-scene-pdc-apercu]')!;
+    const bascule = racine.querySelector<HTMLElement>('.segments[aria-label="Vue"]')!;
+    bascule.addEventListener('click', (evenement) => {
+      const bouton = (evenement.target as HTMLElement).closest<HTMLButtonElement>('[data-vue]');
+      if (!bouton) return;
+      const vue = bouton.dataset.vue;
+      /*
+       * `.hidden = …` n'est pas fiable sur un `<svg>` : la propriété IDL n'y
+       * reflète pas toujours l'attribut de contenu. `toggleAttribute` agit
+       * directement sur l'attribut, sans cette ambiguïté.
+       */
+      svgSchema.toggleAttribute('hidden', vue !== 'schema');
+      svgApercu.toggleAttribute('hidden', vue !== 'apercu');
+      for (const b of bascule.querySelectorAll<HTMLButtonElement>('[data-vue]')) {
+        b.setAttribute('aria-pressed', String(b.dataset.vue === vue));
+      }
+    });
+
     function rendre() {
       const f = trouverFormat(etat.format);
       const focale = FOCALES[etat.iFocale]!;
@@ -308,7 +365,13 @@ const formats = FORMATS.map((f) => ({ id: f.id, nom: f.nom }));
             `Net de ${distanceLisible(r.proche)} à ${distanceLisible(r.lointaine)}. Hyperfocale à ${distanceLisible(r.hyperfocale)}.`,
           );
 
-      dessiner(racine, distance, fond, r);
+      /*
+       * Les deux vues sont toujours redessinées, qu'elles soient visibles ou
+       * non : basculer l'affichage ne déclenche jamais de recalcul, et ne
+       * peut donc jamais montrer une image périmée (design.md, décision 2).
+       */
+      const flouFond = dessiner(racine, distance, fond, r);
+      dessinerApercu(racine, distance, fond, r, flouFond);
     }
 
     rendre();
@@ -326,7 +389,7 @@ const formats = FORMATS.map((f) => ({ id: f.id, nom: f.nom }));
     distance: number,
     fond: number,
     r: { proche: number; lointaine: number; jusquALInfini: boolean },
-  ) {
+  ): number {
     const X0 = 54;
     const X1 = 600;
     const MIN = 0.2;
@@ -388,5 +451,49 @@ const formats = FORMATS.map((f) => ({ id: f.id, nom: f.nom }));
         );
       }
     }
+
+    return flou;
+  }
+
+  /**
+   * L'aperçu simulé : une composition fixe, pas une scène à l'échelle (voir
+   * design.md, décision 1). Seul le flou de chaque plan est calculé.
+   *
+   * Le fond réutilise `flouFond`, déjà calculé par `dessiner()` pour le mur du
+   * schéma de dessus — les deux vues montrent donc littéralement le même
+   * nombre, jamais deux calculs qui pourraient diverger.
+   *
+   * L'avant-plan applique la même forme de calcul que le fond, mais côté
+   * proche de la zone nette : sa position fixe (`distance * 0.4`) ne dépend
+   * d'aucun levier, seule sa netteté en dépend (design.md, décision 4).
+   *
+   * Les trois étiquettes de distance sont mesurées depuis l'appareil, comme
+   * partout ailleurs dans le composant (design.md, décision 6) — aucun
+   * nouveau calcul, seulement de nouveaux textes pour des valeurs déjà
+   * connues.
+   */
+  function dessinerApercu(
+    racine: HTMLElement,
+    distance: number,
+    fond: number,
+    r: { proche: number; lointaine: number; jusquALInfini: boolean },
+    flouFond: number,
+  ) {
+    const q = <T extends Element>(sel: string) => racine.querySelector<T>(sel)!;
+
+    const fondGroupe = q<SVGGElement>('[data-fond-apercu]');
+    fondGroupe.style.filter = flouFond > 0.05 ? `blur(${flouFond.toFixed(2)}px)` : 'none';
+    fondGroupe.style.opacity = String(1 - Math.min(0.45, flouFond / 14));
+    q<SVGTextElement>('[data-fond-apercu-texte]').textContent = typo(distanceLisible(distance + fond));
+
+    q<SVGTextElement>('[data-sujet-apercu-texte]').textContent = typo(distanceLisible(distance));
+
+    const distanceAvantPlan = distance * 0.4;
+    const dehorsAvant = Math.max(0, r.proche - distanceAvantPlan);
+    const flouAvant = Math.min(6, Math.sqrt(dehorsAvant) * 1.9);
+    const avantPlan = q<SVGGElement>('[data-avant-plan]');
+    avantPlan.style.filter = flouAvant > 0.05 ? `blur(${flouAvant.toFixed(2)}px)` : 'none';
+    avantPlan.style.opacity = String(1 - Math.min(0.45, flouAvant / 14));
+    q<SVGTextElement>('[data-avant-plan-texte]').textContent = typo(distanceLisible(distanceAvantPlan));
   }
 </script>

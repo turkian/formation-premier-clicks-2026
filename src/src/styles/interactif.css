@@ -249,6 +249,17 @@
   font-variant-numeric: tabular-nums;
 }
 
+/* La rangée qui porte le format affiché et la bascule Schéma/Aperçu : le
+   format reste à gauche, la bascule se cale à droite plutôt que d'occuper sa
+   propre ligne au-dessus des SVGs. */
+.ligne-format {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--pas);
+}
+
 /* Le format décrit par les chiffres affichés est toujours visible : dans une
    salle où les appareils diffèrent, un chiffre sans son format est trompeur. */
 .etiquette-format {
@@ -260,7 +271,6 @@
   border: 1px solid var(--trait-fort);
   border-radius: 999px;
   padding: 0.2em 0.8em;
-  justify-self: start;
 }
 .etiquette-format b { color: var(--accent); }
 
@@ -272,11 +282,31 @@
   background: var(--fond-2);
   border: 1px solid var(--trait);
 }
+/* `base.css` remet `svg { display: block }` pour tout le site — une règle
+   d'origine « auteur » qui l'emporte sur le `[hidden] { display: none }` du
+   navigateur quel que soit l'ordre ou la spécificité (les deux sont des
+   déclarations normales, mais l'origine auteur gagne toujours sur l'origine
+   agent utilisateur). Sans ce correctif, un `<svg hidden>` resterait visible. */
+.scene-svg[hidden] { display: none; }
+
+/* ── Le conteneur de scène du simulateur de profondeur de champ ──────────────
+   Les deux SVGs (schéma de dessus, aperçu simulé) partagent l'unique ligne :
+   seul celui qui n'est pas `hidden` y prend de la place. La bascule
+   Schéma/Aperçu vit désormais dans `.ligne-format`, pas ici. */
+.scene-conteneur {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr);
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+.scene-conteneur .scene-svg { grid-row: 1; grid-column: 1; }
 
 @media (max-width: 60rem) {
   .composant .visuel { grid-template-rows: auto auto auto; overflow: visible; height: auto; }
   .composant .commandes { overflow: visible; }
   .scene-svg { height: auto; }
+  .scene-conteneur { grid-template-rows: auto; overflow: visible; }
 }
 
 /* ── Compaction pour un projecteur peu haut ───────────────────────────────
