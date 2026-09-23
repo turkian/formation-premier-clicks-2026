@@ -5,7 +5,7 @@ par fabricant, et les fiches de référence à imprimer.
 
 Site en ligne : <https://turkian.github.io/formation-premier-clicks-2026/>
 
-La racine du projet Astro est ce dossier `src/`.
+La racine du projet Astro est le dossier `src/`.
 
 ## Au quotidien
 
