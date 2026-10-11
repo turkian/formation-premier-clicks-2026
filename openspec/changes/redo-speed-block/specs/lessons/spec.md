@@ -170,3 +170,21 @@ needs.
 
 - **WHEN** a card shows a speed of a quarter of a second or slower
 - **THEN** it states that the camera is on a tripod or resting on a surface
+
+### Requirement: The two-blurs screen gives the hand-held limit and the tripod's role
+
+The screen that distinguishes subject blur from camera shake SHALL state the hand-held rule of
+thumb — a shutter speed of at least one over the focal length — with at least one worked
+example, and SHALL say that below it the photographer braces the camera or uses a tripod. It
+SHALL state that a tripod removes camera shake but not subject blur.
+
+#### Scenario: A participant checks whether they can shoot hand-held
+
+- **WHEN** the two-blurs screen is displayed
+- **THEN** the rule « au moins `1/focale` » is visible in a rule box with a worked example
+- **AND** the screen says what to do below that speed
+
+#### Scenario: The tripod is presented
+
+- **WHEN** the two-blurs screen's aside is read
+- **THEN** it states that a tripod removes the photographer's shake, never the subject's

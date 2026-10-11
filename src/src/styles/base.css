@@ -31,7 +31,10 @@ body {
   font-size: var(--t-corps);
   line-height: var(--interligne-corps);
   font-weight: var(--graisse-corps);
-  font-variant-numeric: tabular-nums;
+  /* Pas de chiffres tabulaires pour tout le texte : dans Inter, la fonction
+     élargit aussi le trait d'union, qui sert de signe moins dans les nombres —
+     « appuyez-vous » s'affichait comme « appuyez - vous ». Les lectures
+     chiffrées qui doivent s'aligner les activent elles-mêmes. */
   /* Le français serré : pas de coupure automatique agressive, les mots restent
      entiers, et les espaces insécables placées par `typo.ts` font leur travail. */
   hyphens: none;
@@ -91,6 +94,10 @@ code, kbd, .chemin {
   font-family: ui-monospace, 'SFMono-Regular', 'Cascadia Mono', Menlo, Consolas, monospace;
   font-size: 0.9em;
 }
+
+/* Une valeur courte (`1/50 s`, `f/5.6`) ne se coupe pas entre le nombre et son
+   unité — la classe est posée au rendu par `remark-typo.mjs`. */
+code.valeur { white-space: nowrap; }
 
 table {
   border-collapse: collapse;

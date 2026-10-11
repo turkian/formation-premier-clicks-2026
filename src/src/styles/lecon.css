@@ -32,6 +32,9 @@
   min-width: 0;
 }
 
+/* Le compteur « 12 / 44 » garde sa largeur d'un écran à l'autre. */
+.navigation { font-variant-numeric: tabular-nums; }
+
 .barre .position {
   flex: 0 0 auto;
   font-weight: var(--graisse-appui);

@@ -236,9 +236,15 @@ blocs:
           |---|---|---|
           | Seul le sujet est flou, **le décor est net** | le sujet | montez la vitesse, ou passez en `AF-C` |
           | **Toute l'image** est floue, dans le même sens | vous | montez la vitesse, calez vos coudes |
+        encadre: |
+          **À main levée, la règle du pouce : au moins `1/focale`.** À 50 mm, `1/50 s` ; à
+          200 mm, `1/200 s`. Plus lent, appuyez-vous, ou posez l'appareil sur un trépied.
+        ton: regle
+        icone: lucide:ruler
         aparte: |
-          Ce qui vous stabilise : votre posture, la focale — plus c'est long, plus ça tremble —,
-          la stabilisation du boîtier ou de l'objectif, et le trépied.
+          Le trépied supprime votre bougé, jamais celui du sujet. La stabilisation du boîtier ou
+          de l'objectif vous laisse descendre plus lent. Sur un capteur APS-C, comptez la focale
+          × 1,5 : à 50 mm, `1/80 s`.
 
       - id: deux-flous-en-images
         genre: demonstration
@@ -253,12 +259,6 @@ blocs:
             specification: Toute l'image floue dans le même sens · 1/8 s à main levée
             valeur: c'est la main qui a bougé — tout est flou
             priorite: essentiel
-
-      - id: explorer-le-mouvement
-        genre: interactif
-        titre: Explorer le mouvement
-        claim: Faites bouger le sujet seul, puis vous seul. Ce n'est pas le même flou.
-        composant: vitesse-et-mouvement
 
       - id: le-flou-choisi
         genre: demonstration

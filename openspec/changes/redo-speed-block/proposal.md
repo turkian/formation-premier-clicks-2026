@@ -32,8 +32,12 @@ the screen that introduced speed and ISO, and is no longer needed.
 - Recast `points-de-depart` as cards grouped under the two choices, figer and laisser voir le
   mouvement, with an « entre les deux » row between them, and widen it to twelve situations,
   including sports, fireworks and light trails.
-- Keep the other core screens (`deux-flous`, its demonstration, `explorer-le-mouvement`)
-  unchanged in content.
+- Add to `deux-flous` the hand-held rule of thumb, at least `1/focale`, and what the tripod is
+  for: it removes your shake, never the subject's.
+- Remove `explorer-le-mouvement`: the two blurs, their correction and its presets are now
+  covered by `deux-flous`, its photographs, `points-de-depart` and the three exercises. The
+  `vitesse-et-mouvement` component stays in the code, unused.
+- Keep `deux-flous-en-images` unchanged in content.
 - Out of scope, left to the coming ISO redo: manual mode with ISO auto, and exposure
   compensation in `M` when ISO auto is on (which today contradicts « La question qui prouve »).
   The ISO block is not touched.
@@ -62,7 +66,7 @@ None.
 - `src/src/components/interactifs/Obturateur.astro` (new) and `registre.ts`.
 - Shot list: five new demonstration slots (three street speeds, light trails, intentional camera
   movement) plus panning, on top of the two speed slots still missing.
-- Session 2 grows by four screens net; it is already well past the spec's approximately
+- Session 2 grows by three screens net; it is already well past the spec's approximately
   eighteen screens. Cuts are deferred to a later pass.
 - `npm run verifier:contenu`, `npm run verifier` and `npm run verifier:liens` must still pass
   (no animateur-facing text, sessions named by rank, no `soir`, nothing overflowing at

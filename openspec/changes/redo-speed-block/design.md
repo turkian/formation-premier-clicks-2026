@@ -21,8 +21,7 @@ necessary in the smallest type size, everything visible at 1024 × 768 and 16:9.
 **Non-Goals:**
 - Anything about ISO beyond leaving ISO auto on: no « regardez votre ISO », no M + ISO auto, no
   compensation. The ISO block is redone next and will pick these up.
-- Rewriting `deux-flous`, `deux-flous-en-images` or
-  `explorer-le-mouvement`.
+- Rewriting `deux-flous-en-images`.
 - The rolling-shutter distortion of an electronic shutter, or flash sync. The note on electronic shutters stays one sentence.
 - Cutting screens elsewhere in session 2 to make room (deferred, see Risks).
 
@@ -39,12 +38,16 @@ vitesse
  3  la-decision             panneau            two choices in columns, a photograph under each
  4  trois-vitesses          demonstration      series: one street, 1/500 · 1/30 · 1/2 s
  5  points-de-depart        panneau            ten situations as cards, grouped by choice
- 6  deux-flous              panneau            unchanged
+ 6  deux-flous              panneau            table kept; adds the 1/focale rule and the tripod
  7  deux-flous-en-images    demonstration      unchanged
- 8  explorer-le-mouvement   interactif         unchanged
- 9  le-flou-choisi          demonstration      images: light trails · ICM · panning
-10  les-trainees            appareil-en-main   ex. 2 · camera still, the light moves
-11  le-flou-voulu           appareil-en-main   ex. 3 · the scene still, the camera moves
+ 8  le-flou-choisi          demonstration      images: light trails · ICM · panning
+ 9  les-trainees            appareil-en-main   ex. 2 · camera still, the light moves
+10  le-flou-voulu           appareil-en-main   ex. 3 · the scene still, the camera moves
+
+`explorer-le-mouvement` (the `vitesse-et-mouvement` interactive) is removed: each thing it showed
+is now on another screen — the two blurs in `deux-flous` and its photographs, the correction in
+the table, its presets in the `points-de-depart` cards, and the feel of each speed in the three
+exercises. The component stays registered, unused.
 ```
 
 `trois-vitesses` goes right after `la-decision` so that « figer, ou laisser voir » is seen at once,
@@ -87,6 +90,15 @@ support on a line of its own (« sur trépied », « appareil posé », « appar
 titles sit in a narrow column left of their cards so three rows fit at 4:3; the grid has as
 many columns as the largest group, so a short row keeps the same card width. Concept panels
 gain an optional `cartes` field for this: groups, each a title and icon over its cards.
+
+### D1d. The hand-held rule and the tripod
+
+`deux-flous` keeps its table and gains a rule box (`ton: regle`): « À main levée, la règle du
+pouce : au moins `1/focale` », with `50 mm` → `1/50 s` and `200 mm` → `1/200 s`, then « appuyez-
+vous, ou posez l'appareil sur un trépied » for anything slower. The aside says what the tripod
+does and does not fix — your shake, never the subject's, which is the screen's distinction — that
+stabilization lets you go slower, and that on an APS-C sensor the focal length is multiplied by
+1.5 first. It avoids stops, which are introduced later.
 
 ### D2. The exercise screen keeps its id
 
@@ -175,10 +187,10 @@ résultat est semblable. »
 
 ## Risks / Trade-offs
 
-- [Seven non-practice screens between ex. 1 and ex. 2 (positions 3 to 9)] → Accepted for now:
-  two of them are short demonstrations and one is the interactive. When session 2 is trimmed,
-  `points-de-depart` or `deux-flous-en-images` are the first candidates to merge or drop.
-- [Session 2 grows by four screens net, already far past the spec's about eighteen] → Accepted;
+- [Six non-practice screens between ex. 1 and ex. 2 (positions 3 to 8)] → Accepted for now:
+  three of them are short demonstrations. Removing `explorer-le-mouvement` already took one
+  out; if session 2 needs more trimming, `deux-flous-en-images` is the next candidate.
+- [Session 2 grows by three screens net, already far past the spec's about eighteen] → Accepted;
   the user will trim in a later pass.
 - [Light trails need a dim room; a lit room overexposes at 1 s even at the smallest aperture] →
   The screen shows dimming as a stage direction; ex. 3 works with the lights on.
