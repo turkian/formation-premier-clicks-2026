@@ -19,3 +19,14 @@
 - [x] 3.2 Run `npm run verifier:contenu` and verify all checks pass, including the one that keeps screens from addressing the animateur and the rank-based naming of sessions
 - [x] 3.3 Run `npm run verifier` and verify no screen of the new block overflows at 1024 × 768 or 16:9
 - [x] 3.4 Run `openspec validate redo-session-2-recap --strict` and verify it reports the change as valid
+
+## 4. Revisions after review
+
+- [x] 4.1 Rewrite `rappel-budget` as a stacked panel: aperture as the opening that lets light in, a subtitle on more and less light, and the light variant with one simulated photograph per opening (`photos`, `l2-lumiere-*.jpg`); remove the focal-length caption; verify the four columns fit at 1024 × 768, 16:9 and phone width
+- [x] 4.2 Add stacked panels (`disposition: empilee`, implicit for a diagram without a body); verify the order is claim, body, diagram at every width
+- [x] 4.3 Rewrite `un-prix` around the depth of field (sharp zone in front of and behind the subject), replace the automatic-mode callout with aperture setting brightness and rendering, and add `arrierePlan` to `zone-nette`; verify session 1's `zone-nette` panels do not draw the background
+- [x] 4.4 Add `rappel-mise-au-point` (focus chooses where, `AF-S` / `AF-C`, distance and the sharp zone) with `zones` on `distance-sujet`; verify session 1's withheld-answer panel still shows distances only
+- [x] 4.5 Rewrite `rappel-leviers` as four levers to build an image, in order of choice, with aperture last; verify lever 4 is not described as changing the depth of the sharp zone
+- [x] 4.6 Replace the intro screen with `deux-nouveaux-leviers` (renamed from `la-question`): speed and ISO as two `colonnes` cards; verify no internal link pointed to the old id
+- [x] 4.7 Run `npm run verifier:contenu`, `npm run verifier` on a build with session 2 enabled, and `npm run verifier:liens`; verify no new failure
+- [x] 4.8 Update the change's proposal, design and delta specs to match, and run `openspec validate redo-session-2-recap --strict`

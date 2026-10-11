@@ -13,7 +13,7 @@ to every variant of the diagram.
 
 #### Scenario: Four openings side by side
 
-- **WHEN** the diagram shows `f/2`, `f/4`, `f/8` and `f/16` for the same focal length
+- **WHEN** the diagram shows `f/2.8`, `f/4`, `f/5.6` and `f/8` for the same focal length
 - **THEN** the discs are drawn on one shared scale, from the largest to the smallest
 - **AND** each disc is labelled with its `f`-number
 
@@ -21,13 +21,14 @@ to every variant of the diagram.
 
 A light-focused variant of the aperture diagram SHALL convey only that a larger opening admits more
 light and a smaller opening admits less. It SHALL NOT display numeric ratios, stops or exposure
-values, and SHALL NOT display the diameter arithmetic.
+values, and SHALL NOT display the diameter arithmetic or the focal length.
 
-#### Scenario: The recap shows the openings as a light budget
+#### Scenario: The recap shows the openings as a quantity of light
 
 - **WHEN** the light-focused variant is displayed
 - **THEN** an axis states which end admits more light and which end admits less
-- **AND** no ratio, stop count or division such as `50 ÷ 2` appears anywhere in the diagram
+- **AND** no ratio, stop count, focal length or division such as `50 ÷ 2` appears anywhere in the
+  diagram
 
 ### Requirement: The light-focused variant states the direction of the `f`-number
 
@@ -38,7 +39,30 @@ opening, so a participant does not have to recall the direction from the spoken 
 
 - **WHEN** the light-focused variant is displayed
 - **THEN** the diagram states that a small `f`-number means a large opening
-- **AND** the statement is readable at the projection body size, not the smallest size
+- **AND** the statement and the light axis are readable at the projection body size, not the
+  smallest size, at every projection width
+
+### Requirement: The light-focused variant can show the light each opening admits
+
+The light-focused variant MAY show, under each disc, one image of the same scene exposed as that
+opening would expose it, all other settings being equal. Each image SHALL be paired with its own
+opening whatever order the openings are listed in, and the images SHALL differ only in exposure.
+Asking for images outside the light-focused variant, or for a number of images different from the
+number of openings, SHALL fail the build. A missing image SHALL show a placeholder naming it,
+never a broken image.
+
+#### Scenario: Four openings with their simulated photographs
+
+- **WHEN** the light-focused variant is displayed with one image per opening
+- **THEN** each disc has its image directly beneath it
+- **AND** the image under the largest opening is the brightest and the one under the smallest
+  opening is the darkest
+
+#### Scenario: An image is not yet in the project
+
+- **WHEN** an image named by the diagram is absent
+- **THEN** its place shows a placeholder with the image's name
+- **AND** the rest of the diagram renders normally
 
 ### Requirement: Existing uses of the aperture diagram keep their rendering
 
@@ -48,3 +72,8 @@ Adding a variant SHALL NOT change how the diagram renders when no variant is req
 
 - **WHEN** a panel uses the aperture diagram without requesting a variant
 - **THEN** it renders the diameter arithmetic under each disc, as before
+
+#### Scenario: An unknown variant is requested
+
+- **WHEN** a panel requests a variant the diagram does not define
+- **THEN** the build fails and names the known variants
