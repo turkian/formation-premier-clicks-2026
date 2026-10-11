@@ -1,0 +1,130 @@
+# Séance 2 — onze exercices de pratique autonome, un par notion nouvelle de la
+# séance (la vitesse et les deux flous, l'ISO et le bruit, `M` avec l'ISO auto,
+# la compensation d'exposition). Le rappel de la séance 1 n'en a pas : ce n'est
+# pas du contenu nouveau. L'ordre suit la leçon — vitesse, ISO, `+/−` — pour la
+# lecture, sans rien imposer.
+#
+# Contrairement aux gestes de la leçon, chacun se fait seul : pas de voisin, pas
+# de salle tamisée, seulement ce qu'on trouve chez soi ou dans la rue. Presque
+# tous portent une note « cellulaire » : un téléphone n'expose la vitesse et
+# l'ISO que dans un mode `Pro`. Les deux exercices de compensation n'en ont
+# pas — le téléphone la fait d'un glissement de doigt.
+
+numero: 2
+titre: L'exposition
+
+exercices:
+  # ── La vitesse ─────────────────────────────────────────────────────────────
+  - id: figer-ou-laisser-voir
+    titre: L'eau du robinet, figée puis filée
+    consigne: >-
+      Ouvrez un robinet, près d'une fenêtre ou sous une bonne lumière. En mode `S` — ou `Tv` sur
+      un Canon, section 1 de votre feuille de marque —, photographiez l'eau à `1/1000 s`, puis à
+      `1/60 s`, puis à `1/4 s`, l'appareil appuyé sur le comptoir. Où les gouttes
+      deviennent-elles un filet ?
+    cellulaire: >-
+      Cherchez la vitesse dans le mode `Pro` ou `Expert` de votre application. Sinon, une photo
+      normale en bonne lumière fige l'eau, et une Live Photo en Pose longue la rend soyeuse.
+
+  - id: qui-a-bouge
+    titre: Le sujet a bougé, ou c'est vous
+    consigne: >-
+      À `1/8 s`, l'appareil posé sur une table, photographiez quelque chose qui bouge : un
+      ventilateur, une rue, votre main. Puis, toujours à `1/8 s` mais à main levée, photographiez
+      une scène immobile. Sur chacune, regardez le décor : net ou flou ? C'est lui qui vous dit
+      qui a bougé.
+    cellulaire: >-
+      Il faut le mode `Pro` pour choisir `1/8 s`. Sans lui, faites ces deux photos dans une pièce
+      sombre : votre téléphone choisira de lui-même une vitesse lente.
+
+  - id: votre-vitesse-limite
+    titre: Votre vitesse limite, à main levée
+    consigne: >-
+      Visez une scène immobile avec du détail, à main levée. Partez de `1/focale` — à 50 mm,
+      `1/50 s` —, puis ralentissez d'un cran à chaque photo : `1/25`, `1/15`, `1/8`… Agrandissez
+      chaque photo sur l'écran : à partir de laquelle n'est-elle plus nette ? C'est votre
+      limite, pas celle de la règle.
+    cellulaire: >-
+      Dans le mode `Pro`, essayez `1/30`, `1/15`, `1/8` et `1/4 s`. La stabilisation du téléphone
+      vous laissera sans doute descendre plus lent qu'un appareil.
+
+  - id: dessiner-la-lumiere
+    titre: Dessiner avec la lumière
+    consigne: >-
+      Dans une pièce plongée dans le noir, posez l'appareil, réglez `2 s` en mode `S` et le
+      retardateur de 10 secondes. Déclenchez, placez-vous devant l'objectif et dessinez une forme
+      dans l'air avec une lampe de poche pendant la pose. La nuit, à une fenêtre, faites la même
+      chose avec les phares des voitures, à `10 s`.
+    cellulaire: >-
+      Sur un iPhone, une Live Photo en Pose longue ; sur Android, un mode pose longue ou light
+      painting. Le téléphone sert d'appareil : dessinez avec une autre lampe.
+
+  - id: le-flou-voulu
+    titre: Bouger l'appareil, exprès
+    consigne: >-
+      À `1/4 s`, visez quelque chose de coloré : des lumières, une étagère, des arbres.
+      Commencez à bouger l'appareil, puis déclenchez, et continuez le geste jusqu'à la fin de la
+      pose — de haut en bas, puis en tournant. Recommencez à `1/2 s`.
+    cellulaire: >-
+      Le mode `Pro` avec une vitesse lente, ou une Live Photo en Pose longue, en bougeant le
+      téléphone pendant la prise.
+
+  - id: le-file
+    titre: Suivre un sujet qui passe
+    consigne: >-
+      Au bord d'une rue, à `1/30 s` et en `AF-C` — section 2 de votre feuille de marque —, suivez
+      une voiture ou un cycliste qui passe. Déclenchez en le suivant, et continuez à le suivre
+      après le déclic. Le sujet net sur un fond étiré vient rarement du premier coup : faites-en
+      dix.
+    cellulaire: >-
+      Réglez `1/30 s` dans le mode `Pro`. Sans lui, le téléphone choisit une vitesse trop rapide
+      en plein jour, et le fond ne file pas.
+
+  # ── L'ISO ──────────────────────────────────────────────────────────────────
+  - id: l-iso-eclaircit
+    titre: Monter le volume
+    consigne: >-
+      Dans une pièce peu éclairée, passez en mode `M` (section 1) : `f/5.6` et `1/125 s`. Coupez
+      l'ISO auto (section 3) et photographiez la même scène à 100, à 800, puis à 6400 ISO. Seul
+      l'ISO change : regardez la photo s'éclaircir. Remettez l'ISO auto à la fin.
+    cellulaire: >-
+      Dans le mode `Pro`, fixez la vitesse si l'application le permet, et glissez l'ISO du plus
+      bas au plus haut.
+
+  - id: ne-sous-exposez-pas
+    titre: D'où vient le bruit
+    consigne: >-
+      Dans la même pièce peu éclairée, en mode `M` à `f/5.6` et `1/125 s`, faites une photo
+      bien exposée, en montant l'ISO autant qu'il le faut. Puis la même à 400 ISO : elle sort
+      sombre. Éclaircissez-la après coup, au téléphone ou à l'ordinateur. Agrandissez les deux
+      dans un coin sombre : laquelle est la plus bruitée ?
+    cellulaire: >-
+      Dans le mode `Pro`, ISO haut puis ISO bas, à la même vitesse. Sans mode `Pro`, comparez une
+      photo normale à une photo assombrie en glissant le doigt, puis éclaircie dans l'édition.
+
+  - id: m-et-iso-auto
+    titre: Vous choisissez deux réglages, l'appareil le troisième
+    consigne: >-
+      Trouvez un sujet qui bouge : un animal, un enfant, une rue. Décidez d'abord ce qui compte —
+      la zone nette ou le mouvement. En mode `M` avec l'ISO auto, réglez l'ouverture et la
+      vitesse qui le servent, puis photographiez. Lisez sur l'écran l'ISO que l'appareil a
+      choisi. Trop sombre ou trop clair ? Le bouton `+/−` (section 3).
+    cellulaire: >-
+      Il n'y a pas de mode `M` avec l'ISO auto au téléphone. Le plus proche : dans le mode `Pro`,
+      fixez la vitesse et laissez l'ISO en automatique.
+
+  # ── Plus clair ou plus sombre ──────────────────────────────────────────────
+  - id: le-blanc-et-le-noir
+    titre: Le blanc qui sort gris, le noir aussi
+    consigne: >-
+      Remplissez le cadre d'une feuille blanche et photographiez-la sans correction. Puis avec la
+      compensation d'exposition à `+1` — le `+/−`, section 3 de votre feuille de marque. Faites
+      la même chose avec un objet noir, à `0` puis à `−1`. Lequel ressemble à la vraie couleur ?
+
+  - id: le-contre-jour
+    titre: Une silhouette devant la fenêtre
+    consigne: >-
+      Placez un objet — une plante, un vase, une personne — devant une fenêtre lumineuse, et
+      photographiez-le sans correction : il devient une silhouette. Refaites la photo avec la
+      compensation à `+1`, puis à `+2`. À partir de quand voit-on ses détails, et que devient
+      la fenêtre ?
