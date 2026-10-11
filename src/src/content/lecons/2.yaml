@@ -9,7 +9,7 @@ numero: 2
 titre: L'exposition
 filConducteur: La durée → la sensibilité → plus clair ou plus sombre
 question: comment obtenir une photo bien exposée, même quand la lumière ne s'y prête pas ?
-pret: false
+pret: true
 
 blocs:
   # ─────────────────────────────────────────────────────────────────────────
