@@ -194,9 +194,9 @@ display its distance from the camera as text.
 
 The site SHALL additionally provide interactive components for: shutter speed and motion,
 distinguishing subject movement from camera shake as two separately controllable blurs; ISO and
-noise, presenting the trade-off as a judgement rather than a scale alone; the mode dial, showing
-which of aperture and shutter the photographer retains and whether exposure compensation has any
-effect; and the « ma photo est ratée » diagnostic tree.
+noise, modelling the light collected and the ISO separately; the mode dial, showing which of
+aperture, shutter and ISO the photographer retains and what exposure compensation acts on; and
+the « ma photo est ratée » diagnostic tree.
 
 #### Scenario: The essential blur distinction is demonstrated
 
@@ -204,10 +204,16 @@ effect; and the « ma photo est ratée » diagnostic tree.
 - **THEN** only the subject is blurred and the rest of the frame stays sharp
 - **AND** raising camera shake with subject movement at zero blurs the whole frame instead
 
+#### Scenario: Manual mode is selected on the mode dial component with ISO auto
+
+- **WHEN** manual mode is selected with ISO auto on
+- **THEN** both aperture and shutter are attributed to the photographer and the ISO to the camera
+- **AND** the exposure compensation control is shown as acting on the ISO
+
 #### Scenario: Manual mode is selected on the mode dial component
 
-- **WHEN** manual mode is selected
-- **THEN** both aperture and shutter are attributed to the photographer
+- **WHEN** manual mode is selected with ISO auto off
+- **THEN** aperture, shutter and ISO are all attributed to the photographer
 - **AND** the exposure compensation control is shown as having no effect, with the reason stated
 
 #### Scenario: A participant walks the diagnostic tree
@@ -263,3 +269,55 @@ which the whole sensor is uncovered and one at which only a slit is.
 - **WHEN** the release is played
 - **THEN** the component states that it is slowed down and by how much
 - **AND** the selected shutter speed is readable from the back of the room
+
+### Requirement: The digital ISO chain is shown as a whole
+
+The site SHALL provide an interactive component that draws the path from light to a digital
+image as four labelled stations, all visible at once: light filling the sensor, a weak analog
+signal carrying its noise, the amplification set by the ISO, and the conversion to numbers
+producing the image. Its only control SHALL be the ISO, which changes the amplification; the
+component SHALL show that the signal and its noise are amplified together while the light
+collected does not change. The component SHALL be drawn, never photographed.
+
+#### Scenario: The component is displayed
+
+- **WHEN** the sensor chain component is displayed
+- **THEN** the light collected, the analog signal, the amplification and the conversion to
+  numbers are all shown, in that order, each labelled
+- **AND** the ISO control is usable immediately, with no step to reach first
+
+#### Scenario: The ISO is raised
+
+- **WHEN** the ISO control is raised
+- **THEN** the amplified signal and its noise both grow, and the resulting image becomes brighter
+  with more visible noise
+- **AND** the light collected shown on the first station stays the same
+
+### Requirement: ISO and noise are modelled from the light collected
+
+The ISO and noise component SHALL take two inputs: the light collected and the ISO. The
+visible noise SHALL depend on the light collected, and the brightness on the light collected and
+the ISO together. The component SHALL show when the image is correctly exposed, and SHALL make
+it possible to see that, for a given light collected, lowering the ISO darkens the image without
+making it cleaner.
+
+#### Scenario: Little light, low ISO
+
+- **WHEN** the light collected is low and the ISO is low
+- **THEN** the image is shown too dark
+- **AND** the component does not present it as cleaner than the same light at a correct ISO
+
+#### Scenario: Little light, correct ISO
+
+- **WHEN** the light collected is low and the ISO brings the image to a correct exposure
+- **THEN** the image is shown correctly exposed, with visible noise
+
+#### Scenario: Plenty of light
+
+- **WHEN** the light collected is high and the ISO brings the image to a correct exposure
+- **THEN** the image is shown correctly exposed and clean
+
+#### Scenario: Too much amplification
+
+- **WHEN** the ISO is raised past a correct exposure
+- **THEN** the image is shown too bright
