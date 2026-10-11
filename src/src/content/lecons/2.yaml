@@ -15,19 +15,75 @@ blocs:
   # ─────────────────────────────────────────────────────────────────────────
   - id: retour
     titre: Retour sur la séance 1
-    resume: Les ratés d'abord — les miens.
+    resume: Vos photos d'abord, puis une seule histoire — de la lumière à l'ouverture.
     ecrans:
-      - id: mes-rates
+      - id: bilan
         genre: repere
         variante: ouverture
         titre: Retour
-        claim: Voici deux de mes photos manquées, et pourquoi elles ont raté.
+        claim: Avez-vous pris des photos depuis la séance 1 ? Qu'avez-vous appris ?
         corps: |
-          Qui a essayé le mode `A` depuis trois semaines ? Et qui a trouvé ça déroutant ?
+          Une photo réussie, une photo ratée, ou seulement quelque chose que vous avez remarqué
+          en regardant autour de vous : **tout compte**.
 
-          **Les difficultés sont de bonnes nouvelles** : ce sont les questions de cette séance.
-        aparte: |
-          Gardez votre carte dans l'appareil : vos photos serviront aux ateliers.
+      - id: rappel-budget
+        genre: panneau
+        titre: L'ouverture et la lumière
+        claim: L'ouverture, c'est le trou par lequel la lumière entre dans votre appareil.
+        corps: |
+          Plus l'ouverture est **grande**, plus il entre de lumière ; plus elle est **petite**,
+          moins il en entre.
+        disposition: empilee
+        schema:
+          composant: diametre-ouverture
+          props:
+            mode: lumiere
+            focale: 50
+            ouvertures: [2.8, 4, 5.6, 8]
+            photos: [l2-lumiere-f2-8, l2-lumiere-f4, l2-lumiere-f5-6, l2-lumiere-f8]
+          legende: Simulation — la même photo, avec la lumière que laisse entrer chaque trou.
+
+      - id: un-prix
+        genre: panneau
+        titre: La profondeur de champ
+        claim: L'ouverture change aussi la profondeur de champ.
+        corps: |
+          Devant et derrière votre sujet, une partie de l'image reste nette : c'est la
+          **profondeur de champ**. Hors de cette zone, l'image devient de plus en plus floue.
+
+          - **un grand trou** — une zone **mince** ;
+          - **un petit trou** — une zone **épaisse**.
+        schema:
+          composant: zone-nette
+          props:
+            arrierePlan: true
+        icone: lucide:sliders-horizontal
+        encadre: |
+          L'ouverture est un levier important : elle règle à la fois **la luminosité** de
+          votre photo et **son rendu**.
+
+      - id: rappel-leviers
+        genre: panneau
+        titre: Les quatre leviers
+        claim: L'ouverture est l'un des quatre leviers de la zone nette — le seul qui soit un réglage.
+        corps: |
+          Les trois autres ne coûtent rien en lumière : votre distance au sujet, la focale, et
+          la distance entre le sujet et le fond.
+
+          L'ouverture, elle, agit **à la fois sur la lumière et sur la zone nette**. C'est ce
+          double effet qui rend son choix important.
+        schema:
+          composant: quatre-leviers
+
+      - id: la-question
+        genre: repere
+        variante: transition
+        titre: La séance 2
+        claim: Qu'est-ce que mon appareil décide à ma place, et pourquoi ?
+        corps: |
+          - **La vitesse** — figer ce qui bouge, ou le laisser voir.
+          - **L'ISO** — quand la lumière vient à manquer.
+          - **Qui décide quoi** — ce que chaque mode vous laisse, et ce qu'il garde.
 
       - id: le-programme
         genre: panneau

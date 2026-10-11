@@ -7,14 +7,21 @@
  * dessin doit rendre visible — d'où le dégradé plutôt qu'un rectangle net : la
  * netteté ne s'arrête pas net, elle se dégrade progressivement.
  */
+import { Icon } from 'astro-icon/components';
 import Vous from './pieces/Vous.astro';
 
 interface Props {
   /** Proportion de la scène occupée par la zone nette, de 0 à 1. */
   epaisseur?: number;
   etiquette?: string;
+  /**
+   * Dessine un arrière-plan au fond de la scène, **hors** de la zone nette, et
+   * flouté : ce qui sort de la zone devient flou, quel qu'il soit. Absent, le
+   * schéma reste tel qu'avant.
+   */
+  arrierePlan?: boolean;
 }
-const { epaisseur = 0.28, etiquette = 'la zone nette' } = Astro.props;
+const { epaisseur = 0.28, etiquette = 'la zone nette', arrierePlan = false } = Astro.props;
 const largeur = Math.max(0.05, Math.min(0.9, epaisseur)) * 480;
 const x = 320 - largeur / 2;
 ---
@@ -30,6 +37,18 @@ const x = 320 - largeur / 2;
   </defs>
 
   <rect x={x} y="46" width={largeur} height="122" fill="url(#zn-degrade)" />
+
+  {arrierePlan && (
+    <g>
+      <filter id="zn-flou" x="-30%" y="-30%" width="160%" height="160%">
+        <feGaussianBlur stdDeviation="2.6" />
+      </filter>
+      <g filter="url(#zn-flou)" style="color: var(--texte-2)">
+        <Icon name="lucide:trees" x={538} y={92} width={76} height={76} />
+      </g>
+      <text x="576" y="196" text-anchor="middle" font-size="13" fill="var(--texte-2)">l'arrière-plan</text>
+    </g>
+  )}
   <line x1="60" y1="168" x2="620" y2="168" stroke="var(--trait)" />
 
   <Vous x={60} y={168} />

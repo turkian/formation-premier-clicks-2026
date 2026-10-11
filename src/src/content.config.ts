@@ -138,6 +138,12 @@ const ecranPanneau = baseEcran.extend({
   suite: z.string().optional(),
   /** États cumulatifs, dans l'ordre. Absent = panneau statique. */
   etats: z.array(etatPanneau).optional(),
+  /**
+   * `empilee` : énoncé, corps puis schéma, l'un sous l'autre sur toute la
+   * largeur — pour un schéma large que le corps ne fait qu'introduire en une
+   * phrase. Un panneau à schéma sans corps s'empile de lui-même.
+   */
+  disposition: z.enum(['empilee']).optional(),
 });
 
 /**

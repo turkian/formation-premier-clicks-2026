@@ -57,11 +57,19 @@ const schema = dense ? undefined : cumule.schema;
 /* Réservé au cas non-dense : une fois dense, la grille du panneau cumulatif
    régit déjà tout l'agencement, et ce data-attribut ne doit pas s'y ajouter. */
 const sansSchema = !dense && !schema;
+/* L'inverse : un schéma sans texte à côté — il prend alors toute la largeur
+   sous l'énoncé, au lieu d'une demi-colonne à côté d'un corps vide. */
+const sansCorps =
+  !dense && Boolean(schema) && corps.length === 0 && !encadre && !suite && ajouts.length === 0;
+/* Empilé : énoncé, corps, schéma, l'un sous l'autre — demandé par le contenu,
+   ou implicite quand il n'y a pas de corps à mettre à côté du schéma. */
+const empile = !dense && Boolean(schema) && (sansCorps || ecran.disposition === 'empilee');
 ---
 
 <div
   class="ecran panneau"
   data-sans-schema={sansSchema ? '' : undefined}
+  data-empile={empile ? '' : undefined}
   data-dense={dense ? '' : undefined}
   data-sans-encadres={undefined}
 >
@@ -69,7 +77,7 @@ const sansSchema = !dense && !schema;
     <h1 class="claim" set:html={claim} />
   </div>
 
-  <div class="region-corps corps">
+  {!sansCorps && <div class="region-corps corps">
     {corps.map((html) => <div set:html={html} />)}
     {encadre && (
       <div class="encadre" data-ton={ecran.ton}>
@@ -89,7 +97,7 @@ const sansSchema = !dense && !schema;
           )}
         </>
       ))}
-  </div>
+  </div>}
 
   {dense && (
     <div class="region-encadres corps">

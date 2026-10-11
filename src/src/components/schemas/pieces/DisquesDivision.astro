@@ -1,0 +1,36 @@
+---
+/**
+ * Le mode `division` du schéma `diametre-ouverture` : sous chaque disque, la
+ * division qui donne son diamètre. L'échelle vient de l'appelant.
+ */
+import { nombre } from '../../../lib/typo';
+
+interface Props {
+  focale: number;
+  disques: { ouverture: number; mm: number; cx: number; r: number }[];
+}
+const { focale, disques } = Astro.props;
+---
+<svg viewBox="0 0 640 230" role="img" style="width:100%;height:auto"
+     aria-label={`Le diamètre réel du trou d'un ${focale} mm, aux ouvertures comparées à la même échelle`}>
+  <text x="320" y="22" text-anchor="middle" font-size="15" fill="var(--texte-2)">
+    Un {focale} mm — la focale divisée par le chiffre
+  </text>
+  {disques.map((disque) => {
+    return (
+      <g>
+        <circle cx={disque.cx} cy="112" r={disque.r} fill="var(--accent)" fill-opacity="0.22"
+                stroke="var(--accent)" stroke-width="2" />
+        <text x={disque.cx} y="188" text-anchor="middle" font-size="16" font-weight="620" fill="var(--texte)">
+          f/{disque.ouverture}
+        </text>
+        <text x={disque.cx} y="208" text-anchor="middle" font-size="13" fill="var(--accent)">
+          {focale} ÷ {String(disque.ouverture).replace('.', ',')} = {nombre(disque.mm, disque.mm < 20 ? 1 : 0)} mm
+        </text>
+      </g>
+    );
+  })}
+  <text x="320" y="226" text-anchor="middle" font-size="12" fill="var(--trait-fort)">
+    Les disques sont à la même échelle.
+  </text>
+</svg>

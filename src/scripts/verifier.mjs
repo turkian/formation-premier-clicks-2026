@@ -15,6 +15,7 @@
  */
 import { chromium } from 'playwright';
 import { readdir } from 'node:fs/promises';
+import { availableParallelism } from 'node:os';
 import { servir } from './serveur.mjs';
 import { nombreDePages } from './pdf.mjs';
 
@@ -23,6 +24,10 @@ const TELEPHONE = { width: 390, height: 844 };
 const PROJECTION_43 = { width: 1024, height: 768 };
 const PROJECTION_169 = { width: 1280, height: 720 };
 const BUREAU = { width: 1600, height: 1200 };
+
+/** Pages ouvertes en même temps. `VERIFIER_CONCURRENCE=1` rend l'exécution séquentielle. */
+const CONCURRENCE =
+  Number(process.env.VERIFIER_CONCURRENCE) || Math.min(8, Math.max(2, availableParallelism() - 1));
 
 const echecs = [];
 const reussites = [];
@@ -43,6 +48,83 @@ async function pages(dossier = RACINE, prefixe = '/') {
     }
   }
   return trouvees.sort();
+}
+
+/**
+ * Un contexte de vérification. Le service travailleur est bloqué : il mettrait
+ * le site en cache à chaque nouveau contexte, ce qui ralentit tout sans rien
+ * mesurer — le hors-ligne a sa propre vérification (`verifier:hors-ligne`).
+ */
+const nouveauContexte = (navigateur, options = {}) =>
+  navigateur.newContext({ serviceWorkers: 'block', ...options });
+
+/**
+ * Applique `travail` à chaque élément, `n` à la fois. Les résultats reviennent
+ * dans l'ordre des éléments, pour que le rapport reste stable d'une exécution
+ * à l'autre malgré le parallélisme.
+ */
+async function enParallele(elements, travail, n = CONCURRENCE) {
+  const resultats = new Array(elements.length);
+  let suivant = 0;
+  const ouvrier = async (no) => {
+    while (suivant < elements.length) {
+      const i = suivant++;
+      resultats[i] = await travail(elements[i], no);
+    }
+  };
+  await Promise.all(Array.from({ length: Math.min(n, elements.length) }, (_, no) => ouvrier(no)));
+  return resultats;
+}
+
+/** Comme `enParallele`, chaque ouvrier disposant de sa propre page dans `contexte`. */
+async function surPages(contexte, chemins, travail) {
+  const onglets = await Promise.all(
+    Array.from({ length: Math.min(CONCURRENCE, chemins.length) }, () => contexte.newPage()),
+  );
+  try {
+    return await enParallele(chemins, (chemin, no) => travail(onglets[no], chemin));
+  } finally {
+    await Promise.all(onglets.map((o) => o.close()));
+  }
+}
+
+/**
+ * Le site est statique : l'événement `load` suffit, sans l'attente de 500 ms
+ * de silence réseau qu'impose `networkidle`. Restent les polices et les images
+ * paresseuses qu'un changement de taille fait entrer dans la fenêtre : on les
+ * attend avant de mesurer quoi que ce soit.
+ */
+async function charger(page, url) {
+  const reponse = await page.goto(url, { waitUntil: 'load' });
+  await stabiliser(page);
+  return reponse;
+}
+
+async function stabiliser(page) {
+  await page.evaluate(async () => {
+    await document.fonts.ready;
+    const visibles = [...document.images].filter((image) => {
+      if (image.complete) return false;
+      const b = image.getBoundingClientRect();
+      return b.bottom > 0 && b.right > 0 && b.top < innerHeight && b.left < innerWidth;
+    });
+    const chargee = (image) =>
+      new Promise((ok) => {
+        image.addEventListener('load', ok, { once: true });
+        image.addEventListener('error', ok, { once: true });
+      });
+    await Promise.race([
+      Promise.all(visibles.map(chargee)),
+      new Promise((ok) => setTimeout(ok, 3000)),
+    ]);
+    await new Promise((ok) => requestAnimationFrame(() => requestAnimationFrame(ok)));
+  });
+}
+
+/** Redimensionne la fenêtre, puis attend que la mise en page soit stable. */
+async function redimensionner(page, viewport) {
+  await page.setViewportSize(viewport);
+  await stabiliser(page);
 }
 
 /** Largeur de défilement excédentaire, en pixels. 0 = rien ne déborde. */
@@ -84,35 +166,46 @@ async function main() {
    développement et renvoie une 404 en production. On suit donc tous les liens
    internes de toutes les pages, contre le serveur qui reproduit le sous-chemin. */
 async function verifierLiens(navigateur, site, toutes) {
-  const page = await navigateur.newPage();
-  const vus = new Map();
+  const contexte = await nouveauContexte(navigateur);
 
-  for (const chemin of toutes) {
+  // D'abord relever les liens de chaque page…
+  const relevees = await surPages(contexte, toutes, async (page, chemin) => {
     const reponse = await page.goto(site.url(chemin), { waitUntil: 'domcontentloaded' });
-    verifier(reponse?.status() === 200, chemin, `la page répond ${reponse?.status()}`);
-
     const liens = await page.$$eval('a[href]', (as) => as.map((a) => a.getAttribute('href')));
-    for (const href of liens) {
+    return { statut: reponse?.status(), liens };
+  });
+
+  // …puis interroger chaque cible une seule fois, au premier endroit où elle paraît.
+  const cibles = new Map();
+  toutes.forEach((chemin, i) => {
+    for (const href of relevees[i].liens) {
       if (!href || /^(https?:|mailto:|#)/.test(href)) continue;
       const cible = new URL(href, site.url(chemin)).toString();
-      if (vus.has(cible)) continue;
-      const tete = await page.request.get(cible);
-      vus.set(cible, tete.status());
-      verifier(
-        tete.status() === 200,
-        chemin,
-        `le lien ${href} résout (${tete.status()}) sous le sous-chemin du dépôt`,
-      );
+      if (!cibles.has(cible)) cibles.set(cible, { chemin, href });
     }
-  }
-  await page.close();
+  });
+  const statuts = await enParallele([...cibles.keys()], async (cible) =>
+    (await contexte.request.get(cible)).status(),
+  );
+  const statutDe = new Map([...cibles.keys()].map((cible, i) => [cible, statuts[i]]));
+
+  toutes.forEach((chemin, i) => {
+    const { statut } = relevees[i];
+    verifier(statut === 200, chemin, `la page répond ${statut}`);
+    for (const [cible, origine] of cibles) {
+      if (origine.chemin !== chemin) continue;
+      const s = statutDe.get(cible);
+      verifier(s === 200, chemin, `le lien ${origine.href} résout (${s}) sous le sous-chemin du dépôt`);
+    }
+  });
+  await contexte.close();
 }
 
 /* ── Une fiche = une page Letter ─────────────────────────────────────────── */
 async function verifierImpression(navigateur, site, fiches) {
-  const page = await navigateur.newPage();
-  for (const chemin of fiches) {
-    await page.goto(site.url(chemin), { waitUntil: 'networkidle' });
+  const contexte = await nouveauContexte(navigateur);
+  const mesures = await surPages(contexte, fiches, async (page, chemin) => {
+    await charger(page, site.url(chemin));
 
     // `page.pdf()` rend en média « print » — sauf si une émulation est encore
     // active, auquel cas c'est elle qui gagne. On remet donc l'émulation à zéro
@@ -121,38 +214,44 @@ async function verifierImpression(navigateur, site, fiches) {
     await page.emulateMedia({ media: null });
     const pdf = await page.pdf({ format: 'Letter', printBackground: true });
     const n = nombreDePages(pdf);
-    verifier(n === 1, chemin, `s'imprime sur exactement une page Letter (obtenu : ${n})`);
 
     // Le mobilier de site ne doit pas survivre à l'impression.
     await page.emulateMedia({ media: 'print' });
     const mobilier = await page.$$eval('nav, .sans-impression, .saut-au-contenu', (elements) =>
       elements.filter((e) => getComputedStyle(e).display !== 'none').length,
     );
-    verifier(mobilier === 0, chemin, `n'imprime aucun mobilier de site (${mobilier} élément(s) visible(s))`);
-
     const attribution = await page.$$eval('.fiche-pied', (elements) =>
       elements.some((e) => (e.textContent ?? '').includes('club')),
     );
-    verifier(attribution, chemin, "conserve l'attribution du club à l'impression");
     await page.emulateMedia({ media: null });
-  }
-  await page.close();
+    return { n, mobilier, attribution };
+  });
+
+  fiches.forEach((chemin, i) => {
+    const { n, mobilier, attribution } = mesures[i];
+    verifier(n === 1, chemin, `s'imprime sur exactement une page Letter (obtenu : ${n})`);
+    verifier(mobilier === 0, chemin, `n'imprime aucun mobilier de site (${mobilier} élément(s) visible(s))`);
+    verifier(attribution, chemin, "conserve l'attribution du club à l'impression");
+  });
+  await contexte.close();
 }
 
 /* ── Rien ne défile horizontalement sur un téléphone ──────────────────────── */
 async function verifierTelephone(navigateur, site, toutes) {
-  const contexte = await navigateur.newContext({
+  const contexte = await nouveauContexte(navigateur, {
     viewport: TELEPHONE,
     deviceScaleFactor: 3,
     isMobile: true,
     hasTouch: true,
   });
-  const page = await contexte.newPage();
-  for (const chemin of toutes) {
-    await page.goto(site.url(chemin), { waitUntil: 'networkidle' });
-    const trop = await page.evaluate(debordementHorizontal);
+  const debords = await surPages(contexte, toutes, async (page, chemin) => {
+    await charger(page, site.url(chemin));
+    return page.evaluate(debordementHorizontal);
+  });
+  toutes.forEach((chemin, i) => {
+    const trop = debords[i];
     verifier(trop === 0, chemin, `ne défile pas horizontalement à ${TELEPHONE.width} px (débord : ${trop} px)`);
-  }
+  });
   await contexte.close();
 }
 
@@ -164,16 +263,19 @@ async function verifierTelephone(navigateur, site, toutes) {
    La règle porte sur le rendu, pas sur l'intention : on la vérifie donc sur les
    pages produites. */
 async function verifierCodesQr(navigateur, site, ecrans) {
-  const page = await navigateur.newPage();
-  let avec = 0;
-
-  for (const chemin of ecrans) {
+  const contexte = await nouveauContexte(navigateur);
+  const etats = await surPages(contexte, ecrans, async (page, chemin) => {
     await page.goto(site.url(chemin), { waitUntil: 'domcontentloaded' });
-    const etat = await page.evaluate(() => ({
+    return page.evaluate(() => ({
       qr: document.querySelectorAll('[data-qr]').length,
       genre: document.querySelector('[data-scene]')?.getAttribute('data-genre') ?? '',
       variante: document.querySelector('.repere')?.getAttribute('data-variante') ?? '',
     }));
+  });
+  let avec = 0;
+
+  ecrans.forEach((chemin, i) => {
+    const etat = etats[i];
 
     const autorise =
       etat.genre === 'appareil-en-main' ||
@@ -186,25 +288,29 @@ async function verifierCodesQr(navigateur, site, ecrans) {
         ? `${chemin} — porte le code à scanner (${etat.genre})`
         : `${chemin} — ne porte aucun code à scanner (${etat.genre})`,
     );
-  }
+  });
 
   verifier(avec > 0, `${avec} écran(s) portent le relais téléphone`);
-  await page.close();
+  await contexte.close();
 }
 
 /* ── Aucun écran de leçon ne déborde en 4:3 ni en 16:9 ────────────────────── */
 async function verifierProjection(navigateur, site, ecrans) {
-  for (const format of [PROJECTION_43, PROJECTION_169]) {
-    const contexte = await navigateur.newContext({ viewport: format });
-    const page = await contexte.newPage();
-    const nom = `${format.width} × ${format.height}`;
+  const formats = [PROJECTION_43, PROJECTION_169];
+  const contexte = await nouveauContexte(navigateur, { viewport: formats[0] });
 
-    // Chaque état d'un panneau cumulatif a sa propre adresse : ils figurent donc
-    // déjà tous dans la liste. Inutile — et trompeur — de simuler la navigation
-    // au clavier ici ; on mesure chaque arrêt là où il est.
-    for (const chemin of ecrans) {
-      await page.goto(site.url(chemin), { waitUntil: 'networkidle' });
-      const mesure = await page.evaluate(() => {
+  // Chaque état d'un panneau cumulatif a sa propre adresse : ils figurent donc
+  // déjà tous dans la liste. Inutile — et trompeur — de simuler la navigation
+  // au clavier ici ; on mesure chaque arrêt là où il est.
+  //
+  // Chaque page n'est chargée qu'une fois : on la redimensionne d'un format à
+  // l'autre. Le HTML ne change pas avec la fenêtre, seule la mise en page.
+  const parPage = await surPages(contexte, ecrans, async (page, chemin) => {
+    await charger(page, site.url(chemin));
+    const mesures = [];
+    for (const format of formats) {
+      if (format !== formats[0]) await redimensionner(page, format);
+      mesures.push(await page.evaluate(() => {
         const scene = document.querySelector('[data-scene]');
         if (!scene) return null;
 
@@ -250,9 +356,16 @@ async function verifierProjection(navigateur, site, ecrans) {
         }
 
         return { pire, chevauchement };
-      });
+      }));
+    }
+    return mesures;
+  });
 
-      if (!mesure) continue;
+  for (const [f, format] of formats.entries()) {
+    const nom = `${format.width} × ${format.height}`;
+    ecrans.forEach((chemin, i) => {
+      const mesure = parPage[i][f];
+      if (!mesure) return;
       // Deux pixels de tolérance : les arrondis de sous-pixel ne sont pas des
       // débordements.
       const rogne = mesure.pire.debord > 2;
@@ -265,9 +378,9 @@ async function verifierProjection(navigateur, site, ecrans) {
             ? `deux régions se chevauchent sur ${mesure.chevauchement} px en ${nom}`
             : `tient entièrement en ${nom}`,
       );
-    }
-    await contexte.close();
+    });
   }
+  await contexte.close();
 }
 
 /* ── Deux éléments sur une rangée font la même hauteur ─────────────────────
@@ -290,13 +403,15 @@ async function verifierAlignement(navigateur, site, toutes) {
     ['bureau', BUREAU],
   ];
 
-  for (const [nom, viewport] of vues) {
-    const contexte = await navigateur.newContext({ viewport });
-    const page = await contexte.newPage();
+  const contexte = await nouveauContexte(navigateur, { viewport: vues[0][1] });
 
-    for (const chemin of toutes) {
-      await page.goto(site.url(chemin), { waitUntil: 'networkidle' });
-      const inegales = await page.evaluate(() => {
+  // Une seule visite par page, redimensionnée d'une vue à l'autre.
+  const parPage = await surPages(contexte, toutes, async (page, chemin) => {
+    await charger(page, site.url(chemin));
+    const mesures = [];
+    for (const [, viewport] of vues) {
+      if (viewport !== vues[0][1]) await redimensionner(page, viewport);
+      mesures.push(await page.evaluate(() => {
         // Un `<dialog>` fermé ne se mesure pas. L'index des blocs est une
         // grille de `li` comme une autre : on l'ouvre pour la mesurer.
         for (const dialogue of document.querySelectorAll('dialog:not([open])')) {
@@ -333,8 +448,14 @@ async function verifierAlignement(navigateur, site, toutes) {
           }
         }
         return trouvees;
-      });
+      }));
+    }
+    return mesures;
+  });
 
+  for (const [v, [nom]] of vues.entries()) {
+    toutes.forEach((chemin, i) => {
+      const inegales = parPage[i][v];
       verifier(
         inegales.length === 0,
         chemin,
@@ -345,10 +466,9 @@ async function verifierAlignement(navigateur, site, toutes) {
               .map((r) => `${r.liste} ${r.hauteurs.join('/')} px (écart ${r.ecart} px)`)
               .join(' ; '),
       );
-    }
-
-    await contexte.close();
+    });
   }
+  await contexte.close();
 }
 
 await main();

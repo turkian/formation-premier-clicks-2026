@@ -1,0 +1,63 @@
+---
+/**
+ * Le mode `lumiere` du schéma `diametre-ouverture` : les mêmes disques, lus
+ * comme la lumière qui entre. Aucun chiffre de lumière n'est rendu — seuls les
+ * nombres `f` étiquettent les disques. L'échelle vient de l'appelant.
+ *
+ * Une colonne par ouverture : le trou, son nombre `f`, puis — si le contenu en
+ * fournit — la même scène exposée à travers ce trou. Chaque disque est dessiné
+ * dans un SVG de même `viewBox` et de même hauteur : les quatre restent donc à
+ * la même échelle, quelle que soit la largeur de la colonne.
+ *
+ * L'axe et le sens du chiffre sont du texte HTML au palier du corps, pas du
+ * texte SVG : un SVG se réduit avec sa colonne, et ses lettres tomberaient sous
+ * le plus petit palier. Les hauteurs en `vmin` tiennent l'ensemble dans un
+ * écran 4:3 comme 16:9.
+ */
+import { asset } from '../../../lib/lien';
+import { trouverImage } from '../../../lib/demos';
+
+interface Props {
+  disques: { ouverture: number; r: number; photo?: string }[];
+}
+const { disques } = Astro.props;
+const colonnes = await Promise.all(
+  disques.map(async (d) => ({ ...d, fichier: d.photo ? await trouverImage(d.photo) : null })),
+);
+const avecPhotos = disques.some((d) => d.photo);
+---
+<div style="display:flex;align-items:center;gap:0.4em;font-size:var(--t-corps);font-weight:620;line-height:1.2">
+  <span style="color:var(--accent)">plus de lumière</span>
+  <span aria-hidden="true" style="flex:1;min-width:1.5em;display:flex;align-items:center">
+    <svg width="10" height="12" viewBox="0 0 10 12"><path d="M10,0 L0,6 L10,12 z" fill="var(--accent)" /></svg>
+    <span style="flex:1;height:2px;background:var(--accent)"></span>
+    <svg width="10" height="12" viewBox="0 0 10 12"><path d="M0,0 L10,6 L0,12 z" fill="var(--accent)" /></svg>
+  </span>
+  <span style="color:var(--texte-2)">moins de lumière</span>
+</div>
+<div role="img" aria-label={avecPhotos
+       ? 'La même scène à travers quatre trous : plus le trou est grand, plus la photo est claire'
+       : 'Quatre trous à la même échelle : plus le trou est grand, plus il entre de lumière'}
+     style={`display:grid;grid-template-columns:repeat(${colonnes.length},minmax(0,1fr));gap:var(--pas);justify-items:center`}>
+  {colonnes.map((c) => (
+    <div style="display:grid;justify-items:center;gap:0.25em;width:100%">
+      <svg viewBox="0 0 120 108" style="height:11vmin;width:100%" aria-hidden="true">
+        <circle cx="60" cy="54" r={c.r} fill="var(--accent)" fill-opacity="0.22"
+                stroke="var(--accent)" stroke-width="2" />
+      </svg>
+      <span style="font-size:var(--t-corps);font-weight:620;color:var(--texte)">f/{c.ouverture}</span>
+      {c.photo && (c.fichier
+        ? <img src={asset(`/demos/${c.fichier}`)} alt="" loading="lazy"
+               style="display:block;width:100%;max-width:calc(20vmin * 4 / 3);aspect-ratio:4/3;object-fit:cover;border-radius:var(--rayon)" />
+        : <span style="display:grid;place-items:center;width:100%;max-width:calc(20vmin * 4 / 3);aspect-ratio:4/3;border:2px dashed var(--trait-fort);border-radius:var(--rayon);font-size:var(--t-etiquette);color:var(--texte-3);text-align:center">
+            {c.photo}
+          </span>)}
+    </div>
+  ))}
+</div>
+<p style="margin:0;text-align:center;font-size:var(--t-corps);font-weight:620;color:var(--texte)">
+  Un petit chiffre <code>f</code>, c'est un grand trou.
+  <span style="display:block;font-size:var(--t-etiquette);font-weight:400;color:var(--trait-fort)">
+    Les disques sont à la même échelle.
+  </span>
+</p>
