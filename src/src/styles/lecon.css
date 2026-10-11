@@ -410,6 +410,50 @@
   font-size: var(--t-corps);
 }
 
+/* Deux ou trois notions annoncées côte à côte, chacune dans sa carte. Le filet
+   d'accent en tête de carte les rend lisibles comme des objets distincts du fond
+   de la salle, avant même d'en lire le texte. */
+.repere:has(.colonnes) { max-width: 72rem; align-content: center; }
+.colonnes {
+  display: grid;
+  grid-template-columns: repeat(var(--nombre, 2), minmax(0, 1fr));
+  gap: var(--pas-2);
+  width: 100%;
+}
+.colonne {
+  display: grid;
+  align-content: start;
+  gap: var(--pas);
+  padding: var(--pas-2);
+  border: 1px solid var(--trait);
+  border-top: 4px solid var(--accent);
+  border-radius: var(--rayon);
+  background: var(--fond-2);
+}
+.colonne header { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5em; }
+.colonne h2 {
+  margin: 0;
+  font-size: calc(var(--t-corps) * 1.3);
+  font-weight: var(--graisse-enonce);
+  color: var(--texte);
+}
+.colonne-icone { width: 1.6em; height: 1.6em; color: var(--accent); font-size: var(--t-corps); }
+.colonne-etiquette {
+  margin-left: auto;
+  padding: 0.15em 0.6em;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--sur-accent);
+  font-size: var(--t-etiquette);
+  font-weight: var(--graisse-appui);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.colonne .corps > *:last-child { margin-bottom: 0; }
+@media (max-width: 44rem) {
+  .colonnes { grid-template-columns: minmax(0, 1fr); }
+}
+
 .variantes {
   display: grid;
   gap: var(--pas);

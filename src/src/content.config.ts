@@ -184,6 +184,24 @@ const ecranRepere = baseEcran.extend({
    * les définisse — aucune définition, aucune indication de moment.
    */
   termes: z.tuple([z.string(), z.string()]).optional(),
+  /**
+   * Deux ou trois notions présentées côte à côte, chacune dans sa carte — pour
+   * annoncer ce qui vient sans l'expliquer encore. Une colonne sur téléphone.
+   */
+  colonnes: z
+    .array(
+      z.object({
+        titre: z.string(),
+        corps: z.string(),
+        /** Icône Iconify (ex. « lucide:timer ») en tête de carte. */
+        icone: z.string().optional(),
+        /** Courte mention mise en évidence, par exemple l'ordre de passage. */
+        etiquette: z.string().optional(),
+      }),
+    )
+    .min(2)
+    .max(3)
+    .optional(),
 });
 
 /** 5 · Appareil en main — les gestes à poser, reconnaissable du fond. */

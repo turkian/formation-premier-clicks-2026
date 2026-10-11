@@ -101,15 +101,24 @@ blocs:
         aparte: |
           L'ouverture vient en dernier : c'est le seul levier qui change aussi la lumière.
 
-      - id: la-question
+      - id: deux-nouveaux-leviers
         genre: repere
         variante: transition
-        titre: La séance 2
-        claim: Qu'est-ce que mon appareil décide à ma place, et pourquoi ?
-        corps: |
-          - **La vitesse** — figer ce qui bouge, ou le laisser voir.
-          - **L'ISO** — quand la lumière vient à manquer.
-          - **Qui décide quoi** — ce que chaque mode vous laisse, et ce qu'il garde.
+        titre: Deux nouveaux leviers
+        claim: "Deux nouveaux leviers : la vitesse et l'ISO."
+        colonnes:
+          - titre: La vitesse
+            icone: lucide:timer
+            corps: |
+              **Combien de temps** la lumière entre.
+
+              Elle fige ce qui bouge, ou le laisse voir.
+          - titre: L'ISO
+            icone: lucide:sun-medium
+            corps: |
+              **La sensibilité** de votre appareil à la lumière.
+
+              Il éclaircit l'image quand la lumière manque.
 
       - id: le-programme
         genre: panneau

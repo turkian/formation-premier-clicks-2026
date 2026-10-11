@@ -6,7 +6,9 @@
  * ce que toute la salle sache où on en est, y compris quelqu'un qui revient de
  * la pause ou qui vient d'arriver.
  */
+import { Icon } from 'astro-icon/components';
 import { md, mdEnLigne } from '../../lib/md';
+import { typo } from '../../lib/typo';
 
 interface Props {
   ecran: any;
@@ -18,6 +20,15 @@ const { ecran, numeroBloc, totalBlocs } = Astro.props;
 const claim = await mdEnLigne(ecran.claim);
 const corps = await md(ecran.corps);
 const aparte = await md(ecran.aparte);
+const colonnes = ecran.colonnes
+  ? await Promise.all(
+      ecran.colonnes.map(async (c: any) => ({
+        ...c,
+        titreHtml: await mdEnLigne(c.titre),
+        corpsHtml: await md(c.corps),
+      })),
+    )
+  : null;
 
 const ETIQUETTES: Record<string, string> = {
   ouverture: `Bloc ${numeroBloc} sur ${totalBlocs}`,
@@ -29,10 +40,24 @@ const ETIQUETTES: Record<string, string> = {
 };
 ---
 
-<div class="ecran repere" data-variante={ecran.variante} data-dense={corps ? '' : undefined}>
+<div class="ecran repere" data-variante={ecran.variante} data-dense={corps || colonnes ? '' : undefined}>
   <p class="numero-bloc">{ETIQUETTES[ecran.variante] ?? ecran.variante}</p>
   <h1 class="claim" set:html={claim} />
   {corps && <div class="corps" set:html={corps} />}
+  {colonnes && (
+    <div class="colonnes" style={`--nombre: ${colonnes.length}`}>
+      {colonnes.map((c) => (
+        <section class="colonne">
+          <header>
+            {c.icone && <Icon name={c.icone} class="colonne-icone" />}
+            <h2 set:html={c.titreHtml} />
+            {c.etiquette && <span class="colonne-etiquette" set:html={typo(c.etiquette)} />}
+          </header>
+          <div class="corps" set:html={c.corpsHtml} />
+        </section>
+      ))}
+    </div>
+  )}
   {ecran.termes && (
     <div class="termes">
       {ecran.termes.map((terme: string) => <p>{terme}</p>)}
