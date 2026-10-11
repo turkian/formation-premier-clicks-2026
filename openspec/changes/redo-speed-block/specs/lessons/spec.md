@@ -142,3 +142,31 @@ columns SHALL be side by side at projection width and stacked at phone width.
 
 - **WHEN** the animator reviews the shot list
 - **THEN** both photographs of the decision screen appear in it
+
+### Requirement: The speed block's starting points are grouped by choice
+
+The speed block's starting-points screen SHALL present shutter speeds as starting points, not
+rules, for at least ten situations, grouped under the two choices of the decision screen —
+freezing the movement and letting it show — with a group between them for speeds that suggest
+movement while keeping the subject readable. Each situation SHALL be a card with its starting
+speed readable from the middle of the room, and each slow speed SHALL state the support it
+needs.
+
+#### Scenario: The starting points are projected
+
+- **WHEN** the starting-points screen is displayed at 1024 × 768 or 16:9
+- **THEN** a « figer » group, an « entre les deux » group and a « laisser voir le mouvement »
+  group are visible, in that order, each with its cards
+- **AND** the situations include sports, fireworks and light trails
+- **AND** nothing on the screen is cut off
+
+#### Scenario: The in-between group does not add a third choice
+
+- **WHEN** the « entre les deux » group is displayed
+- **THEN** its speeds lie between those of the two other groups
+- **AND** the decision screen still presents two choices
+
+#### Scenario: A slow speed is read
+
+- **WHEN** a card shows a speed of a quarter of a second or slower
+- **THEN** it states that the camera is on a tripod or resting on a surface

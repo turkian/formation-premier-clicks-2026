@@ -87,6 +87,33 @@ const empile = !dense && Boolean(schema) && (sansCorps || ecran.disposition === 
 
   {!sansCorps && <div class="region-corps corps">
     {corps.map((html) => <div set:html={html} />)}
+    {ecran.cartes && (
+      <div
+        class="groupes-cartes"
+        style={`--colonnes: ${Math.max(...ecran.cartes.map((g: any) => g.elements.length))}`}
+      >
+        {ecran.cartes.map((g: any) => (
+          <section class="groupe-cartes">
+            <h2>
+              {g.icone && <Icon name={g.icone} class="colonne-icone" />}
+              <span set:html={typo(g.titre)} />
+            </h2>
+            <ul class="cartes">
+              {g.elements.map((e: any) => (
+                <li class="carte">
+                  <span class="carte-titre">
+                    {e.icone && <Icon name={e.icone} class="carte-icone" />}
+                    <span set:html={typo(e.titre)} />
+                  </span>
+                  <b class="carte-valeur" set:html={typo(e.valeur)} />
+                  {e.note && <span class="carte-note" set:html={typo(e.note)} />}
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
+      </div>
+    )}
     {colonnes && (
       <div class="colonnes" style={`--nombre: ${colonnes.length}`}>
         {colonnes.map((c) => (

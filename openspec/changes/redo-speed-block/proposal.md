@@ -29,8 +29,11 @@ the screen that introduced speed and ISO, and is no longer needed.
   - « le flou choisi »: light trails, intentional camera movement, panning.
 - Recast `la-decision` as « deux choix » in two columns, figer and laisser voir le mouvement,
   each with a demonstration photograph below; concept panels gain optional columns for this.
-- Keep the other core screens (`points-de-depart`, `deux-flous`, its demonstration,
-  `explorer-le-mouvement`) unchanged in content.
+- Recast `points-de-depart` as cards grouped under the two choices, figer and laisser voir le
+  mouvement, with an « entre les deux » row between them, and widen it to twelve situations,
+  including sports, fireworks and light trails.
+- Keep the other core screens (`deux-flous`, its demonstration, `explorer-le-mouvement`)
+  unchanged in content.
 - Out of scope, left to the coming ISO redo: manual mode with ISO auto, and exposure
   compensation in `M` when ISO auto is on (which today contradicts « La question qui prouve »).
   The ISO block is not touched.

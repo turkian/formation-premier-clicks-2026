@@ -21,7 +21,7 @@ necessary in the smallest type size, everything visible at 1024 × 768 and 16:9.
 **Non-Goals:**
 - Anything about ISO beyond leaving ISO auto on: no « regardez votre ISO », no M + ISO auto, no
   compensation. The ISO block is redone next and will pick these up.
-- Rewriting `points-de-depart`, `deux-flous`, `deux-flous-en-images` or
+- Rewriting `deux-flous`, `deux-flous-en-images` or
   `explorer-le-mouvement`.
 - The rolling-shutter distortion of an electronic shutter, or flash sync. The note on electronic shutters stays one sentence.
 - Cutting screens elsewhere in session 2 to make room (deferred, see Risks).
@@ -38,7 +38,7 @@ vitesse
  2  la-molette-de-vitesse   appareil-en-main   ex. 1 · neighbour's waving hand, 1/500 then 1/15 (moved, rewritten)
  3  la-decision             panneau            two choices in columns, a photograph under each
  4  trois-vitesses          demonstration      series: one street, 1/500 · 1/30 · 1/2 s
- 5  points-de-depart        panneau            unchanged
+ 5  points-de-depart        panneau            ten situations as cards, grouped by choice
  6  deux-flous              panneau            unchanged
  7  deux-flous-en-images    demonstration      unchanged
  8  explorer-le-mouvement   interactif         unchanged
@@ -64,6 +64,29 @@ Concept panels gain an optional `colonnes` field (two or three cards, the same s
 repère columns plus an optional photograph); the shot list collects those photographs. In
 projection the cards fill the panel's body row and the photograph takes the remaining height,
 so it fits at 4:3 and 16:9; at phone width the cards stack and the photograph is 3:2.
+
+### D1c. Starting points as cards, grouped by choice
+
+`points-de-depart` drops its five-row table for three rows of four cards. The first and last are
+titled with the two choices of `la-decision`; the middle one, « Entre les deux », shows the range
+between them, as `trois-vitesses` does with its `1/30 s` image, without making it a third choice:
+
+- **Figer**: a bird in flight `1/2000 s`, sports `1/1000 s`, a child running `1/500 s`, someone
+  walking `1/250 s`;
+- **Entre les deux**: a musician or a dancer `1/60 s`, passers-by in the street `1/30 s`, a
+  waterfall that keeps its texture `1/15 s` (camera braced), waves on rocks `1/8 s` (tripod);
+- **Laisser voir le mouvement**: panning `1/30 s`, a silky river `1/4 s` to `1 s`, fireworks `2`
+  to `4 s`, car headlights `10` to `30 s`.
+
+Four cards per row. The speeds follow common recommendations. Left out: a dog running (it needs
+`1/1000 s`, not `1/500 s`), splashing water (it duplicates `1/2000 s`, and frozen drops call for
+a flash) and a lamp drawing (the headlights already show light trails, and exercise 2 does it).
+
+Each card has an inline icon, the situation, the speed in body size and, for slow speeds, the
+support on a line of its own (« sur trépied », « appareil posé », « appareil appuyé »). Group
+titles sit in a narrow column left of their cards so three rows fit at 4:3; the grid has as
+many columns as the largest group, so a short row keeps the same card width. Concept panels
+gain an optional `cartes` field for this: groups, each a title and icon over its cards.
 
 ### D2. The exercise screen keeps its id
 

@@ -158,6 +158,31 @@ const ecranPanneau = baseEcran.extend({
     .max(3)
     .optional(),
   /**
+   * Des groupes de petites cartes — une situation et sa valeur de départ, par
+   * exemple. Plus lisible qu'un long tableau du fond de la salle : chaque
+   * groupe porte un titre, chaque carte une icône, un nom et une valeur.
+   */
+  cartes: z
+    .array(
+      z.object({
+        titre: z.string(),
+        icone: z.string().optional(),
+        elements: z
+          .array(
+            z.object({
+              titre: z.string(),
+              valeur: z.string(),
+              /** Une précision sous la valeur — l'appui nécessaire, par exemple. */
+              note: z.string().optional(),
+              icone: z.string().optional(),
+            }),
+          )
+          .min(1),
+      }),
+    )
+    .min(1)
+    .optional(),
+  /**
    * `empilee` : énoncé, corps puis schéma, l'un sous l'autre sur toute la
    * largeur — pour un schéma large que le corps ne fait qu'introduire en une
    * phrase. Un panneau à schéma sans corps s'empile de lui-même.

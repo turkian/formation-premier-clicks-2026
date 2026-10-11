@@ -461,6 +461,71 @@
 @media (max-width: 44rem) {
   .panneau .colonne .emplacement { aspect-ratio: 3 / 2; }
 }
+
+/* Groupes de cartes : une situation par carte, sa valeur en gros. Le titre du
+   groupe dit le choix que ces situations illustrent ; il tient dans une colonne
+   à gauche de ses cartes, pour que trois rangées tiennent en 4:3. */
+.groupes-cartes { display: grid; gap: var(--pas); }
+.groupe-cartes {
+  display: grid;
+  grid-template-columns: minmax(0, 9.5rem) minmax(0, 1fr);
+  align-items: center;
+  gap: var(--pas);
+}
+.groupe-cartes h2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3em;
+  margin: 0;
+  font-size: var(--t-corps);
+  font-weight: var(--graisse-enonce);
+  color: var(--texte);
+}
+.panneau .cartes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  /* Autant de colonnes que le plus grand groupe : une rangée de trois cartes
+     garde la largeur de carte des rangées de cinq, au lieu de s'étirer. */
+  grid-template-columns: repeat(var(--colonnes, 4), minmax(0, 1fr));
+  gap: var(--pas);
+}
+.carte {
+  display: grid;
+  /* Le titre peut prendre une, deux ou trois lignes : la rangée qui s'étire est
+     la sienne, pour que les valeurs s'alignent au bas de chaque rangée. L'icône
+     ouvre le titre en ligne plutôt que d'occuper sa propre colonne : la carte
+     est étroite en 4:3, et c'est le texte qui a besoin de la largeur. */
+  grid-template-rows: 1fr auto auto;
+  grid-template-areas:
+    'titre'
+    'valeur'
+    'note';
+  align-items: start;
+  gap: 0.35em 0.5em;
+  padding: calc(var(--pas) * 0.9) var(--pas);
+  border: 1px solid var(--trait);
+  border-top: 3px solid var(--accent);
+  border-radius: var(--rayon);
+  background: var(--fond-2);
+}
+.carte-icone { display: inline-block; width: 1.3em; height: 1.3em; margin-right: 0.3em; vertical-align: -0.3em; color: var(--accent); }
+.carte-titre { grid-area: titre; font-size: var(--t-aparte); color: var(--texte-2); line-height: 1.25; }
+.carte-note { grid-area: note; font-size: var(--t-aparte); color: var(--texte-2); margin-top: -0.25em; }
+.carte-valeur {
+  grid-area: valeur;
+  font-size: var(--t-corps);
+  font-weight: var(--graisse-enonce);
+  color: var(--texte);
+  font-variant-numeric: tabular-nums;
+}
+@media (max-width: 44rem) {
+  .panneau .cartes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .groupe-cartes { grid-template-columns: minmax(0, 1fr); }
+  .groupe-cartes h2 { flex-direction: row; align-items: center; }
+}
 @media (max-width: 44rem) {
   .colonnes { grid-template-columns: minmax(0, 1fr); }
 }
