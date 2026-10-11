@@ -98,9 +98,9 @@ export const SYMPTOMES: Symptome[] = [
     indice: 'Le grain coloré, surtout visible dans les zones sombres.',
     causes: [
       {
-        cause: 'L’ISO était élevé, faute de lumière',
+        cause: 'Il manquait de lumière — l’ISO a dû monter',
         correction:
-          'C’est le prix, et il est souvent le bon. Plus de lumière, une plus grande ouverture, ou acceptez le grain : **nette et bruitée vaut mieux que propre et floue.**',
+          'C’est le prix, et il est souvent le bon. Plus de lumière, une plus grande ouverture, ou acceptez le grain — mais ne sous-exposez pas pour l’éviter : **nette et bruitée vaut mieux que propre et floue.**',
       },
       {
         cause: 'La photo était sous-exposée et a été remontée au développement',

@@ -24,12 +24,12 @@ En mode automatique, l'appareil répond à ces quatre questions à votre place. 
 | **AUTO** | appareil | appareil | oui |
 | **A · Av** | **vous** | appareil | oui |
 | **S · Tv** | appareil | **vous** | oui |
-| **M** | **vous** | **vous** | sans effet |
+| **M** | **vous** | **vous** | avec l'ISO auto |
 
 - **A / Av** — vous choisissez l'**ouverture** → l'épaisseur de la zone nette.
 - **S / Tv** — vous choisissez la **vitesse** → le rendu du mouvement.
 
-> En **M**, l'appareil ne décide rien de l'exposition. Le `+/−` n'a donc rien à corriger : il ne fait rien, et c'est normal.
+> En **M** avec l'ISO auto, le `+/−` déplace l'ISO sur la plupart des boîtiers récents. Avec un ISO fixe, il ne fait rien : l'appareil ne décide plus rien de l'exposition.
 
 ## Ma recette de départ
 

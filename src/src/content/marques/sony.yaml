@@ -46,8 +46,8 @@ sections:
       - formation: Vitesse la plus lente acceptée
         appareil: "`ISO AUTO Vit.Ob.Min`"
     note: |
-      **Rappel :** en mode `M`, la molette `+/−` ne fait rien. C'est normal — l'appareil ne
-      décide plus rien, il n'y a donc rien à corriger.
+      **Rappel :** en mode `M` avec l'ISO auto, la molette `+/−` déplace l'ISO sur la plupart
+      des boîtiers récents. Avec un ISO fixe, elle ne fait rien : l'appareil ne décide plus rien.
   - numero: 4
     entrees:
       - formation: Qualité d'image / RAW

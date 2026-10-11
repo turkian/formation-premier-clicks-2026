@@ -67,8 +67,9 @@ sections:
       - formation: Vitesse la plus lente acceptée
         appareil: "`Vitesse d'obturation min.`, dans le réglage `AUTO` choisi"
     note: |
-      **Rappel :** en manuel — bague **et** molette sur un chiffre — la molette `+/−` ne fait
-      rien. C'est normal : l'appareil ne décide plus rien, il n'y a donc rien à corriger.
+      **Rappel :** en manuel — bague **et** molette sur un chiffre — avec l'ISO auto, la molette
+      `+/−` déplace l'ISO sur la plupart des boîtiers récents. Avec un ISO fixe, elle ne fait
+      rien : l'appareil ne décide plus rien.
   - numero: 4
     entrees:
       - formation: Qualité d'image / RAW

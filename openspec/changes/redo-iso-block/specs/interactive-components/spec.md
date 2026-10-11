@@ -1,27 +1,27 @@
 ## ADDED Requirements
 
-### Requirement: The digital ISO chain is shown step by step
+### Requirement: The digital ISO chain is shown as a whole
 
 The site SHALL provide an interactive component that draws the path from light to a digital
-image in four steps: light filling the sensor, a weak analog signal carrying its noise, the
-amplification set by the ISO, and the conversion to numbers producing the image. The animator
-SHALL be able to step forward and back through the steps and stop on each one. An ISO control
-SHALL change the amplification, and the component SHALL show that the signal and its noise are
-amplified together while the light collected does not change. The component SHALL be drawn,
-never photographed.
+image as four labelled stations, all visible at once: light filling the sensor, a weak analog
+signal carrying its noise, the amplification set by the ISO, and the conversion to numbers
+producing the image. Its only control SHALL be the ISO, which changes the amplification; the
+component SHALL show that the signal and its noise are amplified together while the light
+collected does not change. The component SHALL be drawn, never photographed.
 
-#### Scenario: The animator stops on each step
+#### Scenario: The component is displayed
 
-- **WHEN** the animator steps forward from the first step
-- **THEN** the component shows, in order, the light collected, the analog signal, the
-  amplification and the conversion to numbers, each labelled
-- **AND** the current step is readable from the back of the room
+- **WHEN** the sensor chain component is displayed
+- **THEN** the light collected, the analog signal, the amplification and the conversion to
+  numbers are all shown, in that order, each labelled
+- **AND** the ISO control is usable immediately, with no step to reach first
 
 #### Scenario: The ISO is raised
 
-- **WHEN** the ISO control is raised on the amplification step
-- **THEN** the amplified signal and its noise both grow
-- **AND** the light collected shown on the first step stays the same
+- **WHEN** the ISO control is raised
+- **THEN** the amplified signal and its noise both grow, and the resulting image becomes brighter
+  with more visible noise
+- **AND** the light collected shown on the first station stays the same
 
 ### Requirement: ISO and noise are modelled from the light collected
 

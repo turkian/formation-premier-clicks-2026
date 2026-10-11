@@ -312,58 +312,165 @@ blocs:
 
   # ─────────────────────────────────────────────────────────────────────────
   - id: iso
-    titre: L'ISO et la faible lumière
-    resume: Ce qui rend possibles vos deux vraies décisions.
+    titre: L'ISO, le bouton du volume
+    resume: "Il n'ajoute pas de lumière : il monte le son."
     ecrans:
+      - id: qu-est-ce-que-l-iso
+        genre: panneau
+        titre: Qu'est-ce que l'ISO ?
+        claim: "L'ISO est un chiffre hérité de la pellicule : il dit combien de lumière il faut pour une image bien exposée."
+        colonnes:
+          - titre: Une pellicule lente — 100 ISO
+            icone: lucide:sun
+            corps: Petits cristaux, il faut beaucoup de lumière. Pour le grand soleil. L'image est fine.
+          - titre: Une pellicule rapide — 400, 1600 ISO
+            icone: lucide:moon
+            corps: Gros cristaux, moins de lumière suffit. Pour l'intérieur, la nuit. Le grain se voit.
+        aparte: |
+          On changeait d'ISO en changeant de pellicule — pour 24 ou 36 photos. Avant l'ISO, ce
+          chiffre s'appelait ASA.
+
+      - id: l-iso-aujourd-hui
+        genre: interactif
+        titre: L'ISO aujourd'hui
+        claim: "La lumière devient un signal, l'ISO l'amplifie, puis il devient des nombres. L'ISO, c'est le volume."
+        composant: chaine-du-capteur
+        aparte: |
+          Le mot « sensibilité » vient de la pellicule. Votre capteur, lui, n'en a qu'une : l'ISO
+          règle seulement l'amplification.
+
+      - id: l-iso-eclaircit
+        genre: appareil-en-main
+        titre: Appareil en main — l'ISO éclaircit
+        claim: "Même ouverture, même vitesse. Seul l'ISO change : regardez la photo s'éclaircir."
+        gestes:
+          - "**Passez en mode `M`.** Réglez **`f/5.6`** et **`1/125`**."
+          - "**Coupez l'ISO auto, et réglez `100`.** Photographiez la salle."
+          - "**Même photo à `800`, puis à `6400`.** Comparez les trois."
+          - "**Remettez l'ISO auto.**"
+        cellulaire: |
+          Dans le mode **`Pro`** ou manuel, glissez l'ISO au plus bas, puis au plus haut. Fixez
+          la vitesse si l'application le permet.
+        aparte: |
+          L'ISO auto est en **section 3** de votre feuille de marque. Le mode `M` sert ici à tout
+          figer sauf l'ISO ; on le présente après la pause.
+
       - id: le-raisonnement
         genre: panneau
-        titre: L'ISO
-        claim: L'ISO n'est pas une décision créative. Il vous permet de garder vos deux vraies décisions.
+        titre: Le raisonnement
+        claim: "L'ISO n'est pas une décision créative : il vient en dernier."
         corps: |
-          Le raisonnement, dans cet ordre :
-
-          1. Je veux **`f/4`** pour ma profondeur de champ.
-          2. Je veux **`1/500 s`** pour figer mon sujet.
-          3. Il manque de lumière.
-          4. → **J'augmente l'ISO.**
-        aparte: |
-          Activez l'**ISO automatique** avec une limite haute — 3200 ou 6400 selon votre
-          appareil.
-        ton: avertissement
-        icone: lucide:triangle-alert
+          **Un match de basket, au gymnase.** Par où commencez-vous ? Par ce que vous voulez
+          montrer.
+        colonnes:
+          - titre: La zone nette d'abord
+            icone: lucide:aperture
+            corps: |
+              1. **L'ouverture** → `f/4`, votre enfant détaché des gradins.
+              2. **La vitesse** → `1/500 s`, le saut figé.
+          - titre: Le mouvement d'abord
+            icone: lucide:timer
+            corps: |
+              1. **La vitesse** → `1/500 s`, le saut figé.
+              2. **L'ouverture** → `f/4`, le plus de lumière possible.
+        ton: regle
+        icone: lucide:ruler
         encadre: |
-          Ce que ça coûte : du **bruit**, de la perte de détail fin, une dynamique réduite.
+          **3 · Puis l'ISO, en dernier, pour ajuster l'exposition.** Vos deux choix sont faits,
+          mais la photo sort trop sombre : montez l'ISO jusqu'à ce qu'elle soit bien exposée —
+          ici, vers `3200`.
+        aparte: |
+          Partez de la photo que vous voulez, pas du réglage.
+
+      - id: d-ou-vient-le-bruit
+        genre: panneau
+        titre: D'où vient le bruit
+        claim: Le grain de la pellicule venait de l'ISO. Le bruit numérique vient du manque de lumière.
+        corps: |
+          Quelqu'un chuchote. Montez le volume : vous entendez le chuchotement — et le souffle.
+          **Le souffle était là.** Baissez le volume : il ne part pas, vous n'entendez plus rien.
+
+          Votre photo, c'est pareil : **le bruit est dans la lumière captée**, et l'ISO le rend
+          visible.
+        ton: regle
+        icone: lucide:ruler
+        encadre: |
+          **Le meilleur ISO est celui qui expose correctement votre sujet.** Ne sous-exposez
+          jamais pour éviter le bruit.
+
+      - id: le-bruit-dans-l-ombre
+        genre: appareil-en-main
+        titre: Appareil en main — le bruit dans l'ombre
+        claim: Une seule photo, un seul ISO. Cherchez où se cache le bruit.
+        gestes:
+          - "**Restez en mode `A`** — ou **`Av`** sur un Canon — avec l'ISO auto."
+          - "**Cadrez une lampe ou une fenêtre, et un coin sombre.** Photographiez."
+          - "**Lisez l'ISO** de la photo sur votre écran."
+          - "**Zoomez dans le coin sombre**, puis dans la partie éclairée. Comparez."
+        cellulaire: |
+          Même photo, puis zoomez. Le téléphone lisse le bruit, mais c'est dans l'ombre que les
+          détails disparaissent d'abord.
+        aparte: |
+          Même photo, même ISO : le bruit vit dans l'ombre, là où la lumière a manqué.
 
       - id: nette-et-bruitee
         genre: interactif
-        titre: Le compromis
-        claim: Une photo nette avec du bruit vaut mieux qu'une photo propre mais floue.
+        titre: Le bon volume
+        claim: "À lumière donnée, un seul ISO expose correctement : c'est le bon."
         composant: iso-et-bruit
         aparte: |
           Le bruit se corrige en partie au développement — séance 3. Le flou de bougé, jamais.
 
       - id: nette-ou-propre
         genre: demonstration
-        titre: Nette et bruitée, ou propre et floue
-        claim: La même scène, les deux issues du même arbitrage.
+        titre: Même lumière, trois issues
+        claim: La même scène, la même lumière. Trois façons d'obtenir une image claire.
         series:
-          - variable: l'ISO, et donc la vitesse qui en découle
+          - variable: comment on obtient la luminosité
             constantes:
-              scène: la même, en faible lumière
+              scène: la même
+              lumière: faible, identique
               ouverture: f/2.8
               focale: 35 mm
-            legende: Regardez laquelle des deux vous garderiez.
+            legende: |
+              La troisième est propre parce qu'elle a capté seize fois plus de lumière, pas parce
+              que son ISO est bas. Cette lumière est venue d'une vitesse lente : d'où le flou.
             images:
               - id: l2-iso-nette-bruitee
-                specification: Faible lumière, ISO 6400, 1/125 s · f/2.8 · nette et bruitée
-                valeur: ISO 6400 — nette, bruitée
+                specification: Faible lumière, ISO 6400, 1/125 s · f/2.8 · bien exposée · nette et bruitée
+                valeur: ISO 6400, bien exposée — nette, bruitée
                 priorite: essentiel
                 reglages: { iso: "6400", ouverture: f/2.8, focale: 35 mm }
-              - id: l2-iso-propre-floue
-                specification: Même scène, ISO 400, 1/8 s à main levée · f/2.8 · propre et bougée
-                valeur: ISO 400 — propre, floue
+              - id: l2-iso-eclaircie
+                specification: Même scène, ISO 400, 1/125 s · f/2.8 · sous-exposée de quatre crans, puis éclaircie après coup au développement · nette, autant ou plus de bruit
+                valeur: ISO 400, éclaircie après coup — nette, autant ou plus bruitée
                 priorite: essentiel
                 reglages: { iso: "400", ouverture: f/2.8, focale: 35 mm }
+              - id: l2-iso-propre-floue
+                specification: Même scène, ISO 400, 1/8 s à main levée · f/2.8 · bien exposée · propre et bougée
+                valeur: ISO 400 à 1/8 s — propre, floue
+                priorite: essentiel
+                reglages: { iso: "400", ouverture: f/2.8, focale: 35 mm }
+
+      - id: m-et-iso-auto
+        genre: panneau
+        titre: M et l'ISO auto
+        claim: "En `M` avec l'ISO auto, vous fixez l'ouverture et la vitesse. L'appareil règle le volume."
+        corps: |
+          Le raisonnement de tout à l'heure, automatisé :
+
+          1. **`f/4`** pour la profondeur de champ — vous.
+          2. **`1/500 s`** pour figer — vous.
+          3. L'ISO qui expose bien — **l'appareil**.
+        ton: regle
+        icone: lucide:ruler
+        encadre: |
+          **Donnez-lui une limite haute :** 3200 ou 6400 selon votre appareil.
+
+          C'est le mode du jour où l'ouverture **et** la vitesse comptent. Votre point de départ
+          reste **`A` · `Av`**.
+        aparte: |
+          L'ISO auto et sa limite haute sont en **section 3** de votre feuille de marque.
 
   # ─────────────────────────────────────────────────────────────────────────
   - id: pause
@@ -429,14 +536,14 @@ blocs:
       - id: qui-decide-quoi
         genre: panneau
         titre: Les quatre modes
-        claim: Deux réglages sont en jeu. Chaque mode dit lequel des deux vous gardez.
+        claim: Chaque mode dit quels réglages vous gardez.
         corps: |
-          | Mode | L'ouverture | La vitesse | Ce que ça veut dire |
-          |---|---|---|---|
-          | **Auto** | l'appareil | l'appareil | Il décide tout. |
-          | **A · Av** | **vous** | l'appareil | Vous choisissez **la taille du trou**. |
-          | **S · Tv** | l'appareil | **vous** | Vous choisissez **la durée**. |
-          | **M** | **vous** | **vous** | L'appareil ne décide plus rien. |
+          | Mode | L'ouverture | La vitesse | L'ISO auto | Ce que ça veut dire |
+          |---|---|---|---|---|
+          | **Auto** | l'appareil | l'appareil | l'appareil | Il décide tout. |
+          | **A · Av** | **vous** | l'appareil | l'appareil | Vous choisissez **la taille du trou**. |
+          | **S · Tv** | l'appareil | **vous** | l'appareil | Vous choisissez **la durée**. |
+          | **M** | **vous** | **vous** | l'appareil | Il ne décide plus que l'ISO. |
         aparte: |
           `Av` et `A` sont **le même mode** : Canon dit `Av`, les autres disent `A`. Même chose
           pour `Tv` et `S`.
@@ -476,28 +583,32 @@ blocs:
       - id: la-compensation-en-manuel
         genre: panneau
         titre: La question qui prouve
-        claim: Pourquoi la compensation ne fait-elle rien en mode manuel ?
+        claim: "En `M`, tournez le `+/−`. Qu'est-ce qui bouge ?"
         corps: |
           La compensation dit une seule chose à l'appareil : **« décide autrement. »**
 
-          Mettez-vous en `M`. Tournez votre molette de compensation. Regardez votre écran.
+          Mettez-vous en `M`, l'ISO auto activé. Tournez votre molette de compensation.
+          Regardez votre écran.
         aparte: |
-          Rien ne bouge. À votre avis, pourquoi ?
+          Qu'est-ce qui a bougé — et pourquoi celui-là ?
         etats:
           - etiquette: La question
           - etiquette: La réponse
             encadre: |
-              **Encore faut-il qu'il décide quelque chose.**
+              **Elle déplace ce que l'appareil décide encore.**
 
-              En `Auto`, il décide l'ouverture et la vitesse. En `A · Av`, la vitesse. En
-              `S · Tv`, l'ouverture. En **`M`, rien** — donc le `+/−` ne fait **rien du tout**.
+              | Mode | L'appareil décide | Le `+/−` déplace |
+              |---|---|---|
+              | `A · Av` | la vitesse | la vitesse |
+              | `S · Tv` | l'ouverture | l'ouverture |
+              | `M` + ISO auto | l'ISO | l'ISO — sur la plupart des boîtiers |
+              | `M`, ISO fixe | rien | **rien du tout** |
             ton: reponse
           - etiquette: Ce que ça dit du manuel
             encadre: |
-              En manuel, vous avez déjà pris les deux décisions. Il ne reste rien à décaler.
-
-              **Ce n'est pas une limite de votre appareil** : c'est la définition même du mode
-              manuel — et c'est pourquoi le manuel est plus lent.
+              En manuel avec un ISO fixe, vous avez tout décidé : il ne reste rien à décaler.
+              **Ce n'est pas une limite de votre appareil**, c'est la définition du manuel — et
+              c'est pourquoi il est plus lent.
             ton: regle
 
       - id: votre-point-de-depart
@@ -547,7 +658,7 @@ blocs:
         claim: Faites le tour de votre molette, et nommez à voix haute ce que l'appareil décide.
         gestes:
           - "**Faites le tour de votre molette** — `Auto`, `A` ou `Av`, `S` ou `Tv`, `M`."
-          - "**Arrêtez-vous sur `M` et tournez le `+/−`.** Rien ne bouge — et maintenant vous savez pourquoi."
+          - "**Arrêtez-vous sur `M` et tournez le `+/−`.** Regardez l'ISO bouger — l'ISO auto est activé."
           - "**Revenez sur `A` · `Av`** — c'est là que votre appareil reste quand vous le rangez."
           - "**ISO automatique**, limite haute à 3200 ou 6400."
           - "**Trouvez le bouton `+/−` au toucher**, sans regarder : `−1`, `+1`, retour à `0`."

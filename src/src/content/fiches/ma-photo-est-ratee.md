@@ -45,8 +45,8 @@ Partez toujours du **symptôme** : c'est la seule chose que vous voyez. La cause
 
 ## Bruitée
 
-- *Cause* — ISO élevé, faute de lumière.
-- *Correction* — plus de lumière, ou une plus grande ouverture, ou acceptez le bruit.
+- *Cause* — pas assez de lumière captée.
+- *Correction* — plus de lumière, une plus grande ouverture, ou acceptez le bruit ; ne sous-exposez pas.
 
 > **Nette et bruitée vaut mieux que propre et floue.** Le bruit se réduit un peu au développement ; le flou de bougé, jamais.
 

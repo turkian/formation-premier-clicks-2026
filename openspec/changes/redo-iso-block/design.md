@@ -39,7 +39,7 @@ iso   « L'ISO, le bouton du volume » · Il n'ajoute pas de lumière : il monte
  1  qu-est-ce-que-l-iso    panneau           ISO and film; two colonnes, lente / rapide
  2  l-iso-aujourd-hui      interactif        chaine-du-capteur (new)
  3  l-iso-eclaircit        appareil-en-main  ex. 1 · M, f/5.6, 1/125, ISO 100 → 800 → 6400
- 4  le-raisonnement        panneau           kept; callout rewritten
+ 4  le-raisonnement        panneau           two paths that rejoin, one example
  5  d-ou-vient-le-bruit    panneau           grain ≠ noise; the cause is the light
  6  le-bruit-dans-l-ombre  appareil-en-main  ex. 2 · one photo, zoom into the shadows
  7  nette-et-bruitee       interactif        iso-et-bruit, reworked
@@ -77,7 +77,7 @@ photographs; before ISO, the number was called ASA. The word « soirée » is av
 ### D3. The sensor chain component (`chaine-du-capteur`)
 
 Drawn in SVG with the theme tokens and `interactif.css`, like `Obturateur.astro`. Four labelled
-steps, with back and forward buttons, keyboard operable:
+stations, all visible from the start; the only control is the ISO:
 
 1. **La lumière** — photons fill a photosite; label « ici se décide la quantité de lumière ».
 2. **Le signal** — a weak waveform with a small hiss on it.
@@ -89,8 +89,10 @@ The ISO control is a slider with discrete stops, readable from the back of the r
 « volume » word appears in the step label, and « sensibilité » in the screen's `aparte`: « Le mot
 "sensibilité" vient de la pellicule. Votre capteur, lui, n'en a qu'une. »
 
-Alternative considered: animating photons continuously. It was rejected: a stepper is what the
-animator needs to talk over, and it matches `l-obturateur`.
+Alternatives considered: animating photons continuously, rejected because the animator needs
+something to talk over; and a back/forward stepper revealing one station at a time, like
+`l-obturateur`. The stepper was built, then removed: with the whole chain visible, moving the
+ISO alone shows what grows and what does not, in one look.
 
 ### D4. Exercise 1 settings
 
@@ -123,9 +125,14 @@ rejected for the room because brightening needs an editor; it moves to the demon
 
 ### D6. `le-raisonnement` and the noise panel
 
-`le-raisonnement` keeps its four-step list. Its callout changes from « ce que ça coûte : du
-bruit » to « ce que ça révèle : le bruit, qui était déjà dans la lumière captée ». Its ISO auto
-aside moves to `m-et-iso-auto`.
+`le-raisonnement` walks one worked example — a basketball game in a gym — as two paths that
+rejoin, in two `colonnes`: « la zone nette d'abord » (aperture `f/4`, then speed `1/500 s`) and
+« le mouvement d'abord » (speed `1/500 s`, then aperture `f/4`). Which one comes first depends on
+what the photographer wants to show. A rule box joins them: both land on `f/4`, `1/500 s`, the photo
+comes out too dark, so the ISO goes up, to about `3200`. The claim says the ISO comes last. The
+warning callout about noise is removed: the next screen, `d-ou-vient-le-bruit`, carries that point.
+`f/4` and `1/500 s` stay, because `m-et-iso-auto` reuses the same example. Its ISO auto aside
+moves to `m-et-iso-auto`.
 
 `d-ou-vient-le-bruit` panel (≈100 words): claim contrasting grain and noise (« Le grain de la
 pellicule venait de l'ISO. Le bruit numérique vient du manque de lumière. »); body with the
@@ -209,7 +216,7 @@ stays the starting point, which `votre-point-de-depart` still says after the bre
 
 - [Session 2 grows by six more screens] → Accepted for now; trimming is a later pass across the
   whole session. Candidates in this block: fold `d-ou-vient-le-bruit` into the aside of
-  `nette-et-bruitee`, or drop `qu-est-ce-que-l-iso`'s columns into the stepper's aside.
+  `nette-et-bruitee`, or drop `qu-est-ce-que-l-iso`'s columns into the sensor chain screen's aside.
 - [`M` appears before « Les quatre modes »] → Exercise 1 uses it as a lab setting (« on fige
   tout sauf l'ISO »); the modes block after the break names it properly.
 - [A participant leaves exercise 1 with ISO auto off] → Its last step turns it back on, and

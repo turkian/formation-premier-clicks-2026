@@ -15,7 +15,7 @@ in `M`.
 - Open with two explanation screens, like the speed block's shutter screen:
   1. **what ISO is**, from the film era: a sensitivity bought by the roll, fast films with bigger
      crystals and visible grain, the ISO (formerly ASA) number;
-  2. **what ISO is in a digital camera**: a new interactive stepper — light fills the sensor,
+  2. **what ISO is in a digital camera**: a new interactive chain, all four stations shown at once — light fills the sensor,
      becomes a weak analog signal, is amplified (the ISO, the « volume »), then converted to
      numbers. The everyday word « sensibilité » is kept, and the screen says once that the sensor
      has a single sensitivity and that ISO is an amplification.

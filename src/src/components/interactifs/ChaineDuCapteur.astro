@@ -1,0 +1,219 @@
+---
+/**
+ * La chaîne du capteur : de la lumière aux nombres, en quatre stations.
+ *
+ * 1. La lumière remplit un photosite — c'est là, et seulement là, que se décide
+ *    la quantité de lumière captée.
+ * 2. Elle devient un faible signal électrique, qui porte déjà son souffle.
+ * 3. L'ISO amplifie ce signal : c'est le « volume ». Le signal et son souffle
+ *    grandissent **ensemble**, et le photosite de la station 1 ne bouge pas.
+ * 4. Le signal amplifié devient des nombres, puis une image.
+ *
+ * Le capteur n'a qu'une sensibilité. L'ISO n'ajoute aucune lumière : il monte le
+ * son. C'est la seule chose que le dessin ne doit jamais contredire — d'où le
+ * photosite qui reste au même niveau, quel que soit l'ISO.
+ *
+ * Toute la chaîne est visible d'emblée, et une seule commande : le volume.
+ * L'animateur le monte et le baisse en parlant ; la salle voit, d'un seul
+ * regard, ce qui grandit (le signal, son souffle, la clarté de l'image) et ce
+ * qui ne bouge pas (la lumière captée).
+ */
+import { typo } from '../../lib/typo';
+import '../../styles/interactif.css';
+
+/** Les quatre stations, de gauche à droite. */
+const X = [10, 190, 370, 550];
+const LARGEUR = 160;
+---
+
+<div class="composant chaine" data-chaine>
+  <div class="commandes">
+    <div class="levier" data-reglage>
+      <div class="etiquette">
+        <span>Le volume</span>
+        <output data-sortie="iso"></output>
+      </div>
+      <input type="range" data-levier="iso" min="0" max="6" step="1" aria-label="ISO" />
+    </div>
+  </div>
+
+  <div class="visuel">
+    <div class="lecture" aria-live="polite">
+      <div class="bande" data-sortie="titre"></div>
+    </div>
+
+    <svg class="scene-svg" viewBox="0 0 720 240" role="img" data-scene-chaine
+         aria-label="La chaîne du capteur : la lumière, le signal, le volume, les nombres">
+      <defs>
+        <filter id="grain-chaine" x="0" y="0" width="100%" height="100%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="2" seed="4" result="bruit" />
+          <feColorMatrix in="bruit" type="saturate" values="0.7" />
+        </filter>
+        <marker id="fleche-chaine" viewBox="0 0 10 10" refX="8" refY="5"
+                markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M0 0 L10 5 L0 10 Z" fill="var(--texte-2)" />
+        </marker>
+      </defs>
+
+      {X.slice(0, 3).map((x) => (
+        <line x1={x + LARGEUR + 2} y1="105" x2={x + LARGEUR + 16} y2="105"
+              stroke="var(--texte-2)" stroke-width="2" marker-end="url(#fleche-chaine)" />
+      ))}
+
+      {X.map((x, i) => (
+        <g data-station={i} data-commande={i === 2 ? '' : undefined}>
+          <rect class="cadre-station" x={x} y="20" width={LARGEUR} height="170" rx="8" />
+          <text x={x + LARGEUR / 2} y="218" text-anchor="middle" font-size="19"
+                fill="var(--texte)">{['la lumière', 'le signal', 'le volume', 'les nombres'][i]}</text>
+        </g>
+      ))}
+
+      <!-- 1 · Le photosite : un puits que la lumière remplit. Son niveau ne
+           dépend que de la lumière, jamais de l'ISO. -->
+      <g>
+        <g fill="#fbe3a1">
+          <circle cx="62" cy="42" r="4" /><circle cx="90" cy="54" r="4" />
+          <circle cx="118" cy="38" r="4" /><circle cx="76" cy="66" r="4" />
+          <circle cx="104" cy="74" r="4" />
+        </g>
+        <rect x="55" y="88" width="70" height="90" fill="none" stroke="var(--trait-fort)" stroke-width="2" />
+        <rect x="56" y="148" width="68" height="29" fill="#f4a259" />
+        <text x="90" y="140" text-anchor="middle" font-size="13" fill="var(--texte-2)">lumière captée</text>
+      </g>
+
+      <!-- 2 · Le signal : faible, avec son souffle. -->
+      <g>
+        <line x1="200" y1="105" x2="340" y2="105" stroke="var(--trait)" stroke-width="1" />
+        <path data-onde="signal" fill="none" stroke="var(--accent-2)" stroke-width="2.5" />
+      </g>
+
+      <!-- 3 · Le volume : un amplificateur, et le signal amplifié — souffle compris. -->
+      <g>
+        <path d="M425 32 L425 64 L455 48 Z" fill="var(--fond-3)" stroke="var(--accent)" stroke-width="2.5" />
+        <line x1="380" y1="105" x2="520" y2="105" stroke="var(--trait)" stroke-width="1" />
+        <path data-onde="amplifie" fill="none" stroke="var(--accent-2)" stroke-width="2.5" />
+      </g>
+
+      <!-- 4 · Les nombres, puis l'image. -->
+      <g>
+        <text data-chiffres x="630" y="48" text-anchor="middle" font-size="16"
+              font-family="ui-monospace, monospace" fill="var(--texte-2)"></text>
+        <text data-chiffres-2 x="630" y="70" text-anchor="middle" font-size="16"
+              font-family="ui-monospace, monospace" fill="var(--texte-2)"></text>
+        <svg x="575" y="84" width="110" height="94" viewBox="0 0 110 94">
+          <rect width="110" height="94" fill="#8fb6d9" />
+          <circle cx="82" cy="26" r="12" fill="#fff4cf" />
+          <path d="M0 70 Q30 46 60 64 T110 58 V94 H0 Z" fill="#5f8f4e" />
+          <rect x="22" y="56" width="18" height="16" fill="#8a4b3a" />
+          <rect width="110" height="94" filter="url(#grain-chaine)" data-grain-image opacity="0" style="mix-blend-mode:screen" />
+          <rect width="110" height="94" fill="#000" data-obscurite />
+        </svg>
+      </g>
+    </svg>
+
+    <div class="lecture">
+      <div class="sens" set:html={typo(
+        'Le signal et son souffle grandissent ensemble. La lumière captée, elle, ne bouge pas : l’ISO n’ajoute aucune lumière.',
+      )} />
+    </div>
+  </div>
+</div>
+
+<style>
+  .chaine .levier output { white-space: nowrap; }
+
+  .chaine .cadre-station {
+    fill: var(--fond-3);
+    stroke: var(--trait);
+    stroke-width: 1.5;
+  }
+  /* La station sur laquelle agit le curseur : le volume. */
+  .chaine [data-station][data-commande] .cadre-station {
+    stroke: var(--accent);
+    stroke-width: 3;
+  }
+  .chaine .lecture .sens { font-size: var(--t-corps); color: var(--texte); }
+</style>
+
+<script>
+  import { typo } from '../../lib/typo';
+
+  const ISOS = [100, 200, 400, 800, 1600, 3200, 6400];
+
+  /** Ce que dit la lecture, selon le cran de volume. */
+  function titre(iIso: number): string {
+    if (iIso <= 1) return 'Volume bas : l’image reste sombre.';
+    if (iIso <= 4) return 'Le volume monte : l’image s’éclaircit.';
+    return 'Volume haut : l’image est claire — et son bruit se voit.';
+  }
+
+  /**
+   * Le souffle, tiré une fois pour toutes d'un générateur à graine fixe : il ne
+   * scintille pas quand l'ISO change. Seule son amplitude change — on amplifie
+   * le souffle qui était là, on n'en crée pas.
+   */
+  const POINTS = 70;
+  const SOUFFLE = (() => {
+    let graine = 7;
+    return Array.from({ length: POINTS + 1 }, () => {
+      graine = (graine * 16807) % 2147483647;
+      return (graine / 2147483647) * 2 - 1;
+    });
+  })();
+
+  /** Le signal porté par le photosite : une onde douce. */
+  const AMPLITUDE = 6;
+  const AMPLITUDE_SOUFFLE = 3.4;
+
+  function onde(x0: number, largeur: number, gain: number): string {
+    let d = '';
+    for (let i = 0; i <= POINTS; i++) {
+      const x = x0 + (i / POINTS) * largeur;
+      const y =
+        105 -
+        gain * (AMPLITUDE * Math.sin((i / POINTS) * Math.PI * 4) + AMPLITUDE_SOUFFLE * SOUFFLE[i]!);
+      d += `${i ? 'L' : 'M'}${x.toFixed(1)} ${y.toFixed(1)} `;
+    }
+    return d;
+  }
+
+  for (const racine of document.querySelectorAll<HTMLElement>('[data-chaine]')) demarrer(racine);
+
+  function demarrer(racine: HTMLElement) {
+    const q = <E extends Element>(s: string) => racine.querySelector<E>(s)!;
+    const etat = { iIso: 0 };
+    const curseur = q<HTMLInputElement>('[data-levier="iso"]');
+
+    q('[data-onde="signal"]').setAttribute('d', onde(200, 140, 1));
+
+    function rendre() {
+      const iso = ISOS[etat.iIso]!;
+
+      // Le gain affiché suit l'échelle des ISO, un cran à la fois : de 1 à 64
+      // en réalité, de 1 à environ 9 dans le dessin, pour tenir dans le cadre.
+      const gain = 1 + etat.iIso * 1.2;
+      q('[data-onde="amplifie"]').setAttribute('d', onde(380, 140, gain));
+
+      // L'image : sa luminosité suit le volume ; son bruit, amplifié avec elle,
+      // se voit d'autant plus qu'elle est claire.
+      const clarte = (etat.iIso + 1) / ISOS.length;
+      q('[data-obscurite]').setAttribute('opacity', (1 - clarte).toFixed(2));
+      q('[data-grain-image]').setAttribute('opacity', Math.min(1, clarte * 1.1).toFixed(2));
+      const niveau = Math.round(clarte * 255);
+      q('[data-chiffres]').textContent = `${niveau} ${Math.max(0, niveau - 13)} ${Math.min(255, niveau + 9)}`;
+      q('[data-chiffres-2]').textContent = `${Math.max(0, niveau - 6)} ${niveau} ${Math.max(0, niveau - 21)}`;
+
+      curseur.value = String(etat.iIso);
+      q('[data-sortie="iso"]').textContent = typo(`ISO ${iso.toLocaleString('fr-CA')}`);
+
+      q('[data-sortie="titre"]').textContent = typo(titre(etat.iIso));
+    }
+
+    curseur.addEventListener('input', () => {
+      etat.iIso = Number(curseur.value);
+      rendre();
+    });
+
+    rendre();
+  }
+</script>

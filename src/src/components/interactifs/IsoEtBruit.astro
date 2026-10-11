@@ -1,15 +1,24 @@
 ---
 /**
- * ISO et bruit — présenté comme un **jugement**, pas comme une échelle.
+ * ISO et bruit — le bruit vient de la lumière, l'ISO le rend visible.
  *
- * Une réglette d'ISO seule enseignerait « le bruit est mauvais, restez bas »,
- * ce qui est faux et coûte des photos. Le composant met donc les deux issues
- * côte à côte et force le choix : à lumière donnée, monter l'ISO donne une
- * image nette et bruitée, le garder bas donne une image propre et floue.
+ * Deux entrées, et pas une de plus :
+ *   - **la lumière captée** — ce que l'ouverture, la vitesse et la scène ont
+ *     laissé entrer. C'est elle seule qui décide du bruit : moins de lumière,
+ *     plus de bruit, quel que soit l'ISO ;
+ *   - **le volume, l'ISO** — qui amplifie ce qui a été capté. Il décide de la
+ *     luminosité de l'image, avec la lumière, jamais du bruit.
  *
- * La conclusion de la formation est explicite : **nette et bruitée vaut mieux
- * que propre et floue.** Le bruit se réduit un peu au développement, le flou de
- * bougé jamais.
+ * D'où la seule chose que le composant ne doit jamais montrer : une image plus
+ * propre parce que l'ISO a baissé. À lumière égale, baisser l'ISO assombrit
+ * l'image et cache son bruit dans l'ombre ; il ne l'enlève pas.
+ *
+ * Le modèle, en crans : l'exposition `E = lumière + volume − 6`. À `E = 0`,
+ * l'image est bien exposée ; en dessous, trop sombre ; au-dessus, trop claire.
+ * Pour chaque lumière, un seul ISO expose correctement.
+ *
+ * Le composant ne simule plus la vitesse : le flou de bougé est montré par la
+ * série de photographies de l'écran suivant, avec de vraies images.
  */
 import { typo } from '../../lib/typo';
 import '../../styles/interactif.css';
@@ -19,84 +28,77 @@ import '../../styles/interactif.css';
   <div class="commandes">
     <div class="levier">
       <div class="etiquette">
-        <span>La lumière disponible</span>
+        <span>La lumière captée</span>
         <output data-sortie="lumiere"></output>
       </div>
-      <input type="range" data-levier="lumiere" min="0" max="6" step="1" aria-label="Lumière disponible" />
+      <input type="range" data-levier="lumiere" min="0" max="6" step="1" aria-label="Lumière captée" />
     </div>
 
     <div class="levier" data-reglage>
       <div class="etiquette">
-        <span>L'ISO <span class="marque-reglage">un réglage</span></span>
+        <span>Le volume — l'ISO <span class="marque-reglage">un réglage</span></span>
         <output data-sortie="iso"></output>
       </div>
-      <input type="range" data-levier="iso" min="0" max="8" step="1" aria-label="Sensibilité ISO" />
+      <input type="range" data-levier="iso" min="0" max="6" step="1" aria-label="ISO" />
     </div>
 
     <p class="refus" style="color:var(--texte-2)" set:html={typo(
-      'Baissez l’ISO dans une salle sombre et regardez ce que ça coûte : ce n’est pas gratuit. Le choix est là, et c’est vous qui le faites.',
+      'Baissez l’ISO : l’image s’assombrit, elle ne devient pas plus propre. Pour moins de bruit, il faut plus de lumière.',
     )} />
   </div>
 
   <div class="visuel">
+    <div class="lecture">
+      <div class="bande" data-sortie="verdict"></div>
+    </div>
+
     <svg class="scene-svg" viewBox="0 0 640 260" role="img" data-scene-iso
-         aria-label="La même scène à l'ISO choisi : le bruit et la netteté évoluent ensemble">
+         aria-label="La même scène : sa luminosité suit la lumière et l'ISO, son bruit suit la lumière captée">
       <defs>
         <filter id="grain-iso" x="0" y="0" width="100%" height="100%">
-          <feTurbulence data-grain type="fractalNoise" baseFrequency="0.9" numOctaves="2" result="bruit" />
-          <feColorMatrix in="bruit" type="saturate" values="0.6" result="bruitColore" />
-          <feComposite in="bruitColore" in2="SourceGraphic" operator="in" result="grain" />
-          <feBlend in="SourceGraphic" in2="grain" mode="screen" data-melange />
-        </filter>
-        <filter id="flou-iso" x="-20%" y="-20%" width="140%" height="140%">
-          <feGaussianBlur data-flou stdDeviation="0" />
+          <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="2" seed="3" result="bruit" />
+          <feColorMatrix in="bruit" type="saturate" values="0.7" />
         </filter>
       </defs>
 
-      <g filter="url(#flou-iso)">
-        <g data-image filter="url(#grain-iso)">
-          <rect x="0" y="0" width="640" height="260" fill="#2b3038" />
-          <rect x="60" y="60" width="180" height="150" rx="8" fill="#4d5666" />
-          <circle cx="420" cy="120" r="58" fill="#6d7789" />
-          <rect x="380" y="176" width="80" height="60" rx="8" fill="#5a6474" />
-          <rect x="500" y="90" width="90" height="120" rx="6" fill="#414a58" />
-        </g>
-      </g>
+      <rect x="0" y="0" width="640" height="260" fill="#8a94a3" />
+      <rect x="60" y="60" width="180" height="150" rx="8" fill="#b4bdca" />
+      <circle cx="420" cy="120" r="58" fill="#d7a86e" />
+      <rect x="380" y="176" width="80" height="60" rx="8" fill="#6f7a8a" />
+      <rect x="500" y="90" width="90" height="120" rx="6" fill="#9aa6b6" />
+
+      <!-- Le bruit : il ne dépend que de la lumière captée. -->
+      <rect x="0" y="0" width="640" height="260" filter="url(#grain-iso)" data-grain style="mix-blend-mode:screen" />
+      <!-- La luminosité : l'obscurité recouvre l'image et son bruit ensemble —
+           une image sombre cache son bruit, elle ne l'enlève pas. -->
+      <rect x="0" y="0" width="640" height="260" fill="#000" data-sombre />
+      <rect x="0" y="0" width="640" height="260" fill="#fff" data-clair />
     </svg>
 
     <div class="lecture" aria-live="polite">
-      <div class="bande" data-sortie="verdict"></div>
       <div class="sens" data-sortie="jugement"></div>
-      <div class="limites" data-sortie="vitesse"></div>
+      <div class="limites" data-sortie="indice"></div>
     </div>
   </div>
 </div>
 
+<style>
+  [data-iso] .levier output { white-space: nowrap; }
+</style>
+
 <script>
   import { typo } from '../../lib/typo';
 
-  const LUMIERES = [
-    { nom: 'plein soleil', indice: 6 },
-    { nom: 'ciel couvert', indice: 5 },
-    { nom: 'à l’ombre', indice: 4 },
-    { nom: 'intérieur près d’une fenêtre', indice: 3 },
-    { nom: 'salle éclairée le soir', indice: 2 },
-    { nom: 'restaurant tamisé', indice: 1 },
-    { nom: 'rue la nuit', indice: 0 },
-  ];
-
-  const ISOS = [100, 200, 400, 800, 1600, 3200, 6400, 12800, 25600];
-
-  /** Vitesse obtenue, à f/5.6, pour une lumière et un ISO donnés. */
-  const VITESSES = [
-    '1 s', '1/2 s', '1/4 s', '1/8 s', '1/15 s', '1/30 s', '1/60 s',
-    '1/125 s', '1/250 s', '1/500 s', '1/1000 s', '1/2000 s', '1/4000 s',
-  ];
+  /** Sept crans, nommés sans chiffres : on parle de lumière, pas de diaphragmes. */
+  const LUMIERES = ['très peu', 'peu', 'assez peu', 'moyenne', 'assez', 'bonne', 'beaucoup'];
+  const ISOS = [100, 200, 400, 800, 1600, 3200, 6400];
+  /** `E = lumière + volume − K` : à lumière maximale, ISO 100 expose juste. */
+  const K = 6;
 
   for (const racine of document.querySelectorAll<HTMLElement>('[data-iso]')) demarrer(racine);
 
   function demarrer(racine: HTMLElement) {
-    const etat = { lumiere: 3, iIso: 2 };
+    const etat = { lumiere: 1, iIso: 2 };
     const q = <T extends Element>(s: string) => racine.querySelector<T>(s)!;
 
     racine.addEventListener('input', (e) => {
@@ -106,70 +108,51 @@ import '../../styles/interactif.css';
       rendre();
     });
 
+    const isoTexte = (i: number) => `ISO ${ISOS[i]!.toLocaleString('fr-CA')}`;
+
     function rendre() {
-      const lumiere = LUMIERES[etat.lumiere]!;
-      const iso = ISOS[etat.iIso]!;
       q<HTMLInputElement>('[data-levier="lumiere"]').value = String(etat.lumiere);
       q<HTMLInputElement>('[data-levier="iso"]').value = String(etat.iIso);
-      q('[data-sortie="lumiere"]').textContent = lumiere.nom;
-      q('[data-sortie="iso"]').textContent = typo(`ISO ${iso.toLocaleString('fr-CA')}`);
+      q('[data-sortie="lumiere"]').textContent = LUMIERES[etat.lumiere]!;
+      q('[data-sortie="iso"]').textContent = typo(isoTexte(etat.iIso));
 
-      /*
-       * La vitesse obtenue est la conséquence, et c'est elle qui décide si
-       * l'image est floue. Le bruit et le flou ne sont donc pas deux réglages
-       * indépendants : ce sont les deux issues du même arbitrage.
-       */
-      const iVitesse = Math.min(VITESSES.length - 1, lumiere.indice + etat.iIso);
-      const vitesse = VITESSES[iVitesse]!;
-      const trop_lent = iVitesse < 7; // sous 1/125 s, à main levée, ça bouge
+      const E = etat.lumiere + etat.iIso - K;
 
-      const grain = etat.iIso / (ISOS.length - 1);
-      q<SVGFETurbulenceElement>('[data-grain]').setAttribute(
-        'baseFrequency',
-        String(0.55 + grain * 0.5),
-      );
-      q<SVGGElement>('[data-image]').style.opacity = String(1 - grain * 0.12);
-      const melange = q<SVGFEBlendElement>('[data-melange]');
-      melange.setAttribute('mode', grain > 0.02 ? 'screen' : 'normal');
-      q<SVGGElement>('[data-image]').setAttribute(
-        'filter',
-        grain > 0.02 ? 'url(#grain-iso)' : 'none',
-      );
-      q<SVGFEGaussianBlurElement>('[data-flou]').setAttribute(
-        'stdDeviation',
-        trop_lent ? String(Math.min(7, (7 - iVitesse) * 1.5)) : '0',
-      );
+      // Le bruit suit la lumière captée, et elle seule.
+      const bruit = (K - etat.lumiere) / K;
+      q('[data-grain]').setAttribute('opacity', (bruit * 0.95).toFixed(2));
 
-      const bruite = etat.iIso >= 5;
+      // La luminosité suit l'exposition. Chaque cran sous la bonne exposition
+      // assombrit l'image — et son bruit avec elle.
+      const ecart = (n: number) => 1 - Math.pow(2, -0.6 * n);
+      q('[data-sombre]').setAttribute('opacity', E < 0 ? ecart(-E).toFixed(2) : '0');
+      q('[data-clair]').setAttribute('opacity', E > 0 ? (ecart(E) * 0.85).toFixed(2) : '0');
+
       let verdict: string;
       let jugement: string;
-
-      if (trop_lent && !bruite) {
-        verdict = 'Propre, mais floue.';
-        jugement = typo(
-          `Le grain est absent, et l'image est inutilisable : à ${vitesse}, à main levée, tout tremble. ` +
-            `Montez l'ISO — c'est exactement à ça qu'il sert.`,
-        );
-      } else if (trop_lent && bruite) {
-        verdict = 'Floue **et** bruitée.'.replace(/\*\*/g, '');
-        jugement = typo(
-          `Il n'y a plus assez de lumière pour cette ouverture. Ouvrez davantage, posez l'appareil, ou changez de lumière.`,
-        );
-      } else if (bruite) {
-        verdict = 'Nette, et bruitée.';
-        jugement = typo(
-          `Le grain est visible, et l'image est là. **Nette et bruitée vaut mieux que propre et floue** : ` +
-            `le bruit se réduit un peu au développement, le flou de bougé jamais.`,
-        ).replace(/\*\*/g, '');
+      if (E < 0) {
+        verdict = 'Trop sombre.';
+        jugement =
+          etat.lumiere <= 3
+            ? "Le bruit n'a pas disparu : il se cache dans l'ombre. Éclaircir la photo plus tard le fera revenir. Montez le volume."
+            : 'Il y a assez de lumière : montez le volume, sans crainte.';
+      } else if (E > 0) {
+        verdict = 'Trop claire.';
+        jugement = 'Le volume est trop haut pour cette lumière. Baissez l’ISO.';
       } else {
-        verdict = 'Nette et propre.';
-        jugement = typo(`Vous avez assez de lumière : rien à arbitrer ici.`);
+        verdict = 'Bien exposée.';
+        jugement =
+          etat.lumiere <= 2
+            ? 'Et bruitée : il manquait de lumière. Le volume a rendu visible le bruit — il était déjà là.'
+            : etat.lumiere >= 5
+              ? 'Et propre : beaucoup de lumière captée, presque pas de bruit.'
+              : 'Un peu de bruit : il manquait encore un peu de lumière.';
       }
 
       q('[data-sortie="verdict"]').textContent = verdict;
-      q('[data-sortie="jugement"]').textContent = jugement;
-      q('[data-sortie="vitesse"]').textContent = typo(
-        `À f/5.6, ${lumiere.nom}, ISO ${iso.toLocaleString('fr-CA')} → ${vitesse}.`,
+      q('[data-sortie="jugement"]').textContent = typo(jugement);
+      q('[data-sortie="indice"]').textContent = typo(
+        `Avec cette lumière, l'ISO qui expose bien : ${isoTexte(K - etat.lumiere)}.`,
       );
     }
 
