@@ -11,6 +11,7 @@ import VitesseEtMouvement from './VitesseEtMouvement.astro';
 import IsoEtBruit from './IsoEtBruit.astro';
 import MoletteDesModes from './MoletteDesModes.astro';
 import ArbreDeDiagnostic from './ArbreDeDiagnostic.astro';
+import Obturateur from './Obturateur.astro';
 
 export const COMPOSANTS = {
   'profondeur-de-champ': ProfondeurDeChamp,
@@ -19,4 +20,5 @@ export const COMPOSANTS = {
   'iso-et-bruit': IsoEtBruit,
   'molette-des-modes': MoletteDesModes,
   'arbre-de-diagnostic': ArbreDeDiagnostic,
+  obturateur: Obturateur,
 };

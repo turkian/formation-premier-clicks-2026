@@ -23,8 +23,7 @@ necessary in the smallest type size, everything visible at 1024 × 768 and 16:9.
   compensation. The ISO block is redone next and will pick these up.
 - Rewriting `la-decision`, `points-de-depart`, `deux-flous`, `deux-flous-en-images` or
   `explorer-le-mouvement`.
-- Showing the image being built on the sensor, the rolling-shutter distortion of an electronic
-  shutter, or flash sync. The note on electronic shutters stays one sentence.
+- The rolling-shutter distortion of an electronic shutter, or flash sync. The note on electronic shutters stays one sentence.
 - Cutting screens elsewhere in session 2 to make room (deferred, see Risks).
 
 ## Decisions
@@ -112,7 +111,17 @@ across), back curtain halfway. Under `prefers-reduced-motion`, « déclencher »
 three phases without animating between them.
 
 Drawing: an SVG sensor with two coloured curtains moving vertically, using the existing theme
-tokens and `interactif.css`, like `VitesseEtMouvement.astro`. No photograph. Registered in
+tokens and `interactif.css`, like `VitesseEtMouvement.astro`. No photograph.
+
+Behind the curtains, the sensor carries a drawn landscape that brightens as it is exposed, so
+the sensor reads clearly apart from the curtains. Each line's exposure is `(τ − y·T) / t`,
+clamped to `[0, 1]`: a line darkens to nothing while covered by the front curtain, brightens
+only while uncovered, and is fully exposed exactly when the back curtain covers it. Being linear
+in `y`, it is drawn as one dark gradient overlay whose two stops move with `τ`.
+
+Beside the sensor, a second panel, « la photo », shows the same exposure with no curtain in
+front: it builds up during the release and shows the finished image once the shutter has
+closed, which the sensor panel, covered by the back curtain, cannot. Registered in
 `components/interactifs/registre.ts` as `obturateur`.
 
 The electronic-shutter note lives in the screen's `aparte`, not in the component: something like

@@ -120,30 +120,37 @@ blocs:
 
               Il éclaircit l'image quand la lumière manque.
 
-      - id: le-programme
-        genre: panneau
-        titre: Le programme
-        claim: Vous allez comprendre ce que votre appareil décide à votre place.
-        corps: |
-          La séance 1 a traité tout ce qui décide de **la netteté**. Celle-ci regroupe tout ce
-          qui décide de **l'exposition**.
-
-          Il n'y a que **deux façons de faire entrer la lumière** :
-
-          | | Ce qu'elle règle | Vue |
-          |---|---|---|
-          | **L'ouverture** | la **taille** du trou | séance 1 |
-          | **La vitesse** | la **durée** pendant laquelle il reste ouvert | séance 2 |
-
-          Les quatre modes de votre molette ne seront qu'une conséquence de ces deux-là.
-        aparte: |
-          Une demi-heure de théorie utile, puis une heure complète d'appareil dans les mains.
-
   # ─────────────────────────────────────────────────────────────────────────
   - id: vitesse
     titre: Le mouvement et la vitesse
     resume: Figer, ou laisser voir. Aucune des deux n'est meilleure.
     ecrans:
+      - id: l-obturateur
+        genre: interactif
+        titre: L'obturateur
+        claim: Un rideau découvre le capteur, un second le recouvre. La vitesse, c'est le temps entre les deux.
+        composant: obturateur
+        aparte: |
+          Un obturateur électronique n'a aucun rideau : le capteur est lu ligne par ligne, avec un
+          résultat semblable.
+
+      - id: la-molette-de-vitesse
+        genre: appareil-en-main
+        titre: Appareil en main — la vitesse
+        claim: Photographiez votre main qui s'agite, à 1/500 puis à 1/15.
+        gestes:
+          - "**Passez en mode `S`** — ou **`Tv`** sur un Canon."
+          - "**Trouvez la molette de vitesse.** Allez de `1/1000` à `1/15` en regardant le chiffre changer."
+          - "**Photographiez votre main qui s'agite**, à `1/500` puis à `1/15`."
+          - "**Comparez** les deux photos sur votre écran."
+        cellulaire: |
+          Cherchez un mode **`Pro`** ou **`Expert`** dans votre application appareil photo.
+          Sinon, observez : votre téléphone choisit une vitesse lente quand il fait sombre, et
+          c'est pour ça que vos photos de soirée sont floues.
+        aparte: |
+          Les modes sont en **section 1** de votre feuille de marque. Le reste de vos réglages
+          ne bouge pas.
+
       - id: la-decision
         genre: panneau
         titre: La décision
@@ -154,6 +161,35 @@ blocs:
         aparte: |
           Votre choix dépend de ce que vous voulez raconter : c'est **la question 3** de votre
           fiche.
+
+      - id: trois-vitesses
+        genre: demonstration
+        titre: Une scène, trois vitesses
+        claim: La même rue, trois vitesses. Entre figer et laisser voir, il y a tout un éventail.
+        series:
+          - variable: la vitesse — l'appareil ajuste l'ISO
+            constantes:
+              scène: la même rue
+              cadrage: le même
+              ouverture: f/8
+              appareil: sur trépied
+            legende: Regardez les passants, puis le décor.
+            images:
+              - id: l2-rue-1-500
+                specification: Rue animée en fin de journée, passants et voitures · 1/500 s · f/8 · trépied · tout est figé
+                valeur: 1/500 s — tout est figé
+                priorite: essentiel
+                reglages: { vitesse: 1/500 s, ouverture: f/8 }
+              - id: l2-rue-1-30
+                specification: Même rue, même cadrage · 1/30 s · f/8 · trépied · les passants commencent à filer, le décor reste net
+                valeur: 1/30 s — les passants commencent à filer
+                priorite: essentiel
+                reglages: { vitesse: 1/30 s, ouverture: f/8 }
+              - id: l2-rue-1-2
+                specification: Même rue, même cadrage · 1/2 s · f/8 · trépied · passants et voitures en traînées, décor net
+                valeur: 1/2 s — le mouvement devient des traînées
+                priorite: essentiel
+                reglages: { vitesse: 1/2 s, ouverture: f/8 }
 
       - id: points-de-depart
         genre: panneau
@@ -201,20 +237,55 @@ blocs:
         claim: Faites bouger le sujet seul, puis vous seul. Ce n'est pas le même flou.
         composant: vitesse-et-mouvement
 
-      - id: la-molette-de-vitesse
+      - id: le-flou-choisi
+        genre: demonstration
+        titre: Le flou choisi
+        claim: Les mêmes flous que tout à l'heure — mais voulus.
+        images:
+          - id: l2-trainees
+            specification: Traînées de lumière dessinées dans l'air avec une lampe de poche, appareil posé · pose de 1 à 2 s
+            valeur: la lumière bouge, l'appareil est immobile
+            priorite: essentiel
+          - id: l2-icm
+            specification: Flou volontaire — l'appareil balayé de haut en bas pendant la pose, sur des arbres ou des lumières · 1/4 à 1/2 s
+            valeur: l'appareil bouge, la scène est immobile
+            priorite: essentiel
+          - id: l2-file
+            specification: Filé — un cycliste net sur un fond étiré, l'appareil suit le sujet pendant la pose · 1/30 s
+            valeur: l'appareil suit le sujet — lui est net, le fond file
+            priorite: utile
+
+      - id: les-trainees
         genre: appareil-en-main
-        titre: Appareil en main — la vitesse
-        claim: Photographiez votre main qui s'agite, à 1/500 puis à 1/15.
+        titre: Appareil en main — les traînées de lumière
+        claim: Le sujet bouge — cette fois, exprès. On tamise les lumières, et on dessine avec une lampe.
         gestes:
-          - "**Passez en mode `S`** — ou **`Tv`** sur un Canon."
-          - "**Trouvez la molette de vitesse.** Allez de `1/1000` à `1/15` en regardant le chiffre changer."
-          - "**Photographiez votre main qui s'agite**, à `1/500` puis à `1/15`. Comparez."
+          - "**Passez en mode `S`** — ou **`Tv`** sur un Canon — et choisissez **`1 s`**."
+          - "**Posez l'appareil** sur la table ou sur un sac : il ne doit pas bouger."
+          - "**Activez le retardateur de 2 secondes**, pour que votre doigt ne fasse pas trembler l'appareil."
+          - "**Pendant la pose, votre voisin dessine une forme dans l'air** avec la lampe de son téléphone. Puis essayez `2 s`."
         cellulaire: |
-          Cherchez un mode **`Pro`** ou **`Expert`** dans votre application appareil photo.
-          Sinon, observez : votre téléphone choisit une vitesse lente quand il fait sombre, et
-          c'est pour ça que vos photos de soirée sont floues.
+          Sur un iPhone, prenez une **Live Photo**, puis choisissez l'effet **Pose longue**. Sur
+          Android, cherchez un mode **pose longue** ou **light painting**, ou le mode **`Pro`**
+          avec une vitesse lente.
         aparte: |
-          Les modes sont en **section 1** de votre feuille de marque.
+          Dans une salle trop éclairée, la photo serait toute blanche : c'est pour ça qu'on
+          tamise.
+
+      - id: le-flou-voulu
+        genre: appareil-en-main
+        titre: Appareil en main — le flou voulu
+        claim: C'est vous qui bougez — cette fois, exprès. Bougez l'appareil pendant la photo.
+        gestes:
+          - "**Passez en mode `S`** — ou **`Tv`** sur un Canon — et choisissez **`1/4 s`**."
+          - "**Visez quelque chose de coloré** : les lumières du plafond, une étagère, un manteau."
+          - "**Commencez à bouger l'appareil, puis appuyez**, et continuez le geste jusqu'à la fin de la pose. Essayez d'abord de haut en bas."
+          - "**Recommencez à `1/2 s`**, et comparez."
+        cellulaire: |
+          Le mode **`Pro`** avec une vitesse lente, ou une **Live Photo** en **Pose longue**, en
+          bougeant le téléphone pendant la prise.
+        aparte: |
+          Ni trépied ni appui : c'est le mouvement de vos mains qui fait l'image.
 
   # ─────────────────────────────────────────────────────────────────────────
   - id: iso

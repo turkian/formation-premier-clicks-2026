@@ -1,0 +1,382 @@
+---
+/**
+ * L'obturateur : deux rideaux qui traversent le capteur.
+ *
+ * Le premier rideau découvre le capteur, le second le recouvre. Les deux
+ * traversent toujours en un même temps `T` ; seul change le moment où le
+ * second part, `t` après le premier — et `t`, c'est la vitesse choisie.
+ *
+ * D'où la seule chose qui ne doit jamais être truquée : aux vitesses rapides,
+ * le second rideau part avant que le premier ait fini, et ce qui traverse le
+ * capteur est une **fente**. Le capteur n'est jamais découvert d'un coup. Une
+ * ligne du capteur, elle, reste découverte exactement `t`, quelle que soit la
+ * vitesse : la fente n'est pas une approximation, c'est la même exposition.
+ *
+ * Un seul ralenti pour toutes les vitesses, énoncé à l'écran : un ralenti
+ * différent par vitesse rendrait la comparaison malhonnête.
+ */
+import { typo } from '../../lib/typo';
+import '../../styles/interactif.css';
+---
+
+<div class="composant obturateur" data-obturateur>
+  <div class="commandes">
+    <div class="levier" data-reglage>
+      <div class="etiquette">
+        <span>La vitesse <span class="marque-reglage">un réglage</span></span>
+      </div>
+      <div class="segments" role="group" aria-label="Vitesse d'obturation">
+        <button type="button" data-vitesse-choix="60">{typo('1/60 s')}</button>
+        <button type="button" data-vitesse-choix="250">{typo('1/250 s')}</button>
+        <button type="button" data-vitesse-choix="2000">{typo('1/2000 s')}</button>
+      </div>
+    </div>
+
+    <button type="button" class="declencher" data-declencher>Déclencher</button>
+
+    <div class="pas" role="group" aria-label="Phase par phase">
+      <button type="button" data-pas="-1" aria-label="Phase précédente">◀ Précédente</button>
+      <button type="button" data-pas="1" aria-label="Phase suivante">Suivante ▶</button>
+    </div>
+
+    <ul class="legende-obturateur">
+      <li><span class="pastille premier"></span>le premier rideau</li>
+      <li><span class="pastille second"></span>le second rideau</li>
+      <li><span class="pastille lumiere"></span>le capteur, qui s’éclaire</li>
+    </ul>
+  </div>
+
+  <div class="visuel">
+    <div class="lecture lecture-vitesse">
+      <span class="chiffre" data-sortie="vitesse"></span>
+      <span class="bande" set:html={typo('au ralenti, 250 fois')} />
+    </div>
+
+    <svg class="scene-svg" viewBox="0 0 690 256" role="img" data-scene-obturateur
+         aria-label="À gauche, le capteur et les deux rideaux de l'obturateur qui le traversent ; à droite, la photo qui se forme">
+      <defs>
+        <clipPath id="fenetre-capteur">
+          <rect x="30" y="20" width="300" height="200" />
+        </clipPath>
+        <linearGradient id="ciel-obturateur" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#f4a259" />
+          <stop offset="1" stop-color="#fbe3a1" />
+        </linearGradient>
+        <!-- L'obscurité qui reste sur chaque ligne du capteur. Ses deux bornes
+             suivent le temps : nulle là où la ligne a reçu toute sa lumière,
+             entière là où elle n'en a encore reçu aucune. Elle ne dépend que de
+             la hauteur : le capteur et la photo la partagent. -->
+        <linearGradient id="exposition-obturateur" gradientUnits="userSpaceOnUse"
+                        x1="0" y1="20" x2="0" y2="20" data-exposition>
+          <stop offset="0" stop-color="#000" stop-opacity="0" />
+          <stop offset="1" stop-color="#000" stop-opacity="1" />
+        </linearGradient>
+        <!-- Un paysage dessiné : ce que l'objectif projette sur le capteur. -->
+        <g id="paysage-obturateur">
+          <rect x="30" y="20" width="300" height="200" fill="url(#ciel-obturateur)" />
+          <circle cx="250" cy="92" r="24" fill="#fff4cf" />
+          <path d="M30 170 Q110 120 190 160 T330 150 V220 H30 Z" fill="#5f8f4e" />
+          <path d="M30 195 Q140 160 240 190 T330 185 V220 H30 Z" fill="#3c6332" />
+          <rect x="88" y="150" width="34" height="28" fill="#8a4b3a" />
+          <path d="M84 152 L105 134 L126 152 Z" fill="#5a2f26" />
+        </g>
+      </defs>
+
+      <!-- Le capteur : l'image, assombrie ligne par ligne selon la lumière déjà
+           reçue, puis les rideaux par-dessus. -->
+      <g clip-path="url(#fenetre-capteur)">
+        <use href="#paysage-obturateur" />
+        <rect x="30" y="20" width="300" height="200" fill="url(#exposition-obturateur)" />
+      </g>
+
+      <g clip-path="url(#fenetre-capteur)">
+        <!-- Le premier rideau couvre le capteur au repos, puis descend hors de la fenêtre. -->
+        <g data-rideau="premier">
+          <rect x="30" y="20" width="300" height="200" fill="var(--trait-fort)" />
+          <g stroke="var(--fond-3)" stroke-width="1.5">
+            <line x1="30" y1="45" x2="330" y2="45" /><line x1="30" y1="70" x2="330" y2="70" />
+            <line x1="30" y1="95" x2="330" y2="95" /><line x1="30" y1="120" x2="330" y2="120" />
+            <line x1="30" y1="145" x2="330" y2="145" /><line x1="30" y1="170" x2="330" y2="170" />
+            <line x1="30" y1="195" x2="330" y2="195" />
+          </g>
+        </g>
+        <!-- Le second rideau attend au-dessus de la fenêtre, puis descend la recouvrir. -->
+        <g data-rideau="second">
+          <rect x="30" y="-180" width="300" height="200" fill="var(--accent-2)" />
+          <g stroke="var(--fond-3)" stroke-width="1.5">
+            <line x1="30" y1="-155" x2="330" y2="-155" /><line x1="30" y1="-130" x2="330" y2="-130" />
+            <line x1="30" y1="-105" x2="330" y2="-105" /><line x1="30" y1="-80" x2="330" y2="-80" />
+            <line x1="30" y1="-55" x2="330" y2="-55" /><line x1="30" y1="-30" x2="330" y2="-30" />
+            <line x1="30" y1="-5" x2="330" y2="-5" />
+          </g>
+        </g>
+      </g>
+
+      <rect x="30" y="20" width="300" height="200" fill="none" stroke="var(--trait-fort)" stroke-width="2" />
+      <text x="180" y="246" text-anchor="middle" font-size="19" fill="var(--texte-2)">le capteur</text>
+
+      <!-- La photo : la même exposition, sans rideau devant. Elle se construit
+           pendant la pose et se montre entière une fois l'obturateur refermé. -->
+      <g transform="translate(330 0)">
+        <g clip-path="url(#fenetre-capteur)">
+          <use href="#paysage-obturateur" />
+          <rect x="30" y="20" width="300" height="200" fill="url(#exposition-obturateur)" />
+        </g>
+        <rect x="30" y="20" width="300" height="200" fill="none" stroke="var(--trait-fort)" stroke-width="2" />
+        <text x="180" y="246" text-anchor="middle" font-size="19" fill="var(--texte-2)">la photo</text>
+      </g>
+    </svg>
+
+    <div class="lecture" aria-live="polite">
+      <div class="bande" data-sortie="phase"></div>
+      <div class="sens" data-sortie="detail"></div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .obturateur .declencher {
+    font: inherit;
+    font-size: var(--t-corps);
+    font-weight: var(--graisse-appui);
+    min-height: 3rem;
+    padding: 0.5em 1em;
+    border-radius: var(--rayon);
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--sur-accent);
+    cursor: pointer;
+  }
+  .obturateur .pas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.3rem;
+  }
+  .obturateur .pas button {
+    font: inherit;
+    font-size: var(--t-aparte);
+    min-height: 2.75rem;
+    border-radius: var(--rayon);
+    border: 1px solid var(--trait-fort);
+    background: var(--fond-3);
+    color: var(--texte);
+    cursor: pointer;
+  }
+  .obturateur .pas button:disabled { opacity: 0.4; cursor: default; }
+  .obturateur .pas button:not(:disabled):hover,
+  .obturateur .declencher:hover { border-color: var(--texte); }
+
+  .legende-obturateur {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.2rem;
+    font-size: var(--t-aparte);
+    color: var(--texte-2);
+  }
+  .legende-obturateur li { display: flex; align-items: center; gap: 0.5em; }
+  .pastille {
+    width: 1em;
+    height: 1em;
+    border-radius: 0.2em;
+    flex: none;
+  }
+  .pastille.premier { background: var(--trait-fort); }
+  .pastille.second { background: var(--accent-2); }
+  .pastille.lumiere { background: linear-gradient(90deg, #000, #f4a259); }
+
+  .lecture-vitesse {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.25rem var(--pas-2);
+  }
+
+  @media (min-width: 60rem) and (max-height: 50rem) {
+    .obturateur .declencher { min-height: 2.6rem; }
+    .obturateur .pas button { min-height: 2.4rem; }
+  }
+</style>
+
+<script>
+  import { typo } from '../../lib/typo';
+
+  /** Temps de traversée d'un rideau : celui d'un obturateur à plan focal courant. */
+  const T = 1 / 250;
+  /** Un seul ralenti, le même pour toutes les vitesses : un rideau traverse en une seconde. */
+  const RALENTI = 250;
+  const HAUTEUR = 200;
+  /** Le bord haut du capteur dans le dessin. */
+  const HAUT = 20;
+  /** Pause entre deux phases quand le mouvement est réduit, en millisecondes. */
+  const PAUSE_PHASE = 1600;
+
+  const TITRES = [
+    'Fermé',
+    '1 · Le premier rideau s’ouvre',
+    '2 · Le capteur est exposé',
+    '3 · Le second rideau se ferme',
+    'Refermé — la photo est prise',
+  ];
+
+  for (const racine of document.querySelectorAll<HTMLElement>('[data-obturateur]')) demarrer(racine);
+
+  function demarrer(racine: HTMLElement) {
+    const q = <E extends Element>(s: string) => racine.querySelector<E>(s)!;
+    const premier = q<SVGGElement>('[data-rideau="premier"]');
+    const second = q<SVGGElement>('[data-rideau="second"]');
+    const exposition = q<SVGLinearGradientElement>('[data-exposition]');
+    const precedent = q<HTMLButtonElement>('[data-pas="-1"]');
+    const suivant = q<HTMLButtonElement>('[data-pas="1"]');
+
+    const etat = { denominateur: 60, etape: 0 };
+    let animation = 0;
+    let minuterie = 0;
+
+    const t = () => 1 / etat.denominateur;
+    const fente = () => t() < T;
+
+    /**
+     * Les instants d'arrêt des trois phases, en secondes réelles. Ils placent
+     * le centre de la zone découverte à une fraction `c` du capteur :
+     * `τ = c·T + t/2`. À vitesse lente, la phase 1 prend le premier rideau à
+     * mi-course et la phase 3 le second à mi-course ; à vitesse rapide, la
+     * fente est arrêtée au quart, au milieu et aux trois quarts du capteur —
+     * à mi-course, elle se déplacerait à peine d'une phase à l'autre.
+     */
+    function instantDePhase(etape: number): number {
+      const tt = t();
+      if (etape <= 0) return 0;
+      if (etape >= 4) return tt + T;
+      if (etape === 2) return (T + tt) / 2;
+      if (fente()) return (etape === 1 ? 0.25 : 0.75) * T + tt / 2;
+      return etape === 1 ? T / 2 : tt + T / 2;
+    }
+
+    /** La phase que montre un instant quelconque de la course. */
+    function phaseA(tau: number): number {
+      const tt = t();
+      const f = (tau / T);
+      const b = (tau - tt) / T;
+      if (tau <= 0) return 0;
+      if (b >= 1) return 4;
+      if (fente()) {
+        const centre = (f + b) / 2;
+        return centre < 1 / 3 ? 1 : centre < 2 / 3 ? 2 : 3;
+      }
+      if (f < 1) return 1;
+      if (b <= 0) return 2;
+      return 3;
+    }
+
+    /**
+     * Le modèle entier : le bord du premier rideau est à `τ/T` du haut du
+     * capteur, celui du second à `(τ − t)/T`. Entre les deux, la lumière.
+     */
+    function dessiner(tau: number, etape: number) {
+      const tt = t();
+      const f = Math.min(1, Math.max(0, tau / T));
+      const b = Math.min(1, Math.max(0, (tau - tt) / T));
+      premier.setAttribute('transform', `translate(0 ${(f * HAUTEUR).toFixed(2)})`);
+      second.setAttribute('transform', `translate(0 ${(b * HAUTEUR).toFixed(2)})`);
+
+      // Une ligne à la hauteur `y` reçoit la lumière de `y·T` à `y·T + t` :
+      // son exposition, `(τ − y·T)/t`, est linéaire en `y`. Pleine au-dessus de
+      // `(τ − t)/T`, nulle au-dessous de `τ/T` — deux arrêts de dégradé suffisent.
+      exposition.setAttribute('y1', (HAUT + ((tau - tt) / T) * HAUTEUR).toFixed(2));
+      exposition.setAttribute('y2', (HAUT + (tau / T) * HAUTEUR).toFixed(2));
+
+      q('[data-sortie="phase"]').textContent = TITRES[etape]!;
+      q('[data-sortie="detail"]').textContent = typo(detail(etape));
+    }
+
+    function detail(etape: number): string {
+      const vitesse = `1/${etat.denominateur} s`;
+      switch (etape) {
+        case 0:
+          return 'Le premier rideau cache le capteur.';
+        case 1:
+          return fente()
+            ? 'Il découvre le capteur — et le second rideau part déjà derrière lui.'
+            : 'Il découvre le capteur, de haut en bas.';
+        case 2:
+          return fente()
+            ? 'Seule une fente est ouverte : elle balaie le capteur.'
+            : 'Tout le capteur reçoit la lumière en même temps.';
+        case 3:
+          return 'Il recouvre le capteur, dans le même sens.';
+        default:
+          return `Chaque ligne du capteur a reçu ${vitesse} de lumière.`;
+      }
+    }
+
+    function arreter() {
+      cancelAnimationFrame(animation);
+      clearTimeout(minuterie);
+      animation = 0;
+      minuterie = 0;
+    }
+
+    function allerA(etape: number) {
+      etat.etape = Math.max(0, Math.min(4, etape));
+      precedent.disabled = etat.etape === 0;
+      suivant.disabled = etat.etape === 4;
+      dessiner(instantDePhase(etat.etape), etat.etape);
+    }
+
+    function declencher() {
+      arreter();
+      allerA(0);
+
+      // Mouvement réduit : les trois phases, l'une après l'autre, sans rien
+      // animer entre elles.
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const prochaine = (etape: number) => {
+          allerA(etape);
+          if (etape < 4) minuterie = window.setTimeout(() => prochaine(etape + 1), PAUSE_PHASE);
+        };
+        minuterie = window.setTimeout(() => prochaine(1), PAUSE_PHASE / 3);
+        return;
+      }
+
+      const fin = t() + T;
+      let depart = 0;
+      const image = (maintenant: number) => {
+        if (!depart) depart = maintenant;
+        const tau = (maintenant - depart) / 1000 / RALENTI;
+        if (tau >= fin) {
+          animation = 0;
+          allerA(4);
+          return;
+        }
+        dessiner(tau, phaseA(tau));
+        animation = requestAnimationFrame(image);
+      };
+      animation = requestAnimationFrame(image);
+    }
+
+    function choisirVitesse(denominateur: number) {
+      arreter();
+      etat.denominateur = denominateur;
+      for (const b of racine.querySelectorAll<HTMLButtonElement>('[data-vitesse-choix]')) {
+        b.setAttribute('aria-pressed', String(Number(b.dataset.vitesseChoix) === denominateur));
+      }
+      q('[data-sortie="vitesse"]').textContent = typo(`1/${denominateur} s`);
+      allerA(0);
+    }
+
+    for (const b of racine.querySelectorAll<HTMLButtonElement>('[data-vitesse-choix]')) {
+      b.addEventListener('click', () => choisirVitesse(Number(b.dataset.vitesseChoix)));
+    }
+    q<HTMLButtonElement>('[data-declencher]').addEventListener('click', declencher);
+    for (const b of racine.querySelectorAll<HTMLButtonElement>('[data-pas]')) {
+      b.addEventListener('click', () => {
+        arreter();
+        allerA(etat.etape + Number(b.dataset.pas));
+      });
+    }
+
+    choisirVitesse(60);
+  }
+</script>
