@@ -30,7 +30,8 @@ in `M`.
 - Keep `le-raisonnement` (f/4, 1/500, turn up the volume).
 - Rework the `iso-et-bruit` component: its inputs become the **light collected** and the **ISO
   as volume**; noise follows the light, brightness follows light × volume, with a « bien
-  exposée » band.
+  exposée » band. Its screen is then dropped from the block in favour of the real photographs;
+  the component stays in the code, unused.
 - Replace the two-image `nette-ou-propre` demonstration with one series, « même lumière, trois
   issues »: ISO 6400 correctly exposed, ISO 400 under-exposed and brightened afterwards, ISO 400
   at 1/8 s blurred. Its caption says the clean one is clean because it collected more light.
@@ -40,7 +41,13 @@ in `M`.
 - In the `exposition` block, reframe compensation as **acting on what the camera still decides**:
   `A` → speed, `S` → aperture, `M` + ISO auto → ISO, `M` with a fixed ISO → nothing. This changes
   « Les quatre modes », « La question qui prouve », « Qui décide quoi » (the `molette-des-modes`
-  component) and « Appareil en main — la molette ».
+  component) and « Appareil en main — la molette ». (These screens were later removed with the
+  rest of the session after the ISO block; see below.)
+- End session 2 right after the ISO block, like session 1: remove the break, the exposition and
+  modes block, the workshops, the diagnostic block and the session 3 preparation block, and add a
+  closing block — a reference panel on which way to turn the `+/−` scene by scene, and why the
+  camera errs, a challenge, and a closing
+  question.
 - Correct the same statement in the six brand pages' « Rappel », the « Avant de déclencher »
   sheet, and the lexique's `ISO` and `Bruit` entries; « ma photo est ratée » names lack of light
   as the cause of noise.
@@ -54,25 +61,28 @@ None.
 ### Modified Capabilities
 
 - `lessons`: the ISO block opens with two explanation screens, alternates them with two hands-on
-  exercises in `M`, explains where noise comes from and ends on `M` + ISO auto; the exposition
-  block presents compensation as acting on whatever the camera still decides.
+  exercises in `M`, explains where noise comes from and ends on `M` + ISO auto, which introduces exposure
+  compensation; session 2 then ends on a session-1-style closing block.
 - `interactive-components`: a new sensor-chain component; the ISO and noise component models
   light collected and amplification separately; the mode dial shows `M` with and without ISO auto.
-- `demo-media`: the essential « nette / propre » pair becomes an essential three-image series.
+- `demo-media`: the essential « nette / propre » pair becomes an essential three-image series;
+  the metering-failure pairs leave the essential list with the diagnostic block.
 
 ## Impact
 
-- `src/src/content/lecons/2.yaml`: the `iso` block rewritten (three screens → nine); in
-  `exposition`, `qui-decide-quoi`, `la-compensation-en-manuel` and `le-tour-de-la-molette`
-  rewritten.
+- `src/src/content/lecons/2.yaml`: the `iso` block rewritten (three screens → eight); everything
+  after it replaced by a three-screen closing block; the session's `filConducteur` updated.
+- `src/scripts/verifier-contenu-final.mjs`: the site-wide minimum of cumulative panels (check 13.2)
+  lowered from 3 to 1, since session 2 no longer carries any.
+- `src/src/pages/plan-de-cours.astro`: session 2's topics follow the new ending.
 - `src/src/components/interactifs/`: a new sensor-chain component registered in `registre.ts`;
   `IsoEtBruit.astro` and `MoletteDesModes.astro` reworked.
 - `src/src/content/marques/*.yaml` (six « Rappel » notes), `content/fiches/avant-de-declencher.md`,
   `content/fiches/lexique-des-termes.md`, `content/fiches/ma-photo-est-ratee.md`.
 - Shot list: `l2-iso-nette-bruitee` and `l2-iso-propre-floue` kept, one new slot for the
   brightened under-exposure.
-- Session 2 grows by six screens net, on top of the speed block's growth. Cuts stay deferred.
+- Session 2 grows by five screens net, on top of the speed block's growth. Cuts stay deferred.
 - `npm run verifier:contenu`, `npm run verifier` and `npm run verifier:liens` must still pass;
-  in particular, no « soirée » in the film screen. `nette-ou-propre` and `nette-et-bruitee` keep
-  their ids.
+  in particular, no « soirée » in the film screen. `nette-ou-propre` keeps its id;
+  `nette-et-bruitee` is removed.
 - No new dependencies. The speed block, session 1 and session 3 are unchanged.

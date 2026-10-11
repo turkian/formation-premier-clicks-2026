@@ -42,19 +42,18 @@ iso   « L'ISO, le bouton du volume » · Il n'ajoute pas de lumière : il monte
  4  le-raisonnement        panneau           two paths that rejoin, one example
  5  d-ou-vient-le-bruit    panneau           grain ≠ noise; the cause is the light
  6  le-bruit-dans-l-ombre  appareil-en-main  ex. 2 · one photo, zoom into the shadows
- 7  nette-et-bruitee       interactif        iso-et-bruit, reworked
- 8  nette-ou-propre        demonstration     one series, three images
- 9  m-et-iso-auto          panneau           M + ISO auto, with a limit
+ 7  nette-ou-propre        demonstration     one series, three images
+ 8  m-et-iso-auto          panneau           M + ISO auto, with a limit
 ```
 
-`nette-et-bruitee` and `nette-ou-propre` keep their ids so that their deep links keep working.
+`nette-ou-propre` keeps its id so that its deep link keeps working. `nette-et-bruitee`, the
+`iso-et-bruit` simulator screen, was removed after review (see D7).
 The new ids are `qu-est-ce-que-l-iso`, `l-iso-aujourd-hui`, `l-iso-eclaircit`,
 `d-ou-vient-le-bruit`, `le-bruit-dans-l-ombre` and `m-et-iso-auto`.
 
 The noise panel (5) goes before the exercise (6) so the room knows what to look for; the
-component (7) then generalizes what they saw; the series (8) shows the trade-off with real
-photographs. `m-et-iso-auto` comes last because it builds on `le-raisonnement` (4) and leads into
-the break and then the modes.
+series (7) then shows the trade-off with real photographs. `m-et-iso-auto` comes last because it
+builds on `le-raisonnement` (4) and leads into the break and then the modes.
 
 Alternative considered: two separate demonstrations, « bien exposée ou éclaircie » then
 « nette ou propre ». They were merged into one series because it is the same scene and the same
@@ -156,19 +155,26 @@ qualitatively, no stops) and « Le volume — l'ISO » (`100` to `6400`, seven s
 The existing SVG scene, grain filter and blur are reused; the blur filter is removed, because
 the component no longer simulates speed (the series in `nette-ou-propre` shows blur).
 
-The screen's claim becomes about the right volume: « À lumière donnée, un seul ISO expose
-correctement : c'est le bon. » Aside: « Le bruit se corrige en partie au développement —
-séance 3. Le flou de bougé, jamais. » (kept).
+The component was reworked as above, then its screen, `nette-et-bruitee`, was removed after
+review: the real photographs of `nette-ou-propre` make the same point more convincingly, right
+after the participants' own shadow exercise. The component stays in the code, registered and
+unused, as the speed block's motion component does. Its aside about correcting noise in
+development was dropped with it.
 
 ### D8. The demonstration series
 
-One `series`, variable « comment on obtient la luminosité », constants: scene, the same low
-light, `f/2.8`, `35 mm`. Slots, all essential:
+One `series`, variable « comment on obtient la luminosité », constants: one dimly lit room,
+mode `M`, `f/5.6`. The recipe is meant to be easy to shoot: any kit lens reaches `f/5.6`, the
+framing stays the same, and only the ISO or the speed changes. Slots, all essential:
 
-- `l2-iso-nette-bruitee` (kept): ISO 6400, 1/125 s, correctly exposed — sharp, noisy.
-- `l2-iso-eclaircie` (new): ISO 400, 1/125 s, under-exposed by four stops, brightened in editing —
-  sharp, noisier. The specification says it was brightened afterwards.
-- `l2-iso-propre-floue` (kept): ISO 400, 1/8 s hand-held — clean, blurred.
+- `l2-iso-nette-bruitee` (kept): `1/125 s`, ISO 6400, correctly exposed — sharp, noisy.
+- `l2-iso-eclaircie` (new): `1/125 s`, ISO 400 — the photo comes out dark, then is brightened
+  afterwards on a phone or computer — sharp, noisier. The specification says it was brightened
+  afterwards.
+- `l2-iso-propre-floue` (kept): `1/8 s` hand-held, ISO 400, correctly exposed — clean, blurred.
+
+Each `valeur` stays on one line: the label is hidden at rest but keeps its height, so a longer
+one would shorten its frame and break the bottom alignment of the three.
 
 Caption: the third is clean because it collected sixteen times more light, not because its ISO
 is low; that light came from a slow speed, hence the blur.
@@ -177,8 +183,15 @@ is low; that light came from a slow speed, hence the blur.
 
 Panel: « En `M` avec l'ISO auto, vous fixez l'ouverture et la vitesse, et l'appareil règle le
 volume. » It is `le-raisonnement`, automated. The ISO auto limit (`3200` or `6400`) and its
-brand-sheet section move here. A line says it is for when both decisions matter, and that `A`
-stays the starting point, which `votre-point-de-depart` still says after the break.
+brand-sheet section move to its aside. A line says it is for when both decisions matter, and
+that `A` stays the starting point, which `votre-point-de-depart` still says after the break.
+
+This screen also introduces exposure compensation, in its rule box: « Plus clair ou plus
+sombre ? Le bouton `+/−`. » — a brighter or darker result than the camera chose — and, in `M`
+with ISO auto, it moves the ISO. It is the first place the room meets the button, while the ISO
+auto it acts on is fresh. The exposition block then builds on it: « Quand l'appareil se trompe »
+calls it « le bouton `+/−`, vu avec l'ISO auto » and keeps the « 80 % du bénéfice » rule, and
+« La question qui prouve » asks what it moves in `A` and `S`.
 
 ### D10. Compensation across the site
 
@@ -193,8 +206,9 @@ stays the starting point, which `votre-point-de-depart` still says after the bre
 
 - `qui-decide-quoi`: an ISO column, « l'appareil (ISO auto) » in every row; the `M` row says
   « Il ne décide plus que l'ISO — si l'ISO auto est activé. »
-- `la-compensation-en-manuel`: the question becomes « En `M`, tournez le `+/−`. Qu'est-ce qui
-  bouge ? » The answer state gives the table above; the last state keeps the idea that manual is
+- `la-compensation-en-manuel`: since `m-et-iso-auto` already says the `+/−` moves the ISO in
+  `M`, the question generalises: « En `M`, le `+/−` déplace l'ISO. Et en `A`, en `S` ? » The
+  answer state gives the table above; the last state keeps the idea that manual is
   slower because you have taken the decisions.
 - `molette-des-modes`: an « ISO auto » toggle; in `M` with ISO auto, the compensation acts on the
   ISO; with it off, the current « sans effet » explanation stays.
@@ -212,11 +226,38 @@ stays the starting point, which `votre-point-de-depart` still says after the bre
 
 `deux-nouveaux-leviers` keeps « La sensibilité » (the everyday term).
 
+### D11. Session 2 ends after the ISO block
+
+Session 2 now ends right after `m-et-iso-auto`, like session 1: the break, the `exposition`
+block, the workshops, the `diagnostic` block and `vers-la-seance-3` are removed, and with them
+the screens D10 reworked in `exposition` (the mode dial component stays in the code, unused).
+What they carried that the site needs is folded into a closing block, `repartir`:
+
+- `plus-clair-plus-sombre` (« Plus clair ou plus sombre »): a reference panel, not an exercise —
+  the room cannot reproduce snow or a stage. The claim says the camera aims for an average scene;
+  two rows of `cartes`, « Vers le + » (snow or beach `+1`, a white wall or dress `+1`, backlight
+  `+1` à `+2`) and « Vers le − » (a show or dark scene `−1`, a subject on black `−1`, a sunset
+  `−1`), each card saying what happens without the correction; a rule box « Trop sombre → vers le
+  `+`. Trop clair → vers le `−`. » This answers what session 1 promised for session 2. The camera
+  set-up reminders (`A`, ISO auto, `RAW + JPEG`) are dropped here: session 1 already configures
+  them, and `m-et-iso-auto` restates `A` as the starting point.
+- `le-defi`: five photos practising the session (freeze, show movement, low light, a `+/−`
+  correction, `M` + ISO auto), with no aside. It does not ask participants to bring anything to
+  session 3, nor for a volunteer photo for the development demonstration: both were dropped at
+  review.
+- `derniere-question`: « Votre photo est floue, ou trop sombre. Qui sait maintenant quoi faire ? »
+
+Accepted losses: the four modes taught in depth (the two paths of `le-raisonnement` carry the
+`A` / `S` choice, and `m-et-iso-auto` names `A` as the starting point), the hour of workshops, and the diagnostic tree on
+screen (it remains as the printed « Ma photo est ratée » sheet). The content check 13.2 required
+three cumulative panels site-wide; the two in `exposition` were removed, so its guard is lowered
+to one — it only exists so that the per-panel check cannot pass with nothing to inspect.
+
 ## Risks / Trade-offs
 
-- [Session 2 grows by six more screens] → Accepted for now; trimming is a later pass across the
+- [Session 2 grows by five more screens] → Accepted for now; trimming is a later pass across the
   whole session. Candidates in this block: fold `d-ou-vient-le-bruit` into the aside of
-  `nette-et-bruitee`, or drop `qu-est-ce-que-l-iso`'s columns into the sensor chain screen's aside.
+  `le-bruit-dans-l-ombre`, or drop `qu-est-ce-que-l-iso`'s columns into the sensor chain screen's aside.
 - [`M` appears before « Les quatre modes »] → Exercise 1 uses it as a lab setting (« on fige
   tout sauf l'ISO »); the modes block after the break names it properly.
 - [A participant leaves exercise 1 with ISO auto off] → Its last step turns it back on, and

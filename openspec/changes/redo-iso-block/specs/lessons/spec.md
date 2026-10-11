@@ -73,7 +73,9 @@ present ISO as the cause of noise.
 The ISO block's last screen SHALL present manual mode with ISO auto: the photographer sets the
 aperture and the speed, and the camera sets the ISO, within a stated upper limit. It SHALL
 present this as the mode for when both the aperture and the speed matter, and SHALL NOT replace
-`A` or `Av` as the recommended default mode.
+`A` or `Av` as the recommended default mode. It SHALL introduce exposure compensation — the `+/−`
+button, asking the camera for a brighter or darker result than it chose — and state that in `M`
+with ISO auto it moves the ISO.
 
 #### Scenario: The last screen of the block is displayed
 
@@ -81,35 +83,47 @@ present this as the mode for when both the aperture and the speed matter, and SH
 - **THEN** it states that in `M` with ISO auto the photographer keeps the aperture and the speed
   and the camera chooses the ISO
 - **AND** it names an upper ISO limit
-- **AND** the « Votre point de départ » screen still recommends `A` or `Av` by default
+- **AND** it introduces the `+/−` button and states that, in `M` with ISO auto, it moves the ISO
+- **AND** it presents `A` or `Av` as the starting point
 
 ### Requirement: Exposure compensation acts on what the camera still decides
 
-Session 2 SHALL present exposure compensation as acting on whatever the camera still decides: the
-speed in `A` or `Av`, the aperture in `S` or `Tv`, the ISO in `M` with ISO auto, and nothing in
-`M` with a fixed ISO. No lesson screen, brand page or reference sheet SHALL state without
-qualification that compensation does nothing in `M`, or that in `M` the camera decides nothing.
+Where the site describes exposure compensation in `M`, it SHALL present it as acting on what the
+camera still decides: the ISO in `M` with ISO auto, and nothing in `M` with a fixed ISO. No lesson
+screen, brand page or reference sheet SHALL state without qualification that compensation does
+nothing in `M`, or that in `M` the camera decides nothing.
 
-#### Scenario: The four modes are shown
+#### Scenario: The ISO block's last screen mentions compensation
 
-- **WHEN** the « Les quatre modes » screen is displayed
-- **THEN** the `M` row does not state that the camera decides nothing
-- **AND** it shows that ISO auto, if on, is still decided by the camera
-
-#### Scenario: The question that proves understanding is answered
-
-- **WHEN** the « La question qui prouve » screen reaches its answer
-- **THEN** the answer lists, for each mode, what compensation acts on
-- **AND** it states that in `M` compensation does nothing only when the ISO is fixed
-
-#### Scenario: The mode dial is walked hands-on
-
-- **WHEN** the « Appareil en main — la molette » screen asks participants to try `+/−` in `M`
-- **THEN** its wording matches what happens with ISO auto on, or asks for ISO auto to be turned
-  off first and back on after
+- **WHEN** the « M et l'ISO auto » screen introduces the `+/−` button
+- **THEN** it states that in `M` with ISO auto, compensation moves the ISO
 
 #### Scenario: A brand page or sheet mentions compensation in M
 
 - **WHEN** a brand page or the « Avant de déclencher » sheet mentions compensation in `M`
 - **THEN** it says that with ISO auto on, compensation moves the ISO on most recent bodies, and
   that with a fixed ISO it does nothing
+
+### Requirement: Session 2 ends like session 1, right after the ISO block
+
+Session 2 SHALL end after its ISO block, with no break, modes block, workshops or diagnostic block,
+on a closing block shaped like session 1's: a reference panel on exposure compensation, a
+challenge, and a closing question asked by raised hands. The panel SHALL name the setting in its
+headline — exposure compensation, the `+/−` button — and SHALL state that the camera
+aims for a scene of average brightness and SHALL show, scene by scene, which way to correct and
+by how much — towards `+` for snow, a white subject or backlight, towards `−` for a dark scene or
+a subject on a black background — with what happens without the correction, and SHALL end on
+the rule « trop sombre → vers le `+`, trop clair → vers le `−` ». It is a reference, not an
+exercise: the room cannot reproduce these scenes. The challenge SHALL ask for photographs that practise the session.
+
+#### Scenario: The end of session 2 is read
+
+- **WHEN** session 2 is read past the ISO block
+- **THEN** the next and last block holds the compensation panel, the challenge and the closing
+  question, in that order
+- **AND** no workshop, modes or diagnostic screen follows
+
+#### Scenario: A participant reads the challenge
+
+- **WHEN** the challenge screen is displayed
+- **THEN** it asks for photographs that practise movement, low light and the `+/−` button

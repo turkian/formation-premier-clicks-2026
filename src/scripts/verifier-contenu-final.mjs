@@ -143,7 +143,10 @@ for (const { donnees } of lecons) {
   }
 }
 
-verifier(cumulatifs.length >= 3, `${cumulatifs.length} panneaux cumulatifs déclarés (au moins 3 attendus)`);
+// Le seuil n'existe que pour que la vérification ci-dessous ne passe pas à vide :
+// un seul panneau cumulatif suffit à l'exercer. La séance 2 n'en porte plus depuis
+// qu'elle se termine avant la pause.
+verifier(cumulatifs.length >= 1, `${cumulatifs.length} panneau(x) cumulatif(s) déclaré(s) (au moins 1 attendu)`);
 
 for (const { lecon, bloc, ecran } of cumulatifs) {
   const ou = `séance ${lecon} · ${bloc}/${ecran.id}`;

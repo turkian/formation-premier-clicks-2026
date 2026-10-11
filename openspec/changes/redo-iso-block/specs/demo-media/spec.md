@@ -6,8 +6,8 @@ Each demonstration slot SHALL carry a priority. The following SHALL be marked es
 focus-distance series, the subject-to-background distance series, the out-of-focus versus
 camera-shake pair, the subject-blur versus camera-shake pair, the street scene at three shutter
 speeds, the light-trail and intentional-camera-movement images of the « flou choisi »
-demonstration, the three images of the « même lumière, trois issues » ISO series, the three
-metering-failure pairs, the composition before-and-after pairs, the development demonstration
+demonstration, the three images of the « même lumière, trois issues » ISO series, the
+composition before-and-after pairs, the development demonstration
 photograph, and its seven cumulative states.
 
 #### Scenario: The animator can only prepare part of the set
