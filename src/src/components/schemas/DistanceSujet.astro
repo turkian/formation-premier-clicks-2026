@@ -7,18 +7,32 @@
  * de distance du site. Aucun dégradé, aucun indice de flou : ce dessin montre
  * la mise en situation, pas le résultat — la réponse reste dans les états du
  * panneau qui l'accueille.
+ *
+ * Avec `zones`, le dessin devient le résultat : la zone nette est tracée autour
+ * de chaque sujet, à l'échelle de la ligne de sol, et son épaisseur écrite
+ * dessous. Elle est calculée, pas dessinée à l'œil — les mêmes chiffres que
+ * ceux qu'annonce la séance 1.
  */
 import Vous from './pieces/Vous.astro';
 import Sujet from './pieces/Sujet.astro';
+import { format, profondeurDeChamp } from '../../lib/profondeur-de-champ';
+import { nombre } from '../../lib/typo';
 
 interface Props {
   /** Les deux distances comparées, en mètres. */
   distances?: [number, number];
   /** Distance représentée par la pleine longueur d'une ligne de sol, en mètres. */
   echelle?: number;
+  /** Trace la zone nette autour de chaque sujet. Absent, le dessin reste une mise en situation. */
+  zones?: boolean;
+  focale?: number;
+  ouverture?: number;
+  capteur?: string;
 }
 
-const { distances = [1, 3], echelle = 4 } = Astro.props;
+const {
+  distances = [1, 3], echelle = 4, zones = false, focale = 50, ouverture = 5.6, capteur = 'aps-c',
+} = Astro.props;
 const [gauche, droite] = distances;
 
 const DEBUT = 30;
@@ -29,15 +43,38 @@ function xSujet(distance: number) {
   const t = Math.max(0, Math.min(1, distance / echelle));
   return DEBUT + t * LARGEUR;
 }
+
+/** La zone nette d'un sujet, en coordonnées du dessin, et son épaisseur lisible. */
+function zone(distance: number, decalage: number) {
+  const r = profondeurDeChamp(distance, focale, ouverture, format(capteur));
+  const x1 = xSujet(r.proche) + decalage;
+  const x2 = r.jusquALInfini ? DEBUT + LARGEUR + decalage : xSujet(r.lointaine) + decalage;
+  const cm = r.epaisseur * 100;
+  const texte = r.jusquALInfini
+    ? "jusqu'à l'infini"
+    : cm < 100 ? `environ ${nombre(cm)} cm` : `environ ${nombre(r.epaisseur, 1)} m`;
+  return { x: Math.min(x1, x2 - 3), largeur: Math.max(3, x2 - x1), texte };
+}
+const traces = zones ? [zone(gauche, 0), zone(droite, DECALAGE)] : [];
 ---
 <svg viewBox="0 0 640 150" role="img" style="width:100%;height:auto"
-     aria-label={`Même appareil, même objectif, même ouverture : un sujet à ${gauche} m, un autre à ${droite} m`}>
+     aria-label={`Même appareil, même objectif, même ouverture : un sujet à ${gauche} m, un autre à ${droite} m`
+       + (zones ? ` ; zone nette ${traces[0].texte}, puis ${traces[1].texte}` : '')}>
+  {traces.map((t) => (
+    <rect x={t.x} y="22" width={t.largeur} height="48" fill="var(--accent)" fill-opacity="0.32"
+          stroke="var(--accent)" stroke-width="1.5" />
+  ))}
   <line x1={DEBUT} y1="70" x2={DEBUT + LARGEUR} y2="70" stroke="var(--trait)" />
   <Vous x={DEBUT} y={70} />
   <Sujet x={xSujet(gauche)} y={70} />
   <text x={DEBUT + LARGEUR / 2} y="112" text-anchor="middle" font-size="14" fill="var(--texte)">
     sujet à {gauche} m
   </text>
+  {zones && (
+    <text x={DEBUT + LARGEUR / 2} y="136" text-anchor="middle" font-size="14" font-weight="620" fill="var(--accent)">
+      zone nette : {traces[0].texte}
+    </text>
+  )}
 
   <line x1="320" y1="14" x2="320" y2="130" stroke="var(--trait)" stroke-dasharray="3 4" />
 
@@ -47,4 +84,9 @@ function xSujet(distance: number) {
   <text x={DEBUT + LARGEUR / 2 + DECALAGE} y="112" text-anchor="middle" font-size="14" fill="var(--texte)">
     sujet à {droite} m
   </text>
+  {zones && (
+    <text x={DEBUT + LARGEUR / 2 + DECALAGE} y="136" text-anchor="middle" font-size="14" font-weight="620" fill="var(--accent)">
+      zone nette : {traces[1].texte}
+    </text>
+  )}
 </svg>
