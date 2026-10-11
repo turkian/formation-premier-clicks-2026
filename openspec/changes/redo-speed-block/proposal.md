@@ -27,8 +27,10 @@ the screen that introduced speed and ISO, and is no longer needed.
 - Add two **demonstrations** of what speeds are for:
   - « une scène, trois vitesses »: one street, `1/500`, `1/30`, `1/2 s`;
   - « le flou choisi »: light trails, intentional camera movement, panning.
-- Keep the existing core screens (`la-decision`, `points-de-depart`, `deux-flous`, its
-  demonstration, `explorer-le-mouvement`) unchanged in content.
+- Recast `la-decision` as « deux choix » in two columns, figer and laisser voir le mouvement,
+  each with a demonstration photograph below; concept panels gain optional columns for this.
+- Keep the other core screens (`points-de-depart`, `deux-flous`, its demonstration,
+  `explorer-le-mouvement`) unchanged in content.
 - Out of scope, left to the coming ISO redo: manual mode with ISO auto, and exposure
   compensation in `M` when ISO auto is on (which today contradicts « La question qui prouve »).
   The ISO block is not touched.

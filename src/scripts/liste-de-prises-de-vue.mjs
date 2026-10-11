@@ -29,11 +29,12 @@ async function rassembler() {
     const lecon = parse(await readFile(new URL(fichier, LECONS), 'utf8'));
     for (const bloc of lecon.blocs ?? []) {
       for (const ecran of bloc.ecrans ?? []) {
-        if (ecran.genre !== 'demonstration') continue;
+        if (ecran.genre !== 'demonstration' && !ecran.colonnes) continue;
 
         const groupes = [
           ...(ecran.series ?? []).map((s) => ({ variable: s.variable, images: s.images ?? [] })),
           { variable: null, images: ecran.images ?? [] },
+          { variable: null, images: (ecran.colonnes ?? []).map((c) => c.image).filter(Boolean) },
         ];
 
         for (const groupe of groupes) {

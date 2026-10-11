@@ -21,7 +21,7 @@ necessary in the smallest type size, everything visible at 1024 × 768 and 16:9.
 **Non-Goals:**
 - Anything about ISO beyond leaving ISO auto on: no « regardez votre ISO », no M + ISO auto, no
   compensation. The ISO block is redone next and will pick these up.
-- Rewriting `la-decision`, `points-de-depart`, `deux-flous`, `deux-flous-en-images` or
+- Rewriting `points-de-depart`, `deux-flous`, `deux-flous-en-images` or
   `explorer-le-mouvement`.
 - The rolling-shutter distortion of an electronic shutter, or flash sync. The note on electronic shutters stays one sentence.
 - Cutting screens elsewhere in session 2 to make room (deferred, see Risks).
@@ -35,8 +35,8 @@ retour   … rappel-leviers → deux-nouveaux-leviers        (le-programme remov
 
 vitesse
  1  l-obturateur            interactif         obturateur component; aparte: electronic shutter
- 2  la-molette-de-vitesse   appareil-en-main   ex. 1 · waving hand, 1/500 then 1/15 (moved, rewritten)
- 3  la-decision             panneau            unchanged
+ 2  la-molette-de-vitesse   appareil-en-main   ex. 1 · neighbour's waving hand, 1/500 then 1/15 (moved, rewritten)
+ 3  la-decision             panneau            two choices in columns, a photograph under each
  4  trois-vitesses          demonstration      series: one street, 1/500 · 1/30 · 1/2 s
  5  points-de-depart        panneau            unchanged
  6  deux-flous              panneau            unchanged
@@ -55,6 +55,16 @@ Alternatives considered: one exercise after each concept screen was rejected bec
 and 3 only make sense after `deux-flous`. Putting the light trails and ICM in atelier station 2
 was rejected: the point is to practise during the presentation, not after a long talk.
 
+### D1b. The decision as two columns
+
+`la-decision` states « deux choix » and sets them side by side: **Figer** and **Laisser voir le
+mouvement**, each a card with a one-line body and a demonstration photograph below
+(`l2-figer`, `l2-laisser-voir`, both useful — the essential comparison is `trois-vitesses`).
+Concept panels gain an optional `colonnes` field (two or three cards, the same shape as the
+repère columns plus an optional photograph); the shot list collects those photographs. In
+projection the cards fill the panel's body row and the photograph takes the remaining height,
+so it fits at 4:3 and 16:9; at phone width the cards stack and the photograph is 3:2.
+
 ### D2. The exercise screen keeps its id
 
 Exercise 1 is the existing `la-molette-de-vitesse`, moved to position 2 and rewritten, so its deep
@@ -71,7 +81,7 @@ qui prouve » after the break, which the ISO redo will handle.
 
 ### D4. Exercise content
 
-- **Ex. 1, la main:** `S`/`Tv`; find the speed dial; `1/500`, then `1/15`; compare. The phone
+- **Ex. 1, la main:** `S`/`Tv`; find the speed dial; photograph a neighbour's waving hand, so both of the photographer's hands stay on the camera; `1/500`, then `1/15`; compare. The phone
   equivalent stays the current one (a `Pro` mode, or watching the phone choose a slow speed in
   low light).
 - **Ex. 2, les traînées:** `S`/`Tv` at `1 s` (then `2 s`); the camera rests on the table or a bag;

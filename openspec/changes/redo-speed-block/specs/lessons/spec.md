@@ -56,7 +56,7 @@ contain exactly three « appareil en main » screens, all using the shutter-prio
 - **WHEN** the speed block of session 2 is read from its first screen to its last
 - **THEN** its first screen explains what shutter speed is mechanically
 - **AND** its second screen is an « appareil en main » exercise in which participants photograph
-  a waving hand at a fast speed, then at a slow one, and compare
+  a neighbour's waving hand at a fast speed, then at a slow one, and compare
 - **AND** its last two screens are the two creative exercises
 
 #### Scenario: A participant follows an exercise of the block
@@ -118,3 +118,27 @@ placed before the creative exercises.
 - **WHEN** the « flou choisi » demonstration is displayed
 - **THEN** it shows a light-trail image, an intentional-camera-movement image and a panning image
 - **AND** the next screen is the light-trail exercise
+
+### Requirement: The speed block presents the decision as two choices side by side
+
+The speed block's decision screen SHALL state that there are two choices when something moves,
+neither better than the other, and SHALL present them as two columns — freezing the movement and
+letting it show — each with a short description and a demonstration photograph below it. The
+columns SHALL be side by side at projection width and stacked at phone width.
+
+#### Scenario: The decision screen is projected
+
+- **WHEN** the decision screen is displayed at 1024 × 768 or 16:9
+- **THEN** the two choices are visible side by side, each with its title, its description and a
+  photograph or the photograph's specification
+- **AND** nothing on the screen is cut off
+
+#### Scenario: The decision screen is read on a phone
+
+- **WHEN** the decision screen is opened at phone width
+- **THEN** the two choices are stacked in a single column without horizontal scrolling
+
+#### Scenario: The animator plans the decision photographs
+
+- **WHEN** the animator reviews the shot list
+- **THEN** both photographs of the decision screen appear in it

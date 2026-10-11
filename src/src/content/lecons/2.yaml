@@ -137,11 +137,11 @@ blocs:
       - id: la-molette-de-vitesse
         genre: appareil-en-main
         titre: Appareil en main — la vitesse
-        claim: Photographiez votre main qui s'agite, à 1/500 puis à 1/15.
+        claim: Photographiez la main de votre voisin qui s'agite, à 1/500 puis à 1/15.
         gestes:
           - "**Passez en mode `S`** — ou **`Tv`** sur un Canon."
           - "**Trouvez la molette de vitesse.** Allez de `1/1000` à `1/15` en regardant le chiffre changer."
-          - "**Photographiez votre main qui s'agite**, à `1/500` puis à `1/15`."
+          - "**Votre voisin agite la main** devant vous : photographiez-la à `1/500`, puis à `1/15`."
           - "**Comparez** les deux photos sur votre écran."
         cellulaire: |
           Cherchez un mode **`Pro`** ou **`Expert`** dans votre application appareil photo.
@@ -154,13 +154,22 @@ blocs:
       - id: la-decision
         genre: panneau
         titre: La décision
-        claim: Face à quelque chose qui bouge, vous avez deux réponses. Aucune n'est meilleure.
-        corps: |
-          - **Figer** — on lit le détail, l'instant est suspendu.
-          - **Laisser le mouvement apparaître** — on lit la vitesse, l'énergie.
-        aparte: |
-          Votre choix dépend de ce que vous voulez raconter : c'est **la question 3** de votre
-          fiche.
+        claim: Face à quelque chose qui bouge, vous avez deux choix. Aucun n'est meilleur.
+        colonnes:
+          - titre: Figer
+            icone: lucide:snowflake
+            corps: On lit le détail, l'instant est suspendu.
+            image:
+              id: l2-figer
+              specification: Une action figée net — un enfant qui saute, des gouttes d'eau suspendues · 1/1000 s
+              priorite: utile
+          - titre: Laisser voir le mouvement
+            icone: lucide:wind
+            corps: On lit la vitesse, l'énergie.
+            image:
+              id: l2-laisser-voir
+              specification: Un mouvement visible — une rivière soyeuse, ou un cycliste filé sur un fond étiré · 1/4 s
+              priorite: utile
 
       - id: trois-vitesses
         genre: demonstration

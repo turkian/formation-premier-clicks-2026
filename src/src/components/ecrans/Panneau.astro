@@ -14,6 +14,8 @@ import { Icon } from 'astro-icon/components';
 import { md, mdEnLigne } from '../../lib/md';
 import { regionsCumulees } from '../../lib/lecon';
 import Schema from './Schema.astro';
+import EmplacementDemo from '../EmplacementDemo.astro';
+import { typo } from '../../lib/typo';
 
 interface Props {
   ecran: any;
@@ -33,6 +35,12 @@ const apartes = await Promise.all(cumule.aparte.map((bloc: string) => md(bloc)))
 const encadre = ecran.encadre ? await md(ecran.encadre) : null;
 /** La conclusion statique, hors de l'encadré — rendue juste après lui. */
 const suite = ecran.suite ? await md(ecran.suite) : null;
+/** Les options mises en regard, chacune avec sa photographie éventuelle. */
+const colonnes = ecran.colonnes
+  ? await Promise.all(
+      ecran.colonnes.map(async (c: any) => ({ ...c, corpsHtml: await md(c.corps) })),
+    )
+  : null;
 const ajouts = await Promise.all(
   cumule.ajouts.map(async (a) => ({
     ...a,
@@ -79,6 +87,30 @@ const empile = !dense && Boolean(schema) && (sansCorps || ecran.disposition === 
 
   {!sansCorps && <div class="region-corps corps">
     {corps.map((html) => <div set:html={html} />)}
+    {colonnes && (
+      <div class="colonnes" style={`--nombre: ${colonnes.length}`}>
+        {colonnes.map((c) => (
+          <section class="colonne">
+            <header>
+              {c.icone && <Icon name={c.icone} class="colonne-icone" />}
+              <h2 set:html={typo(c.titre)} />
+            </header>
+            <div class="corps" set:html={c.corpsHtml} />
+            {c.image && (
+              <EmplacementDemo
+                id={c.image.id}
+                fichier={c.image.fichier}
+                specification={c.image.specification}
+                alt={c.image.alt}
+                valeur={c.image.valeur}
+                priorite={c.image.priorite}
+                cadrage={c.image.cadrage}
+              />
+            )}
+          </section>
+        ))}
+      </div>
+    )}
     {encadre && (
       <div class="encadre" data-ton={ecran.ton}>
         {ecran.icone && <Icon name={ecran.icone} class="encadre-icone" />}

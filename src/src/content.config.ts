@@ -139,6 +139,25 @@ const ecranPanneau = baseEcran.extend({
   /** États cumulatifs, dans l'ordre. Absent = panneau statique. */
   etats: z.array(etatPanneau).optional(),
   /**
+   * Deux ou trois options mises en regard, chacune dans sa carte, avec au
+   * besoin sa photographie de démonstration dessous — pour un choix dont les
+   * branches se comparent mieux côte à côte qu'en liste. Une colonne sur
+   * téléphone.
+   */
+  colonnes: z
+    .array(
+      z.object({
+        titre: z.string(),
+        corps: z.string(),
+        /** Icône Iconify (ex. « lucide:timer ») en tête de carte. */
+        icone: z.string().optional(),
+        image: emplacementDemo.optional(),
+      }),
+    )
+    .min(2)
+    .max(3)
+    .optional(),
+  /**
    * `empilee` : énoncé, corps puis schéma, l'un sous l'autre sur toute la
    * largeur — pour un schéma large que le corps ne fait qu'introduire en une
    * phrase. Un panneau à schéma sans corps s'empile de lui-même.

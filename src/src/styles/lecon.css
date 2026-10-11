@@ -450,6 +450,17 @@
   text-transform: uppercase;
 }
 .colonne .corps > *:last-child { margin-bottom: 0; }
+/* Dans un panneau, la carte porte sa photographie sous le texte. En projection,
+   les cartes remplissent la rangée du corps et la photographie prend la hauteur
+   qui reste : un cadre de proportion fixe déborderait en 16:9, où les cartes
+   sont larges et l'écran bas. Au téléphone, où la page défile, elle reprend le
+   format d'un capteur. */
+.panneau .region-corps:has(> .colonnes) { display: grid; min-height: 0; }
+.panneau .colonnes { min-height: 0; }
+.panneau .colonne { grid-template-rows: auto auto minmax(0, 1fr); align-content: stretch; min-height: 0; }
+@media (max-width: 44rem) {
+  .panneau .colonne .emplacement { aspect-ratio: 3 / 2; }
+}
 @media (max-width: 44rem) {
   .colonnes { grid-template-columns: minmax(0, 1fr); }
 }
