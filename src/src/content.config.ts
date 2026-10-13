@@ -35,6 +35,11 @@ const emplacementDemo = z.object({
   /** Texte alternatif de l'image, une fois qu'elle existe. */
   alt: z.string().optional(),
   /**
+   * L'auteur de la photographie, quand ce n'est pas l'animateur. Crédité au
+   * pied de l'écran qui la montre — seulement une fois l'image présente.
+   */
+  credit: z.string().optional(),
+  /**
    * Réglages de la prise de vue, servant à la vérification de construction :
    * dans une série comparative, une seule de ces clés a le droit de varier.
    */

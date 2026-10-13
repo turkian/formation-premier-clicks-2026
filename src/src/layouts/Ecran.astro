@@ -13,6 +13,7 @@ import CodeQr from '../components/CodeQr.astro';
 import { lien } from '../lib/lien';
 import { typo } from '../lib/typo';
 import { porteLeCodeQr } from '../lib/lecon';
+import { creditDeLEcran } from '../lib/demos';
 import '../styles/lecon.css';
 
 interface Props {
@@ -26,6 +27,7 @@ interface Props {
 const { lecon, arret, precedent, suivant, totalArrets } = Astro.props;
 const totalBlocs = lecon.blocs.length;
 const qr = porteLeCodeQr(arret.ecran);
+const credit = await creditDeLEcran(arret.ecran);
 
 const titre = arret.ecran.titre ?? arret.bloc.titre;
 ---
@@ -69,6 +71,13 @@ const titre = arret.ecran.titre ?? arret.bloc.titre;
       )}
 
       {qr && <CodeQr chemin={arret.chemin} />}
+
+      {credit && (
+        <span class="credit-photo">
+          <span class="credit-large" set:html={typo(credit.large)} />
+          <span class="credit-etroit" set:html={typo(credit.etroit)} />
+        </span>
+      )}
 
       <span class="navigation">
         {precedent ? (

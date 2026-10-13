@@ -606,6 +606,18 @@
 }
 .etats-points span[data-atteint] { background: var(--accent); border-color: var(--accent); }
 
+/* Le crédit se lit de près, pas du fond de la salle : il ne dispute rien à
+   l'image qu'il signe. */
+.pied-ecran .credit-photo { font-size: var(--t-aparte); font-style: italic; }
+/* Deux formulations, une par disposition : « de droite » n'a plus de sens une
+   fois les photos empilées sur téléphone (même seuil que `.serie` et
+   `.colonnes`). */
+.pied-ecran .credit-etroit { display: none; }
+@media (max-width: 44rem) {
+  .pied-ecran .credit-large { display: none; }
+  .pied-ecran .credit-etroit { display: inline; }
+}
+
 .pied-ecran .navigation { margin-left: auto; display: flex; gap: var(--pas); align-items: center; }
 .pied-ecran a { color: var(--texte-2); text-decoration: none; }
 .pied-ecran a:hover { color: var(--accent); }

@@ -163,6 +163,8 @@ blocs:
               id: l2-figer
               specification: Une action figée net — un enfant qui saute, des gouttes d'eau suspendues · 1/1000 s
               priorite: utile
+              alt: Un pilote de motocross dans un virage, les mottes de terre figées en plein vol · 1/1000 s
+              credit: Alain Ruelland
           - titre: Laisser voir le mouvement
             icone: lucide:wind
             corps: On lit la vitesse, l'énergie.
@@ -277,6 +279,8 @@ blocs:
             specification: Filé — un cycliste net sur un fond étiré, l'appareil suit le sujet pendant la pose · 1/30 s
             valeur: l'appareil suit le sujet — lui est net, le fond file
             priorite: utile
+            alt: Un pilote de motocross net, les spectateurs et la clôture étirés derrière lui · 1/80 s
+            credit: Alain Ruelland
 
       - id: les-trainees
         genre: appareil-en-main

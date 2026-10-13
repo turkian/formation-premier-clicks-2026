@@ -57,3 +57,79 @@ export async function trouverImage(id: string, fichier?: string): Promise<string
   cache.set(cle, trouve);
   return trouve;
 }
+
+/** Le crédit d'un écran, formulé pour chacune de ses deux dispositions. */
+export interface CreditEcran {
+  /** Projection : les photos en rangées — « Photo de droite : … ». */
+  large: string;
+  /** Téléphone : les photos l'une sous l'autre — « Troisième photo : … ». */
+  etroit: string;
+}
+
+const HORIZONTAL: Record<number, string[]> = {
+  2: ['de gauche', 'de droite'],
+  3: ['de gauche', 'du centre', 'de droite'],
+};
+const VERTICAL: Record<number, string[]> = {
+  2: ['du haut', 'du bas'],
+  3: ['du haut', 'du milieu', 'du bas'],
+};
+const ORDINAUX = ['première', 'deuxième', 'troisième', 'quatrième', 'cinquième', 'sixième', 'septième', 'huitième', 'neuvième'];
+
+const capitale = (texte: string) => texte.charAt(0).toUpperCase() + texte.slice(1);
+
+/**
+ * Le crédit des photographies qu'un écran montre réellement. Une consigne de
+ * prise de vue n'est l'œuvre de personne : tant que l'image manque, son crédit
+ * reste muet.
+ *
+ * Quand l'écran mêle des photos de plusieurs auteurs — celles de l'animateur,
+ * non créditées, et celles d'un invité —, le crédit dit **laquelle** : « Photo de
+ * droite ». Sur téléphone, les rangées deviennent une seule colonne et la
+ * gauche n'existe plus ; le crédit compte alors dans l'ordre de lecture.
+ */
+export async function creditDeLEcran(ecran: any): Promise<CreditEcran | null> {
+  /* Les rangées telles que la projection les dispose. Une colonne sans photo
+     garde sa place : c'est elle qui fait la gauche et la droite. */
+  const rangees: any[][] = [
+    ...(ecran.colonnes ? [ecran.colonnes.map((c: any) => c.image)] : []),
+    ...(ecran.series ?? []).map((s: any) => s.images),
+    ...(ecran.images?.length ? [ecran.images] : []),
+  ];
+
+  const photos: { credit?: string; large: string; etroit: string }[] = [];
+  let rang = 0;
+  for (const [r, rangee] of rangees.entries()) {
+    for (const [c, e] of rangee.entries()) {
+      if (!e) continue;
+      rang += 1;
+      if (!(await trouverImage(e.id, e.fichier))) continue;
+      const h = HORIZONTAL[rangee.length]?.[c] ?? (rangee.length > 1 ? `nᵒ ${c + 1}` : null);
+      const v = VERTICAL[rangees.length]?.[r] ?? (rangees.length > 1 ? `de la rangée ${r + 1}` : null);
+      photos.push({
+        credit: e.credit,
+        large: ['photo', h, v && (h ? `, rangée ${v}` : v)].filter(Boolean).join(' ').replace(' ,', ','),
+        etroit: `${ORDINAUX[rang - 1] ?? `${rang}ᵉ`} photo`,
+      });
+    }
+  }
+
+  const auteurs = [...new Set(photos.map((p) => p.credit).filter(Boolean))] as string[];
+  if (auteurs.length === 0) return null;
+
+  // Un seul auteur pour toutes les photos de l'écran : inutile de les désigner.
+  if (photos.every((p) => p.credit === auteurs[0])) {
+    const simple = `${photos.length > 1 ? 'Photos' : 'Photo'} : ${auteurs[0]}`;
+    return { large: simple, etroit: simple };
+  }
+
+  const formuler = (disposition: 'large' | 'etroit') =>
+    auteurs
+      .map((a) => {
+        const lesquelles = photos.filter((p) => p.credit === a).map((p) => p[disposition]);
+        return `${capitale(lesquelles.join(' et '))} : ${a}`;
+      })
+      .join(' · ');
+
+  return { large: formuler('large'), etroit: formuler('etroit') };
+}
