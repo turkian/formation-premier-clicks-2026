@@ -14,6 +14,7 @@
 import { mdEnLigne, md } from '../../lib/md';
 import { typo } from '../../lib/typo';
 import EmplacementDemo from '../EmplacementDemo.astro';
+import { rangsLibres } from '../../lib/demos';
 
 interface Props {
   ecran: any;
@@ -36,8 +37,12 @@ const series = await Promise.all(
   })),
 );
 
-const libres = ecran.images ?? [];
-const nombreDeRangs = series.length + (libres.length > 0 ? 1 : 0);
+/* Chaque rang d'images libres est un rang de l'écran comme un autre : la
+   hauteur se partage déjà entre eux. */
+const libres = rangsLibres(ecran);
+const loupeImages = ecran.loupeImages as { zoom: number } | undefined;
+const etiquetteAuSurvol = ecran.etiquettes !== 'agrandissement';
+const nombreDeRangs = series.length + libres.length;
 ---
 
 <div class="ecran demonstration" data-rangs={nombreDeRangs}>
@@ -57,6 +62,7 @@ const nombreDeRangs = series.length + (libres.length > 0 ? 1 : 0);
               priorite={image.priorite}
               cadrage={image.cadrage}
               loupe={Boolean(serie.loupe)}
+              etiquetteAuSurvol={etiquetteAuSurvol}
             />
           ))}
         </div>
@@ -75,10 +81,15 @@ const nombreDeRangs = series.length + (libres.length > 0 ? 1 : 0);
       </figure>
     ))}
 
-    {libres.length > 0 && (
+    {libres.map((rang, r) => (
       <div class="rang">
-        <div class="serie" data-images={libres.length}>
-          {libres.map((image: any) => (
+        <div
+          class="serie"
+          data-images={rang.length}
+          data-loupe={loupeImages?.zoom}
+          data-loupe-mode={loupeImages ? 'seule' : undefined}
+        >
+          {rang.map((image: any) => (
             <EmplacementDemo
               id={image.id}
               fichier={image.fichier}
@@ -87,11 +98,16 @@ const nombreDeRangs = series.length + (libres.length > 0 ? 1 : 0);
               valeur={image.valeur}
               priorite={image.priorite}
               cadrage={image.cadrage}
+              loupe={Boolean(loupeImages)}
+              etiquetteAuSurvol={etiquetteAuSurvol}
             />
           ))}
         </div>
+        {loupeImages && r === libres.length - 1 && (
+          <p class="indice-loupe" set:html={typo('Maintenir Maj pour agrandir un détail')} />
+        )}
       </div>
-    )}
+    ))}
   </div>
 
   {aparte && <div class="legende-serie" set:html={aparte} />}
@@ -147,6 +163,10 @@ const nombreDeRangs = series.length + (libres.length > 0 ? 1 : 0);
    * Le point est calculé une fois, en coordonnées de l'image (u, v ∈ [0, 1]) :
    * on défait le cadrage de repos, puis les bandes de `object-fit: contain`.
    * Chaque loupe refait le chemin inverse dans son propre cadre.
+   *
+   * Un rang d'images libres (`loupeImages`) emprunte le même chemin, mais en
+   * mode `seule` : ses images ne montrent pas la même scène, et seule celle
+   * qu'on pointe s'agrandit.
    */
   if (matchMedia('(hover: hover) and (pointer: fine)').matches) {
     for (const serie of document.querySelectorAll<HTMLElement>('.serie[data-loupe]')) {
@@ -184,6 +204,9 @@ const nombreDeRangs = series.length + (libres.length > 0 ? 1 : 0);
 
   function demarrer(serie: HTMLElement) {
     const zoom = Number(serie.dataset.loupe);
+    // Images libres : des scènes différentes, aucun « même point » à comparer.
+    // Seule l'image pointée montre sa loupe.
+    const seule = serie.dataset.loupeMode === 'seule';
     const cadres = [...serie.querySelectorAll<HTMLElement>('.marco')];
 
     let majTenue = false;
@@ -208,7 +231,12 @@ const nombreDeRangs = series.length + (libres.length > 0 ? 1 : 0);
       const v = (py - g.oy) / g.dh;
       if (u < 0 || u > 1 || v < 0 || v > 1) return cacher();
 
-      for (const autre of cadres) placer(autre, u, v);
+      if (seule) {
+        for (const autre of cadres) if (autre !== marco) autre.removeAttribute('data-loupe-active');
+        placer(marco, u, v);
+      } else {
+        for (const autre of cadres) placer(autre, u, v);
+      }
     }
 
     function placer(marco: HTMLElement, u: number, v: number) {

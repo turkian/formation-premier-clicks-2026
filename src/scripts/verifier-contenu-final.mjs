@@ -332,6 +332,12 @@ console.log('\n13.6 · Aucun écran de démonstration ne dépasse trois photogra
  * déjà un précédent dans le contenu lui-même (`ouverture-et-profondeur-de-
  * champ` est trois écrans plutôt qu'un seul chargé) ; cette vérification la
  * rend automatique plutôt que seulement rappelée.
+ *
+ * Une exception : l'écran dont **chaque** photographie peut s'agrandir sous la
+ * loupe (`loupeImages` pour les images libres, `loupe` pour chaque série). Là,
+ * le détail ne dépend plus de la taille au repos — c'est le choix fait pour
+ * `le-flou-choisi`, en 2 × 2. Une seule série à loupe ne suffit pas : les
+ * autres photographies de l'écran rétréciraient sans recours.
  */
 for (const { donnees } of lecons) {
   for (const bloc of donnees.blocs) {
@@ -339,9 +345,11 @@ for (const { donnees } of lecons) {
       if (ecran.genre !== 'demonstration') continue;
       const total = (ecran.images?.length ?? 0)
         + (ecran.series ?? []).reduce((somme, serie) => somme + serie.images.length, 0);
+      const toutesSousLoupe = (!ecran.images?.length || Boolean(ecran.loupeImages))
+        && (ecran.series ?? []).every((serie) => Boolean(serie.loupe));
       verifier(
-        total <= 3,
-        `séance ${donnees.numero} · ${bloc.id}/${ecran.id} — ${total} photographies sur un écran de démonstration (3 au plus)`,
+        total <= 3 || toutesSousLoupe,
+        `séance ${donnees.numero} · ${bloc.id}/${ecran.id} — ${total} photographies sur un écran de démonstration (3 au plus, sauf si toutes sont sous la loupe)`,
       );
     }
   }

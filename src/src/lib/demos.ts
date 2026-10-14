@@ -58,6 +58,20 @@ export async function trouverImage(id: string, fichier?: string): Promise<string
   return trouve;
 }
 
+/**
+ * Les images libres d'un écran de démonstration, par rangs de `imagesParRang`
+ * tels que la projection les dispose ; absent, toutes sur un seul rang. L'écran
+ * et son crédit lisent ici les mêmes rangs : « rangée du bas » ne peut pas
+ * désigner autre chose que ce qu'on voit.
+ */
+export function rangsLibres(ecran: any): any[][] {
+  const libres: any[] = ecran.images ?? [];
+  const parRang: number = ecran.imagesParRang ?? Math.max(libres.length, 1);
+  const rangs: any[][] = [];
+  for (let i = 0; i < libres.length; i += parRang) rangs.push(libres.slice(i, i + parRang));
+  return rangs;
+}
+
 /** Le crédit d'un écran, formulé pour chacune de ses deux dispositions. */
 export interface CreditEcran {
   /** Projection : les photos en rangées — « Photo de droite : … ». */
@@ -94,7 +108,7 @@ export async function creditDeLEcran(ecran: any): Promise<CreditEcran | null> {
   const rangees: any[][] = [
     ...(ecran.colonnes ? [ecran.colonnes.map((c: any) => c.image)] : []),
     ...(ecran.series ?? []).map((s: any) => s.images),
-    ...(ecran.images?.length ? [ecran.images] : []),
+    ...rangsLibres(ecran),
   ];
 
   const photos: { credit?: string; large: string; etroit: string }[] = [];

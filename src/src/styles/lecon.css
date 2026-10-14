@@ -579,7 +579,10 @@
     grid-template-rows: minmax(0, 1fr) auto;
     row-gap: var(--pas);
   }
-  .serie > .emplacement {
+  /* `figure` : sans lui, la règle de rangées du composant
+     (`.emplacement[data-astro-cid-…]`, même spécificité, chargée après)
+     l'emportait, et la sous-grille ne s'appliquait jamais. */
+  .serie > figure.emplacement {
     grid-row: span 2;
     grid-template-rows: subgrid;
   }

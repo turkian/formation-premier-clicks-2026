@@ -287,6 +287,15 @@ blocs:
             priorite: utile
             alt: Un pilote de motocross net, les spectateurs et la clôture étirés derrière lui · 1/80 s
             credit: Alain Ruelland
+          - id: l2-nageur
+            specification: Un nageur — ou tout sujet dont une partie va plus vite que le reste —, appareil immobile, à une vitesse qui garde le visage net mais pas la main · essayer autour de 1/60 s
+            valeur: une partie bouge plus vite que le reste — le visage reste net, la main file
+            priorite: utile
+            alt: Un nageur sur le dos — le visage et les lunettes nets, la main et l'eau qu'elle soulève légèrement filées
+        imagesParRang: 2
+        etiquettes: agrandissement
+        loupeImages:
+          zoom: 3
 
       - id: les-trainees
         genre: appareil-en-main

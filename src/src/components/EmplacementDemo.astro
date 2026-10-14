@@ -35,9 +35,14 @@ interface Props {
    * loupe, que le script de la série (`Demonstration.astro`) place et montre.
    */
   loupe?: boolean;
+  /**
+   * L'étiquette se montre au survol (par défaut). Faux : seulement une fois
+   * l'image agrandie — aucune ligne ne lui est réservée au repos.
+   */
+  etiquetteAuSurvol?: boolean;
 }
 
-const { id, fichier, specification, alt, valeur, priorite, cadrage, loupe } = Astro.props;
+const { id, fichier, specification, alt, valeur, priorite, cadrage, loupe, etiquetteAuSurvol = true } = Astro.props;
 const image = await trouverImage(id, fichier);
 const texteAlt = alt ?? specification;
 const styleCadrage = cadrage
@@ -71,7 +76,7 @@ const styleCadrage = cadrage
       )}
     </div>
   )}
-  {valeur && <figcaption class="etiquette-repos" set:html={typo(valeur)} />}
+  {valeur && etiquetteAuSurvol && <figcaption class="etiquette-repos" set:html={typo(valeur)} />}
   {image && (
     <dialog class="agrandi" data-dialogue aria-label={texteAlt}>
       <button type="button" class="fermeture" data-fermer aria-label="Réduire la photographie">

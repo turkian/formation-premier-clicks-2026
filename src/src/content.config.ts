@@ -216,6 +216,25 @@ const ecranDemonstration = baseEcran.extend({
   series: z.array(serieComparative).default([]),
   /** Images hors série comparative (une seule image, ou un ensemble libre). */
   images: z.array(emplacementDemo).optional(),
+  /**
+   * Nombre d'images libres par rang en projection : au-delà, elles passent au
+   * rang suivant. Absent, toutes tiennent sur un seul rang. Pas `colonnes` :
+   * ce nom désigne déjà, sur l'écran de décision, une liste de colonnes.
+   */
+  imagesParRang: z.number().int().min(1).optional(),
+  /**
+   * Loupe des images libres : en maintenant Maj, seule l'image pointée montre
+   * le point visé, agrandi à ce grossissement. Contrairement à la loupe liée
+   * d'une série, rien ne garantit ici une même scène d'une image à l'autre.
+   */
+  loupeImages: z.object({ zoom: z.number().min(1) }).optional(),
+  /**
+   * Quand l'étiquette d'une photographie se montre : au survol et une fois
+   * agrandie (`survol`, par défaut), ou une fois agrandie seulement
+   * (`agrandissement`) — l'écran au repos ne garde alors aucune ligne pour
+   * elle, et les photographies prennent cette hauteur.
+   */
+  etiquettes: z.enum(['survol', 'agrandissement']).optional(),
   aparte: z.string().optional(),
 });
 
