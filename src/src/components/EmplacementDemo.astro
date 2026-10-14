@@ -30,9 +30,14 @@ interface Props {
    * cadre entier, comme avant.
    */
   cadrage?: { point: [number, number]; zoom: number };
+  /**
+   * L'image appartient à une série qui déclare une loupe liée : elle reçoit sa
+   * loupe, que le script de la série (`Demonstration.astro`) place et montre.
+   */
+  loupe?: boolean;
 }
 
-const { id, fichier, specification, alt, valeur, priorite, cadrage } = Astro.props;
+const { id, fichier, specification, alt, valeur, priorite, cadrage, loupe } = Astro.props;
 const image = await trouverImage(id, fichier);
 const texteAlt = alt ?? specification;
 const styleCadrage = cadrage
@@ -42,10 +47,20 @@ const styleCadrage = cadrage
 
 <figure class="emplacement" data-presente={image ? '' : undefined}>
   {image ? (
-    <div class="marco">
+    <div
+      class="marco"
+      data-cadrage-x={cadrage?.point[0]}
+      data-cadrage-y={cadrage?.point[1]}
+      data-cadrage-zoom={cadrage?.zoom}
+    >
       <button type="button" class="declencheur" data-ouvrir aria-label={`Agrandir la photographie : ${texteAlt}`}>
         <img src={asset(`/demos/${image}`)} alt={texteAlt} loading="lazy" style={styleCadrage} />
       </button>
+      {loupe && (
+        <div class="fenetre-loupe" aria-hidden="true">
+          <div class="loupe" style={`background-image: url('${asset(`/demos/${image}`)}')`} />
+        </div>
+      )}
     </div>
   ) : (
     <div class="a-photographier">
@@ -79,6 +94,7 @@ const styleCadrage = cadrage
   /* Le cadre de repos : ce qui recadre, c'est le `transform` posé sur l'image
      elle-même (voir le style en ligne) ; ce conteneur ne fait que le rogner. */
   .marco {
+    position: relative;
     width: 100%;
     height: 100%;
     min-height: 0;
@@ -104,6 +120,28 @@ const styleCadrage = cadrage
     object-fit: contain;
     min-height: 0;
   }
+
+  /* La loupe : rognée par sa fenêtre, qui épouse la partie visible de la
+     photographie (ni les bandes de `contain`, ni la photographie voisine). Leur
+     place et le fond de la loupe sont posés par le script de la série. */
+  .fenetre-loupe {
+    display: none;
+    position: absolute;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .loupe {
+    position: absolute;
+    pointer-events: none;
+    border-radius: 50%;
+    border: 3px solid var(--fond);
+    box-shadow: 0 0 0 1px var(--trait-fort), 0 6px 24px rgba(0, 0, 0, 0.45);
+    background-repeat: no-repeat;
+    background-color: var(--fond-2);
+  }
+  .marco[data-loupe-active] .fenetre-loupe { display: block; }
+  /* Le pointeur cacherait le centre de la loupe, qui est justement le détail. */
+  .marco[data-loupe-active] .declencheur { cursor: none; }
 
   /* L'emplacement vide est un objet fini, pas une avarie : il se lit de loin et
      ne casse pas la composition de l'écran. */
@@ -245,7 +283,13 @@ const styleCadrage = cadrage
     const fermer = figure.querySelector<HTMLButtonElement>('[data-fermer]');
     if (!ouvrir || !dialogue) return;
 
-    ouvrir.addEventListener('click', () => dialogue.showModal());
+    // Maj + clic dans une série à loupe : on regarde de près, on ne veut pas
+    // quitter la comparaison pour l'image seule.
+    const avecLoupe = figure.closest('[data-loupe]') !== null;
+    ouvrir.addEventListener('click', (evenement) => {
+      if (avecLoupe && evenement.shiftKey) return;
+      dialogue.showModal();
+    });
     fermer?.addEventListener('click', () => dialogue.close());
 
     // Cliquer sur le fond assombri (le `::backdrop`) ferme aussi : seul un

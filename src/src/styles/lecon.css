@@ -571,6 +571,19 @@
   grid-auto-columns: 1fr;
   min-height: 0;
 }
+/* Côte à côte, les images d'une série partagent leurs deux rangées : une
+   étiquette qui passe sur deux lignes abaisse toutes les photos d'un même
+   cran, au lieu de rapetisser la sienne et de la décaler. */
+@media not all and (max-width: 44rem) {
+  .serie {
+    grid-template-rows: minmax(0, 1fr) auto;
+    row-gap: var(--pas);
+  }
+  .serie > .emplacement {
+    grid-row: span 2;
+    grid-template-rows: subgrid;
+  }
+}
 .legende-serie {
   font-size: var(--t-aparte);
   color: var(--texte-2);

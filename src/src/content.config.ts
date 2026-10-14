@@ -73,6 +73,13 @@ const serieComparative = z.object({
   constantes: z.record(z.string()).default({}),
   images: z.array(emplacementDemo).min(2),
   legende: z.string().optional(),
+  /**
+   * Loupe liée : en maintenant Maj, le même point de la scène s'affiche agrandi
+   * sur chaque image de la série, à ce grossissement (par rapport à l'image
+   * entière, cadrage de repos ou non). Absente, la série se comporte comme
+   * avant. Réservée aux séries : seules elles garantissent une même scène.
+   */
+  loupe: z.object({ zoom: z.number().min(1) }).optional(),
 });
 
 /* ──────────────────────────────────────────────────────────────────────────

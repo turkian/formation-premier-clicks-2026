@@ -176,31 +176,35 @@ blocs:
       - id: trois-vitesses
         genre: demonstration
         titre: Une scène, trois vitesses
-        claim: La même rue, trois vitesses. Entre figer et laisser voir, il y a tout un éventail.
+        claim: Le même carrefour, trois vitesses. Entre figer et laisser voir, il y a tout un éventail.
         series:
           - variable: la vitesse — l'appareil ajuste l'ISO
             constantes:
-              scène: la même rue
+              scène: le même carrefour
               cadrage: le même
               ouverture: f/8
               appareil: sur trépied
-            legende: Regardez les passants, puis le décor.
+            legende: Regardez les voitures, puis le décor.
+            loupe: { zoom: 3 }
             images:
               - id: l2-rue-1-500
-                specification: Rue animée en fin de journée, passants et voitures · 1/500 s · f/8 · trépied · tout est figé
-                valeur: 1/500 s — tout est figé
+                specification: Carrefour animé en fin de journée, voitures en mouvement · vitesse rapide · f/8 · trépied · tout est figé
+                alt: Un carrefour en fin de journée, une berline bleue nette au milieu de l'intersection
+                valeur: Rapide — tout est figé
                 priorite: essentiel
-                reglages: { vitesse: 1/500 s, ouverture: f/8 }
+                reglages: { vitesse: rapide, ouverture: f/8 }
               - id: l2-rue-1-30
-                specification: Même rue, même cadrage · 1/30 s · f/8 · trépied · les passants commencent à filer, le décor reste net
-                valeur: 1/30 s — les passants commencent à filer
+                specification: Même carrefour, même cadrage · vitesse moyenne · f/8 · trépied · les voitures commencent à filer, le décor reste net
+                alt: Le même carrefour, un VUS qui file en flou sur un décor resté net
+                valeur: Moyenne — les voitures filent
                 priorite: essentiel
-                reglages: { vitesse: 1/30 s, ouverture: f/8 }
+                reglages: { vitesse: moyenne, ouverture: f/8 }
               - id: l2-rue-1-2
-                specification: Même rue, même cadrage · 1/2 s · f/8 · trépied · passants et voitures en traînées, décor net
-                valeur: 1/2 s — le mouvement devient des traînées
+                specification: Même carrefour, même cadrage · vitesse lente · f/8 · trépied · voitures en traînées, décor net
+                alt: Le même carrefour, les voitures réduites à des traînées et des filets de phares, le décor net
+                valeur: Lente — des traînées
                 priorite: essentiel
-                reglages: { vitesse: 1/2 s, ouverture: f/8 }
+                reglages: { vitesse: lente, ouverture: f/8 }
 
       - id: points-de-depart
         genre: panneau
@@ -255,10 +259,12 @@ blocs:
         images:
           - id: l2-sujet-bouge
             specification: Sujet en mouvement, décor net · vitesse insuffisante pour le figer
+            alt: Le même carrefour, une voiture et une camionnette floues qui traversent, les immeubles et les feux restés nets
             valeur: c'est le sujet qui a bougé — le décor est net
             priorite: essentiel
           - id: l1-bouge
-            specification: Toute l'image floue dans le même sens · 1/8 s à main levée
+            specification: Toute l'image floue dans le même sens · vitesse lente à main levée
+            alt: Le même carrefour entièrement flou — immeubles, feux et lampadaires dédoublés par le mouvement de l'appareil
             valeur: c'est la main qui a bougé — tout est flou
             priorite: essentiel
 
@@ -424,28 +430,32 @@ blocs:
         series:
           - variable: comment on obtient la luminosité
             constantes:
-              lieu: une pièce peu éclairée
+              lieu: une station-service au crépuscule
               mode: M
-              ouverture: f/5.6
+              ouverture: la même
             legende: |
-              La troisième est propre parce qu'elle a capté seize fois plus de lumière, pas parce
+              La troisième est propre parce qu'elle a capté beaucoup plus de lumière, pas parce
               que son ISO est bas. Cette lumière est venue d'une vitesse lente : d'où le flou.
+            loupe: { zoom: 4 }
             images:
               - id: l2-iso-nette-bruitee
-                specification: Pièce peu éclairée · M · f/5.6 · 1/125 s · ISO 6400 · bien exposée
-                valeur: ISO 6400 — nette, bruitée
+                specification: Scène peu éclairée · M · vitesse rapide · ISO élevé · bien exposée
+                alt: Une station-service au crépuscule, nette et bien exposée, un grain visible dans les ombres du massif et de l'asphalte
+                valeur: ISO élevé — nette, bruitée
                 priorite: essentiel
-                reglages: { iso: "6400", ouverture: f/5.6 }
+                reglages: { iso: élevé, ouverture: la même }
               - id: l2-iso-eclaircie
-                specification: Même cadrage · 1/125 s · ISO 400 · la photo sort sombre, puis on l'éclaircit après coup, au téléphone ou à l'ordinateur
-                valeur: ISO 400, éclaircie — plus bruitée
+                specification: Même cadrage · même vitesse · ISO bas · la photo sort sombre, puis on l'éclaircit après coup, au téléphone ou à l'ordinateur
+                alt: La même station-service, éclaircie après coup, des taches de couleur dans les ombres de l'asphalte
+                valeur: ISO bas, éclaircie — plus bruitée
                 priorite: essentiel
-                reglages: { iso: "400", ouverture: f/5.6 }
+                reglages: { iso: bas, ouverture: la même }
               - id: l2-iso-propre-floue
-                specification: Même cadrage · 1/8 s à main levée · ISO 400 · bien exposée, mais bougée
-                valeur: ISO 400 à 1/8 s — floue
+                specification: Même cadrage · vitesse lente à main levée · ISO bas · bien exposée, mais bougée
+                alt: La même station-service, lisse et bien exposée, mais floue — enseignes et feuillage dédoublés par le mouvement de la main
+                valeur: ISO bas, vitesse lente — floue
                 priorite: essentiel
-                reglages: { iso: "400", ouverture: f/5.6 }
+                reglages: { iso: bas, ouverture: la même }
 
       - id: m-et-iso-auto
         genre: panneau
