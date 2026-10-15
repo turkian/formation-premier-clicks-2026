@@ -5,7 +5,13 @@
  * (`/formation-premier-clicks-2026/`). Un chemin absolu écrit à la main
  * (`/lecons/1/`) fonctionne au développement et renvoie une 404 en production :
  * tout passe donc par ici.
+ *
+ * Ce module ne s'exécute qu'à la construction (en-têtes de composants et
+ * points d'accès), jamais dans un script client : il peut lire le disque.
  */
+import { createHash } from 'node:crypto';
+import { existsSync, readFileSync, statSync } from 'node:fs';
+import { join } from 'node:path';
 
 const BASE = import.meta.env.BASE_URL;
 
@@ -33,11 +39,42 @@ export function lien(chemin: string): string {
  * URL d'un fichier de `public/`. Pas de barre oblique finale : un fichier n'est
  * pas un répertoire.
  *
- *   asset('/images/demo/pdc-1m.jpg')  →  /formation-premier-clicks-2026/images/demo/pdc-1m.jpg
+ * Quand le fichier existe dans `public/`, l'URL porte l'empreinte de son
+ * contenu (`?v=`). Une photo remplacée sous le même nom change donc d'URL, et
+ * le service travailleur — qui garde pour toujours ce qui porte une empreinte —
+ * ne peut plus servir l'ancienne. Une URL qui ne désigne pas un fichier de
+ * `public/` (le service travailleur, sa portée, une photo pas encore prise)
+ * reste telle quelle.
+ *
+ *   asset('/demos/l2-figer.jpg')       →  /formation-premier-clicks-2026/demos/l2-figer.jpg?v=3f9a0c12be
+ *   asset('/service-travailleur.js')   →  /formation-premier-clicks-2026/service-travailleur.js
  */
 export function asset(chemin: string): string {
   if (/^(https?:)?\/\//.test(chemin) || chemin.startsWith('data:')) return chemin;
-  return `${baseNette}/${chemin.replace(/^\/+/, '')}`;
+  const relatif = chemin.replace(/^\/+/, '');
+  const version = empreinte(relatif);
+  return `${baseNette}/${relatif}${version ? `?v=${version}` : ''}`;
+}
+
+/** Injecté par `astro.config.mjs` : chemin absolu de `public/`. */
+declare const __DOSSIER_PUBLIC__: string;
+
+const empreintes = new Map<string, string | null>();
+
+/**
+ * Les 10 premiers caractères hexadécimaux du SHA-256 du fichier, ou `null` s'il
+ * n'existe pas. Mémorisé en production ; relu à chaque appel en développement,
+ * pour qu'une photo remplacée apparaisse sans redémarrer le serveur.
+ */
+function empreinte(relatif: string): string | null {
+  if (import.meta.env.PROD && empreintes.has(relatif)) return empreintes.get(relatif)!;
+  const fichier = join(__DOSSIER_PUBLIC__, relatif);
+  const resultat =
+    relatif !== '' && existsSync(fichier) && statSync(fichier).isFile()
+      ? createHash('sha256').update(readFileSync(fichier)).digest('hex').slice(0, 10)
+      : null;
+  empreintes.set(relatif, resultat);
+  return resultat;
 }
 
 /** URL absolue, pour les codes QR et les métadonnées de partage. */

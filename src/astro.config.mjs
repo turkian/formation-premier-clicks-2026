@@ -1,4 +1,5 @@
 // @ts-check
+import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'astro/config';
 import icon from 'astro-icon';
 import { remarkTypo } from './src/lib/remark-typo.mjs';
@@ -36,4 +37,16 @@ export default defineConfig({
   },
   integrations: [icon(), verifierContenu()],
   devToolbar: { enabled: false },
+  vite: {
+    define: {
+      /*
+       * Emplacement absolu de `public/`, pour qu'`asset()` puisse lire chaque
+       * fichier et en tirer l'empreinte de son contenu. `lien.ts` ne peut pas le
+       * déduire de son propre `import.meta.url` : une fois regroupé par la
+       * construction, ce module ne vit plus dans `src/`. Ce fichier-ci, lui,
+       * sait où il est.
+       */
+      __DOSSIER_PUBLIC__: JSON.stringify(fileURLToPath(new URL('./public/', import.meta.url))),
+    },
+  },
 });

@@ -21,7 +21,12 @@
  *      même raison. Il est retiré — la déclaration `@font-face`, elle, charge
  *      normalement ;
  *   5. le service travailleur ne s'enregistre pas sur `file://` — c'est sans
- *      conséquence, tout est déjà local.
+ *      conséquence, tout est déjà local ;
+ *   6. l'empreinte de contenu (`?v=…`) qu'`asset()` ajoute aux fichiers de
+ *      `public/` est retirée. Elle ne sert qu'à empêcher le cache du site
+ *      déployé de garder une vieille photo ; en `file://` il n'y a ni service
+ *      travailleur ni cache HTTP, et on ne dépend plus de la manière dont
+ *      chaque navigateur traite une requête sur un fichier local.
  *
  * Usage : npm run copie-locale
  */
@@ -102,7 +107,10 @@ for (const fichier of await fichiers(SORTIE)) {
   const profondeur = relative(SORTIE, dirname(fichier)).split(sep).filter(Boolean).length;
   const versLaRacine = profondeur === 0 ? './' : '../'.repeat(profondeur);
 
-  let contenu = original.replaceAll(`${BASE}/`, versLaRacine);
+  let contenu = original
+    .replaceAll(`${BASE}/`, versLaRacine)
+    // L'empreinte `?v=` ne sert qu'au cache du site déployé (voir point 6).
+    .replace(/(\.[a-z0-9]+)\?v=[0-9a-f]{10}\b/g, '$1');
 
   if (fichier.endsWith('.html')) {
     /*

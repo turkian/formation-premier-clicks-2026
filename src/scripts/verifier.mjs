@@ -8,13 +8,14 @@
  *   telephone   — aucune page ne défile horizontalement à la largeur d'un
  *                 téléphone
  *   projection  — aucun écran de leçon ne déborde en 4:3 (1024 × 768) ni en 16:9
- *   liens       — tout lien interne résout sous le sous-chemin du dépôt
+ *   liens       — tout lien interne résout sous le sous-chemin du dépôt, et
+ *                 tout fichier de `public/` est référencé avec son empreinte
  *   alignement  — deux éléments côte à côte sur une rangée font la même hauteur
  *
  * Usage : node scripts/verifier.mjs [impression|telephone|projection|liens|alignement|tout]
  */
 import { chromium } from 'playwright';
-import { readdir } from 'node:fs/promises';
+import { readdir, readFile } from 'node:fs/promises';
 import { availableParallelism } from 'node:os';
 import { servir } from './serveur.mjs';
 import { nombreDePages } from './pdf.mjs';
@@ -199,6 +200,30 @@ async function verifierLiens(navigateur, site, toutes) {
     }
   });
   await contexte.close();
+
+  await verifierEmpreintes(toutes);
+}
+
+/* ── Les fichiers de `public/` portent l'empreinte de leur contenu ─────────
+   Le service travailleur garde pour toujours ce qui porte `?v=`, et revalide
+   le reste. Une photo, une police ou l'icône référencée sans passer par
+   `asset()` perdrait son empreinte : remplacée sous le même nom, elle
+   n'apparaîtrait qu'au rechargement suivant. On lit donc le HTML construit —
+   attributs, styles en ligne et `@font-face` compris. */
+async function verifierEmpreintes(toutes) {
+  const reference =
+    /\/(?:(?:demos|polices)\/[\w.-]+\.(?:jpe?g|png|webp|avif|svg|woff2)|icone\.svg)(\?v=[0-9a-f]{10})?/g;
+  for (const chemin of toutes) {
+    const html = await readFile(new URL(`.${chemin}index.html`, RACINE), 'utf8');
+    const sansEmpreinte = [...html.matchAll(reference)].filter(([, v]) => !v).map(([url]) => url);
+    verifier(
+      sansEmpreinte.length === 0,
+      chemin,
+      sansEmpreinte.length === 0
+        ? 'chaque fichier de public/ porte son empreinte ?v='
+        : `fichier de public/ sans empreinte ?v= : ${[...new Set(sansEmpreinte)].join(', ')}`,
+    );
+  }
 }
 
 /* ── Une fiche = une page Letter ─────────────────────────────────────────── */
