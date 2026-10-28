@@ -80,7 +80,7 @@
   **pre-existing and identical without this change**: `verifier projection` reports `.marco`
   overflowing on the two `lecons/1/lumiere/la-lumiere-en-images-angles-*` screens (153–196 px), and
   `verifier:copie-locale` times out on `a.carte` (see 3.1).
-- [ ] 5.2 After deploying to `https://turkian.github.io/formation-premier-clicks-2026/`, in a browser
+- [x] 5.2 After deploying to `https://turkian.github.io/formation-premier-clicks-2026/`, in a browser
       that showed the stale `l2-figer.jpg` before, reload once normally and verify the current photo
       appears and DevTools > Application > Cache Storage shows only `premiers-clicks-v2`.
 
