@@ -55,9 +55,8 @@ Each demonstration slot SHALL carry a priority. The following SHALL be marked es
 focus-distance series, the subject-to-background distance series, the out-of-focus versus
 camera-shake pair, the subject-blur versus camera-shake pair, the street scene at three shutter
 speeds, the light-trail and intentional-camera-movement images of the « flou choisi »
-demonstration, the three images of the « même lumière, trois issues » ISO series, the
-composition before-and-after pairs, the development demonstration
-photograph, and its seven cumulative states.
+demonstration, the three images of the « même lumière, trois issues » ISO series, and the
+photographs of the first-tier composition techniques.
 
 #### Scenario: The animator can only prepare part of the set
 
@@ -81,6 +80,12 @@ photograph, and its seven cumulative states.
 - **AND** all three are marked essential
 - **AND** the specification of the brightened image states that it was brightened afterwards
 
+#### Scenario: The animator plans the composition photographs
+
+- **WHEN** the animator reviews the composition block's slots in the shot list
+- **THEN** the photographs of the first-tier techniques are marked essential
+- **AND** the photographs of the second- and third-tier techniques are marked useful
+
 ### Requirement: Photographs are not required where a component is more honest
 
 A concept SHALL NOT declare a demonstration slot when an interactive component covers it. The
@@ -91,30 +96,6 @@ SHALL be presented by components, not photographs.
 
 - **WHEN** the shot list is reviewed
 - **THEN** no slot is declared for a concept presented by an interactive component
-
-### Requirement: The development demonstration is backed by cumulative pre-rendered states
-
-The seven-gestures development demonstration SHALL declare, in addition to its starting
-photograph, seven cumulative image states — one per geste, each showing every gesture applied so
-far. These SHALL be declared as demonstration slots like any other image, and SHALL degrade to
-their specification when absent.
-
-#### Scenario: The animator demonstrates live
-
-- **WHEN** the animator performs the seven gestures live in editing software
-- **THEN** the screens carry the fixed order and the principle repeated at each gesture
-- **AND** the pre-rendered states are available as the block's support
-
-#### Scenario: The editing software fails during the session
-
-- **WHEN** the live demonstration cannot be performed
-- **THEN** the seven cumulative states present the sequence in order
-- **AND** each state shows the result of every gesture up to and including its own
-
-#### Scenario: The animator skips a geste
-
-- **WHEN** the animator chooses to skip a geste for time
-- **THEN** the remaining states are still reachable in order without the skipped one breaking the sequence
 
 ### Requirement: A demonstration image may declare a resting crop and zoom
 
@@ -331,3 +312,34 @@ as before.
 - **WHEN** the same screen is displayed on a touch device without hover, or printed
 - **THEN** no loupe and no loupe hint are shown
 - **AND** the photographs can still be enlarged to their full frame as before
+
+### Requirement: Archival images are public domain where the site is read
+
+A demonstration image by a third party (a photograph, an engraving or a book page) that is not
+used with its author's permission SHALL be in the public domain both in Canada (its author died
+before 1972) and in the United States. Otherwise it SHALL NOT be hosted on the site.
+
+#### Scenario: The animator adds a nineteenth-century image
+
+- **WHEN** an archival image whose author died before 1972 is added to a slot
+- **THEN** the image is hosted with the site like any other demonstration image
+
+#### Scenario: A candidate image is still protected in Canada
+
+- **WHEN** the author of a candidate archival image died in 1972 or later
+- **THEN** the image is not added to the site, even if it is public domain in the United States
+
+### Requirement: Archival images carry their author, date and source
+
+Every archival image SHALL carry a credit giving its author, its date or approximate date,
+and the collection or archive it comes from.
+
+#### Scenario: A participant enlarges an archival image
+
+- **WHEN** an archival image is displayed or enlarged
+- **THEN** its author, date and source are available as its credit
+
+#### Scenario: An archival slot is still empty
+
+- **WHEN** an archival image has not yet been supplied
+- **THEN** the slot's specification names the intended image, its author and its date
