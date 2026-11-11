@@ -1,17 +1,22 @@
-# Séance 3 — adaptée du carnet de production de l'animateur (historique git),
-# selon la même règle que les deux autres (décision D7).
+# Séance 3 — une seule question : comment faire de meilleures photos ? Les
+# séances 1 et 2 traitaient de ce que l'appareil peut décider à votre place ;
+# la composition est la seule chose qu'il ne décide jamais.
 #
-# Le bloc des sept gestes est doublé de sept états d'image pré-rendus
-# (décision D11) : la démonstration reste faite en direct, mais elle devient un
-# bloc comme les autres — des emplacements déclarés, qui affichent leur consigne
-# tant qu'ils sont absents. Le bloc survit ainsi à une défaillance du logiciel
-# devant trente personnes, et l'animateur peut sauter un geste sans que la suite
-# se casse : chaque état montre le résultat de tous les gestes jusqu'à lui.
+# Le développement n'est plus enseigné geste par geste : la retouche s'apprend
+# mal à trente, et « Et maintenant ? » l'envoie à un atelier en petit groupe.
+# Il en reste le flux de l'animateur et quelques astuces, dans le bloc « Mes
+# apprentissages ». Là, l'énoncé de chaque panneau s'adresse aux participants,
+# et le corps est le témoignage, à la première personne.
+#
+# Les photographies d'archives sont du domaine public au Canada (auteur mort
+# avant 1972) comme aux États-Unis, hébergées avec le site, jamais liées, et
+# créditées : auteur, date, collection. Les photographes encore protégés sont
+# nommés et liés, jamais montrés.
 
 numero: 3
-titre: Composer, développer, continuer
-filConducteur: Composer → lire → développer → trier → continuer
-question: comment faire une image, puis la finir ?
+titre: Composer, choisir, montrer
+filConducteur: Apprendre à voir → composer → choisir → montrer
+question: comment faire de meilleures photos ?
 pret: false
 
 blocs:
@@ -38,81 +43,376 @@ blocs:
           ressemble à de la photographie.
 
   # ─────────────────────────────────────────────────────────────────────────
+  - id: retour
+    titre: Retour sur la séance 2
+    resume: Vos photos d'abord, puis une seule histoire — de la vitesse à ce que l'appareil ne décide pas.
+    ecrans:
+      - id: bilan
+        genre: repere
+        variante: ouverture
+        titre: Retour
+        claim: Avez-vous pris des photos depuis la séance 2 ? Qu'avez-vous appris ?
+        corps: |
+          Une photo réussie, une photo ratée, ou seulement quelque chose que vous avez remarqué
+          en regardant autour de vous : **tout compte**.
+
+      - id: rappel-vitesse
+        genre: panneau
+        titre: La vitesse
+        claim: La vitesse, c'est combien de temps la lumière entre. Elle fige ce qui bouge, ou le laisse voir.
+        colonnes:
+          - titre: Figer
+            icone: lucide:snowflake
+            corps: Une vitesse rapide. On lit le détail, l'instant est suspendu.
+            image:
+              id: l3-rappel-figer
+              fichier: l2-figer.jpg
+              specification: La photo « figer » de la séance 2 · 1/1000 s
+              priorite: complement
+              alt: Un pilote de motocross dans un virage, les mottes de terre figées en plein vol · 1/1000 s
+              credit: Alain Ruelland
+          - titre: Laisser voir
+            icone: lucide:wind
+            corps: Une vitesse lente. On lit la vitesse, l'énergie.
+            image:
+              id: l3-rappel-laisser-voir
+              fichier: l2-laisser-voir.jpg
+              specification: La photo « laisser voir le mouvement » de la séance 2 · 1/4 s
+              priorite: complement
+              alt: Une petite chute sous un tronc couché, l'eau devenue soyeuse par la pose lente
+        ton: regle
+        icone: lucide:ruler
+        encadre: |
+          **Deux flous.** Le sujet flou sur un décor net : **il a bougé**. Toute l'image floue :
+          **c'est vous**. Dans les deux cas, une vitesse plus rapide.
+
+      - id: rappel-iso
+        genre: panneau
+        titre: L'ISO
+        claim: "L'ISO, c'est le volume. Il vient en dernier."
+        corps: |
+          L'ISO n'ajoute pas de lumière : il **amplifie** celle que le capteur a reçue.
+
+          Choisissez d'abord ce que vous voulez montrer — la zone nette avec l'ouverture, le
+          mouvement avec la vitesse. **Puis** montez l'ISO jusqu'à ce que la photo soit bien
+          exposée.
+        ton: regle
+        icone: lucide:ruler
+        encadre: |
+          **Le bruit vient du manque de lumière**, pas de l'ISO. Le meilleur ISO est celui qui
+          expose correctement votre sujet.
+
+      - id: rappel-m-iso-auto
+        genre: panneau
+        titre: M et l'ISO auto
+        claim: "En `M` avec l'ISO auto, vous choisissez l'ouverture et la vitesse. L'appareil règle le volume."
+        corps: |
+          1. **L'ouverture**, pour la zone nette — vous.
+          2. **La vitesse**, pour le mouvement — vous.
+          3. **L'ISO** qui expose bien — l'appareil.
+        ton: regle
+        icone: lucide:sun-moon
+        encadre: |
+          **Plus clair ou plus sombre ? Le bouton `+/−`.** Trop sombre → vers le `+`. Trop
+          clair → vers le `−`.
+        aparte: |
+          L'ISO auto et le bouton `+/−` sont en **section 3** de votre feuille de marque.
+
+      - id: ce-que-l-appareil-ne-decide-pas
+        genre: repere
+        variante: transition
+        titre: Ce que l'appareil ne décide pas
+        claim: L'appareil peut décider de la netteté et de l'exposition à votre place. Jamais du cadrage.
+        colonnes:
+          - titre: Ce qu'il peut décider
+            icone: lucide:cpu
+            corps: |
+              **La netteté** — la mise au point, la vitesse.
+
+              **L'exposition** — l'ouverture, la vitesse, l'ISO.
+          - titre: Ce qu'il ne décide jamais
+            icone: lucide:frame
+            corps: |
+              **Le cadrage** — ce qui entre dans l'image, ce qui en sort, et où.
+
+              C'est ce qui reste à apprendre.
+
+  # ─────────────────────────────────────────────────────────────────────────
+  # Droits des archives, vérifiés avant l'ajout (auteur mort avant 1972, œuvre
+  # antérieure à 1929) :
+  #   Smith († 1833)      1797  Remarks on Rural Scenery, pl. « On Mill-Bank » et p. 16 —
+  #                             Getty Research Institute, numérisé par l'Internet Archive
+  #   Rejlander († 1875)  1857  Princeton University Art Museum (Wikimedia Commons)
+  #   Robinson († 1901)   1858  George Eastman Museum (Wikimedia Commons)
+  #   Robinson († 1901)   1869  Pictorial Effect in Photography, p. 47 — Getty Research
+  #                             Institute, numérisé par l'Internet Archive
+  - id: histoire
+    titre: D'où viennent les règles
+    resume: Plus vieilles que la photo, empruntées à la peinture, puis écrites pour les photographes.
+    ecrans:
+      - id: avant-la-photo
+        genre: demonstration
+        titre: Avant la photo
+        claim: La règle des tiers est plus vieille que la photographie.
+        images:
+          - id: l3-histoire-smith
+            specification: >-
+              John Thomas Smith, « On Mill-Bank, Westminster », eau-forte de Remarks on Rural
+              Scenery, 1797 — une rive de la Tamise : le ciel occupe environ les deux tiers de
+              l'image, la terre et l'eau le tiers restant. Getty Research Institute.
+            alt: Une gravure d'une rive de la Tamise — des saules, des chaumières, une barque sur l'eau, et un grand ciel au-dessus
+            valeur: Smith, 1797 — deux tiers de ciel, un tiers de terre
+            credit: John Thomas Smith, 1797, Getty Research Institute
+            priorite: utile
+          - id: l3-histoire-smith-regle
+            specification: >-
+              John Thomas Smith, Remarks on Rural Scenery, 1797, page 16 — le passage où il nomme
+              la « Rule of thirds » : placer le ciel à environ deux tiers, ou à un tiers, de la
+              hauteur. Getty Research Institute.
+            alt: Une page imprimée de 1797, en anglais, où l'on lit « Rule of thirds » entre guillemets
+            valeur: Smith, 1797 — « Rule of thirds », pour la première fois
+            credit: John Thomas Smith, 1797, Getty Research Institute
+            priorite: utile
+        loupeImages:
+          zoom: 3
+        aparte: |
+          En 1797, le graveur **John Thomas Smith** propose une « règle des tiers » pour le
+          paysage dessiné : deux tiers de ciel pour un tiers de terre, ou l'inverse, plutôt
+          qu'une moitié exacte. C'était une proportion de masses, pas la grille de neuf cases de
+          votre appareil. Maintenez Maj sur la page pour lire le passage.
+
+      - id: la-photo-devient-un-art
+        genre: demonstration
+        titre: La photo devient un art
+        claim: Pour être prise au sérieux, la photo a d'abord composé comme la peinture.
+        images:
+          - id: l3-histoire-rejlander
+            specification: >-
+              Oscar Gustave Rejlander, « The Two Ways of Life », 1857 — une allégorie : un sage
+              montre à deux jeunes hommes le chemin du vice et celui de la vertu. Une trentaine de
+              négatifs assemblés en un seul tirage, composé comme un grand tableau. Princeton
+              University Art Museum.
+            alt: Une scène photographiée comme un tableau — des dizaines de figures costumées, groupées de part et d'autre d'un vieil homme au centre
+            valeur: Rejlander, 1857 — une trentaine de négatifs, un seul tableau
+            credit: Oscar Gustave Rejlander, 1857, Princeton University Art Museum
+            priorite: utile
+          - id: l3-histoire-robinson
+            specification: >-
+              Henry Peach Robinson, « Fading Away », 1858 — une jeune femme mourante entourée de
+              sa famille, une scène jouée par des modèles et assemblée à partir de cinq négatifs.
+              George Eastman Museum, Rochester.
+            alt: Une jeune femme alitée près d'une fenêtre, deux femmes à son chevet et un homme de dos qui regarde dehors
+            valeur: Robinson, 1858 — une scène jouée, cinq négatifs assemblés
+            credit: Henry Peach Robinson, 1858, George Eastman Museum
+            priorite: utile
+        aparte: |
+          Rejlander et Robinson ont d'abord étudié la peinture. Ils **mettent en scène** : des
+          modèles qui posent, des groupes placés, plusieurs négatifs réunis en une seule image.
+          La composition se décide avant le déclenchement.
+
+      - id: les-regles-s-ecrivent
+        genre: demonstration
+        titre: Les règles s'écrivent
+        claim: Dans les années 1860, des photographes mettent les règles par écrit — pour d'autres photographes.
+        images:
+          - id: l3-histoire-robinson-effet
+            specification: >-
+              Henry Peach Robinson, Pictorial Effect in Photography, 1869, page 47 — le chapitre
+              « Simple Rules » : le même château dessiné de face (fig. 1), puis vu de biais après
+              quelques dizaines de mètres de marche le long de la rive (fig. 2). Getty Research
+              Institute.
+            alt: Une page de livre de 1869 titrée « Chapter IX. Simple Rules », avec deux petits dessins du même château, de face puis de biais
+            valeur: "Robinson, 1869 — « Simple Rules » : changer de place"
+            credit: Henry Peach Robinson, 1869, Getty Research Institute
+            priorite: utile
+        loupeImages:
+          zoom: 3
+        aparte: |
+          **William Lake Price** publie des articles sur la composition dès 1860. Le livre de
+          **Henry Peach Robinson**, *Pictorial Effect in Photography* (1869), en fait un manuel :
+          l'équilibre, les lignes, le triangle, l'ombre et la lumière.
+
+          Les gestes qui suivent viennent de cette histoire. **Ce sont des outils, pas des lois.**
+
+  # ─────────────────────────────────────────────────────────────────────────
   - id: composition
     titre: La composition
-    resume: Cinq réflexes appliqués, pas douze règles survolées.
+    resume: Du plus payant au plus fin, en trois paliers. Aucun réglage.
     ecrans:
       - id: ouverture
         genre: repere
         variante: ouverture
         titre: La composition
-        claim: Cinq réflexes. Aucun réglage, aucun menu, aucun vocabulaire.
+        claim: Des gestes qui rendent vos photos meilleures, du plus payant au plus fin. Aucun réglage, aucun menu.
         corps: |
-          On rend vos photos meilleures **des deux côtés du déclenchement** : mieux
-          composer à la prise de vue, puis comprendre ce qu'on peut faire après.
+          Trois paliers. **Le premier change presque toutes vos photos** ; les deux autres
+          viennent quand il est devenu un réflexe.
 
           Tout ce qui suit s'applique intégralement au cellulaire.
 
-      - id: cinq-reflexes
+      # Palier 1 — le plus payant. Ses photographies sont essentielles.
+      - id: simplifier
         genre: panneau
-        titre: Les cinq réflexes
-        claim: Cinq réflexes appliqués valent mieux que douze notions survolées.
-        corps: |
-          | | |
-          |---|---|
-          | **1 · Un seul sujet** | Si vous ne pouvez pas le dire en un mot, la photo n'est pas prête. « Le marché » n'est pas un sujet ; « les mains du marchand » en est un. |
-          | **2 · Regardez vos quatre coins** | Haut-gauche, haut-droite, bas-droite, bas-gauche. Vous y trouverez un poteau, une poubelle, un bras coupé. |
-          | **3 · Approchez-vous, changez de hauteur** | Trois pas de plus. Puis accroupissez-vous. |
-          | **4 · L'arrière-plan avant le sujet** | Choisissez d'abord un fond propre, placez le sujet ensuite. |
-          | **5 · Décidez où va votre sujet** | Franchement centré, ou franchement décentré. Pas entre les deux. |
+        titre: Simplifier
+        claim: Une photo forte dit une seule chose.
+        colonnes:
+          - titre: Un seul sujet
+            icone: lucide:focus
+            corps: Si vous ne pouvez pas le dire en un mot, la photo n'est pas prête.
+            image:
+              id: l3-compo-un-seul-sujet
+              specification: Une scène chargée réduite à un seul sujet — « les mains du marchand », pas « le marché »
+              priorite: essentiel
+          - titre: Se rapprocher
+            icone: lucide:footprints
+            corps: Trois pas de plus — la photo d'un débutant est presque toujours prise de trop loin.
+            image:
+              id: l3-compo-pres
+              specification: Un sujet photographié trois pas plus près que le cadrage large habituel, réglages identiques
+              priorite: essentiel
+          - titre: Remplir le cadre
+            icone: lucide:maximize
+            corps: Le sujet occupe l'image d'un bord à l'autre.
+            image:
+              id: l3-compo-remplir-le-cadre
+              specification: Un visage, une fleur ou un objet qui remplit tout le cadre, sans marge inutile
+              priorite: essentiel
+
+      - id: nettoyer
+        genre: panneau
+        titre: Nettoyer
+        claim: Ce qui n'aide pas votre sujet lui nuit.
+        colonnes:
+          - titre: Les quatre coins
+            icone: lucide:scan-eye
+            corps: Avant de déclencher, faites le tour des coins — un poteau, une poubelle, un bras coupé.
+            image:
+              id: l3-compo-quatre-coins
+              specification: Un sujet bien cadré, mais une distraction dans un coin — un poteau, une poubelle, un bras coupé
+              priorite: essentiel
+          - titre: L'arrière-plan d'abord
+            icone: lucide:square-dashed
+            corps: Choisissez un fond calme, puis placez le sujet devant.
+            image:
+              id: l3-compo-arriere-plan
+              specification: Un sujet devant un fond calme choisi en premier — un mur, un ciel, une haie
+              priorite: essentiel
         aparte: |
           **Personne ne regarde ses quatre coins naturellement** : tout le monde regarde le
-          sujet. C'est pour ça que ce réflexe-là change tout. La règle des tiers est un point de
-          départ, pas une loi.
+          sujet. C'est pour ça que ce réflexe-là change tout.
 
-      - id: avant-apres-distance
-        genre: demonstration
-        titre: Avant, après — la distance
-        claim: Même scène, un seul réflexe appliqué — se rapprocher.
-        series:
-          - variable: la distance au sujet
-            constantes:
-              scène: la même
-              réglages: identiques
-            legende: La photo d'un débutant est presque toujours prise de trop loin.
-            images:
-              - id: l3-compo-loin
-                specification: Sujet photographié de loin, cadrage large habituel
-                valeur: de loin
-                priorite: essentiel
-                reglages: { distance: loin, scène: la même }
-              - id: l3-compo-pres
-                specification: Même sujet, trois pas de plus
-                valeur: de près
-                priorite: essentiel
-                reglages: { distance: près, scène: la même }
+      - id: placer
+        genre: panneau
+        titre: Placer
+        claim: Décidez où va votre sujet — franchement décentré, ou franchement centré. Pas entre les deux.
+        colonnes:
+          - titre: Les tiers
+            icone: lucide:grid-3x3
+            corps: Le sujet sur une ligne, ou à un croisement, de la grille.
+            image:
+              id: l3-compo-tiers
+              specification: Un sujet placé sur un croisement des tiers, l'horizon sur une ligne des tiers
+              priorite: essentiel
+          - titre: Le centre assumé
+            icone: lucide:focus
+            corps: Au milieu, exprès — un portrait de face, un sujet symétrique.
+            image:
+              id: l3-compo-centre
+              specification: Un sujet franchement centré — un portrait de face, une porte, un arbre seul
+              priorite: essentiel
+        aparte: |
+          **La règle des tiers est un point de départ, pas une loi.** Smith l'a nommée en 1797,
+          pour le dessin. La grille de votre appareil ou de votre téléphone trace les tiers pour
+          vous.
 
-      - id: avant-apres-hauteur
-        genre: demonstration
-        titre: Avant, après — la hauteur
-        claim: Même scène, un autre réflexe appliqué — changer de hauteur.
-        series:
-          - variable: la hauteur du point de vue
-            constantes:
-              sujet: le même
-              distance: identique
-            legende: La hauteur des yeux d'un adulte debout est le point de vue le plus banal qui existe.
-            images:
-              - id: l3-compo-debout
-                specification: Sujet photographié debout, à hauteur d'yeux
-                valeur: debout
-                priorite: essentiel
-                reglages: { hauteur: debout, distance: identique }
-              - id: l3-compo-accroupi
-                specification: Même sujet, photographe accroupi
-                valeur: accroupi
-                priorite: essentiel
-                reglages: { hauteur: accroupi, distance: identique }
+      # Palier 2.
+      - id: donner-de-la-profondeur
+        genre: panneau
+        titre: Donner de la profondeur
+        claim: Une photo est plate. Donnez-lui une épaisseur.
+        colonnes:
+          - titre: Le point de vue
+            icone: lucide:move-diagonal
+            corps: Accroupissez-vous, ou levez l'appareil — la hauteur des yeux est le point de vue le plus banal qui existe.
+            image:
+              id: l3-compo-accroupi
+              specification: Un sujet photographié accroupi, plutôt que debout à hauteur d'yeux, à la même distance
+              priorite: utile
+          - titre: Le premier plan
+            icone: lucide:layers-2
+            corps: Un élément proche, devant, donne la distance de tout le reste.
+            image:
+              id: l3-compo-premier-plan
+              specification: Un paysage ou une rue avec un élément net au premier plan — une roche, une branche, une clôture
+              priorite: utile
+
+      - id: guider-l-oeil
+        genre: panneau
+        titre: Guider l'œil
+        claim: Menez le regard jusqu'à votre sujet.
+        colonnes:
+          - titre: Les lignes
+            icone: lucide:route
+            corps: Une route, une clôture, une rive mènent l'œil au sujet.
+            image:
+              id: l3-compo-lignes
+              specification: Une route, une rive ou une clôture qui part d'un coin et mène au sujet
+              priorite: utile
+          - titre: Le cadre dans le cadre
+            icone: lucide:frame
+            corps: Une porte, une fenêtre, une arche entourent le sujet.
+            image:
+              id: l3-compo-cadre-dans-le-cadre
+              specification: Un sujet vu à travers une porte, une fenêtre ou une arche qui l'entoure
+              priorite: utile
+
+      # Palier 3.
+      - id: structurer
+        genre: panneau
+        titre: Structurer
+        claim: Cherchez l'ordre, puis ce qui le brise.
+        colonnes:
+          - titre: La symétrie
+            icone: lucide:flip-horizontal
+            corps: Un reflet, une façade — l'axe exactement au centre.
+            image:
+              id: l3-compo-symetrie
+              specification: Une façade ou un reflet dans l'eau, l'axe de symétrie exactement au centre
+              priorite: utile
+          - titre: La répétition
+            icone: lucide:repeat
+            corps: Des formes qui se répètent, et une seule qui rompt le rythme.
+            image:
+              id: l3-compo-repetition
+              specification: Des formes répétées — fenêtres, chaises, poteaux — dont une seule diffère
+              priorite: utile
+
+      - id: respirer
+        genre: panneau
+        titre: Respirer
+        claim: Le vide et le mouvement font partie de l'image.
+        colonnes:
+          - titre: L'espace négatif
+            icone: lucide:square-dashed
+            corps: Beaucoup de vide autour d'un petit sujet le rend plus fort.
+            image:
+              id: l3-compo-espace-negatif
+              specification: Un petit sujet seul dans un grand vide — un oiseau dans le ciel, une personne sur une plage
+              priorite: utile
+          - titre: Les diagonales
+            icone: lucide:move-diagonal
+            corps: Une ligne en biais donne du mouvement ; une horizontale, du calme.
+            image:
+              id: l3-compo-diagonales
+              specification: Une ligne forte qui traverse l'image en diagonale — un escalier, une rampe, une branche
+              priorite: utile
+          - titre: Le nombre impair
+            icone: lucide:dice-3
+            corps: Trois éléments s'équilibrent mieux que deux, qui se font concurrence.
+            image:
+              id: l3-compo-nombre-impair
+              specification: Trois éléments semblables dans le cadre — trois arbres, trois tasses, trois personnes
+              priorite: utile
 
       - id: cinq-fois-le-meme-objet
         genre: appareil-en-main
@@ -160,377 +460,108 @@ blocs:
           d'atelier de l'année.
 
   # ─────────────────────────────────────────────────────────────────────────
-  - id: fichiers
-    titre: JPEG et RAW
-    resume: Votre photo est déjà développée. Simplement, c'est l'appareil qui a décidé.
-    ecrans:
-      - id: deja-developpee
-        genre: panneau
-        titre: Ce que l'appareil fait déjà
-        claim: Votre JPEG est déjà développé. Simplement, c'est l'appareil qui a décidé, pas vous.
-        corps: |
-          Quand vous prenez un JPEG, l'appareil applique automatiquement le **contraste**, les
-          **couleurs**, la **netteté**, la **réduction du bruit** et la **balance des blancs**.
-
-          Exactement comme pour l'exposition en mode automatique, à la séance 1. C'est le même
-          fil conducteur depuis la séance 1 : **qu'est-ce que mon appareil décide à ma
-          place ?**
-        aparte: |
-          Le RAW porte un nom différent chez chaque fabricant — `.CR3`, `.NEF`, `.ARW`, `.RAF`,
-          `.RW2`, `.ORF`, `.DNG`. C'est pour ça qu'un vieux logiciel refuse parfois d'ouvrir les
-          fichiers d'un appareil récent. La vôtre est en **section 4** de votre feuille.
-
-      - id: le-raw
-        genre: panneau
-        titre: Le RAW
-        claim: Le RAW a l'air fade, et c'est normal. C'est un négatif, pas une photo finie.
-        corps: |
-          Il conserve tout ce que le capteur a enregistré, **sans décision appliquée**. Il est
-          plus lourd. Ce qu'il vous donne en échange :
-
-          - beaucoup plus de latitude sur l'exposition — environ **deux diaphragmes
-            récupérables**, au lieu de presque rien ;
-          - un vrai contrôle sur la **balance des blancs**, sans perte ;
-          - plus de **détail dans les ombres et les hautes lumières**.
-
-          Le conseil pratique : **`RAW + JPEG`**. Le JPEG pour partager tout de suite, le RAW en
-          réserve pour les photos qui méritent du travail.
-        aparte: |
-          Beaucoup de débutants essaient le RAW une fois, trouvent l'image terne et n'y
-          reviennent jamais. **C'est censé être laid au départ.** Une carte mémoire coûte moins
-          cher qu'une photo perdue.
-
-      - id: trois-versions
-        genre: demonstration
-        titre: La même image, trois fois
-        claim: La deuxième est celle qui compte.
-        series:
-          - variable: le traitement du fichier
-            constantes:
-              prise de vue: la même
-              fichier: RAW + JPEG
-            legende: Le RAW non développé est fade. C'est ce qu'on vous n'avait jamais prévenu.
-            images:
-              - id: l3-jpeg-boitier
-                specification: Le JPEG sorti de l'appareil, sans aucune retouche
-                valeur: le JPEG du boîtier
-                priorite: essentiel
-                reglages: { traitement: JPEG boîtier }
-              - id: l3-raw-brut
-                specification: Le RAW de la même prise, non développé — fade, plat, décevant
-                valeur: le RAW non développé
-                priorite: essentiel
-                reglages: { traitement: RAW brut }
-              - id: l3-raw-developpe
-                specification: Le même RAW développé — nettement meilleur que le JPEG
-                valeur: le RAW développé
-                priorite: essentiel
-                reglages: { traitement: RAW développé }
-
-      - id: ce-qu-aucun-raw-ne-rattrape
-        genre: panneau
-        titre: Ce qu'aucun RAW ne rattrape
-        claim: Le développement améliore. Il ne répare pas.
-        corps: |
-          - Un **flou de mise au point**
-          - Un **flou de bougé**
-          - Une **zone complètement blanche** — il n'y a plus rien à récupérer, littéralement
-          - Un **cadrage** qui a coupé l'essentiel
-
-          C'est le lien direct avec la séance 1 : **ce qui est raté à la prise de vue reste
-          raté.**
-        aparte: |
-          Le dire franchement évite des déceptions — et rappelle pourquoi les quatre coins et la
-          vitesse comptent au moment de déclencher.
-
-  # ─────────────────────────────────────────────────────────────────────────
-  - id: lire-une-image
-    titre: Lire une image avant de la modifier
-    resume: Avant de toucher au moindre curseur.
-    ecrans:
-      - id: observer
-        genre: panneau
-        titre: Observer, dans cet ordre
-        claim: Un logiciel, c'est cent curseurs, et aucun ne vous dit quoi faire.
-        corps: |
-          1. **L'exposition** — trop sombre ? trop clair ? où sont les zones perdues ?
-          2. **Les couleurs** — la balance des blancs est-elle juste ? Y a-t-il une dominante ?
-          3. **Le contraste** — l'image est-elle plate ? trop dure ?
-          4. **Le sujet** — se détache-t-il, ou se perd-il ?
-          5. **Les distractions** — qu'y a-t-il dans les quatre coins ?
-          6. **Le cadrage** — l'horizon est-il droit ? faut-il recadrer ?
-        aparte: |
-          Sans intention, on tourne des boutons au hasard pendant vingt minutes, on trouve que
-          c'est pire, et on abandonne. **L'intention, c'est ce qui empêche ça.**
-
-      - id: definir-une-intention
-        genre: panneau
-        titre: Définir une intention
-        claim: Qu'est-ce que je veux améliorer, et pourquoi ?
-        corps: |
-          C'est **la même question** qu'avant de déclencher : *qu'est-ce que je veux montrer ?*
-
-          Le développement n'est pas une étape séparée. C'est la suite de la même décision.
-
-          Regardons cette image ensemble, et nommons ce qui ne va pas — puis nous corrigerons
-          exactement ça.
-        schema:
-          composant: point-et-zone
-          legende: Le même raisonnement qu'à la séance 1, appliqué après la prise de vue.
-        aparte: |
-          Ce qu'on va corriger, c'est ce que la salle vient de nommer. Le développement répond à
-          un diagnostic, pas à une envie de bouger des curseurs.
-
-  # ─────────────────────────────────────────────────────────────────────────
-  - id: sept-gestes
-    titre: Développer en sept gestes
-    resume: Une séquence à répéter, pas un tour du logiciel.
+  # Le témoignage de l'animateur (décision D5) : l'énoncé reste un conseil aux
+  # participants, le corps parle à la première personne.
+  - id: apprentissages
+    titre: Mes apprentissages
+    resume: Ce que la pratique m'a appris — de l'intention jusqu'au mur.
     ecrans:
       - id: ouverture
         genre: repere
         variante: ouverture
-        titre: Les sept gestes
-        claim: Sept gestes, dans cet ordre. Chacun dépend du précédent.
+        titre: Mes apprentissages
+        claim: Prenez ce qui vous sert. C'est une pratique, pas une règle.
         corps: |
-          Ce que vous allez voir existe dans **tous** les logiciels de développement. Les
-          curseurs portent parfois d'autres noms, ils sont parfois ailleurs à l'écran : c'est la
-          même chose.
+          Ce qui suit est la pratique de **Jean-Pierre Bluteau**, animateur de la formation
+          « Premiers clics » : ce que j'ai appris en photographiant, en me trompant et en
+          exposant mes photos.
 
-          **Vous n'avez rien à installer.**
-
-          À chaque geste, trois éléments : **le problème → l'intention → l'outil.**
-        aparte: |
-          Un débutant n'a pas besoin d'un tour du logiciel. Il a besoin d'une **séquence à
-          répéter** jusqu'à ce qu'elle devienne automatique.
-
-      - id: la-sequence
+      - id: pourquoi-pour-qui
         genre: panneau
-        titre: La séquence
-        claim: Le problème, puis l'intention, puis l'outil. Jamais l'outil en premier.
+        titre: Pourquoi, et pour qui
+        claim: Aimez vos photos d'abord. Puis demandez-vous pour qui vous les faites.
         corps: |
-          | | | Pourquoi là |
-          |---|---|---|
-          | **1** | Recadrer, redresser | ça change ce qui est dans l'image, donc tout ce qui suit |
-          | **2** | Balance des blancs | la couleur change votre perception de la luminosité |
-          | **3** | Exposition | l'image dans son ensemble, pas les détails |
-          | **4** | Hautes lumières, ombres | c'est ici que le RAW montre sa supériorité |
-          | **5** | Contraste, blancs, noirs | on remet la densité perdue à l'étape 4 |
-          | **6** | Vibrance | un peu. Toujours un peu. |
-          | **7** | Netteté, bruit | en dernier, et discrètement |
-        aparte: |
-          Jamais « et maintenant, voici le curseur Clarté ». Toujours « le ciel est trop clair et
-          on perd les nuages → je veux les ramener → j'utilise Hautes lumières ». C'est la
-          différence entre enseigner un logiciel et enseigner la photographie.
+          Je photographie d'abord pour moi. Une photo que j'aime, je la regarde encore des années
+          plus tard ; une photo faite pour plaire, je l'oublie dès qu'elle a fait le tour.
 
-      # Les sept états cumulatifs (décision D11). Chacun montre le résultat de
-      # **tous** les gestes jusqu'à lui : l'animateur peut en sauter un sans que
-      # la suite cesse d'avoir du sens.
-      - id: geste-1-recadrer
-        genre: demonstration
-        titre: 1 · Recadrer et redresser
-        claim: « Je décide du cadre en premier. »
-        series:
-          - variable: le recadrage et le redressement
-            constantes:
-              fichier: le même RAW
-            legende: Un horizon penché se remarque immédiatement. Recadrer retire aussi les distractions des bords.
-            images:
-              - id: l3-dev-0-depart
-                specification: >-
-                  La photographie de départ — de préférence une photo d'un participant, avec
-                  son accord. À défaut, une des vôtres avec de vrais défauts : horizon penché,
-                  sous-exposée, balance des blancs trop froide, ciel un peu brûlé. Une image
-                  parfaite n'apprend rien.
-                valeur: au départ
-                priorite: essentiel
-                reglages: { gestes: "0" }
-              - id: l3-dev-1-recadre
-                specification: Le même RAW, geste 1 appliqué — recadré et redressé
-                valeur: après le geste 1
-                priorite: essentiel
-                reglages: { gestes: "1" }
+          Avant de déclencher, je me demande **pour qui** est cette image : pour moi, pour ma
+          famille, pour un mur, pour le club. La réponse change ce que je garde, comment je la
+          développe et où je la montre.
 
-      - id: geste-2-balance-des-blancs
-        genre: demonstration
-        titre: 2 · Balance des blancs
-        claim: « Je fixe la couleur de base. »
-        series:
-          - variable: les gestes appliqués
-            constantes:
-              fichier: le même RAW
-            legende: >-
-              Température, du bleu au jaune ; teinte, du vert au magenta. La pipette sur une zone
-              qui devrait être grise donne un point de départ — puis on ajuste au goût.
-            images:
-              - id: l3-dev-1-recadre-bis
-                fichier: l3-dev-1-recadre.jpg
-                specification: L'état précédent — gestes 1 appliqués
-                valeur: après le geste 1
-                priorite: complement
-                reglages: { gestes: "1" }
-              - id: l3-dev-2-balance
-                specification: Gestes 1 et 2 appliqués — recadré, redressé, balance des blancs réglée
-                valeur: après le geste 2
-                priorite: essentiel
-                reglages: { gestes: "2" }
-        aparte: |
-          Un coucher de soleil « corrigé » à la neutralité perd tout son intérêt. La justesse
-          n'est pas le but : l'intention l'est.
+          Les avis des autres m'apprennent beaucoup. Mais ils viennent **après** : si je n'aime
+          pas ma photo, aucun compliment ne la sauve.
 
-      - id: geste-3-4-exposition
-        genre: demonstration
-        titre: 3 et 4 · Exposition, hautes lumières et ombres
-        claim: « Ni trop sombre ni trop clair », puis « je récupère le ciel et j'ouvre les noirs ».
-        series:
-          - variable: les gestes appliqués
-            constantes:
-              fichier: le même RAW
-            legende: >-
-              Hautes lumières vers le bas récupère le ciel ; ombres vers le haut ouvre les zones
-              sombres. C'est ici que le RAW montre sa supériorité de façon spectaculaire.
-            images:
-              - id: l3-dev-3-exposition
-                specification: Gestes 1 à 3 appliqués — exposition d'ensemble réglée
-                valeur: après le geste 3
-                priorite: essentiel
-                reglages: { gestes: "3" }
-              - id: l3-dev-4-hautes-lumieres
-                specification: Gestes 1 à 4 appliqués — hautes lumières récupérées, ombres ouvertes
-                valeur: après le geste 4
-                priorite: essentiel
-                reglages: { gestes: "4" }
-        aparte: |
-          ⚠️ Ombres à `+100` systématiquement donne une image plate et grisâtre. C'est un symptôme
-          à savoir reconnaître chez soi.
-
-      - id: geste-5-6-contraste-couleur
-        genre: demonstration
-        titre: 5 et 6 · Contraste, puis couleur
-        claim: « Je redonne du punch », puis « un peu — toujours un peu ».
-        series:
-          - variable: les gestes appliqués
-            constantes:
-              fichier: le même RAW
-            legende: >-
-              L'exposition déplace toute l'image ; le contraste écarte les clairs et les sombres
-              l'un de l'autre. Blancs et Noirs font la même chose, aux extrémités seulement.
-            images:
-              - id: l3-dev-5-contraste
-                specification: Gestes 1 à 5 appliqués — contraste, blancs et noirs
-                valeur: après le geste 5
-                priorite: essentiel
-                reglages: { gestes: "5" }
-              - id: l3-dev-6-vibrance
-                specification: Gestes 1 à 6 appliqués — vibrance de +10 à +20
-                valeur: après le geste 6
-                priorite: essentiel
-                reglages: { gestes: "6" }
-        aparte: |
-          **Vibrance**, pas **Saturation** : la vibrance augmente les couleurs peu saturées et
-          protège les tons de peau. La saturation augmente tout, y compris les visages, qui
-          deviennent orange. Un léger « Noirs vers le bas » donne du corps à presque toutes les
-          images.
-
-      - id: geste-7-avant-apres
-        genre: demonstration
-        titre: 7 · Netteté et bruit, puis l'avant-après
-        claim: Si l'avant-après ne vous fait pas dire « ah oui », c'est qu'on n'a rien fait d'utile.
-        series:
-          - variable: les gestes appliqués
-            constantes:
-              fichier: le même RAW
-            legende: À gauche le point de départ, à droite les sept gestes. Rien d'autre n'a changé.
-            images:
-              - id: l3-dev-0-depart-bis
-                fichier: l3-dev-0-depart.jpg
-                specification: La photographie de départ, telle quelle
-                valeur: avant
-                priorite: complement
-                reglages: { gestes: "0" }
-              - id: l3-dev-7-nettete
-                specification: Les sept gestes appliqués — netteté et bruit compris, discrètement
-                valeur: après les sept gestes
-                priorite: essentiel
-                reglages: { gestes: "7" }
-
-  # ─────────────────────────────────────────────────────────────────────────
-  - id: masques-nettete-bruit
-    titre: Masques, netteté et bruit
-    resume: Trois choses, et une peur qui disparaît.
-    ecrans:
-      - id: les-masques
+      - id: le-raw
         genre: panneau
-        titre: Les masques
-        claim: Une correction locale doit être invisible. Si on voit où vous avez travaillé, c'est trop.
+        titre: Le RAW
+        claim: Votre JPEG est déjà développé par l'appareil. Photographiez en RAW + JPEG pour garder le choix.
         corps: |
-          Deux masques suffisent, et ce sont les deux plus fréquents :
+          Un JPEG, c'est l'appareil qui a choisi le contraste, les couleurs, la netteté et la
+          balance des blancs. Le RAW garde tout ce que le capteur a reçu, **sans décision
+          appliquée** : il a l'air fade, et c'est voulu. C'est un négatif.
 
-          - **Le masque du sujet** — éclaircir légèrement une personne trop sombre par rapport au
-            décor. Exposition `+0,3` à `+0,7`, pas davantage.
-          - **Le masque du ciel** — assombrir un ciel trop clair, ou lui rendre un peu de bleu.
-
-          Les autres existent ; ils attendront.
+          Je règle mes appareils en **`RAW + JPEG`** : le JPEG pour partager tout de suite, le
+          RAW en réserve pour les photos qui méritent du travail.
         aparte: |
-          L'excès se reconnaît : un sujet trop éclairci se décolle du décor, un ciel trop
-          assombri a l'air faux parce qu'il n'éclaire plus le paysage en dessous.
+          Le RAW porte un nom différent chez chaque fabricant — `.CR3`, `.NEF`, `.ARW`, `.RAF`,
+          `.RW2`, `.ORF`, `.DNG`. Le vôtre est en **section 4** de votre feuille de marque.
 
-      - id: nettete-et-bruit
+      - id: mon-flux
         genre: panneau
-        titre: La netteté et le bruit
-        claim: La netteté donne du croquant à une image correcte. Elle ne répare rien.
+        titre: Mon flux
+        claim: Importer, sauvegarder, trier, développer, exporter. Toujours dans cet ordre.
         corps: |
-          **Ce qu'elle fait :** accentuer le contraste sur les bords **déjà nets**.
-
-          **Ce qu'elle ne peut pas faire :** récupérer une mauvaise mise au point, récupérer un
-          flou de bougé. Poussée trop loin, elle crée des halos et fait ressortir le bruit.
-
-          **Le bruit, lui, se corrige en partie** — et les outils modernes sont réellement
-          impressionnants. Voilà pourquoi, à la séance 1 : **une photo nette avec du bruit vaut
-          mieux qu'une photo propre mais floue.**
+          1. **Importer** — toute la carte, dans un dossier daté.
+          2. **Sauvegarder** — une deuxième copie, ailleurs, avant d'effacer la carte.
+          3. **Trier** — en deux passages : à l'instinct d'abord, puis parmi les retenues.
+          4. **Développer** — seulement les photos gardées.
+          5. **Exporter** — une copie pour l'écran ou le papier. L'original ne bouge pas.
         aparte: |
-          Le piège inverse : trop de réduction de bruit donne une image lisse et plastique. **Le
-          bruit est moins laid que l'absence de détail.** Et deux cases à cocher sur toutes vos
-          photos, sans jugement à porter : `Profil d'objectif` et `Aberrations chromatiques`.
+          Le développement ne modifie jamais mon fichier original : les réglages sont enregistrés
+          à part. Ce qui peut le perdre, c'est un disque qui lâche — d'où la deuxième copie.
 
-  # ─────────────────────────────────────────────────────────────────────────
-  - id: trier-exporter
-    titre: Trier et exporter
-    resume: Trente secondes qui valent plus qu'une heure de curseurs.
-    ecrans:
-      - id: trier
+      # Les astuces à venir s'ajoutent à la liste de cet écran, une ligne
+      # chacune ; au-delà d'environ 100 mots, un second écran « mes-astuces-2 ».
+      - id: mes-astuces
         genre: panneau
-        titre: Trier
-        claim: Garder 5 photos sur 100 est une compétence photographique. Développer 100 photos moyennes n'en est pas une.
+        titre: Mes astuces
+        claim: Prenez les habitudes qui vous servent, laissez les autres.
         corps: |
-          Vous rentrez d'une sortie avec 300 fichiers, vous vous sentez écrasés, et vous n'ouvrez
-          jamais le logiciel. La solution : **deux passages.**
+          - **Je ne développe jamais avant d'avoir fini de trier.** Sinon, je passe vingt minutes
+            sur la troisième photo d'une série, et la septième était meilleure.
+          - **Je garde 5 photos sur 100**, et c'est déjà beaucoup. Trier est une compétence
+            photographique.
+          - **La vibrance plutôt que la saturation** : elle épargne les visages, qui virent à
+            l'orange autrement.
+          - **Je garde toujours l'original.** Le logiciel ne le touche pas ; un disque qui lâche,
+            si.
 
-          1. Le premier **à l'instinct**, trois secondes par photo : un drapeau sur tout ce qui
-             vous fait quelque chose.
-          2. Le second, **uniquement parmi les retenues**.
-
-          **Ne développez jamais avant d'avoir fini de trier** — sinon vous passerez vingt
-          minutes sur la troisième photo d'une série et découvrirez ensuite que la septième était
-          meilleure.
-
-      - id: exporter
+      - id: imprimer
         genre: panneau
-        titre: Exporter
-        claim: Trois recettes. Pas de théorie.
+        titre: Imprimer
+        claim: Imprimez vos meilleures photos. Sur papier, une photo se regarde ; sur un écran, elle défile.
         corps: |
-          | Destination | Format | Qualité | Dimensions |
-          |---|---|---|---|
-          | **Web, club, courriel** | JPEG | 80 % | côté long **2048 px** |
-          | **Impression** | JPEG | 100 % | taille d'origine |
-          | **Archivage** | gardez le **RAW** | — | le RAW *est* votre archive |
+          Ce que j'ai appris en passant au papier :
 
-          Sur l'espace couleur : **sRGB pour tout ce qui va à l'écran.** C'est la seule chose à
-          retenir sur le sujet.
-        aparte: |
-          Le développement ne modifie jamais votre fichier original : vos réglages sont
-          enregistrés à part. **Par contre, si vous perdez le fichier original, vous avez tout
-          perdu.** Une copie sur un disque externe, ou dans le nuage. N'importe laquelle, mais
-          une. Ces trois recettes sont aussi une fiche de référence à imprimer.
+          - **une photo sort plus sombre sur papier qu'à l'écran** — je l'éclaircis un peu avant ;
+          - **je commence petit** — un 13 × 18 cm chez un bon laboratoire, avant un grand
+            format ;
+          - **une sélection, pas un album** — dix photos imprimées valent mieux que cent sur un
+            disque.
+
+      - id: montrez-vos-photos
+        genre: demonstration
+        titre: Montrez vos photos
+        claim: Une photo qu'on ne montre pas n'existe qu'à moitié. Montrez les vôtres — au club, au mur, en exposition.
+        images:
+          - id: l3-expositions
+            specification: >-
+              Montage de photographies de Jean-Pierre Bluteau tirées de ses expositions : quelques
+              tirages accrochés, une vue de salle, et deux ou trois images marquantes en plein
+              cadre. Une seule image composée, au format de l'écran.
+            valeur: des photos sorties de l'ordinateur
+            credit: Jean-Pierre Bluteau
+            priorite: essentiel
 
   # ─────────────────────────────────────────────────────────────────────────
   - id: et-maintenant
@@ -542,9 +573,8 @@ blocs:
         titre: Le processus complet
         claim: À chaque étape il y a une décision, et c'est vous qui la prenez.
         corps: |
-          Voir une scène → comprendre la lumière → choisir ce qui doit être net → décider comment
-          représenter le mouvement → choisir les réglages → **composer** → déclencher →
-          **trier** → développer → **exporter**.
+          Voir une scène → comprendre la lumière → choisir les réglages → **composer** →
+          déclencher → **choisir** vos meilleures → **les montrer**.
 
           C'était le sujet de la formation depuis la première minute.
 

@@ -5,8 +5,8 @@
 ### Requirement: Session 3 answers how to make better photographs
 
 Session 3 SHALL state its question as « comment faire de meilleures photos ? » and SHALL present,
-in this order: the participants' montage, the recap of session 2, the history of the first
-photographers, composition, the pause and questions, the animateur's experience, and « Et
+in this order: the participants' montage, the recap of session 2, the history of composition
+rules, composition, the pause and questions, the animateur's experience, and « Et
 maintenant ? ».
 
 #### Scenario: A participant opens session 3
@@ -21,30 +21,33 @@ maintenant ? ».
 - **THEN** no block teaches editing-software controls one by one
 - **AND** no screen carries an export-recipe table
 
-### Requirement: The history block shows how the first photographers learned to see
+### Requirement: The history block shows where composition rules come from
 
-Session 3's history block SHALL present four stages in order: the technique as the challenge,
-pictorialism imitating painting, straight photography doing what only photography can do, and
-the decisive moment. Painting SHALL be mentioned only for pictorialism, not as a parallel for
-each composition technique.
+Session 3's history block SHALL present, on at most three screens and in this order: a
+composition rule older than photography, photography becoming an art by composing like painting,
+and the first composition rules written for photographers. The block SHALL end before the
+twentieth century, and its last screen SHALL hand over to the composition block.
 
 #### Scenario: The history block is read in order
 
 - **WHEN** the history block's screens are displayed in sequence
-- **THEN** the four stages appear in the order above
-- **AND** each stage is illustrated by at least one archival photograph, except where every
-  representative photographer is still under copyright
+- **THEN** the three stages appear in the order above, on no more than three screens
+- **AND** each stage is illustrated by at least one archival image: a photograph, an engraving or
+  a book page
 
-#### Scenario: A stage's representative photographer is under copyright
+#### Scenario: The first history screen is displayed
 
-- **WHEN** a stage is best represented by a photographer whose work is not public domain
-- **THEN** the screen names the photographer and links to an outside source
-- **AND** no photograph by that photographer is shown on the site
+- **WHEN** the first screen of the history block is displayed
+- **THEN** it shows that the rule of thirds was named in 1797, for drawing, before photography
+- **AND** it states that the rule then meant a proportion of masses, such as land and sky, not
+  the nine-box grid of a camera
 
 #### Scenario: The composition block follows the history block
 
 - **WHEN** the composition block's screens are read
 - **THEN** no technique is presented as borrowed from a named painting or painter
+- **AND** the only historical reference in the block is the 1797 origin of the rule of thirds,
+  on the screen that places the subject
 
 ### Requirement: The recap of session 2 hands over to framing
 

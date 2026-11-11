@@ -16,13 +16,15 @@ camera can decide for you; composition is the one thing it never decides.
   what participants photographed and learned since session 2, then one story: shutter speed
   (freeze or let motion show, the two blurs) → ISO as the volume, chosen last → `M` with ISO auto
   and the `+/−` button. It hands over to « ce que l'appareil ne décide jamais » : the framing.
-- **Add a history block on the first photographers** and how they learned to see, in four
-  stages: the technique as the challenge → pictorialism imitating painting → straight
-  photography doing what only photography can do → the decisive moment. Painting is mentioned
-  where history puts it (pictorialism), not as a parallel for each composition rule. Images are
-  public-domain archival photographs (for example Niépce, Daguerre's *Boulevard du Temple*,
-  Muybridge, Robinson, Stieglitz 1893 and 1907, Atget). Photographers still under copyright
-  (Cartier-Bresson, Strand, Steichen) are named and linked, not shown.
+- **Add a history block on where composition rules come from**, in three screens: before
+  photography (John Thomas Smith names the « rule of thirds » in 1797, as a proportion of land to
+  sky in drawing) → photography becoming an art by composing like painters (Rejlander's *The Two
+  Ways of Life*, 1857; Robinson's *Fading Away*, 1858) → the first rules written for
+  photographers (Robinson's *Pictorial Effect in Photography*, 1869, with William Lake Price's
+  1860 articles named in the aside). The block ends where the rules are written down and hands
+  over to the composition block, which presents them as tools, not laws. Images are
+  public-domain archival images: photographs, an engraving, a book page. Niépce, Daguerre,
+  Muybridge, Stieglitz, Atget and Cartier-Bresson are not part of the session.
 - **Rework the composition block** as techniques ordered from most to least impact, in three
   tiers, all presented in the session. Two or three techniques share a screen as side-by-side
   columns, each with its photograph, under a title naming what they do to the image:
@@ -32,7 +34,8 @@ camera can decide for you; composition is the one thing it never decides.
 
   The five current reflexes become tier 1. The two before/after series are removed as separate
   screens, and their photographs illustrate the matching columns. The « cinq fois le même objet »
-  hands-on screen is kept.
+  hands-on screen is kept. The aside on *Placer* recalls that the rule of thirds was named in 1797,
+  for drawing: the only historical reference in the composition block.
 - **Add a « Mes apprentissages » block** in the animateur's own voice, signed and illustrated:
   why you take pictures and for whom (you must like your pictures first) → RAW on a single
   screen → the animateur's workflow (import → back up → sort → develop → export) with a few
@@ -60,17 +63,19 @@ _None._ Archival images are demonstration slots; their rights rules belong to `d
   demonstration.
 - `demo-media`: **REMOVED** the requirement for the seven cumulative development states; the
   essential-slot list drops the composition before/after pairs and the development states and
-  adds the first-tier composition-technique photographs; new requirement that a third-party archival image
-  be public domain both in Canada (author died before 1972) and in the United States, and carry
-  its author, date and source as a credit.
+  adds the first-tier composition-technique photographs; new requirement that a third-party
+  archival image (photograph, engraving or book page) be public domain both in Canada (author
+  died before 1972) and in the United States, and carry its author, date and source as a credit.
 
 ## Impact
 
 - `src/src/content/lecons/3.yaml`: rewritten block by block (`diaporama` kept, `retour` new,
   history block new, `composition` rewritten, `pause` kept, experience block new,
   `et-maintenant` trimmed; five blocks removed).
-- `src/public/demos/l3-*`: new slots for composition techniques, archival photographs, the RAW
-  screen and the exhibition montage. No `l3-*` file exists yet, so nothing is deleted.
+- `src/public/demos/l3-*`: new slots for composition techniques, archival images, the RAW
+  screen and the exhibition montage. No `l3-*` file is committed yet; the six archival files
+  downloaded for an earlier four-stage history (Niépce, Daguerre, Muybridge, Stieglitz ×2, Atget)
+  are deleted, and `l3-histoire-robinson.jpg` is kept.
 - Components: none expected. Concept panels already accept two or three `colonnes`, each with
   an `image` (`src/src/content.config.ts`); the session 2 recap pattern and repère columns are
   reused as they are.

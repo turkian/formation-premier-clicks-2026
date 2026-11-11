@@ -2,36 +2,36 @@
 
 ## ADDED Requirements
 
-### Requirement: Archival photographs are public domain where the site is read
+### Requirement: Archival images are public domain where the site is read
 
-A demonstration photograph by a third party that is not used with its author's permission SHALL
-be in the public domain both in Canada (its author died before 1972) and in the United States.
-Otherwise it SHALL NOT be hosted on the site.
+A demonstration image by a third party (a photograph, an engraving or a book page) that is not
+used with its author's permission SHALL be in the public domain both in Canada (its author died
+before 1972) and in the United States. Otherwise it SHALL NOT be hosted on the site.
 
-#### Scenario: The animator adds a nineteenth-century photograph
+#### Scenario: The animator adds a nineteenth-century image
 
-- **WHEN** an archival photograph whose author died before 1972 is added to a slot
-- **THEN** the photograph is hosted with the site like any other demonstration image
+- **WHEN** an archival image whose author died before 1972 is added to a slot
+- **THEN** the image is hosted with the site like any other demonstration image
 
-#### Scenario: A candidate photograph is still protected in Canada
+#### Scenario: A candidate image is still protected in Canada
 
-- **WHEN** the author of a candidate archival photograph died in 1972 or later
-- **THEN** the photograph is not added to the site, even if it is public domain in the United States
+- **WHEN** the author of a candidate archival image died in 1972 or later
+- **THEN** the image is not added to the site, even if it is public domain in the United States
 
-### Requirement: Archival photographs carry their author, date and source
+### Requirement: Archival images carry their author, date and source
 
-Every archival photograph SHALL carry a credit giving its author, its date or approximate date,
+Every archival image SHALL carry a credit giving its author, its date or approximate date,
 and the collection or archive it comes from.
 
-#### Scenario: A participant enlarges an archival photograph
+#### Scenario: A participant enlarges an archival image
 
-- **WHEN** an archival photograph is displayed or enlarged
+- **WHEN** an archival image is displayed or enlarged
 - **THEN** its author, date and source are available as its credit
 
 #### Scenario: An archival slot is still empty
 
-- **WHEN** an archival photograph has not yet been supplied
-- **THEN** the slot's specification names the intended photograph, its author and its date
+- **WHEN** an archival image has not yet been supplied
+- **THEN** the slot's specification names the intended image, its author and its date
 
 ## MODIFIED Requirements
 

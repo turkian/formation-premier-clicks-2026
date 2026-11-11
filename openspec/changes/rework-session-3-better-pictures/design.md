@@ -16,7 +16,7 @@ one diagram or table per concept panel, and everything visible at 1024 × 768 an
 ## Goals / Non-Goals
 
 **Goals:**
-- A session of about 33 screens. Sessions 1 and 2 have 38 and 27, so the spec's "approximately
+- A session of about 32 screens. Sessions 1 and 2 have 38 and 27, so the spec's "approximately
   eighteen" is already loose in practice.
 - A layout of composition screens that reads from the back of the room with three photographs.
 - A first-person block that still follows the rule that lesson text speaks to the participants.
@@ -39,14 +39,15 @@ retour           bilan                           repere/ouverture  « Avez-vous 
                  rappel-m-iso-auto               panneau           M + ISO auto, then +/−
                  ce-que-l-appareil-ne-decide-pas repere/transition colonnes: decides (sharpness, exposure)
                                                                    vs never decides (framing)
-histoire         la-technique                    demonstration     Niépce, Daguerre (loupe on the man), Muybridge
-                 imiter-la-peinture              demonstration     Robinson 1858, Stieglitz 1893
-                 ce-que-seule-la-photo-peut      demonstration     Stieglitz 1907, Atget
-                 l-instant-decisif               panneau           text + external link, no image
+histoire         avant-la-photo                  demonstration     Smith 1797, engraving: 1/3 land, 2/3 sky
+                 la-photo-devient-un-art         demonstration     Rejlander 1857, Robinson 1858
+                 les-regles-s-ecrivent           demonstration     Robinson 1869, a diagram page of Pictorial
+                                                                   Effect; Price 1860 named in the aside
 composition      ouverture                       repere/ouverture
                  simplifier                      panneau, 3 col    un seul sujet · se rapprocher · remplir le cadre
                  nettoyer                        panneau, 2 col    les quatre coins · l'arrière-plan d'abord
-                 placer                          panneau, 2 col    les tiers · le centre assumé
+                 placer                          panneau, 2 col    les tiers · le centre assumé; aside
+                                                                   recalls Smith 1797
                  donner-de-la-profondeur         panneau, 2 col    le point de vue · le premier plan
                  guider-l-oeil                   panneau, 2 col    les lignes · le cadre dans le cadre
                  structurer                      panneau, 2 col    la symétrie · la répétition
@@ -68,6 +69,15 @@ The recap has five screens (one prompt, three panels, one transition). That matc
 recap and its seven-minute budget. The hands-on screen closes the composition block, so the pause
 follows naturally, and its steps (far, close, crouched, raised, background) practise tiers 1 and 2
 without any setting.
+
+The history block is three screens and stops where the rules are written down for
+photographers. Its last screen hands over to the composition block, which presents those rules as
+tools, not laws. The aside on `placer` is the one place the composition block looks back, to say
+that the thirds were named in 1797 for drawing.
+
+Alternative considered: a four-stage history ending on Cartier-Bresson (technique → pictorialism
+→ straight photography → the decisive moment). Rejected because the technique stage is not about
+composition, and the later stages took time that belongs to the rules themselves.
 
 Alternative considered: placing the exercise right after tier 1. Rejected because it would split
 the ladder in two, with a hands-on screen between tiers that are meant to be read in one go.
@@ -96,18 +106,18 @@ pattern already used for `l3-dev-0-depart-bis`. That keeps slot ids unique per l
 recap shows the same images participants already saw. No interactive component is used in the
 recap. The shutter animation would re-teach instead of recalling.
 
-### D4. Archival photographs are hosted, never hotlinked
+### D4. Archival images are hosted, never hotlinked
 
-Archival images are downloaded from Wikimedia Commons (or the holding institution), resized like
+Archival images (photographs, an engraving, a book page) are downloaded from Wikimedia Commons (or the holding institution), resized like
 the other demos, and stored as `public/demos/l3-histoire-*.jpg`. Each `credit` gives author, date
 and source. Before a file is added, the author's death date is checked against the Canadian rule.
 
 Alternative considered: linking to Commons directly. Rejected because the site works offline
 through its service worker and loads nothing from third parties.
 
-The decisive-moment screen shows no photograph. Cartier-Bresson is still protected, so the
-screen names him and links to the Fondation Henri Cartier-Bresson. Offline, the link fails, but
-the text still carries the idea.
+Every history author died before 1901 (Smith 1833, Rejlander 1875, Robinson 1901), so no history
+screen needs the name-and-link treatment kept for protected photographers. An engraving or a
+book page follows the same hosting and credit rule as a photograph.
 
 ### D5. In the experience block, the claim speaks to the participants and the body is the testimony
 
@@ -146,8 +156,6 @@ The file's header comment (D11, the seven gestures) is updated accordingly.
   photograph shows its specification, so the session still runs.
 - **Archival rights are easy to get wrong** (unknown authors, posthumous publication) → Keep to
   named authors with known death dates before 1972. When in doubt, name and link.
-- **External link offline** → The screen's text names the photographer and the idea, so the
-  link only adds to it.
 - **The animateur's name becomes public on the site** → The opening repère is the only place it
   is written. Credits can use initials if the animateur prefers.
 - **The "approximately eighteen screens" requirement** → Session 3 already exceeds it, like
