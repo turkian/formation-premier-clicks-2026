@@ -28,8 +28,8 @@ export const INTROUVABLE = [
   `**Les chemins de menu varient d'un modèle à l'autre**, surtout entre un reflex et un
    sans-miroir de la même marque. La logique, elle, ne change pas : la qualité d'image est dans
    le menu « prise de vue », la mise au point dans le menu « AF ».`,
-  `**Demandez.** À un animateur pendant la séance, à votre parrain ensuite, ou sur le groupe du
-   club. Personne ne connaît par cœur les menus de tous les appareils — les formateurs non plus.`,
+  `**Demandez.** À un animateur pendant la séance, à un membre ensuite, ou sur le groupe du club.
+   Personne ne connaît par cœur les menus de tous les appareils — les formateurs non plus.`,
 ];
 
 /** Clé de mémorisation du choix de marque, sur l'appareil du participant. */

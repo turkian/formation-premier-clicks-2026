@@ -967,15 +967,19 @@ exercise: the room cannot reproduce these scenes. The challenge SHALL ask for ph
 
 ### Requirement: Session 3 answers how to make better photographs
 
-Session 3 SHALL state its question as « comment faire de meilleures photos ? » and SHALL present,
-in this order: the recap of session 2, the history of composition rules, composition, the pause
-and questions, beyond composition, the animateur's experience, and « Et maintenant ? ».
+Session 3 SHALL be titled « Composer, puis progresser », with the thread « Apprendre à voir →
+composer → aller au-delà → progresser ». It SHALL state its question as « comment faire de
+meilleures photos ? » and SHALL present, in this order: the recap of session 2, the history of
+composition rules, composition, the pause and questions, beyond composition, and the shared
+experience block, which ends the session.
 
 #### Scenario: A participant opens session 3
 
 - **WHEN** session 3's lesson is opened
-- **THEN** its question is « comment faire de meilleures photos ? »
+- **THEN** its title is « Composer, puis progresser » and its question is « comment faire de
+  meilleures photos ? »
 - **AND** its blocks appear in the order above
+- **AND** no block follows the experience block
 
 #### Scenario: The session opens on the participants' own question
 
@@ -1213,7 +1217,7 @@ include an « appareil en main » screen or an activity screen.
 
 The beyond-composition block SHALL end on a transition screen asking participants, before asking
 how to compose a photograph, to ask themselves why they want to take it. The block that follows
-SHALL be the animateur's experience block.
+SHALL be the experience block.
 
 #### Scenario: The block's last screen is displayed
 
@@ -1221,7 +1225,7 @@ SHALL be the animateur's experience block.
 - **THEN** it states « Avant de vous demander comment composer votre photo, demandez-vous pourquoi
   vous voulez la prendre. »
 - **AND** it addresses the participants with « vous »
-- **AND** the next block is the animateur's experience block
+- **AND** the next block is the experience block
 
 ### Requirement: The beyond-composition block shows only public-domain photographs
 
@@ -1235,17 +1239,20 @@ and SHALL NOT be shown.
 - **THEN** the photographer and the photograph are named, and a link MAY lead to it
 - **AND** no image of that photograph is shown on the site
 
-### Requirement: The experience block is the animateur's testimony
+### Requirement: The experience block is shared with the club's photographers
 
-Session 3 SHALL include a block in which the animateur shares their own practice in the first
-person, illustrated by their own photographs and signed. The block SHALL still address the
-participants, and SHALL stay true for a reader months later.
+Session 3's experience block SHALL be titled « Ce que la pratique nous apprend ». Its opener SHALL
+state that the animateur speaks first and that photographers from the club then share their own
+practice. The block SHALL stay true for a reader months later and SHALL NOT name the guest
+photographers.
 
 #### Scenario: A reader opens the experience block months later
 
 - **WHEN** the experience block is read outside the room
-- **THEN** the reader can tell whose experience it is
+- **THEN** the reader can tell that the animateur's screen is Jean-Pierre Bluteau's and that the
+  discussion involved photographers from the club
 - **AND** no screen refers to the current session by a moment relative to the reader
+- **AND** no screen names a guest photographer
 
 #### Scenario: A first-person screen is checked against the address rule
 
@@ -1253,30 +1260,34 @@ participants, and SHALL stay true for a reader months later.
 - **THEN** it speaks to the participants and gives them something to do or consider
 - **AND** it does not address the animateur
 
-### Requirement: The experience block goes from intention to showing your work
+### Requirement: The experience block goes from intention to an open discussion
 
-The experience block SHALL present, in this order: why and for whom you take pictures, stating
-that you must like your pictures first; RAW on a single screen; the animateur's workflow with a
-few hints; printing; and showing your pictures, with a montage of photographs from the
-animateur's exhibitions. More tips MAY be added within this order.
+After its opener, the experience block SHALL present exactly two screens: « Pourquoi, et pour qui »,
+stating that you must like your pictures first, then a closing discussion screen titled
+« Progresser, et continuer d'aimer ça ». The discussion screen SHALL be session 3's last screen.
 
 #### Scenario: The experience block is read in order
 
 - **WHEN** the experience block's screens are displayed in sequence
-- **THEN** intention comes first and showing your pictures comes last
-- **AND** the screen about showing your pictures carries the exhibition montage
+- **THEN** the opener comes first, « Pourquoi, et pour qui » second and the discussion screen last
+- **AND** « Pourquoi, et pour qui » states « Aimez vos photos d'abord. Puis demandez-vous pour qui
+  vous les faites. »
 
-#### Scenario: A participant wants to know about RAW
+#### Scenario: The discussion screen stays up during the discussion
 
-- **WHEN** a participant looks for RAW in session 3
-- **THEN** exactly one screen covers it, stating what RAW keeps and why to shoot RAW + JPEG
+- **WHEN** the discussion screen is displayed
+- **THEN** its statement asks how one becomes a better photographer without losing the pleasure
+- **AND** its body says that photographers from the club tell how they got there, and lists
+  questions aimed at them: what made them progress most, which moment took them past a threshold,
+  what they wish they had known at the start, and what brings them back when the desire fades
+- **AND** it carries no aside
 
-#### Scenario: A participant looks for how to develop a photo
+#### Scenario: A participant looks for RAW, a workflow or printing in session 3
 
-- **WHEN** a participant reads the workflow screen
-- **THEN** it gives the steps from import to export, including a backup and sorting before
-  developing
-- **AND** it does not walk through individual editing controls
+- **WHEN** session 3 is read from start to end
+- **THEN** no screen teaches RAW, the animateur's workflow, printing or exhibiting
+- **AND** no screen shows the club's logistics: outings, parrains, workshops or a closing show of
+  hands
 
 ### Requirement: The composition block shows public-domain photographs
 
