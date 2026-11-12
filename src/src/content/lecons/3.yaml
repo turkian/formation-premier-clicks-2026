@@ -6,13 +6,11 @@
 # main » : la salle a besoin d'une pause plus que d'un exercice. Après une
 # seule pause de questions, « Au-delà de la composition » ouvre une autre
 # question — pourquoi une photo bien composée peut laisser froid — puis passe
-# la main au témoignage, qui commence par « Pourquoi, et pour qui ».
+# la main à un bloc partagé, « Ce que la pratique nous apprend ».
 #
-# Le développement n'est plus enseigné geste par geste : la retouche s'apprend
-# mal à trente, et « Et maintenant ? » l'envoie à un atelier en petit groupe.
-# Il en reste le flux de l'animateur et quelques astuces, dans le bloc « Mes
-# apprentissages ». Là, l'énoncé de chaque panneau s'adresse aux participants,
-# et le corps est le témoignage, à la première personne.
+# L'animateur l'ouvre avec « Pourquoi, et pour qui », à la première personne ;
+# puis des photographes du club racontent comment ils ont progressé sans
+# perdre le plaisir. La séance se termine sur cette discussion ouverte.
 #
 # Les photographies d'archives sont du domaine public au Canada (auteur mort
 # avant 1972) comme aux États-Unis, hébergées avec le site, jamais liées, et
@@ -20,10 +18,10 @@
 # nommés et liés, jamais montrés.
 
 numero: 3
-titre: Composer, choisir, montrer
-filConducteur: Apprendre à voir → composer → choisir → montrer
+titre: Composer, puis progresser
+filConducteur: Apprendre à voir → composer → aller au-delà → progresser
 question: comment faire de meilleures photos ?
-pret: false
+pret: true
 
 blocs:
   # ─────────────────────────────────────────────────────────────────────────
@@ -763,21 +761,23 @@ blocs:
             corps: Que va ressentir ou imaginer celui qui regarde ?
 
   # ─────────────────────────────────────────────────────────────────────────
-  # Le témoignage de l'animateur (décision D5) : l'énoncé reste un conseil aux
-  # participants, le corps parle à la première personne.
+  # Un bloc partagé : l'animateur ouvre, puis des photographes du club racontent
+  # leur pratique. L'énoncé de « Pourquoi, et pour qui » reste un conseil aux
+  # participants, le corps parle à la première personne ; la séance se termine
+  # sur la discussion, sans autre bloc après.
   - id: apprentissages
-    titre: Mes apprentissages
-    resume: Ce que la pratique m'a appris — de l'intention jusqu'au mur.
+    titre: Ce que la pratique nous apprend
+    resume: Aimer ses photos, puis progresser — des photographes du club racontent.
     ecrans:
       - id: ouverture
         genre: repere
         variante: ouverture
-        titre: Mes apprentissages
+        titre: Ce que la pratique nous apprend
         claim: Prenez ce qui vous sert. C'est une pratique, pas une règle.
         corps: |
-          Ce qui suit est la pratique de **Jean-Pierre Bluteau**, animateur de la formation
-          « Premiers clics » : ce que j'ai appris en photographiant, en me trompant et en
-          exposant mes photos.
+          **Jean-Pierre Bluteau**, animateur de la formation « Premiers clics », commence. Puis des
+          photographes du club racontent ce qu'ils ont appris en photographiant, en se trompant et
+          en montrant leurs photos.
 
       - id: pourquoi-pour-qui
         genre: panneau
@@ -794,128 +794,16 @@ blocs:
           Les avis des autres m'apprennent beaucoup. Mais ils viennent **après** : si je n'aime
           pas ma photo, aucun compliment ne la sauve.
 
-      - id: le-raw
-        genre: panneau
-        titre: Le RAW
-        claim: Votre JPEG est déjà développé par l'appareil. Photographiez en RAW + JPEG pour garder le choix.
-        corps: |
-          Un JPEG, c'est l'appareil qui a choisi le contraste, les couleurs, la netteté et la
-          balance des blancs. Le RAW garde tout ce que le capteur a reçu, **sans décision
-          appliquée** : il a l'air fade, et c'est voulu. C'est un négatif.
-
-          Je règle mes appareils en **`RAW + JPEG`** : le JPEG pour partager tout de suite, le
-          RAW en réserve pour les photos qui méritent du travail.
-        aparte: |
-          Le RAW porte un nom différent chez chaque fabricant — `.CR3`, `.NEF`, `.ARW`, `.RAF`,
-          `.RW2`, `.ORF`, `.DNG`. Le vôtre est en **section 4** de votre feuille de marque.
-
-      - id: mon-flux
-        genre: panneau
-        titre: Mon flux
-        claim: Importer, sauvegarder, trier, développer, exporter. Toujours dans cet ordre.
-        corps: |
-          1. **Importer** — toute la carte, dans un dossier daté.
-          2. **Sauvegarder** — une deuxième copie, ailleurs, avant d'effacer la carte.
-          3. **Trier** — en deux passages : à l'instinct d'abord, puis parmi les retenues.
-          4. **Développer** — seulement les photos gardées.
-          5. **Exporter** — une copie pour l'écran ou le papier. L'original ne bouge pas.
-        aparte: |
-          Le développement ne modifie jamais mon fichier original : les réglages sont enregistrés
-          à part. Ce qui peut le perdre, c'est un disque qui lâche — d'où la deuxième copie.
-
-      # Les astuces à venir s'ajoutent à la liste de cet écran, une ligne
-      # chacune ; au-delà d'environ 100 mots, un second écran « mes-astuces-2 ».
-      - id: mes-astuces
-        genre: panneau
-        titre: Mes astuces
-        claim: Prenez les habitudes qui vous servent, laissez les autres.
-        corps: |
-          - **Je ne développe jamais avant d'avoir fini de trier.** Sinon, je passe vingt minutes
-            sur la troisième photo d'une série, et la septième était meilleure.
-          - **Je garde 5 photos sur 100**, et c'est déjà beaucoup. Trier est une compétence
-            photographique.
-          - **La vibrance plutôt que la saturation** : elle épargne les visages, qui virent à
-            l'orange autrement.
-          - **Je garde toujours l'original.** Le logiciel ne le touche pas ; un disque qui lâche,
-            si.
-
-      - id: imprimer
-        genre: panneau
-        titre: Imprimer
-        claim: Imprimez vos meilleures photos. Sur papier, une photo se regarde ; sur un écran, elle défile.
-        corps: |
-          Ce que j'ai appris en passant au papier :
-
-          - **une photo sort plus sombre sur papier qu'à l'écran** — je l'éclaircis un peu avant ;
-          - **je commence petit** — un 13 × 18 cm chez un bon laboratoire, avant un grand
-            format ;
-          - **une sélection, pas un album** — dix photos imprimées valent mieux que cent sur un
-            disque.
-
-      - id: montrez-vos-photos
-        genre: demonstration
-        titre: Montrez vos photos
-        claim: Une photo qu'on ne montre pas n'existe qu'à moitié. Montrez les vôtres — au club, au mur, en exposition.
-        images:
-          - id: l3-expositions
-            specification: >-
-              Montage de photographies de Jean-Pierre Bluteau tirées de ses expositions : quelques
-              tirages accrochés, une vue de salle, et deux ou trois images marquantes en plein
-              cadre. Une seule image composée, au format de l'écran.
-            valeur: des photos sorties de l'ordinateur
-            credit: Jean-Pierre Bluteau
-            priorite: essentiel
-
-  # ─────────────────────────────────────────────────────────────────────────
-  - id: et-maintenant
-    titre: Et maintenant ?
-    resume: L'entrée dans la vie du club — des dates, des noms, des adresses.
-    ecrans:
-      - id: le-processus-complet
-        genre: panneau
-        titre: Le processus complet
-        claim: À chaque étape il y a une décision, et c'est vous qui la prenez.
-        corps: |
-          Voir une scène → comprendre la lumière → choisir les réglages → **composer** →
-          déclencher → **choisir** vos meilleures → **les montrer**.
-
-          C'était le sujet de la formation depuis la première minute.
-
-      - id: la-suite
-        genre: repere
-        variante: ouverture
-        titre: Et maintenant ?
-        claim: Ce qui compte ne se joue pas pendant ces trois séances. Ça commence tout de suite.
-        corps: |
-          - 📅 **La prochaine sortie photo** — une date, un lieu, une heure. *Vous êtes tous
-            invités, et j'y serai.*
-          - 👥 **Un parrain pour chacun** — un membre expérimenté qui accepte vos questions. Son
-            nom est sur votre feuillet. **Trouvez-le dans la salle avant de partir.**
-          - 💬 **Où poser une question bête** — le groupe du club, mon adresse, et la demi-heure
-            avant chaque réunion mensuelle. Tout est sur le feuillet.
-
-      - id: rester-dans-le-mouvement
-        genre: repere
-        variante: ouverture
-        titre: Rester dans le mouvement
-        claim: Et après ces trois séances, ça continue — à votre rythme.
-        corps: |
-          - 🎯 **Un défi mensuel** — une contrainte à la fois. « Ce mois-ci, une photo à
-            contre-jour. »
-          - 🖼️ **La soirée critique** — on vous expliquera qui parle, dans quel ordre, et ce
-            qu'on y cherche, avant que vous y veniez.
-          - 🖌️ **Un atelier de retouche** — en petit groupe, plus tard. La retouche s'apprend mal
-            à trente, et c'est une occasion de plus de se revoir.
-
-      - id: la-question-de-fin
+      - id: progresser
         genre: repere
         variante: cloture
-        titre: La question de fin
-        claim: Qui se sent à l'aise, aujourd'hui, de sortir son appareil du mode automatique ?
+        titre: Progresser, et continuer d'aimer ça
+        claim: Comment devient-on meilleur photographe, sans perdre le plaisir ?
         corps: |
-          À main levée, exactement comme à la séance 1.
+          Des photographes du club racontent leur parcours.
 
-          Puis, avant de partir : **qu'est-ce qui vous a le plus servi ?**
-        aparte: |
-          C'est la même question qu'à la première séance. Vous verrez collectivement le chemin
-          parcouru — ce qu'aucun de vous ne peut mesurer tout seul.
+          - **Qu'est-ce qui vous a fait progresser le plus ?** Une personne, un livre, une
+            contrainte, une erreur.
+          - **Quel moment vous a fait passer un cap ?**
+          - **Qu'auriez-vous aimé savoir à vos débuts ?**
+          - **Quand l'envie baisse, qu'est-ce qui vous ramène à la photo ?**

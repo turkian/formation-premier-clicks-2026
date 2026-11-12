@@ -21,8 +21,7 @@ sections:
     note: |
       **Pour régler la vitesse vous-même**, il vous faut une autre application.
       **Lightroom mobile est gratuite** et contient un appareil photo avec les contrôles manuels
-      complets — c'est aussi le logiciel utilisé à la séance 3, donc autant l'installer tout de
-      suite. Halide et ProCamera sont d'autres options, payantes.
+      complets. Halide et ProCamera sont d'autres options, payantes.
   - numero: 2
     entrees:
       - formation: Choisir où faire le point
