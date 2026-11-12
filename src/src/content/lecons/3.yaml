@@ -98,12 +98,14 @@ blocs:
 
       - id: rappel-m-iso-auto
         genre: panneau
-        titre: M et l'ISO auto
-        claim: "En `M` avec l'ISO auto, vous choisissez l'ouverture et la vitesse. L'appareil règle le volume."
+        titre: Un mode à moitié automatique
+        claim: "Un mode à moitié automatique : vous gardez l'ouverture et la vitesse, l'appareil choisit l'ISO."
         corps: |
           1. **L'ouverture**, pour la zone nette — vous.
           2. **La vitesse**, pour le mouvement — vous.
           3. **L'ISO**, en dernier, qui expose bien — l'appareil.
+
+          Sur la molette : `M`, avec l'ISO auto.
         ton: regle
         icone: lucide:sun-moon
         encadre: |
