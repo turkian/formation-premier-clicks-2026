@@ -2,6 +2,12 @@
 # séances 1 et 2 traitaient de ce que l'appareil peut décider à votre place ;
 # la composition est la seule chose qu'il ne décide jamais.
 #
+# La composition se termine sur ses gestes, sans exercice « appareil en
+# main » : la salle a besoin d'une pause plus que d'un exercice. Après une
+# seule pause de questions, « Au-delà de la composition » ouvre une autre
+# question — pourquoi une photo bien composée peut laisser froid — puis passe
+# la main au témoignage, qui commence par « Pourquoi, et pour qui ».
+#
 # Le développement n'est plus enseigné geste par geste : la retouche s'apprend
 # mal à trente, et « Et maintenant ? » l'envoie à un atelier en petit groupe.
 # Il en reste le flux de l'animateur et quelques astuces, dans le bloc « Mes
@@ -254,6 +260,76 @@ blocs:
           l'équilibre, les lignes, le triangle, l'ombre et la lumière.
 
   # ─────────────────────────────────────────────────────────────────────────
+  # Les seize photographies sont des archives du domaine public, onze du
+  # Québec. Celles du club peuvent remplacer n'importe laquelle sans toucher à
+  # la structure : les emplacements « essentiel » restent essentiels.
+  #
+  # Droits des archives, vérifiés avant l'ajout. Auteur nommé : mort avant 1972
+  # (Canada) ; aux États-Unis, œuvre publiée avant 1931, ou auteur mort depuis
+  # plus de 70 ans. « Wm. Notman & Son » après 1891 : opérateur non nommé, jugé
+  # sur ses dates — faite avant 1949 (Canada) et il y a plus de 120 ans
+  # (États-Unis). « PD » : la fiche du Musée McCord Stewart porte « Public Domain ».
+  #   un-seul-sujet        Wm. Notman & Son, opérateur non nommé   1893
+  #                        Louis Rubenstein, championship figure skater — McCord Stewart
+  #                        II-99946, PD ; plus de 120 ans
+  #   pres                 Julia Margaret Cameron († 1879)   1867
+  #                        Julia Jackson — Metropolitan Museum of Art 267426, accès libre CC0
+  #   remplir-le-cadre     Karl Blossfeldt († 1932)   1928
+  #                        Urformen der Kunst, pl. 55 — Rijksmuseum RP-F-2008-51-2170-112,
+  #                        Public Domain Mark ; publiée en 1928. Marges de la page recadrées
+  #   quatre-coins         Wm. Notman & Son, opérateur non nommé   vers 1890
+  #                        Montreal General Hospital, Dorchester Street — McCord Stewart
+  #                        VIEW-2548.1, PD ; plus de 120 ans. Remplace Bobsleighing at
+  #                        Ste. Agathe (VIEW-4871, 1911) : aucune publication avant 1931
+  #                        trouvée, donc non hébergée
+  #   arriere-plan         William Notman († 1891)   1867
+  #                        Child as St. Jean Baptiste — McCord Stewart I-27995.1, PD
+  #   tiers                Carleton Watkins († 1916)   1867
+  #                        Cape Horn near Celilo — Metropolitan Museum of Art 283222, accès
+  #                        libre CC0. Carton recadré
+  #   centre               Louis-Prudent Vallée († 1905)   vers 1880
+  #                        Monument Wolfe, plaines d'Abraham — BAnQ P1000,S4,D60,P9,
+  #                        « Droit d'auteur non évalué » : BAnQ n'a pas statué, l'auteur
+  #                        est mort en 1905. Page d'album et légende recadrées ; 741 px,
+  #                        la plus grande taille offerte
+  #   accroupi             Wm. Notman & Son, opérateur non nommé   vers 1900
+  #                        View of the harbour from the Notre-Dame-de-Bon-Secours Chapel —
+  #                        McCord Stewart VIEW-3212.1, PD ; plus de 120 ans
+  #   premier-plan         Alexander Henderson († 1913)   1872
+  #                        Montreal Wharves in Winter — McCord Stewart MP-1968.31.1.50, PD
+  #                        (la fiche date le tirage de 1878-1879). Légendes gravées sur le
+  #                        négatif recadrées
+  #   lignes               Wm. Notman & Son, opérateur non nommé   vers 1890
+  #                        Little Champlain Street, Quebec City — McCord Stewart
+  #                        VIEW-2335.0, PD. La fiche donne 1890-1930 ; le numéro de
+  #                        négatif, antérieur à VIEW-2548 (vers 1890), place la prise vers
+  #                        1890 : plus de 120 ans. Légende gravée sur le négatif recadrée
+  #   cadre-dans-le-cadre  Herbert Ponting († 1935)   1911
+  #                        Grotto in an iceberg — Alexander Turnbull Library (National
+  #                        Library of New Zealand), aucune restriction connue ; publiée en
+  #                        1913
+  #   symetrie             Wm. Notman & Son, opérateur non nommé   août 1890
+  #                        Interior first class C.P.R. car — McCord Stewart II-93008, PD ;
+  #                        plus de 120 ans. Remplace l'intérieur de Notre-Dame (VIEW-1190) :
+  #                        fiche introuvable. Légende gravée sur le négatif recadrée, axe
+  #                        recentré sur l'allée
+  #   repetition           Alexander Henderson († 1913)   1879
+  #                        Snowshoers in Indian file, Mount Royal — McCord Stewart
+  #                        MP-0000.261.3, PD. La légende manuscrite est recadrée : le
+  #                        titre d'origine n'est pas repris dans le texte affiché
+  #   espace-negatif       Alexander Henderson († 1913)   1865
+  #                        Spring Inundation near Montreal — McCord Stewart MP-0000.308.5,
+  #                        PD. Mire de couleur du numériseur recadrée
+  #   diagonales           William Notman († 1891)   1858-1860
+  #                        Construction of Victoria Bridge — Bibliothèque et Archives
+  #                        Canada PA-181435, « Copyright: Expired ». Les conditions de
+  #                        téléchargement de BAC limitent la copie à « research and private
+  #                        study » ; gardée par décision de l'animateur, le droit d'auteur
+  #                        étant expiré. 1000 px, la plus grande taille offerte
+  #   nombre-impair        Clarence H. White († 1925)   1899
+  #                        The Ring Toss — Library of Congress 96513079, aucune restriction
+  #                        connue (copie maîtresse de la LoC, via Wikimedia Commons).
+  #                        Carton recadré
   - id: composition
     titre: La composition
     resume: Des gestes qui rendent vos photos meilleures.
@@ -279,21 +355,34 @@ blocs:
             corps: Si vous ne pouvez pas le dire en un mot, la photo n'est pas prête.
             image:
               id: l3-compo-un-seul-sujet
-              specification: Une scène chargée réduite à un seul sujet — « les mains du marchand », pas « le marché »
+              specification: >-
+                Wm. Notman & Son, « Louis Rubenstein, championship figure skater », Montréal, 1893 —
+                un patineur en pied, seul devant un fond uni : rien d'autre dans l'image. Musée
+                McCord Stewart.
+              alt: Un patineur moustachu en chapeau melon, debout sur ses patins, la poitrine couverte de médailles, seul devant un fond gris uni
+              credit: Wm. Notman & Son, 1893, Musée McCord Stewart
               priorite: essentiel
           - titre: Se rapprocher
             icone: lucide:footprints
             corps: Trois pas de plus — la photo est presque toujours prise de trop loin.
             image:
               id: l3-compo-pres
-              specification: Un sujet photographié trois pas plus près que le cadrage large habituel, réglages identiques
+              specification: >-
+                Julia Margaret Cameron, « Julia Jackson », 1867 — un visage de face, cadré si près
+                qu'il occupe presque toute l'image. Metropolitan Museum of Art.
+              alt: Le visage d'une jeune femme, de face, cadré serré, à moitié dans l'ombre, les cheveux défaits sur un fond sombre
+              credit: Julia Margaret Cameron, 1867, Metropolitan Museum of Art
               priorite: essentiel
           - titre: Remplir le cadre
             icone: lucide:maximize
             corps: Le sujet occupe l'image d'un bord à l'autre.
             image:
               id: l3-compo-remplir-le-cadre
-              specification: Un visage, une fleur ou un objet qui remplit tout le cadre, sans marge inutile
+              specification: >-
+                Karl Blossfeldt, Urformen der Kunst, planche 55, 1928 — des crosses de fougère
+                agrandies, qui occupent l'image d'un bord à l'autre. Rijksmuseum.
+              alt: Six crosses de fougère enroulées en spirale, agrandies, dont les tiges montent du bas de l'image jusqu'en haut
+              credit: Karl Blossfeldt, 1928, Rijksmuseum
               priorite: essentiel
 
       - id: nettoyer
@@ -306,14 +395,23 @@ blocs:
             corps: Avant de déclencher, faites le tour des coins — un poteau, une poubelle, un bras coupé.
             image:
               id: l3-compo-quatre-coins
-              specification: Un sujet bien cadré, mais une distraction dans un coin — un poteau, une poubelle, un bras coupé
+              specification: >-
+                Wm. Notman & Son, « Montreal General Hospital, Dorchester Street », vers 1890 — la
+                façade est bien cadrée, mais des poteaux et des fils la traversent, et les coins
+                s'assombrissent. Musée McCord Stewart.
+              alt: Un grand hôpital de pierre vu en angle, des poteaux et des fils électriques devant la façade, les coins de l'image assombris
+              credit: Wm. Notman & Son, vers 1890, Musée McCord Stewart
               priorite: essentiel
           - titre: L'arrière-plan d'abord
             icone: lucide:square-dashed
             corps: Choisissez un fond calme, puis placez le sujet devant.
             image:
               id: l3-compo-arriere-plan
-              specification: Un sujet devant un fond calme choisi en premier — un mur, un ciel, une haie
+              specification: >-
+                William Notman, « Child as St. Jean Baptiste », Montréal, 1867 — un enfant devant un
+                fond uni et sombre, qui ne lui dispute rien. Musée McCord Stewart.
+              alt: Un enfant costumé en saint Jean-Baptiste, vêtu d'une peau de mouton, tenant une croix et une bannière, debout sur un rocher devant un fond gris uni
+              credit: William Notman, 1867, Musée McCord Stewart
               priorite: essentiel
         aparte: |
           **Personne ne regarde ses quatre coins naturellement** : tout le monde regarde le
@@ -329,14 +427,23 @@ blocs:
             corps: Le sujet sur une ligne, ou à un croisement, de la grille.
             image:
               id: l3-compo-tiers
-              specification: Un sujet placé sur un croisement des tiers, l'horizon sur une ligne des tiers
+              specification: >-
+                Carleton Watkins, « Cape Horn near Celilo », 1867 — l'arête de la falaise sur la
+                ligne verticale du tiers droit. Metropolitan Museum of Art.
+              alt: Une voie ferrée longe un fleuve au pied d'une falaise à pic, dont l'arête se dresse aux deux tiers de l'image, sous un grand ciel vide
+              credit: Carleton Watkins, 1867, Metropolitan Museum of Art
               priorite: essentiel
           - titre: Le centre assumé
             icone: lucide:focus
             corps: Au milieu, exprès — un portrait de face, un sujet symétrique.
             image:
               id: l3-compo-centre
-              specification: Un sujet franchement centré — un portrait de face, une porte, un arbre seul
+              specification: >-
+                Louis-Prudent Vallée, le monument Wolfe sur les plaines d'Abraham, Québec, vers 1880
+                — une colonne seule, exactement au milieu de l'image. Bibliothèque et Archives
+                nationales du Québec.
+              alt: Une haute colonne de pierre, seule au milieu de l'image, entourée d'une grille de fer, devant quelques maisons basses et un grand ciel pâle
+              credit: Louis-Prudent Vallée, vers 1880, Bibliothèque et Archives nationales du Québec
               priorite: essentiel
         aparte: |
           **La règle des tiers est un point de départ, pas une loi.** Smith l'a nommée en 1797,
@@ -353,14 +460,22 @@ blocs:
             corps: Accroupissez-vous, ou levez l'appareil — la hauteur des yeux est le point de vue le plus banal qui existe.
             image:
               id: l3-compo-accroupi
-              specification: Un sujet photographié accroupi, plutôt que debout à hauteur d'yeux, à la même distance
+              specification: >-
+                Wm. Notman & Son, le port de Montréal vu de la chapelle Notre-Dame-de-Bon-Secours,
+                vers 1900 — le port photographié d'en haut, depuis le clocher. Musée McCord Stewart.
+              alt: "Le port de Montréal vu de haut : des bateaux à vapeur le long des quais, des trains et des charrettes, un dôme au premier plan à droite"
+              credit: Wm. Notman & Son, vers 1900, Musée McCord Stewart
               priorite: utile
           - titre: Le premier plan
             icone: lucide:layers-2
             corps: Un élément proche, devant, donne la distance de tout le reste.
             image:
               id: l3-compo-premier-plan
-              specification: Un paysage ou une rue avec un élément net au premier plan — une roche, une branche, une clôture
+              specification: >-
+                Alexander Henderson, « Montreal Wharves in Winter », 1872 — des blocs de glace au
+                premier plan, les édifices du port derrière. Musée McCord Stewart.
+              alt: Des blocs de glace brisée entassés au premier plan, et derrière eux un édifice à tour d'horloge et les bâtiments du port de Montréal
+              credit: Alexander Henderson, 1872, Musée McCord Stewart
               priorite: utile
 
       - id: guider-l-oeil
@@ -373,14 +488,22 @@ blocs:
             corps: Une route, une clôture, une rive mènent l'œil au sujet.
             image:
               id: l3-compo-lignes
-              specification: Une route, une rive ou une clôture qui part d'un coin et mène au sujet
+              specification: >-
+                Wm. Notman & Son, « Little Champlain Street, Quebec City », vers 1890 — la rue du
+                Petit-Champlain, dont les façades mènent l'œil jusqu'au fond. Musée McCord Stewart.
+              alt: Une rue étroite de Québec entre deux rangées de maisons de pierre et de bois qui fuient vers le fond, des enfants au milieu de la rue
+              credit: Wm. Notman & Son, vers 1890, Musée McCord Stewart
               priorite: utile
           - titre: Le cadre dans le cadre
             icone: lucide:frame
             corps: Une porte, une fenêtre, une arche entourent le sujet.
             image:
               id: l3-compo-cadre-dans-le-cadre
-              specification: Un sujet vu à travers une porte, une fenêtre ou une arche qui l'entoure
+              specification: >-
+                Herbert Ponting, « Grotto in an iceberg », 1911 — un navire et deux hommes vus à
+                travers l'ouverture d'une grotte de glace. Alexander Turnbull Library.
+              alt: L'ouverture d'une grotte de glace encadre, au loin, un navire à trois mâts et deux hommes debout sur la banquise
+              credit: Herbert Ponting, 1911, Alexander Turnbull Library
               priorite: utile
 
       - id: structurer
@@ -393,14 +516,23 @@ blocs:
             corps: Un reflet, une façade — l'axe exactement au centre.
             image:
               id: l3-compo-symetrie
-              specification: Une façade ou un reflet dans l'eau, l'axe de symétrie exactement au centre
+              specification: >-
+                Wm. Notman & Son, l'intérieur d'un wagon de première classe du Canadien Pacifique,
+                1890 — l'allée centrale exactement au milieu de l'image. Musée McCord Stewart.
+              alt: "L'intérieur d'un wagon de train : deux rangées de banquettes de part et d'autre d'une allée centrale, sous un plafond ouvragé et un lustre"
+              credit: Wm. Notman & Son, 1890, Musée McCord Stewart
               priorite: utile
           - titre: La répétition
             icone: lucide:repeat
             corps: Des formes qui se répètent, et une seule qui rompt le rythme.
             image:
               id: l3-compo-repetition
-              specification: Des formes répétées — fenêtres, chaises, poteaux — dont une seule diffère
+              specification: >-
+                Alexander Henderson, des raquetteurs sur le mont Royal, 1879 — des silhouettes
+                répétées en file sur la pente, et une seule qui s'avance en tête. Musée McCord
+                Stewart.
+              alt: Une trentaine de raquetteurs en capot, en file sur une pente enneigée entre les arbres ; l'un d'eux s'avance seul en tête, vers l'appareil
+              credit: Alexander Henderson, 1879, Musée McCord Stewart
               priorite: utile
 
       - id: respirer
@@ -413,67 +545,222 @@ blocs:
             corps: Beaucoup de vide autour d'un petit sujet le rend plus fort.
             image:
               id: l3-compo-espace-negatif
-              specification: Un petit sujet seul dans un grand vide — un oiseau dans le ciel, une personne sur une plage
+              specification: >-
+                Alexander Henderson, « Spring Inundation near Montreal », 1865 — une petite barque
+                seule dans une grande étendue d'eau et de ciel. Musée McCord Stewart.
+              alt: Une barque minuscule sur une plaine inondée, entre des arbres nus et leurs reflets, sous un ciel immense et pâle
+              credit: Alexander Henderson, 1865, Musée McCord Stewart
               priorite: utile
           - titre: Les diagonales
             icone: lucide:move-diagonal
             corps: Une ligne en biais donne du mouvement ; une horizontale, du calme.
             image:
               id: l3-compo-diagonales
-              specification: Une ligne forte qui traverse l'image en diagonale — un escalier, une rampe, une branche
+              specification: >-
+                William Notman, le pont Victoria en construction, Montréal, vers 1859 — le tube du
+                pont traverse l'image en diagonale. Bibliothèque et Archives Canada.
+              alt: Le tube de fer du pont Victoria, posé sur des piliers de pierre, monte en diagonale du bas à gauche vers le haut à droite, au-dessus du fleuve
+              credit: William Notman, vers 1859, Bibliothèque et Archives Canada
               priorite: utile
           - titre: Le nombre impair
             icone: lucide:dice-3
             corps: Trois éléments s'équilibrent mieux que deux, qui se font concurrence.
             image:
               id: l3-compo-nombre-impair
-              specification: Trois éléments semblables dans le cadre — trois arbres, trois tasses, trois personnes
+              specification: >-
+                Clarence H. White, « The Ring Toss », 1899 — trois fillettes jouent au lancer
+                d'anneaux. Library of Congress.
+              alt: Trois fillettes en robe blanche jouent au lancer d'anneaux dans une pièce au plancher de bois, devant une fenêtre aux rideaux clairs
+              credit: Clarence H. White, 1899, Library of Congress
               priorite: utile
-
-      - id: cinq-fois-le-meme-objet
-        genre: appareil-en-main
-        titre: Appareil en main — composer
-        claim: Choisissez un objet dans la salle. Photographiez-le cinq fois.
-        gestes:
-          - "**De loin.**"
-          - "**De très près.**"
-          - "**En vous accroupissant.**"
-          - "**En levant l'appareil au-dessus de votre tête.**"
-          - "**En changeant d'arrière-plan.**"
-          - "Puis, à votre table : montrez votre préférée, et dites pourquoi."
-        cellulaire: |
-          Exactement le même exercice, et il fonctionne aussi bien. Activez la grille si ce n'est
-          pas déjà fait.
-        aparte: |
-          **Aucun réglage à toucher.** C'est volontaire : tout le monde réussit.
 
   # ─────────────────────────────────────────────────────────────────────────
   - id: pause
     titre: Pause et questions
-    resume: Le dernier bloc de questions de la formation.
+    resume: Une pause, et vos questions — sur la composition ou sur n'importe quoi d'autre.
     ecrans:
       - id: la-pause
         genre: repere
         variante: pause
-        titre: Pause
-        claim: Dix minutes.
+        titre: Pause et questions
+        claim: Dix minutes, et vos questions.
         corps: |
-          Les papillons adhésifs sont au mur depuis le début de la séance. C'est aussi le moment
+          **Sur la composition, ou sur n'importe quoi d'autre** : matériel, choix d'objectif,
+          « pourquoi mes photos ne ressemblent pas à celles d'Instagram ». C'est aussi le moment
           de venir montrer une photo sur votre écran.
-
-      - id: vos-questions
-        genre: repere
-        variante: questions
-        titre: Vos questions
-        claim: C'est notre dernière séance ensemble, alors profitez-en.
-        corps: |
-          On commence par les papillons du mur.
-
-          **Même les questions qui n'ont rien à voir avec cette séance** — matériel, choix d'objectif,
-          « pourquoi mes photos ne ressemblent pas à celles d'Instagram ».
         aparte: |
           Les questions auxquelles on ne peut pas répondre en deux minutes deviennent les sujets
           d'atelier de l'année.
+
+  # ─────────────────────────────────────────────────────────────────────────
+  # Une ouverture, pas un second cours : moins d'écrans que la composition, et
+  # aucun exercice. Les trois intentions titrent les écrans ; les outils sont
+  # leurs colonnes. Les photographies sont des emplacements « utile » : celles
+  # du club peuvent les remplacer sans toucher à la structure.
+  #
+  # Droits des archives, vérifiés avant l'ajout (auteur mort avant 1972 ;
+  # aux États-Unis, œuvre publiée avant 1929 ou œuvre fédérale) :
+  #   Riis († 1914)       1888  Bandits' Roost — Museum of Modern Art (Wikimedia Commons)
+  #   Stieglitz († 1946)  1907  The Steerage, publiée dans Camera Work en 1911 (tirage de
+  #                             291, 1915) — Metropolitan Museum of Art, accès libre CC0
+  #   Emerson († 1936)    1886  Gathering Water-Lilies, publiée en 1886 — Metropolitan Museum
+  #                             of Art, accès libre CC0
+  #   Hine († 1940)       1908  Sadie Pfeifer — Library of Congress, collection du National
+  #                             Child Labor Committee, aucune restriction connue
+  #   Lange († 1965)      1936  Migrant Mother — Library of Congress, FSA/OWI : œuvre
+  #                             fédérale, sans droit d'auteur aux États-Unis
+  #   Atget († 1927)      1926  Rue Laplace et rue Valette — Metropolitan Museum of Art, accès
+  #                             libre CC0
+  #   Stieglitz († 1946)  1893  Winter, Fifth Avenue, publiée dans Camera Work en 1905 —
+  #                             Metropolitan Museum of Art, domaine public
+  # Les cartons de musée sont recadrés : seul le tirage est montré. Erwitt,
+  # Cartier-Bresson et Crewdson sont protégés : nommés en aparté, jamais montrés.
+  - id: au-dela
+    titre: Au-delà de la composition
+    resume: Captiver, faire ressentir, faire imaginer.
+    ecrans:
+      - id: ouverture
+        genre: repere
+        variante: ouverture
+        titre: Au-delà de la composition
+        claim: Une photo peut être parfaitement composée, et ne rien dire.
+        colonnes:
+          - titre: Captiver
+            icone: lucide:scan-eye
+            corps: Donner une raison de s'arrêter.
+          - titre: Faire ressentir
+            icone: lucide:heart
+            corps: Créer une émotion, une atmosphère.
+          - titre: Faire imaginer
+            icone: lucide:eye-off
+            corps: Suggérer ce qui n'est pas dans l'image.
+
+      - id: captiver
+        genre: panneau
+        titre: Captiver
+        claim: Une photo forte arrête celui qui la regarde.
+        colonnes:
+          - titre: La tension
+            icone: lucide:zap
+            corps: "Un regard vers nous, un sujet au bord du cadre : l'image est instable."
+            image:
+              id: l3-au-dela-riis
+              specification: >-
+                Jacob Riis, « Bandits' Roost », 1888 — une ruelle étroite de New York, des hommes
+                appuyés aux murs qui fixent l'objectif. Museum of Modern Art.
+              alt: Une ruelle étroite entre deux immeubles, du linge suspendu au-dessus, et une dizaine d'hommes immobiles qui regardent l'appareil
+              credit: Jacob Riis, 1888, Museum of Modern Art
+              priorite: utile
+          - titre: Les relations
+            icone: lucide:link
+            corps: Deux éléments qui se répondent ou se contredisent. Le sujet, c'est le lien.
+            image:
+              id: l3-au-dela-stieglitz-steerage
+              specification: >-
+                Alfred Stieglitz, « The Steerage », 1907 — le pont d'un paquebot coupé en deux par
+                une passerelle : les passagers du haut, ceux de l'entrepont en bas. Metropolitan
+                Museum of Art.
+              alt: Le pont d'un paquebot vu d'en haut, coupé par une passerelle blanche — une foule en chapeaux au-dessus, des passagers serrés en dessous
+              credit: Alfred Stieglitz, 1907, Metropolitan Museum of Art
+              priorite: utile
+        aparte: |
+          Un exemple célèbre, qu'on ne peut pas montrer ici : [Elliott Erwitt](https://fr.wikipedia.org/wiki/Elliott_Erwitt),
+          *New York City*, 1974 — un petit chien entre les bottes de sa maîtresse et les pattes
+          d'un très grand chien.
+
+      - id: faire-ressentir
+        genre: panneau
+        titre: Faire ressentir
+        claim: Une photo n'a pas besoin de raconter pour faire ressentir.
+        colonnes:
+          - titre: Le calme
+            icone: lucide:waves
+            corps: Peu d'éléments, une lumière douce, des lignes horizontales.
+            image:
+              id: l3-au-dela-emerson
+              specification: >-
+                Peter Henry Emerson, « Gathering Water-Lilies », 1886 — deux personnes dans une
+                barque, parmi les nénuphars d'un marais anglais. Metropolitan Museum of Art.
+              alt: Une barque glisse sur une eau calme couverte de nénuphars, un homme rame, une femme se penche pour cueillir une fleur
+              credit: Peter Henry Emerson, 1886, Metropolitan Museum of Art
+              priorite: utile
+          - titre: La vulnérabilité
+            icone: lucide:user
+            corps: Un petit sujet devant quelque chose de très grand.
+            image:
+              id: l3-au-dela-hine
+              specification: >-
+                Lewis Hine, « Sadie Pfeifer », 1908 — une fillette à côté d'une longue machine à
+                filer qui fuit vers le fond de l'usine. Library of Congress.
+              alt: Une fillette en robe longue, debout contre une machine à filer interminable qui traverse toute l'image
+              credit: Lewis Hine, 1908, Library of Congress
+              priorite: utile
+          - titre: L'inquiétude
+            icone: lucide:cloud-fog
+            corps: Un regard ailleurs, un geste retenu, rien pour rassurer.
+            image:
+              id: l3-au-dela-lange
+              specification: >-
+                Dorothea Lange, « Migrant Mother », 1936 — une mère et ses enfants, en gros plan.
+                Library of Congress.
+              alt: Une femme, la main près de la bouche, regarde au loin ; deux enfants appuyés sur ses épaules lui tournent le visage
+              credit: Dorothea Lange, 1936, Library of Congress
+              priorite: utile
+        ton: regle
+        icone: lucide:compass
+        encadre: |
+          **Pas des formules.** Une photo sombre n'est pas forcément triste. Demandez-vous
+          d'abord : **qu'est-ce que je veux faire ressentir ?**
+
+      - id: faire-imaginer
+        genre: panneau
+        titre: Faire imaginer
+        claim: Ce que la photo ne montre pas, celui qui la regarde l'invente.
+        colonnes:
+          - titre: Ce qu'on ne montre pas
+            icone: lucide:door-open
+            corps: Assez d'indices pour imaginer, pas assez pour savoir.
+            image:
+              id: l3-au-dela-atget
+              specification: >-
+                Eugène Atget, rue Laplace et rue Valette, Paris, 1926 — une rue vide qui se sépare
+                en deux et tourne hors de vue. Metropolitan Museum of Art.
+              alt: Une rue pavée de Paris, déserte, qui se divise en deux autour d'un vieil immeuble et disparaît dans un virage
+              credit: Eugène Atget, 1926, Metropolitan Museum of Art
+              priorite: utile
+          - titre: L'avant et l'après
+            icone: lucide:hourglass
+            corps: "Un geste pas fini : on devine la suite."
+            image:
+              id: l3-au-dela-stieglitz-hiver
+              specification: >-
+                Alfred Stieglitz, « Winter, Fifth Avenue », 1893 — une diligence qui avance vers
+                nous dans une tempête de neige. Metropolitan Museum of Art.
+              alt: Une diligence tirée par des chevaux avance dans une avenue enneigée, sous une neige qui efface les immeubles
+              credit: Alfred Stieglitz, 1893, Metropolitan Museum of Art
+              priorite: utile
+        aparte: |
+          Stieglitz a attendu trois heures dans la tempête pour ce moment.
+          [Henri Cartier-Bresson](https://fr.wikipedia.org/wiki/Henri_Cartier-Bresson)
+          l'appellera « l'instant décisif » (*Derrière la gare Saint-Lazare*, 1932).
+          [Gregory Crewdson](https://fr.wikipedia.org/wiki/Gregory_Crewdson) met en scène des
+          histoires qui ne finissent jamais.
+
+      - id: pourquoi
+        genre: repere
+        variante: transition
+        titre: Pourquoi
+        claim: Avant de vous demander comment composer votre photo, demandez-vous pourquoi vous voulez la prendre.
+        colonnes:
+          - titre: Composer
+            icone: lucide:frame
+            corps: Où va le regard ?
+          - titre: Choisir
+            icone: lucide:message-circle-question
+            corps: Qu'est-ce que je veux dire ?
+          - titre: Toucher
+            icone: lucide:hand-heart
+            corps: Que va ressentir ou imaginer celui qui regarde ?
 
   # ─────────────────────────────────────────────────────────────────────────
   # Le témoignage de l'animateur (décision D5) : l'énoncé reste un conseil aux
