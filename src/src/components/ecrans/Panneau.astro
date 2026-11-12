@@ -65,7 +65,10 @@ const dense = Boolean(ecran.etats?.length) && ajouts.length > 0;
 const schema = dense ? undefined : cumule.schema;
 /* Réservé au cas non-dense : une fois dense, la grille du panneau cumulatif
    régit déjà tout l'agencement, et ce data-attribut ne doit pas s'y ajouter. */
-const sansSchema = !dense && !schema;
+const sansSchema = !dense && !schema && !ecran.illustration;
+/* Le document d'archives que le corps cite : il prend la colonne de gauche.
+   Le schéma l'exclut (voir `content.config.ts`), il n'y a donc jamais les deux. */
+const illustration = ecran.illustration;
 /* L'inverse : un schéma sans texte à côté — il prend alors toute la largeur
    sous l'énoncé, au lieu d'une demi-colonne à côté d'un corps vide. */
 const sansCorps =
@@ -81,10 +84,33 @@ const empile = !dense && Boolean(schema) && (sansCorps || ecran.disposition === 
   data-empile={empile ? '' : undefined}
   data-dense={dense ? '' : undefined}
   data-sans-encadres={undefined}
+  data-illustre={illustration ? '' : undefined}
 >
   <div class="region-claim">
     <h1 class="claim" set:html={claim} />
   </div>
+
+  {illustration && (
+    <div class="region-illustration">
+      <div
+        class="illustration"
+        data-loupe={illustration.loupe?.zoom}
+        data-loupe-mode={illustration.loupe ? 'seule' : undefined}
+      >
+        <EmplacementDemo
+          id={illustration.id}
+          fichier={illustration.fichier}
+          specification={illustration.specification}
+          alt={illustration.alt}
+          valeur={illustration.valeur}
+          priorite={illustration.priorite}
+          cadrage={illustration.cadrage}
+          loupe={Boolean(illustration.loupe)}
+        />
+      </div>
+      {illustration.loupe && <IndiceLoupe />}
+    </div>
+  )}
 
   {!sansCorps && <div class="region-corps corps">
     {corps.map((html) => <div set:html={html} />)}

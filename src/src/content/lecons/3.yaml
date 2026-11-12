@@ -207,29 +207,51 @@ blocs:
           des groupes placés, plusieurs négatifs réunis en une seule image. La composition se
           décide avant le déclenchement.
 
+      # Les dix règles du chapitre IX (p. 47-49), toutes — les datées aussi :
+      # elles montrent ce qu'on enseignait, et ce qui a changé depuis. Le
+      # « jamais » est celui de Robinson ; les versions modernes viennent au
+      # bloc suivant, sans renvoi d'ici.
       - id: les-regles-s-ecrivent
-        genre: demonstration
+        genre: panneau
         titre: Les règles s'écrivent
         claim: Dans les années 1860, des photographes mettent les règles par écrit — pour d'autres photographes.
-        images:
-          - id: l3-histoire-robinson-effet
-            specification: >-
-              Henry Peach Robinson, Pictorial Effect in Photography, 1869, page 47 — le chapitre
-              « Simple Rules » : le même château dessiné de face (fig. 1), puis vu de biais après
-              quelques dizaines de mètres de marche le long de la rive (fig. 2). Getty Research
-              Institute.
-            alt: Une page de livre de 1869 titrée « Chapter IX. Simple Rules », avec deux petits dessins du même château, de face puis de biais
-            valeur: "Robinson, 1869 — « Simple Rules » : changer de place"
-            credit: Henry Peach Robinson, 1869, Getty Research Institute
-            priorite: utile
-        loupeImages:
-          zoom: 3
+        illustration:
+          id: l3-histoire-robinson-effet
+          specification: >-
+            Henry Peach Robinson, Pictorial Effect in Photography, 1869, page 47 — le chapitre
+            « Simple Rules » : le même château dessiné de face (fig. 1), puis vu de biais après
+            quelques dizaines de mètres de marche le long de la rive (fig. 2). Getty Research
+            Institute.
+          alt: Une page de livre de 1869 titrée « Chapter IX. Simple Rules », avec deux petits dessins du même château, de face puis de biais
+          valeur: "Robinson, 1869 — « Simple Rules »"
+          credit: Henry Peach Robinson, 1869, Getty Research Institute
+          priorite: utile
+        corps: |
+          **Le point de vue**
+
+          - Changer de place : quelques pas changent les lignes.
+          - De biais plutôt que de face.
+
+          **Les lignes**
+
+          - Pas de lignes parallèles ; sous un horizon droit, un premier plan ondulé.
+          - Quelques droites parmi les courbes.
+          - Jamais les sujets empilés en ligne.
+
+          **L'équilibre**
+
+          - Jamais de symétrie miroir.
+          - Une rue ou une rivière, jamais depuis le centre.
+          - Jamais l'horizon au milieu.
+
+          **Le cadre**
+
+          - Une image fermée sur ses bords.
+          - Une arche jamais appuyée sur le bord du cadre.
         aparte: |
           **William Lake Price** publie des articles sur la composition dès 1860. Le livre de
           **Henry Peach Robinson**, *Pictorial Effect in Photography* (1869), en fait un manuel :
           l'équilibre, les lignes, le triangle, l'ombre et la lumière.
-
-          Les gestes qui suivent viennent de cette histoire. **Ce sont des outils, pas des lois.**
 
   # ─────────────────────────────────────────────────────────────────────────
   - id: composition

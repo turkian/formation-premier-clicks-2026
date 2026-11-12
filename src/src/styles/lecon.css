@@ -117,6 +117,38 @@
     'aparte';
 }
 
+/* Panneau illustré : un document d'archives à gauche, le corps qui le cite à
+   droite. Le document est une page de livre, donc en portrait : il lui faut
+   de la hauteur plus que de la largeur, et c'est le texte qui prend la
+   largeur. */
+.panneau[data-illustre] {
+  grid-template-columns: minmax(0, 0.55fr) minmax(0, 1.45fr);
+  grid-template-areas:
+    'claim         claim'
+    'illustration  corps'
+    'aparte        aparte';
+}
+.region-illustration {
+  grid-area: illustration;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: var(--pas);
+}
+.region-illustration .illustration { display: grid; min-height: 0; }
+.region-illustration .indice-loupe { text-align: center; }
+/* Une liste groupée, sur deux colonnes : chaque titre de groupe colle à sa
+   liste, et un groupe ne se coupe jamais d'une colonne à l'autre. L'interligne
+   se resserre ici seulement — la taille reste celle du corps. */
+.panneau[data-illustre] .region-corps > div { columns: 2; column-gap: var(--pas-3); }
+.panneau[data-illustre] .corps { line-height: 1.3; }
+/* L'énoncé prend toute la largeur : deux lignes plutôt que trois, et c'est
+   autant de hauteur rendue au document et à sa liste. */
+.panneau[data-illustre] .claim { max-width: none; }
+.panneau[data-illustre] .corps p { margin-bottom: 0.25em; break-after: avoid; }
+.panneau[data-illustre] .corps ul { margin-top: 0; margin-bottom: 0.8em; break-inside: avoid; }
+.panneau[data-illustre] .corps li { margin-bottom: 0.2em; }
+
 /*
  * Troisième arrangement : le panneau cumulatif.
  *
@@ -176,6 +208,12 @@
   }
   .region-encadres { gap: calc(var(--pas) * 0.7); }
   .aparte { padding-top: calc(var(--pas) * 0.7); }
+  /* Le panneau illustré : un document en portrait et dix lignes de liste ne
+     tiennent pas sous un énoncé de trois lignes. L'énoncé et le corps cèdent
+     un cran, comme les encadrés ci-dessus — le corps reste nettement au-dessus
+     du palier d'aparté. */
+  .panneau[data-illustre] .claim { font-size: calc(var(--t-enonce) * 0.8); }
+  .panneau[data-illustre] .corps { font-size: calc(var(--t-corps) * 0.95); }
 }
 
 /* Sans état révélé, la colonne des encadrés n'existe pas et le corps reprend
@@ -685,6 +723,19 @@
       'encadres'
       'aparte';
   }
+
+  /* Le document avant le corps, comme le schéma : on voit la page, puis ce
+     qu'elle dit. */
+  .panneau[data-illustre] {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      'claim'
+      'illustration'
+      'corps'
+      'aparte';
+  }
+  .region-illustration .emplacement { aspect-ratio: 3 / 4; }
+  .panneau[data-illustre] .region-corps > div { columns: 1; }
 
   .repere, .appareil, .demonstration, .interactif { height: auto; }
   .termes { grid-template-columns: 1fr; }
