@@ -523,9 +523,44 @@ size limits (about 100 words plus one diagram or table).
 
 - **WHEN** the recap block of session 3 is read in order
 - **THEN** its concept panels present, in this order: shutter speed as the choice between
-  freezing and letting motion show, with the two blurs; ISO as the volume, chosen last, and
-  noise as a lack of light; and manual mode with ISO auto together with exposure compensation
+  freezing and letting motion show, with the two blurs; ISO as the volume, and noise as a lack
+  of light; and manual mode with ISO auto, ISO chosen last, together with exposure compensation
 - **AND** none of them introduces composition
+
+### Requirement: The session 3 ISO recap shows noise with two cropped photographs
+
+The session 3 recap panel on ISO SHALL show, side by side, two photographs of the same scene and
+light from session 2: one taken at a high ISO, and one taken at a low ISO and brightened
+afterwards. Both SHALL open on the same resting crop, on a shadow where the noise is visible at
+projection size, and SHALL share a linked loupe for a closer look. The panel SHALL NOT say that ISO comes last; the manual-mode recap panel says it.
+
+#### Scenario: The ISO recap panel is projected
+
+- **WHEN** the session 3 ISO recap panel is displayed
+- **THEN** it shows two columns, each with one session 2 photograph of the same scene and a
+  short caption
+- **AND** the column for the low ISO brightened afterwards says it has more noise, not less
+- **AND** the callout states that noise comes from a lack of light, not from ISO
+
+#### Scenario: The noise is visible without enlarging the photographs
+
+- **WHEN** the two photographs are shown at rest on a projector, in 16:9 or 4:3
+- **THEN** both are framed on the same point at the same magnification
+- **AND** the grain in the shadow can be compared from the middle of the room without opening
+  either photograph
+
+#### Scenario: The presenter magnifies the grain
+
+- **WHEN** the presenter holds Shift over one of the two photographs
+- **THEN** both photographs show a magnified view of the same point, so the grain can be compared
+  more closely than the resting crop allows
+
+#### Scenario: The order of the choices is stated once
+
+- **WHEN** the session 3 recap block is read in order
+- **THEN** the ISO recap panel does not state that ISO comes last
+- **AND** the manual-mode recap panel that follows it states that ISO comes last, after the
+  aperture and the shutter speed
 
 ### Requirement: Recap content does not address phones separately
 

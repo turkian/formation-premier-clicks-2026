@@ -170,6 +170,13 @@ const ecranPanneau = baseEcran.extend({
     .max(3)
     .optional(),
   /**
+   * Loupe liée des photographies des colonnes, comme celle d'une série
+   * comparative : en maintenant Maj, le même point s'affiche agrandi sur chaque
+   * photographie, à ce grossissement (par rapport à l'image entière). À ne
+   * déclarer que si toutes les colonnes montrent la même scène.
+   */
+  loupe: z.object({ zoom: z.number().min(1) }).optional(),
+  /**
    * Des groupes de petites cartes — une situation et sa valeur de départ, par
    * exemple. Plus lisible qu'un long tableau du fond de la salle : chaque
    * groupe porte un titre, chaque carte une icône, un nom et une valeur.

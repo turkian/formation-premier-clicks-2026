@@ -67,13 +67,29 @@ blocs:
       - id: rappel-iso
         genre: panneau
         titre: L'ISO
-        claim: "L'ISO, c'est le volume. Il vient en dernier."
-        corps: |
-          L'ISO n'ajoute pas de lumière : il **amplifie** celle que le capteur a reçue.
-
-          Choisissez d'abord ce que vous voulez montrer — la zone nette avec l'ouverture, le
-          mouvement avec la vitesse. **Puis** montez l'ISO jusqu'à ce que la photo soit bien
-          exposée.
+        claim: "L'ISO, c'est le volume. Il amplifie la lumière captée ; il n'en ajoute pas."
+        loupe: { zoom: 8 }
+        colonnes:
+          - titre: Le volume en haut
+            icone: lucide:volume-2
+            corps: Même lumière, ISO élevé. Nette, un peu de grain.
+            image:
+              id: l3-rappel-iso-haut
+              fichier: l2-iso-nette-bruitee.jpg
+              specification: La photo « ISO élevé — nette, bruitée » de la séance 2, recadrée sur une ombre
+              priorite: complement
+              alt: La station-service au crépuscule, vue de près près de l'armoire à propane, un grain fin dans les ombres
+              cadrage: { point: [40, 62], zoom: 3 }
+          - titre: Le volume en bas
+            icone: lucide:volume-1
+            corps: ISO bas, éclaircie après. Plus de bruit, pas moins.
+            image:
+              id: l3-rappel-iso-bas
+              fichier: l2-iso-eclaircie.jpg
+              specification: La photo « ISO bas, éclaircie — plus bruitée » de la séance 2, recadrée sur la même ombre
+              priorite: complement
+              alt: La même vue de près, éclaircie après coup, des taches de couleur dans les ombres
+              cadrage: { point: [40, 62], zoom: 3 }
         ton: regle
         icone: lucide:ruler
         encadre: |
@@ -87,7 +103,7 @@ blocs:
         corps: |
           1. **L'ouverture**, pour la zone nette — vous.
           2. **La vitesse**, pour le mouvement — vous.
-          3. **L'ISO** qui expose bien — l'appareil.
+          3. **L'ISO**, en dernier, qui expose bien — l'appareil.
         ton: regle
         icone: lucide:sun-moon
         encadre: |

@@ -1,0 +1,25 @@
+---
+/**
+ * L'indice de la loupe liée, sous les photographies qui la portent.
+ */
+import { typo } from '../lib/typo';
+---
+
+<p class="indice-loupe" set:html={typo('Maintenir Maj pour agrandir un détail')} />
+
+<style>
+  /* L'indice n'existe que là où la loupe peut s'appeler : une souris qui
+     survole. Ni téléphone, ni tablette, ni papier. */
+  .indice-loupe {
+    display: none;
+    margin: 0;
+    font-size: var(--t-aparte);
+    color: var(--texte-3);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .indice-loupe { display: block; }
+  }
+  @media print {
+    .indice-loupe { display: none; }
+  }
+</style>

@@ -15,6 +15,7 @@ import { md, mdEnLigne } from '../../lib/md';
 import { regionsCumulees } from '../../lib/lecon';
 import Schema from './Schema.astro';
 import EmplacementDemo from '../EmplacementDemo.astro';
+import IndiceLoupe from '../IndiceLoupe.astro';
 import { typo } from '../../lib/typo';
 
 interface Props {
@@ -115,7 +116,7 @@ const empile = !dense && Boolean(schema) && (sansCorps || ecran.disposition === 
       </div>
     )}
     {colonnes && (
-      <div class="colonnes" style={`--nombre: ${colonnes.length}`}>
+      <div class="colonnes" style={`--nombre: ${colonnes.length}`} data-loupe={ecran.loupe?.zoom}>
         {colonnes.map((c) => (
           <section class="colonne">
             <header>
@@ -132,12 +133,14 @@ const empile = !dense && Boolean(schema) && (sansCorps || ecran.disposition === 
                 valeur={c.image.valeur}
                 priorite={c.image.priorite}
                 cadrage={c.image.cadrage}
+                loupe={Boolean(ecran.loupe)}
               />
             )}
           </section>
         ))}
       </div>
     )}
+    {colonnes && ecran.loupe && <IndiceLoupe />}
     {encadre && (
       <div class="encadre" data-ton={ecran.ton}>
         {ecran.icone && <Icon name={ecran.icone} class="encadre-icone" />}
@@ -187,3 +190,8 @@ const empile = !dense && Boolean(schema) && (sansCorps || ecran.disposition === 
     </div>
   )}
 </div>
+
+<script>
+  // La loupe liée des colonnes : voir `lib/loupe-liee.ts`.
+  import '../../lib/loupe-liee';
+</script>
