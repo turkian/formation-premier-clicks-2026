@@ -21,7 +21,7 @@ numero: 3
 titre: Composer, puis progresser
 filConducteur: Apprendre à voir → composer → aller au-delà → progresser
 question: comment faire de meilleures photos ?
-pret: false
+pret: true
 
 blocs:
   # ─────────────────────────────────────────────────────────────────────────
