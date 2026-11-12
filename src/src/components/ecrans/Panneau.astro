@@ -36,7 +36,9 @@ const apartes = await Promise.all(cumule.aparte.map((bloc: string) => md(bloc)))
 const encadre = ecran.encadre ? await md(ecran.encadre) : null;
 /** La conclusion statique, hors de l'encadré — rendue juste après lui. */
 const suite = ecran.suite ? await md(ecran.suite) : null;
-/** Les options mises en regard, chacune avec sa photographie éventuelle. */
+/** Les options mises en regard, chacune avec sa photographie éventuelle.
+ *  Leur présence pose `data-colonnes` : l'énoncé prend alors la largeur des
+ *  cartes au lieu de la mesure courte d'un panneau à une colonne. */
 const colonnes = ecran.colonnes
   ? await Promise.all(
       ecran.colonnes.map(async (c: any) => ({ ...c, corpsHtml: await md(c.corps) })),
@@ -85,6 +87,7 @@ const empile = !dense && Boolean(schema) && (sansCorps || ecran.disposition === 
   data-dense={dense ? '' : undefined}
   data-sans-encadres={undefined}
   data-illustre={illustration ? '' : undefined}
+  data-colonnes={colonnes ? '' : undefined}
 >
   <div class="region-claim">
     <h1 class="claim" set:html={claim} />

@@ -322,7 +322,7 @@ blocs:
       - id: placer
         genre: panneau
         titre: Placer
-        claim: Décidez où va votre sujet — franchement décentré, ou franchement centré. Pas entre les deux.
+        claim: Décentré ou centré — franchement. Jamais entre les deux.
         colonnes:
           - titre: Les tiers
             icone: lucide:grid-3x3

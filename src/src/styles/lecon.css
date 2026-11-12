@@ -240,6 +240,11 @@
   text-wrap: balance;
 }
 .panneau[data-sans-schema] .claim { max-width: 24ch; }
+/* Sous des cartes en colonnes, l'énoncé prend la largeur des cartes : une mesure
+   courte le laisserait orphelin dans le tiers gauche, et lui ferait voler aux
+   photographies la hauteur qu'elles réclament. Placé après la règle précédente,
+   plus spécifique, il l'emporte quand les deux attributs sont présents. */
+.panneau[data-colonnes] .claim { max-width: none; }
 
 .corps {
   font-size: var(--t-corps);
