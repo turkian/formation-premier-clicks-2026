@@ -138,8 +138,10 @@ blocs:
   # antérieure à 1929) :
   #   Smith († 1833)      1797  Remarks on Rural Scenery, pl. « On Mill-Bank » et p. 16 —
   #                             Getty Research Institute, numérisé par l'Internet Archive
-  #   Rejlander († 1875)  1857  Princeton University Art Museum (Wikimedia Commons)
   #   Robinson († 1901)   1858  George Eastman Museum (Wikimedia Commons)
+  #   Robinson († 1901)   1862  Bringing Home the May — reproduit dans The Practical and Junior
+  #                             Photographer, avril 1901, p. 257, numérisé par l'Internet
+  #                             Archive (Wikimedia Commons)
   #   Robinson († 1901)   1869  Pictorial Effect in Photography, p. 47 — Getty Research
   #                             Institute, numérisé par l'Internet Archive
   - id: histoire
@@ -181,16 +183,6 @@ blocs:
         titre: La photo devient un art
         claim: Pour être prise au sérieux, la photo a d'abord composé comme la peinture.
         images:
-          - id: l3-histoire-rejlander
-            specification: >-
-              Oscar Gustave Rejlander, « The Two Ways of Life », 1857 — une allégorie : un sage
-              montre à deux jeunes hommes le chemin du vice et celui de la vertu. Une trentaine de
-              négatifs assemblés en un seul tirage, composé comme un grand tableau. Princeton
-              University Art Museum.
-            alt: Une scène photographiée comme un tableau — des dizaines de figures costumées, groupées de part et d'autre d'un vieil homme au centre
-            valeur: Rejlander, 1857 — une trentaine de négatifs, un seul tableau
-            credit: Oscar Gustave Rejlander, 1857, Princeton University Art Museum
-            priorite: utile
           - id: l3-histoire-robinson
             specification: >-
               Henry Peach Robinson, « Fading Away », 1858 — une jeune femme mourante entourée de
@@ -200,10 +192,20 @@ blocs:
             valeur: Robinson, 1858 — une scène jouée, cinq négatifs assemblés
             credit: Henry Peach Robinson, 1858, George Eastman Museum
             priorite: utile
+          - id: l3-histoire-robinson-mai
+            specification: >-
+              Henry Peach Robinson, « Bringing Home the May », 1862 — une scène champêtre : des
+              jeunes femmes et des fillettes cueillent et rapportent des branches d'aubépine. Neuf
+              négatifs assemblés en un seul tirage panoramique, composé comme un grand tableau.
+              Reproduit dans The Practical and Junior Photographer, avril 1901, p. 257.
+            alt: Une scène champêtre photographiée comme un tableau — une douzaine de jeunes femmes et de fillettes en robes longues cueillent et portent des branches d'aubépine en fleurs
+            valeur: Robinson, 1862 — neuf négatifs, un seul paysage
+            credit: Henry Peach Robinson, 1862, Internet Archive
+            priorite: utile
         aparte: |
-          Rejlander et Robinson ont d'abord étudié la peinture. Ils **mettent en scène** : des
-          modèles qui posent, des groupes placés, plusieurs négatifs réunis en une seule image.
-          La composition se décide avant le déclenchement.
+          Robinson a d'abord étudié la peinture. Il **met en scène** : des modèles qui posent,
+          des groupes placés, plusieurs négatifs réunis en une seule image. La composition se
+          décide avant le déclenchement.
 
       - id: les-regles-s-ecrivent
         genre: demonstration

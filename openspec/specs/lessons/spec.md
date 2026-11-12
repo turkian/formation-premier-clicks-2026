@@ -957,6 +957,14 @@ and its last screen SHALL hand over to the composition block.
 - **THEN** the hint to hold Shift appears once, under the images
 - **AND** the aside does not repeat it
 
+#### Scenario: The second history screen shows staged photographs in date order
+
+- **WHEN** the second screen of the history block is displayed
+- **THEN** its images are staged photographs, each assembled from several negatives, shown
+  oldest first
+- **AND** its aside and captions name only photographers whose work appears on the screen
+- **AND** none of its images shows a nude or partly nude figure
+
 #### Scenario: The composition block follows the history block
 
 - **WHEN** the composition block's screens are read
