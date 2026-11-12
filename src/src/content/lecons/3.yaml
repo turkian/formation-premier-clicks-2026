@@ -256,20 +256,19 @@ blocs:
   # ─────────────────────────────────────────────────────────────────────────
   - id: composition
     titre: La composition
-    resume: Du plus payant au plus fin, en trois paliers. Aucun réglage.
+    resume: Des gestes qui rendent vos photos meilleures.
     ecrans:
       - id: ouverture
         genre: repere
         variante: ouverture
         titre: La composition
-        claim: Des gestes qui rendent vos photos meilleures, du plus payant au plus fin. Aucun réglage, aucun menu.
+        claim: Composer, c'est décider de ce qui entre dans l'image, de ce qui en sort, et où. C'est ce qui rend une photo meilleure.
         corps: |
-          Trois paliers. **Le premier change presque toutes vos photos** ; les deux autres
-          viennent quand il est devenu un réflexe.
+          L'appareil vous donne une photo nette et bien exposée. **La composition en fait une
+          bonne photo.** Aucun réglage, aucun menu : vos yeux et vos pieds.
 
           Tout ce qui suit s'applique intégralement au cellulaire.
 
-      # Palier 1 — le plus payant. Ses photographies sont essentielles.
       - id: simplifier
         genre: panneau
         titre: Simplifier
@@ -344,7 +343,6 @@ blocs:
           pour le dessin. La grille de votre appareil ou de votre téléphone trace les tiers pour
           vous.
 
-      # Palier 2.
       - id: donner-de-la-profondeur
         genre: panneau
         titre: Donner de la profondeur
@@ -385,7 +383,6 @@ blocs:
               specification: Un sujet vu à travers une porte, une fenêtre ou une arche qui l'entoure
               priorite: utile
 
-      # Palier 3.
       - id: structurer
         genre: panneau
         titre: Structurer
