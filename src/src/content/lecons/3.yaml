@@ -762,9 +762,9 @@ blocs:
 
   # ─────────────────────────────────────────────────────────────────────────
   # Un bloc partagé : l'animateur ouvre, puis des photographes du club racontent
-  # leur pratique. L'énoncé de « Pourquoi, et pour qui » reste un conseil aux
-  # participants, le corps parle à la première personne ; la séance se termine
-  # sur la discussion, sans autre bloc après.
+  # leur pratique. Les deux premiers écrans ne portent qu'un énoncé : qui parle,
+  # et pourquoi, se dit dans la salle. La séance se termine sur la discussion,
+  # sans autre bloc après.
   - id: apprentissages
     titre: Ce que la pratique nous apprend
     resume: Aimer ses photos, puis progresser — des photographes du club racontent.
@@ -773,26 +773,13 @@ blocs:
         genre: repere
         variante: ouverture
         titre: Ce que la pratique nous apprend
-        claim: Prenez ce qui vous sert. C'est une pratique, pas une règle.
-        corps: |
-          **Jean-Pierre Bluteau**, animateur de la formation « Premiers clics », commence. Puis des
-          photographes du club racontent ce qu'ils ont appris en photographiant, en se trompant et
-          en montrant leurs photos.
+        claim: Prenez ce qui vous sert. Contournez les règles quand c'est nécessaire.
 
       - id: pourquoi-pour-qui
-        genre: panneau
+        genre: repere
+        variante: transition
         titre: Pourquoi, et pour qui
-        claim: Aimez vos photos d'abord. Puis demandez-vous pour qui vous les faites.
-        corps: |
-          Je photographie d'abord pour moi. Une photo que j'aime, je la regarde encore des années
-          plus tard ; une photo faite pour plaire, je l'oublie dès qu'elle a fait le tour.
-
-          Avant de déclencher, je me demande **pour qui** est cette image : pour moi, pour ma
-          famille, pour un mur, pour le club. La réponse change ce que je garde, comment je la
-          développe et où je la montre.
-
-          Les avis des autres m'apprennent beaucoup. Mais ils viennent **après** : si je n'aime
-          pas ma photo, aucun compliment ne la sauve.
+        claim: Aimez vos photos.
 
       - id: progresser
         genre: repere
@@ -800,8 +787,6 @@ blocs:
         titre: Progresser, et continuer d'aimer ça
         claim: Comment devient-on meilleur photographe, sans perdre le plaisir ?
         corps: |
-          Des photographes du club racontent leur parcours.
-
           - **Qu'est-ce qui vous a fait progresser le plus ?** Une personne, un livre, une
             contrainte, une erreur.
           - **Quel moment vous a fait passer un cap ?**

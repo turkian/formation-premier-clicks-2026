@@ -331,6 +331,10 @@
    l'énoncé cède la place au contenu plutôt que de le pousser hors de l'écran. */
 .repere[data-dense] { align-content: start; }
 .repere[data-dense] .claim { font-size: calc(var(--t-enonce) * 0.72); max-width: 30ch; }
+/* Un repère réduit à son étiquette et à son énoncé se lit comme une affiche :
+   tout est centré, ligne par ligne, et la boîte de l'énoncé avec. */
+.repere[data-titre-seul] { justify-items: center; text-align: center; }
+.repere[data-titre-seul] .claim { margin-inline: auto; }
 .repere .numero-bloc {
   font-size: var(--t-etiquette);
   letter-spacing: 0.18em;

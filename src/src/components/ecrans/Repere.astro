@@ -29,6 +29,8 @@ const colonnes = ecran.colonnes
       })),
     )
   : null;
+// Rien d'autre que l'étiquette et l'énoncé : l'écran se lit comme une affiche, centré.
+const titreSeul = !corps && !colonnes && !ecran.termes && !aparte;
 
 const ETIQUETTES: Record<string, string> = {
   ouverture: `Bloc ${numeroBloc} sur ${totalBlocs}`,
@@ -40,7 +42,9 @@ const ETIQUETTES: Record<string, string> = {
 };
 ---
 
-<div class="ecran repere" data-variante={ecran.variante} data-dense={corps || colonnes ? '' : undefined}>
+<div class="ecran repere" data-variante={ecran.variante} data-dense={corps || colonnes ? '' : undefined}
+  data-titre-seul={titreSeul ? '' : undefined}
+>
   <p class="numero-bloc">{ETIQUETTES[ecran.variante] ?? ecran.variante}</p>
   <h1 class="claim" set:html={claim} />
   {corps && <div class="corps" set:html={corps} />}
