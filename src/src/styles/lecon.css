@@ -497,8 +497,17 @@
    sont larges et l'écran bas. Au téléphone, où la page défile, elle reprend le
    format d'un capteur. */
 .panneau .region-corps:has(> .colonnes) { display: grid; min-height: 0; }
-.panneau .colonnes { min-height: 0; }
-.panneau .colonne { grid-template-rows: auto auto minmax(0, 1fr); align-content: stretch; min-height: 0; }
+/* Les cartes partagent leurs rangées (sous-grille) : titre, texte et photographie
+   s'alignent d'une carte à l'autre, même quand un texte prend une ligne de plus.
+   Le motif de rangées se répète, ce qui couvre aussi les cartes empilées au
+   téléphone. */
+.panneau .colonnes { min-height: 0; grid-auto-rows: auto auto minmax(0, 1fr); }
+.panneau .colonne {
+  grid-row: span 3;
+  grid-template-rows: subgrid;
+  align-content: stretch;
+  min-height: 0;
+}
 @media (max-width: 44rem) {
   .panneau .colonne .emplacement { aspect-ratio: 3 / 2; }
 }

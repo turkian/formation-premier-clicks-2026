@@ -283,7 +283,7 @@ blocs:
               priorite: essentiel
           - titre: Se rapprocher
             icone: lucide:footprints
-            corps: Trois pas de plus — la photo d'un débutant est presque toujours prise de trop loin.
+            corps: Trois pas de plus — la photo est presque toujours prise de trop loin.
             image:
               id: l3-compo-pres
               specification: Un sujet photographié trois pas plus près que le cadrage large habituel, réglages identiques
