@@ -21,28 +21,6 @@ pret: false
 
 blocs:
   # ─────────────────────────────────────────────────────────────────────────
-  - id: diaporama
-    titre: Vos photos
-    resume: Ce que vous avez fait, à l'écran, sans commentaire technique.
-    ecrans:
-      - id: le-diaporama
-        genre: demonstration
-        titre: Le diaporama
-        claim: Vos photos des deux premières séances.
-        images:
-          - id: l3-diaporama
-            specification: >-
-              Montage des photos des séances 1 et 2. Chaque personne y paraît au moins une
-              fois, sous une forme ou une autre — une photo de quelqu'un accroupi derrière
-              son appareil vaut autant qu'une de ses images. Musique, défilement, aucun
-              commentaire technique.
-            valeur: sans commentaire technique
-            priorite: utile
-        aparte: |
-          Aucun commentaire technique ici. C'est le moment où l'on voit que ce qu'on a fait
-          ressemble à de la photographie.
-
-  # ─────────────────────────────────────────────────────────────────────────
   - id: retour
     titre: Retour sur la séance 2
     resume: Vos photos d'abord, puis une seule histoire — de la vitesse à ce que l'appareil ne décide pas.
