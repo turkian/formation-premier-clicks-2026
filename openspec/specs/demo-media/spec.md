@@ -55,9 +55,8 @@ Each demonstration slot SHALL carry a priority. The following SHALL be marked es
 focus-distance series, the subject-to-background distance series, the out-of-focus versus
 camera-shake pair, the subject-blur versus camera-shake pair, the street scene at three shutter
 speeds, the light-trail and intentional-camera-movement images of the « flou choisi »
-demonstration, the three images of the « même lumière, trois issues » ISO series, the
-composition before-and-after pairs, the development demonstration
-photograph, and its seven cumulative states.
+demonstration, the three images of the « même lumière, trois issues » ISO series, and the
+photographs of the first-tier composition techniques.
 
 #### Scenario: The animator can only prepare part of the set
 
@@ -81,6 +80,12 @@ photograph, and its seven cumulative states.
 - **AND** all three are marked essential
 - **AND** the specification of the brightened image states that it was brightened afterwards
 
+#### Scenario: The animator plans the composition photographs
+
+- **WHEN** the animator reviews the composition block's slots in the shot list
+- **THEN** the photographs of the first-tier techniques are marked essential
+- **AND** the photographs of the second- and third-tier techniques are marked useful
+
 ### Requirement: Photographs are not required where a component is more honest
 
 A concept SHALL NOT declare a demonstration slot when an interactive component covers it. The
@@ -91,30 +96,6 @@ SHALL be presented by components, not photographs.
 
 - **WHEN** the shot list is reviewed
 - **THEN** no slot is declared for a concept presented by an interactive component
-
-### Requirement: The development demonstration is backed by cumulative pre-rendered states
-
-The seven-gestures development demonstration SHALL declare, in addition to its starting
-photograph, seven cumulative image states — one per geste, each showing every gesture applied so
-far. These SHALL be declared as demonstration slots like any other image, and SHALL degrade to
-their specification when absent.
-
-#### Scenario: The animator demonstrates live
-
-- **WHEN** the animator performs the seven gestures live in editing software
-- **THEN** the screens carry the fixed order and the principle repeated at each gesture
-- **AND** the pre-rendered states are available as the block's support
-
-#### Scenario: The editing software fails during the session
-
-- **WHEN** the live demonstration cannot be performed
-- **THEN** the seven cumulative states present the sequence in order
-- **AND** each state shows the result of every gesture up to and including its own
-
-#### Scenario: The animator skips a geste
-
-- **WHEN** the animator chooses to skip a geste for time
-- **THEN** the remaining states are still reachable in order without the skipped one breaking the sequence
 
 ### Requirement: A demonstration image may declare a resting crop and zoom
 
@@ -263,6 +244,32 @@ loupe can be called, and SHALL NOT appear on a phone, a tablet, or a printed pag
 - **THEN** no loupe hint is shown
 - **AND** the series' photographs can still be enlarged to their full frame as before
 
+### Requirement: A panel whose columns show the same scene may declare a linked loupe
+
+A concept panel whose columns all show a photograph of the same scene MAY declare a loupe with a
+stated magnification. Its photographs SHALL then behave like those of a comparison series that
+declares a loupe, hint included. A panel that does not declare a loupe SHALL behave as before.
+
+#### Scenario: The presenter calls the loupe on a panel
+
+- **WHEN** the presenter holds Shift with the pointer over one photograph of a panel that
+  declares a loupe
+- **THEN** every photograph of the panel shows a magnified view at the declared magnification
+- **AND** each magnified view is centred on the same point of the scene as the pointer, the
+  resting crop taken into account
+
+#### Scenario: The loupe hint on a panel
+
+- **WHEN** a panel that declares a loupe is shown on a device that can call it
+- **THEN** a hint below the columns tells the presenter to hold Shift to magnify a detail
+- **AND** the hint does not appear on a phone, a tablet, or a printed page
+
+#### Scenario: A panel without a loupe is pointed at with Shift held
+
+- **WHEN** the presenter holds Shift over a column photograph of a panel that does not declare a
+  loupe
+- **THEN** no magnified view appears
+
 ### Requirement: Free demonstration photographs may wrap into columns
 
 The photographs of a demonstration screen that do not belong to a comparison series MAY declare a
@@ -331,3 +338,117 @@ as before.
 - **WHEN** the same screen is displayed on a touch device without hover, or printed
 - **THEN** no loupe and no loupe hint are shown
 - **AND** the photographs can still be enlarged to their full frame as before
+
+### Requirement: A panel's archival illustration may declare a single-image loupe
+
+A concept panel's archival illustration MAY declare a loupe with a stated magnification. Its
+illustration SHALL then behave like a free demonstration photograph that declares a
+single-photograph loupe, hint included. An illustration without a loupe SHALL show no magnified
+view.
+
+#### Scenario: The presenter calls the loupe on an illustration
+
+- **WHEN** the presenter holds Shift with the pointer over a panel's illustration that declares a
+  loupe, on a device with a fine pointer that can hover
+- **THEN** the illustration shows a magnified view of the point under the pointer at the declared
+  magnification, inside its frame
+- **AND** the view disappears when Shift is released or the pointer leaves the illustration
+
+#### Scenario: The loupe hint on an illustrated panel
+
+- **WHEN** a panel whose illustration declares a loupe is shown on a device that can call it
+- **THEN** a hint below the illustration tells the presenter to hold Shift to magnify a detail
+- **AND** the hint appears once, and not on a phone, a tablet or a printed page
+
+#### Scenario: Shift is held while activating the illustration
+
+- **WHEN** the presenter activates the illustration while holding Shift
+- **THEN** the illustration is not enlarged to its full frame
+
+### Requirement: Archival images are public domain where the site is read
+
+A demonstration image by a third party (a photograph, an engraving or a book page) that is not
+used with its author's permission SHALL be in the public domain both in Canada (its author died
+before 1972) and in the United States. Otherwise it SHALL NOT be hosted on the site.
+
+#### Scenario: The animator adds a nineteenth-century image
+
+- **WHEN** an archival image whose author died before 1972 is added to a slot
+- **THEN** the image is hosted with the site like any other demonstration image
+
+#### Scenario: A candidate image is still protected in Canada
+
+- **WHEN** the author of a candidate archival image died in 1972 or later
+- **THEN** the image is not added to the site, even if it is public domain in the United States
+
+### Requirement: Archival images carry their author, date and source
+
+Every archival image SHALL carry a credit giving its author, its date or approximate date,
+and the collection or archive it comes from.
+
+#### Scenario: A participant enlarges an archival image
+
+- **WHEN** an archival image is displayed or enlarged
+- **THEN** its author, date and source are available as its credit
+
+#### Scenario: An archival slot is still empty
+
+- **WHEN** an archival image has not yet been supplied
+- **THEN** the slot's specification names the intended image, its author and its date
+
+### Requirement: Demonstration images contain no nudity
+
+No demonstration image SHALL show a nude or partly nude figure. This applies whether the image is
+an archival photograph, an engraving or a book page, or the animateur's own photograph. An
+archival image is judged on everything it shows, not only on its main subject.
+
+#### Scenario: A candidate archival image shows nude figures
+
+- **WHEN** a candidate archival image shows a nude or partly nude figure anywhere in the frame
+- **THEN** it is not added to the site, even if it otherwise suits the slot
+
+#### Scenario: A hosted image is found to show nudity
+
+- **WHEN** an image already on the site is found to show a nude or partly nude figure
+- **THEN** it is removed from the site and its file is deleted, not only hidden from the screen
+
+### Requirement: An unnamed studio's photograph is judged on its dates
+
+An archival photograph whose operator is unknown, such as a studio's work credited only to the
+studio, SHALL be hosted only if it was made before 1949 (public domain in Canada) and is public
+domain in the United States: published in 1930 or earlier, or made more than 120 years ago.
+
+#### Scenario: A studio photograph from the 1890s
+
+- **WHEN** a « Wm. Notman & Son » photograph made around 1893 is added to a slot
+- **THEN** it is hosted, since it was made before 1949 and more than 120 years ago
+
+#### Scenario: A studio photograph from 1911 with no known publication
+
+- **WHEN** a « Wm. Notman & Son » photograph made in 1911 is a candidate
+- **AND** no publication in 1930 or earlier is found
+- **THEN** it is not hosted, and the slot takes another photograph
+
+#### Scenario: A photograph by a named photographer
+
+- **WHEN** an archival photograph's operator is named, such as William Notman or Alexander
+  Henderson
+- **THEN** the rule on the author's death date applies, not this one
+
+### Requirement: A holder's rights label is read for what it says about copyright
+
+An archival photograph SHALL be judged by the hosting rules on the author's death date or on the
+photograph's dates. A holder's label that leaves its rights unassessed SHALL NOT by itself block
+hosting. A label stating that the photograph is in copyright SHALL block it. The label SHALL be
+recorded in the block's rights comment.
+
+#### Scenario: A photograph whose rights the holder has not assessed
+
+- **WHEN** an archive labels a photograph « Droit d'auteur non évalué »
+- **AND** its author died in 1905
+- **THEN** it is hosted, and the rights comment records the label next to the author's death year
+
+#### Scenario: A photograph the holder marks as in copyright
+
+- **WHEN** an archive labels a photograph « In Copyright », even with non-commercial use permitted
+- **THEN** it is not hosted, and the slot takes another photograph

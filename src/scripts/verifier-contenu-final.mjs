@@ -389,6 +389,42 @@ for (const { donnees } of lecons) {
   }
 }
 
+/* ── 13.8 · Un `:` ne se détache jamais du mot qui le précède ── */
+
+console.log('\n13.8 · Aucun « : » rendu ne suit une espace sécable');
+
+/**
+ * L'espace fine insécable avant `:` est posée au rendu, nœud de texte par
+ * nœud de texte. Après du gras, de l'italique ou du code, le `:` ouvre un
+ * nouveau nœud : la règle doit le voir là aussi, sans quoi « **gras** : »
+ * garde une espace ordinaire et le `:` peut tomber seul en début de ligne.
+ *
+ * On vérifie donc le HTML produit par la vraie chaîne Markdown du site, pas
+ * le texte source. Le code littéral est retiré d'abord : il est recopié tel
+ * quel, insécables comprises.
+ */
+const { md } = await import('../src/lib/md.ts');
+const FICHES = new URL('../src/content/fiches/', import.meta.url);
+const fiches = await Promise.all(
+  (await readdir(FICHES)).filter((f) => f.endsWith('.md')).sort().map(async (nom) => ({
+    nom,
+    // L'en-tête YAML n'est pas rendu en Markdown : on ne garde que le corps.
+    donnees: (await readFile(new URL(nom, FICHES), 'utf8')).replace(/^---\n[\s\S]*?\n---\n/, ''),
+  })),
+);
+
+for (const { nom, donnees } of [...lecons, ...marques, ...exercices, ...fiches]) {
+  const fautes = [];
+  for (const { chemin, texte } of chaines(donnees)) {
+    if (!texte.includes(':')) continue;
+    const rendu = (await md(texte)).replace(/<code\b[^>]*>[\s\S]*?<\/code>/g, '');
+    for (const t of rendu.matchAll(/[ \t\n]:/g)) {
+      fautes.push(`${chemin || nom} « ${extrait(rendu, t.index, 2)} »`);
+    }
+  }
+  verifier(fautes.length === 0, `${nom} — chaque « : » rendu suit une espace insécable${liste(fautes)}`);
+}
+
 function liste(items) {
   return items.length === 0 ? '' : ` — ${items.slice(0, 4).join(', ')}${items.length > 4 ? '…' : ''}`;
 }

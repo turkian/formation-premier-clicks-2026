@@ -352,6 +352,8 @@ async function verifierProjection(navigateur, site, ecrans) {
           const style = getComputedStyle(element);
           const masque = /hidden|clip/.test(style.overflowY) || /hidden|clip/.test(style.overflowX);
           if (!masque) continue;
+          // Un cadrage de repos rogne l'image agrandie exprès : ce n'est pas un débordement.
+          if (element.dataset.cadrageZoom) continue;
           const debord = Math.max(
             element.scrollHeight - element.clientHeight,
             element.scrollWidth - element.clientWidth,

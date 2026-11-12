@@ -49,8 +49,11 @@ export function typo(entree: string): string {
 
   // 1. Ponctuations doubles : espace fine insécable avant, jamais après un
   //    chiffre isolé collé (« 10:30 » reste une heure, pas une énumération).
+  //    Le `:` peut aussi ouvrir la chaîne : le Markdown est traité nœud par
+  //    nœud, et dans « **gras** : suite », le texte qui suit le gras commence
+  //    par « : ».
   t = t.replace(/\s*([;!?])/g, `${FINE}$1`);
-  t = t.replace(/(\S)\s*:(?!\/\/)/g, (_m, avant: string) =>
+  t = t.replace(/(^|\S)\s*:(?!\/\/)/g, (_m, avant: string) =>
     /\d/.test(avant) ? `${avant}:` : `${avant}${FINE}:`,
   );
 

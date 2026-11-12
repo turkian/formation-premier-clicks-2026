@@ -72,7 +72,9 @@ that both keep full usable space. Diagrams MAY appear inside a concept panel. A 
 include images derived from a single photograph to illustrate one variable it explains — for
 example, the same frame rendered at the exposure each aperture admits — provided the diagram
 states that the images are a simulation. A comparison of separately taken photographs remains a
-demonstration screen.
+demonstration screen. A concept panel MAY carry one archival document — a book page or an
+engraving — as an illustration beside its body, when the body states what that document says;
+the illustration is not a demonstration photograph.
 
 #### Scenario: A comparison series is shown
 
@@ -86,6 +88,32 @@ demonstration screen.
 - **WHEN** a concept panel's diagram shows images derived from one photograph
 - **THEN** the diagram or its caption says that the images are a simulation
 - **AND** only the variable the diagram explains differs between the images
+
+#### Scenario: A concept panel carries an archival illustration
+
+- **WHEN** a concept panel declares an archival illustration and is displayed in projection
+- **THEN** the illustration occupies the left column and the body the right column, both under
+  the statement
+- **AND** the illustration shows its caption and its credit, and can be enlarged to its full frame
+- **AND** the panel carries no diagram alongside it
+
+#### Scenario: An illustrated panel fits a 4:3 projector
+
+- **WHEN** a concept panel with an archival illustration is displayed at 1024 × 768
+- **THEN** the statement, the illustration, the whole body and the aside are visible without
+  scrolling
+- **AND** the body stays clearly above the aside type size
+
+#### Scenario: An illustrated panel is read on a phone or printed
+
+- **WHEN** a concept panel with an archival illustration is displayed on a phone or printed
+- **THEN** the statement, the illustration, the body and the aside appear in a single column, in
+  that order
+
+#### Scenario: A panel without an illustration
+
+- **WHEN** a concept panel declares no illustration
+- **THEN** it is laid out exactly as before
 
 ### Requirement: A demonstration screen shows at most three photographs
 
@@ -350,6 +378,34 @@ width, because its body introduces the diagram.
 - **WHEN** a lesson is projected on a 4:3 display
 - **THEN** every screen's content remains fully visible
 
+### Requirement: A concept panel with columns states its claim across the full width
+
+On a concept panel whose body is two or three side-by-side cards, the claim SHALL be allowed to
+span the full width the cards occupy at projection width, instead of the short measure used by
+concept panels without columns. A claim that fits on one line at that width SHALL be shown on one
+line. A longer claim MAY wrap onto two or more lines, each as wide as the cards. Concept panels
+without columns SHALL keep their short claim measure.
+
+#### Scenario: A short claim on a panel with columns is projected
+
+- **WHEN** session 3's « Placer » screen is displayed at 16:9 projection width
+- **THEN** its claim « Décentré ou centré — franchement. Jamais entre les deux. » appears on a
+  single line above the two cards
+
+#### Scenario: A long claim on a panel with columns is projected
+
+- **WHEN** a concept panel with columns whose claim does not fit on one line is displayed at
+  projection width
+- **THEN** its claim wraps onto lines that extend past the short measure, up to the width of
+  the cards
+- **AND** nothing on the screen is cut off, at 1024 × 768 or at 16:9
+
+#### Scenario: A concept panel without columns is projected
+
+- **WHEN** a concept panel without columns, diagram or illustration is displayed at projection
+  width
+- **THEN** its claim keeps the short measure of a single-column panel
+
 ### Requirement: Phone handoff is offered only where phone use helps
 
 A screen SHALL display a scannable code linking to its own address only when it is a block
@@ -513,11 +569,80 @@ size limits (about 100 words plus one diagram or table).
 
 #### Scenario: The recap hands over to the session's own content
 
-- **WHEN** the last recap concept panel has been displayed
+- **WHEN** the last recap concept panel of session 2 has been displayed
 - **THEN** the next screen introduces the session's new levers, shutter speed and ISO, side by
   side, each with what it is and what it does, without explaining either in detail
 - **AND** that screen is the last screen of the recap block
 - **AND** the screen after it is the first screen of the shutter-speed block
+
+#### Scenario: The recap of session 3 goes from shutter speed to what the camera still decides
+
+- **WHEN** the recap block of session 3 is read in order
+- **THEN** its concept panels present, in this order: shutter speed as the choice between
+  freezing and letting motion show, with the two blurs; ISO as the volume, and noise as a lack
+  of light; and manual mode with ISO auto, ISO chosen last, together with exposure compensation
+- **AND** none of them introduces composition
+
+### Requirement: The session 3 ISO recap shows noise with two cropped photographs
+
+The session 3 recap panel on ISO SHALL show, side by side, two photographs of the same scene and
+light from session 2: one taken at a high ISO, and one taken at a low ISO and brightened
+afterwards. Both SHALL open on the same resting crop, on a shadow where the noise is visible at
+projection size, and SHALL share a linked loupe for a closer look. The panel SHALL NOT say that ISO comes last; the manual-mode recap panel says it.
+
+#### Scenario: The ISO recap panel is projected
+
+- **WHEN** the session 3 ISO recap panel is displayed
+- **THEN** it shows two columns, each with one session 2 photograph of the same scene and a
+  short caption
+- **AND** the column for the low ISO brightened afterwards says it has more noise, not less
+- **AND** the callout states that noise comes from a lack of light, not from ISO
+
+#### Scenario: The noise is visible without enlarging the photographs
+
+- **WHEN** the two photographs are shown at rest on a projector, in 16:9 or 4:3
+- **THEN** both are framed on the same point at the same magnification
+- **AND** the grain in the shadow can be compared from the middle of the room without opening
+  either photograph
+
+#### Scenario: The presenter magnifies the grain
+
+- **WHEN** the presenter holds Shift over one of the two photographs
+- **THEN** both photographs show a magnified view of the same point, so the grain can be compared
+  more closely than the resting crop allows
+
+#### Scenario: The order of the choices is stated once
+
+- **WHEN** the session 3 recap block is read in order
+- **THEN** the ISO recap panel does not state that ISO comes last
+- **AND** the manual-mode recap panel that follows it states that ISO comes last, after the
+  aperture and the shutter speed
+
+### Requirement: The session 3 manual-mode recap does not read M as full manual
+
+The session 3 recap panel on manual mode with ISO auto SHALL present it, in its projected
+headline, as a half-automatic mode and state who decides what: the photographer keeps the
+aperture and the speed, the camera chooses the ISO. The headline SHALL NOT name `M`. The panel
+SHALL name `M` in its body, as the position on the mode dial, together with ISO auto.
+
+#### Scenario: The manual-mode recap panel is projected
+
+- **WHEN** the session 3 recap panel on manual mode with ISO auto is displayed
+- **THEN** its headline calls the mode half-automatic
+- **AND** its headline states that the photographer keeps the aperture and the speed, and that
+  the camera chooses the ISO
+- **AND** its headline does not contain `M`
+- **AND** its body names `M` with ISO auto as where to find the mode on the dial
+
+#### Scenario: The screen is listed or opened in a tab
+
+- **WHEN** the screen's title is shown in the session's list of screens or in the browser tab
+- **THEN** it does not open with `M`
+
+#### Scenario: A participant follows the link months later
+
+- **WHEN** someone opens `/lecons/3/retour/rappel-m-iso-auto/`
+- **THEN** the panel is still at that address
 
 ### Requirement: Recap content does not address phones separately
 
@@ -839,3 +964,346 @@ exercise: the room cannot reproduce these scenes. The challenge SHALL ask for ph
 
 - **WHEN** the challenge screen is displayed
 - **THEN** it asks for photographs that practise movement, low light and the `+/−` button
+
+### Requirement: Session 3 answers how to make better photographs
+
+Session 3 SHALL state its question as « comment faire de meilleures photos ? » and SHALL present,
+in this order: the recap of session 2, the history of composition rules, composition, the pause
+and questions, beyond composition, the animateur's experience, and « Et maintenant ? ».
+
+#### Scenario: A participant opens session 3
+
+- **WHEN** session 3's lesson is opened
+- **THEN** its question is « comment faire de meilleures photos ? »
+- **AND** its blocks appear in the order above
+
+#### Scenario: The session opens on the participants' own question
+
+- **WHEN** session 3's first screen is displayed
+- **THEN** it asks whether participants have taken photographs since session 2 and what they
+  learned
+- **AND** no screen in session 3 shows a montage of the participants' photographs from sessions 1
+  and 2
+
+#### Scenario: A participant looks for the editing tutorial
+
+- **WHEN** session 3 is read from start to end
+- **THEN** no block teaches editing-software controls one by one
+- **AND** no screen carries an export-recipe table
+
+#### Scenario: The composition block hands over to the pause
+
+- **WHEN** the last screen of the composition block is displayed
+- **THEN** it is a composition-technique screen, not an « appareil en main » screen
+- **AND** the next screen is the pause
+
+### Requirement: The history block shows where composition rules come from
+
+Session 3's history block SHALL present, on at most three screens and in this order: composition
+older than photography, photography becoming an art by composing like painting, and the first
+composition rules written for photographers. The block SHALL end before the twentieth century.
+
+#### Scenario: The history block is read in order
+
+- **WHEN** the history block's screens are displayed in sequence
+- **THEN** the three stages appear in the order above, on no more than three screens
+- **AND** each stage is illustrated by at least one archival image: a photograph, an engraving or
+  a book page
+
+#### Scenario: The first history screen is displayed
+
+- **WHEN** the first screen of the history block is displayed
+- **THEN** its statement is that composition is older than photography
+- **AND** it shows that, in 1797, an engraver was already giving advice on how to arrange a
+  landscape (where the sky, the land and the water go), before photography existed
+- **AND** neither its statement, its aside nor its image captions name the rule of thirds or
+  mention the camera's grid
+
+#### Scenario: The first history screen does not repeat the loupe hint
+
+- **WHEN** the first screen of the history block offers a loupe on its images
+- **THEN** the hint to hold Shift appears once, under the images
+- **AND** the aside does not repeat it
+
+#### Scenario: The second history screen shows staged photographs in date order
+
+- **WHEN** the second screen of the history block is displayed
+- **THEN** its images are staged photographs, each assembled from several negatives, shown
+  oldest first
+- **AND** its aside and captions name only photographers whose work appears on the screen
+- **AND** none of its images shows a nude or partly nude figure
+
+#### Scenario: The composition block follows the history block
+
+- **WHEN** the composition block's screens are read
+- **THEN** no technique is presented as borrowed from a named painting or painter
+- **AND** the only historical reference in the block is the 1797 origin of the rule of thirds,
+  on the screen that places the subject
+
+### Requirement: The third history screen lists Robinson's simple rules
+
+The third screen of session 3's history block SHALL be a concept panel showing page 47 of
+Robinson's *Pictorial Effect in Photography* (1869) as its illustration and, beside it, all ten
+rules of the chapter "Simple Rules", summarized in French, grouped under four headings, outdated
+rules included. The rules SHALL be stated as Robinson stated them, without pointing to a later
+screen.
+
+#### Scenario: The rules are listed beside the scan
+
+- **WHEN** the third history screen is displayed in projection
+- **THEN** the scan of page 47 appears on the left with its caption « Robinson, 1869 — « Simple
+  Rules » » (author, date, title) and its credit
+- **AND** the right column shows, in this order, the headings *Le point de vue*, *Les lignes*,
+  *L'équilibre* and *Le cadre*
+
+#### Scenario: All ten rules are present
+
+- **WHEN** the rules of the third history screen are read
+- **THEN** *Le point de vue* holds: change position, a few steps change the lines; and seen at an
+  angle rather than from the front
+- **AND** *Les lignes* holds: no parallel lines, with an undulating foreground under a straight
+  horizon; a few straight lines among the curves; and never the main subjects stacked in a line
+- **AND** *L'équilibre* holds: never a mirror symmetry; a street or a river never taken from the
+  centre; and never the horizon in the middle
+- **AND** *Le cadre* holds: a picture closed in on its edges; and an arch never resting on the
+  edge of the frame
+
+#### Scenario: The rules keep Robinson's tone and stay in the past
+
+- **WHEN** the rules of the third history screen are read
+- **THEN** the prescriptive rules keep the word « jamais » where Robinson writes "never"
+- **AND** no rule names, links to or announces a later screen or block
+
+#### Scenario: The rest of the screen is unchanged
+
+- **WHEN** the third history screen is displayed
+- **THEN** its statement is « Dans les années 1860, des photographes mettent les règles par écrit —
+  pour d'autres photographes. »
+- **AND** its aside names William Lake Price and Henry Peach Robinson, and says nothing else
+- **AND** the screen keeps its stable deep link `les-regles-s-ecrivent`
+
+### Requirement: The recap of session 2 hands over to framing
+
+Session 3's recap SHALL end on a screen stating that the camera can decide sharpness and
+exposure in its place but never the framing, and the screen after it SHALL open the history
+block.
+
+#### Scenario: The recap's last screen is displayed
+
+- **WHEN** the last screen of session 3's recap block is displayed
+- **THEN** it opposes what the camera can decide for the photographer (sharpness, exposure) to
+  what it never decides (framing)
+- **AND** the next screen is the first screen of the history block
+
+### Requirement: Composition techniques are ordered by impact in three tiers
+
+Session 3's composition block SHALL present composition techniques from the most to the least
+impact, in three tiers, and SHALL present all three tiers during the session. The first tier
+SHALL cover a single subject, getting closer, checking the four corners and the background, and
+placing the subject decisively.
+
+#### Scenario: The composition block is read in order
+
+- **WHEN** the composition block's screens are displayed in sequence
+- **THEN** every first-tier technique appears before any second-tier technique, and every
+  second-tier technique before any third-tier technique
+- **AND** the rule of thirds is presented as a starting point, alongside a clearly centred subject
+
+#### Scenario: A reader looks for the third tier
+
+- **WHEN** a reader looks for symmetry, repetition, negative space or diagonals
+- **THEN** they are found in the lesson, not only on a separate page
+
+### Requirement: Composition screens show two or three techniques side by side
+
+Each composition-technique screen SHALL present two or three techniques as side-by-side columns
+under a title naming what they do to the image. Each column SHALL carry the technique's name, at
+most a short sentence, and a demonstration photograph or its specification.
+
+#### Scenario: A technique screen is projected
+
+- **WHEN** a composition-technique screen is displayed at 1024 × 768 or 16:9
+- **THEN** its two or three techniques are visible side by side, each with its photograph or
+  the photograph's specification
+- **AND** nothing on the screen is cut off
+
+#### Scenario: A technique screen is read on a phone
+
+- **WHEN** the screen is opened at phone width
+- **THEN** the techniques are stacked in a single column without horizontal scrolling
+
+### Requirement: Session 3's pause is a single question break
+
+Session 3's pause block SHALL consist of one repère screen that announces a break and invites
+questions, about composition or about anything else, and invites participants to show a
+photograph on their screen.
+
+#### Scenario: The pause screen is displayed
+
+- **WHEN** session 3's pause block is displayed
+- **THEN** it holds exactly one screen
+- **AND** that screen announces the break and invites questions on any subject, composition
+  included
+- **AND** it invites participants to come and show a photograph on their screen
+
+#### Scenario: The pause screen is read months later
+
+- **WHEN** the pause screen is read outside the room
+- **THEN** it does not mention a wall, sticky notes, or the session as the last one together
+
+### Requirement: The beyond-composition block opens on three intentions
+
+Session 3's beyond-composition block SHALL open on a repère screen stating that a well-composed
+photograph is not yet a strong photograph, and announcing side by side three intentions,
+*captiver*, *faire ressentir* and *faire imaginer*, without explaining them yet.
+
+#### Scenario: The block's opener is displayed
+
+- **WHEN** the first screen of the beyond-composition block is displayed
+- **THEN** its statement opposes a well-composed photograph to a photograph that holds the viewer
+- **AND** it shows *Captiver*, *Faire ressentir* and *Faire imaginer* side by side, in that order
+
+#### Scenario: The opener does not call everything storytelling
+
+- **WHEN** the opener is read
+- **THEN** it presents telling a story as one intention among three, under *Faire imaginer*
+- **AND** it does not use the word « storytelling »
+
+### Requirement: Each intention has one screen of tools in columns
+
+After its opener, the beyond-composition block SHALL present one concept panel per intention, in
+the opener's order. Each panel SHALL be titled by the intention and present two or three tools as
+side-by-side columns, each with its name, one short sentence and a photograph or its
+specification.
+
+#### Scenario: The tool screens are read in order
+
+- **WHEN** the block's concept panels are displayed in sequence
+- **THEN** *Captiver* presents tension and relationships between elements
+- **AND** *Faire ressentir* presents two or three contrasting emotions, each with the visual
+  choices that support it
+- **AND** *Faire imaginer* presents what the photograph withholds and what happens before or
+  after the moment
+
+#### Scenario: The emotion screen warns against formulas
+
+- **WHEN** the *Faire ressentir* panel is displayed
+- **THEN** a callout states that these choices are not formulas, for example that a dark
+  photograph is not necessarily sad
+
+#### Scenario: A tool screen is projected or read on a phone
+
+- **WHEN** a tool screen is displayed at 1024 × 768 or 16:9
+- **THEN** its columns are visible side by side, each with its photograph or specification, and
+  nothing is cut off
+- **AND** at phone width the columns stack into one without horizontal scrolling
+
+### Requirement: The beyond-composition block is an introduction
+
+The beyond-composition block SHALL hold fewer screens than the composition block, and SHALL NOT
+include an « appareil en main » screen or an activity screen.
+
+#### Scenario: The block's length is compared with composition
+
+- **WHEN** the screens of both blocks are counted
+- **THEN** the beyond-composition block has fewer screens than the composition block
+- **AND** none of its screens is an « appareil en main » or an activity screen
+
+### Requirement: The beyond-composition block ends on the photographer's intention
+
+The beyond-composition block SHALL end on a transition screen asking participants, before asking
+how to compose a photograph, to ask themselves why they want to take it. The block that follows
+SHALL be the animateur's experience block.
+
+#### Scenario: The block's last screen is displayed
+
+- **WHEN** the last screen of the beyond-composition block is displayed
+- **THEN** it states « Avant de vous demander comment composer votre photo, demandez-vous pourquoi
+  vous voulez la prendre. »
+- **AND** it addresses the participants with « vous »
+- **AND** the next block is the animateur's experience block
+
+### Requirement: The beyond-composition block shows only public-domain photographs
+
+The beyond-composition block's photographs SHALL be archival photographs in the public domain or
+the club's own photographs. A protected photographer's work MAY be named and linked in an aside,
+and SHALL NOT be shown.
+
+#### Scenario: A reader looks for Cartier-Bresson's « instant décisif »
+
+- **WHEN** the block mentions a photograph by a protected photographer
+- **THEN** the photographer and the photograph are named, and a link MAY lead to it
+- **AND** no image of that photograph is shown on the site
+
+### Requirement: The experience block is the animateur's testimony
+
+Session 3 SHALL include a block in which the animateur shares their own practice in the first
+person, illustrated by their own photographs and signed. The block SHALL still address the
+participants, and SHALL stay true for a reader months later.
+
+#### Scenario: A reader opens the experience block months later
+
+- **WHEN** the experience block is read outside the room
+- **THEN** the reader can tell whose experience it is
+- **AND** no screen refers to the current session by a moment relative to the reader
+
+#### Scenario: A first-person screen is checked against the address rule
+
+- **WHEN** an experience screen is written in the animateur's voice
+- **THEN** it speaks to the participants and gives them something to do or consider
+- **AND** it does not address the animateur
+
+### Requirement: The experience block goes from intention to showing your work
+
+The experience block SHALL present, in this order: why and for whom you take pictures, stating
+that you must like your pictures first; RAW on a single screen; the animateur's workflow with a
+few hints; printing; and showing your pictures, with a montage of photographs from the
+animateur's exhibitions. More tips MAY be added within this order.
+
+#### Scenario: The experience block is read in order
+
+- **WHEN** the experience block's screens are displayed in sequence
+- **THEN** intention comes first and showing your pictures comes last
+- **AND** the screen about showing your pictures carries the exhibition montage
+
+#### Scenario: A participant wants to know about RAW
+
+- **WHEN** a participant looks for RAW in session 3
+- **THEN** exactly one screen covers it, stating what RAW keeps and why to shoot RAW + JPEG
+
+#### Scenario: A participant looks for how to develop a photo
+
+- **WHEN** a participant reads the workflow screen
+- **THEN** it gives the steps from import to export, including a backup and sorting before
+  developing
+- **AND** it does not walk through individual editing controls
+
+### Requirement: The composition block shows public-domain photographs
+
+The composition block's photographs SHALL be archival photographs in the public domain or the
+club's own photographs. Each archival photograph SHALL show the technique of its column clearly
+enough to be pointed at from the front of the room.
+
+#### Scenario: An archival photograph fills a composition slot
+
+- **WHEN** a composition-technique screen displays an archival photograph
+- **THEN** the photograph carries its author, date and collection as its credit
+- **AND** the technique named by its column is visible in it, for example a cliff edge on a thirds
+  line or a ship seen through an opening
+
+#### Scenario: A candidate photograph only roughly shows its technique
+
+- **WHEN** a candidate photograph for « Les tiers » places its subject well off the thirds lines
+- **THEN** it is not used in that slot, even if its rights are clear
+
+### Requirement: No photograph is shown twice in session 3
+
+A photograph SHALL appear at most once in session 3, in any version (a retouched and an
+unretouched print of the same negative count as one photograph). The same photographer MAY
+appear several times with different photographs.
+
+#### Scenario: A photographer is used in two blocks
+
+- **WHEN** session 3's archival credits are listed
+- **THEN** a photographer may appear more than once
+- **AND** no photograph, or another print of its negative, appears in two slots

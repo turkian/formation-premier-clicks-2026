@@ -15,6 +15,7 @@ import { md, mdEnLigne } from '../../lib/md';
 import { regionsCumulees } from '../../lib/lecon';
 import Schema from './Schema.astro';
 import EmplacementDemo from '../EmplacementDemo.astro';
+import IndiceLoupe from '../IndiceLoupe.astro';
 import { typo } from '../../lib/typo';
 
 interface Props {
@@ -35,7 +36,9 @@ const apartes = await Promise.all(cumule.aparte.map((bloc: string) => md(bloc)))
 const encadre = ecran.encadre ? await md(ecran.encadre) : null;
 /** La conclusion statique, hors de l'encadré — rendue juste après lui. */
 const suite = ecran.suite ? await md(ecran.suite) : null;
-/** Les options mises en regard, chacune avec sa photographie éventuelle. */
+/** Les options mises en regard, chacune avec sa photographie éventuelle.
+ *  Leur présence pose `data-colonnes` : l'énoncé prend alors la largeur des
+ *  cartes au lieu de la mesure courte d'un panneau à une colonne. */
 const colonnes = ecran.colonnes
   ? await Promise.all(
       ecran.colonnes.map(async (c: any) => ({ ...c, corpsHtml: await md(c.corps) })),
@@ -64,7 +67,10 @@ const dense = Boolean(ecran.etats?.length) && ajouts.length > 0;
 const schema = dense ? undefined : cumule.schema;
 /* Réservé au cas non-dense : une fois dense, la grille du panneau cumulatif
    régit déjà tout l'agencement, et ce data-attribut ne doit pas s'y ajouter. */
-const sansSchema = !dense && !schema;
+const sansSchema = !dense && !schema && !ecran.illustration;
+/* Le document d'archives que le corps cite : il prend la colonne de gauche.
+   Le schéma l'exclut (voir `content.config.ts`), il n'y a donc jamais les deux. */
+const illustration = ecran.illustration;
 /* L'inverse : un schéma sans texte à côté — il prend alors toute la largeur
    sous l'énoncé, au lieu d'une demi-colonne à côté d'un corps vide. */
 const sansCorps =
@@ -80,10 +86,34 @@ const empile = !dense && Boolean(schema) && (sansCorps || ecran.disposition === 
   data-empile={empile ? '' : undefined}
   data-dense={dense ? '' : undefined}
   data-sans-encadres={undefined}
+  data-illustre={illustration ? '' : undefined}
+  data-colonnes={colonnes ? '' : undefined}
 >
   <div class="region-claim">
     <h1 class="claim" set:html={claim} />
   </div>
+
+  {illustration && (
+    <div class="region-illustration">
+      <div
+        class="illustration"
+        data-loupe={illustration.loupe?.zoom}
+        data-loupe-mode={illustration.loupe ? 'seule' : undefined}
+      >
+        <EmplacementDemo
+          id={illustration.id}
+          fichier={illustration.fichier}
+          specification={illustration.specification}
+          alt={illustration.alt}
+          valeur={illustration.valeur}
+          priorite={illustration.priorite}
+          cadrage={illustration.cadrage}
+          loupe={Boolean(illustration.loupe)}
+        />
+      </div>
+      {illustration.loupe && <IndiceLoupe />}
+    </div>
+  )}
 
   {!sansCorps && <div class="region-corps corps">
     {corps.map((html) => <div set:html={html} />)}
@@ -115,7 +145,7 @@ const empile = !dense && Boolean(schema) && (sansCorps || ecran.disposition === 
       </div>
     )}
     {colonnes && (
-      <div class="colonnes" style={`--nombre: ${colonnes.length}`}>
+      <div class="colonnes" style={`--nombre: ${colonnes.length}`} data-loupe={ecran.loupe?.zoom}>
         {colonnes.map((c) => (
           <section class="colonne">
             <header>
@@ -132,12 +162,14 @@ const empile = !dense && Boolean(schema) && (sansCorps || ecran.disposition === 
                 valeur={c.image.valeur}
                 priorite={c.image.priorite}
                 cadrage={c.image.cadrage}
+                loupe={Boolean(ecran.loupe)}
               />
             )}
           </section>
         ))}
       </div>
     )}
+    {colonnes && ecran.loupe && <IndiceLoupe />}
     {encadre && (
       <div class="encadre" data-ton={ecran.ton}>
         {ecran.icone && <Icon name={ecran.icone} class="encadre-icone" />}
@@ -187,3 +219,8 @@ const empile = !dense && Boolean(schema) && (sansCorps || ecran.disposition === 
     </div>
   )}
 </div>
+
+<script>
+  // La loupe liée des colonnes : voir `lib/loupe-liee.ts`.
+  import '../../lib/loupe-liee';
+</script>

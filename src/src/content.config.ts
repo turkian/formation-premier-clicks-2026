@@ -170,6 +170,13 @@ const ecranPanneau = baseEcran.extend({
     .max(3)
     .optional(),
   /**
+   * Loupe liée des photographies des colonnes, comme celle d'une série
+   * comparative : en maintenant Maj, le même point s'affiche agrandi sur chaque
+   * photographie, à ce grossissement (par rapport à l'image entière). À ne
+   * déclarer que si toutes les colonnes montrent la même scène.
+   */
+  loupe: z.object({ zoom: z.number().min(1) }).optional(),
+  /**
    * Des groupes de petites cartes — une situation et sa valeur de départ, par
    * exemple. Plus lisible qu'un long tableau du fond de la salle : chaque
    * groupe porte un titre, chaque carte une icône, un nom et une valeur.
@@ -200,6 +207,16 @@ const ecranPanneau = baseEcran.extend({
    * phrase. Un panneau à schéma sans corps s'empile de lui-même.
    */
   disposition: z.enum(['empilee']).optional(),
+  /**
+   * Un document d'archives — page de livre, gravure — montré à gauche du
+   * corps, quand le corps dit ce que ce document énonce. Ce n'est pas une
+   * photographie de démonstration : il illustre le texte, il ne compare rien.
+   * Sa loupe, s'il en déclare une, n'agrandit que lui. Exclu avec un schéma,
+   * des états, des colonnes ou des cartes (voir `ecran`, plus bas).
+   */
+  illustration: emplacementDemo
+    .extend({ loupe: z.object({ zoom: z.number().min(1) }).optional() })
+    .optional(),
 });
 
 /**
@@ -292,13 +309,28 @@ const ecranAppareil = baseEcran.extend({
   aparte: z.string().optional(),
 });
 
-const ecran = z.discriminatedUnion('genre', [
-  ecranPanneau,
-  ecranDemonstration,
-  ecranInteractif,
-  ecranRepere,
-  ecranAppareil,
-]);
+/* Le raffinement vit sur l'union plutôt que sur `ecranPanneau` : une union
+   discriminée n'accepte que des objets nus. */
+const ecran = z
+  .discriminatedUnion('genre', [
+    ecranPanneau,
+    ecranDemonstration,
+    ecranInteractif,
+    ecranRepere,
+    ecranAppareil,
+  ])
+  .superRefine((e, ctx) => {
+    if (e.genre !== 'panneau' || !e.illustration) return;
+    for (const champ of ['schema', 'etats', 'colonnes', 'cartes'] as const) {
+      if (e[champ] !== undefined) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ['illustration'],
+          message: `Écran « ${e.id} » : une illustration occupe la place du schéma — elle exclut \`${champ}\`.`,
+        });
+      }
+    }
+  });
 
 /** Un bloc pédagogique : l'unité de la leçon (décision D2). */
 const bloc = z.object({

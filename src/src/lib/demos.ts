@@ -106,6 +106,7 @@ export async function creditDeLEcran(ecran: any): Promise<CreditEcran | null> {
   /* Les rangées telles que la projection les dispose. Une colonne sans photo
      garde sa place : c'est elle qui fait la gauche et la droite. */
   const rangees: any[][] = [
+    ...(ecran.illustration ? [[ecran.illustration]] : []),
     ...(ecran.colonnes ? [ecran.colonnes.map((c: any) => c.image)] : []),
     ...(ecran.series ?? []).map((s: any) => s.images),
     ...rangsLibres(ecran),
