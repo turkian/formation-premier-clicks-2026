@@ -930,10 +930,10 @@ maintenant ? ».
 
 ### Requirement: The history block shows where composition rules come from
 
-Session 3's history block SHALL present, on at most three screens and in this order: a
-composition rule older than photography, photography becoming an art by composing like painting,
-and the first composition rules written for photographers. The block SHALL end before the
-twentieth century, and its last screen SHALL hand over to the composition block.
+Session 3's history block SHALL present, on at most three screens and in this order: composition
+older than photography, photography becoming an art by composing like painting, and the first
+composition rules written for photographers. The block SHALL end before the twentieth century,
+and its last screen SHALL hand over to the composition block.
 
 #### Scenario: The history block is read in order
 
@@ -945,9 +945,17 @@ twentieth century, and its last screen SHALL hand over to the composition block.
 #### Scenario: The first history screen is displayed
 
 - **WHEN** the first screen of the history block is displayed
-- **THEN** it shows that the rule of thirds was named in 1797, for drawing, before photography
-- **AND** it states that the rule then meant a proportion of masses, such as land and sky, not
-  the nine-box grid of a camera
+- **THEN** its statement is that composition is older than photography
+- **AND** it shows that, in 1797, an engraver was already giving advice on how to arrange a
+  landscape (where the sky, the land and the water go), before photography existed
+- **AND** neither its statement, its aside nor its image captions name the rule of thirds or
+  mention the camera's grid
+
+#### Scenario: The first history screen does not repeat the loupe hint
+
+- **WHEN** the first screen of the history block offers a loupe on its images
+- **THEN** the hint to hold Shift appears once, under the images
+- **AND** the aside does not repeat it
 
 #### Scenario: The composition block follows the history block
 

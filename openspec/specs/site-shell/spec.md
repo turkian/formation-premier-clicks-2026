@@ -157,6 +157,13 @@ non-breaking inner spaces, and non-breaking spaces inside numbers and units (`1 
 - **THEN** the punctuation or quotation mark stays attached to the word it belongs to
 - **AND** a unit is never separated from its number across a line break
 
+#### Scenario: A colon follows emphasized or code text
+
+- **WHEN** content writes a `:` right after bold, italic or inline code, such as
+  `**comment l'arranger** :`
+- **THEN** the rendered `:` is preceded by a thin non-breaking space, as it is after plain text
+- **AND** the `:` never starts a line on its own
+
 ### Requirement: Site copy is true whenever it is read
 
 All rendered copy SHALL be true regardless of when it is read. Copy SHALL refer to a session by

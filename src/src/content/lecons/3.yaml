@@ -149,7 +149,7 @@ blocs:
       - id: avant-la-photo
         genre: demonstration
         titre: Avant la photo
-        claim: La règle des tiers est plus vieille que la photographie.
+        claim: La composition est plus vieille que la photographie.
         images:
           - id: l3-histoire-smith
             specification: >-
@@ -157,7 +157,7 @@ blocs:
               Scenery, 1797 — une rive de la Tamise : le ciel occupe environ les deux tiers de
               l'image, la terre et l'eau le tiers restant. Getty Research Institute.
             alt: Une gravure d'une rive de la Tamise — des saules, des chaumières, une barque sur l'eau, et un grand ciel au-dessus
-            valeur: Smith, 1797 — deux tiers de ciel, un tiers de terre
+            valeur: "Smith, 1797 — le ciel, la terre, l'eau : chacun à sa place"
             credit: John Thomas Smith, 1797, Getty Research Institute
             priorite: utile
           - id: l3-histoire-smith-regle
@@ -166,16 +166,15 @@ blocs:
               la « Rule of thirds » : placer le ciel à environ deux tiers, ou à un tiers, de la
               hauteur. Getty Research Institute.
             alt: Une page imprimée de 1797, en anglais, où l'on lit « Rule of thirds » entre guillemets
-            valeur: Smith, 1797 — « Rule of thirds », pour la première fois
+            valeur: Smith, 1797 — des règles pour arranger un paysage
             credit: John Thomas Smith, 1797, Getty Research Institute
             priorite: utile
         loupeImages:
           zoom: 3
         aparte: |
-          En 1797, le graveur **John Thomas Smith** propose une « règle des tiers » pour le
-          paysage dessiné : deux tiers de ciel pour un tiers de terre, ou l'inverse, plutôt
-          qu'une moitié exacte. C'était une proportion de masses, pas la grille de neuf cases de
-          votre appareil. Maintenez Maj sur la page pour lire le passage.
+          En 1797, le graveur **John Thomas Smith** publie des conseils pour dessiner le paysage.
+          Il ne dit pas *quoi* dessiner, mais **comment l'arranger** : quelle place donner au
+          ciel, à la terre, à l'eau. C'est ça, composer.
 
       - id: la-photo-devient-un-art
         genre: demonstration
