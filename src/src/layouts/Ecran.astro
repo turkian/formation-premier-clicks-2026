@@ -79,17 +79,23 @@ const titre = arret.ecran.titre ?? arret.bloc.titre;
         </span>
       )}
 
+      {/* Les flèches seules : les mots restent pour les lecteurs d'écran
+          (`aria-label`, pas un texte masqué que `verifier:projection` prendrait
+          pour du contenu rogné), mais
+          laissent au crédit photo la place qu'ils prenaient. Une extrémité
+          inactive ne garde que sa flèche estompée, muette — le compteur dit
+          déjà « 1 / 25 ». */}
       <span class="navigation">
         {precedent ? (
-          <a href={lien(precedent.chemin)} rel="prev">← Précédent</a>
+          <a href={lien(precedent.chemin)} rel="prev" aria-label="Précédent">←</a>
         ) : (
-          <span style="opacity:0.4">← Précédent</span>
+          <span aria-hidden="true" style="opacity:0.4">←</span>
         )}
         <span>{typo(`${arret.index + 1} / ${totalArrets}`)}</span>
         {suivant ? (
-          <a href={lien(suivant.chemin)} rel="next">Suivant →</a>
+          <a href={lien(suivant.chemin)} rel="next" aria-label="Suivant">→</a>
         ) : (
-          <span style="opacity:0.4">Suivant →</span>
+          <span aria-hidden="true" style="opacity:0.4">→</span>
         )}
       </span>
     </footer>

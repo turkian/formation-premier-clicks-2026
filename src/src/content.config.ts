@@ -294,6 +294,11 @@ const ecranRepere = baseEcran.extend({
     .min(2)
     .max(3)
     .optional(),
+  /**
+   * Durée d'une minuterie projetée sous l'énoncé, en minutes entières. Le
+   * repère qui n'en déclare pas n'embarque aucun script.
+   */
+  minuterie: z.number().int().positive().optional(),
 });
 
 /** 5 · Appareil en main — les gestes à poser, reconnaissable du fond. */

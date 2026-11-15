@@ -9,6 +9,7 @@
 import { Icon } from 'astro-icon/components';
 import { md, mdEnLigne } from '../../lib/md';
 import { typo } from '../../lib/typo';
+import Minuterie from '../Minuterie.astro';
 
 interface Props {
   ecran: any;
@@ -30,6 +31,7 @@ const colonnes = ecran.colonnes
     )
   : null;
 // Rien d'autre que l'étiquette et l'énoncé : l'écran se lit comme une affiche, centré.
+// Une minuterie n'y change rien : elle se centre sous l'énoncé.
 const titreSeul = !corps && !colonnes && !ecran.termes && !aparte;
 
 const ETIQUETTES: Record<string, string> = {
@@ -47,6 +49,7 @@ const ETIQUETTES: Record<string, string> = {
 >
   <p class="numero-bloc">{ETIQUETTES[ecran.variante] ?? ecran.variante}</p>
   <h1 class="claim" set:html={claim} />
+  {ecran.minuterie && <Minuterie minutes={ecran.minuterie} />}
   {corps && <div class="corps" set:html={corps} />}
   {colonnes && (
     <div class="colonnes" style={`--nombre: ${colonnes.length}`}>

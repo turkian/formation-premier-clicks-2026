@@ -1,0 +1,164 @@
+---
+/**
+ * Minuterie projetée sous l'énoncé d'un repère — une pause, par exemple.
+ *
+ * Un clic la démarre, la met en pause ou la relance ; un double-clic la remet
+ * à la durée complète, arrêtée. Arrivée à 0:00, elle y reste, sans aucun son.
+ *
+ * Le temps restant se calcule à partir d'une heure de fin, jamais en comptant
+ * des secondes : un onglet en arrière-plan ralentit les minuteries du
+ * navigateur, une heure de fin ne dérive pas. L'état est gardé dans
+ * `sessionStorage`, parce que chaque écran est une page : l'animateur peut
+ * revenir un écran en arrière pendant la pause sans remettre le compte à zéro.
+ *
+ * Le script n'est rendu qu'avec le composant : un repère sans minuterie
+ * n'embarque aucun JavaScript.
+ */
+interface Props {
+  /** Durée en minutes entières. */
+  minutes: number;
+}
+
+const { minutes } = Astro.props;
+// Écrit directement, sans `typo()` : la règle de l'espace avant « : » donnerait « 5 :00 ».
+const depart = `${minutes}:00`;
+---
+
+<button
+  type="button"
+  class="minuterie"
+  data-minuterie={minutes}
+  data-etat="arret"
+  aria-label={`Minuterie de ${minutes} minutes. Cliquer pour démarrer.`}
+>
+  <span class="minuterie-chiffres" data-chiffres aria-hidden="true">{depart}</span>
+</button>
+
+<script>
+  type Etat = 'arret' | 'marche' | 'pause' | 'fini';
+  /** `fin` n'existe qu'en marche ; ailleurs, `reste` est figé. */
+  interface Memoire {
+    etat: Etat;
+    reste: number;
+    fin?: number;
+  }
+
+  const ETATS: Etat[] = ['arret', 'marche', 'pause', 'fini'];
+  const ACTIONS: Record<Etat, string> = {
+    arret: 'Cliquer pour démarrer.',
+    marche: 'Cliquer pour mettre en pause, double-cliquer pour remettre à zéro.',
+    pause: 'Cliquer pour reprendre, double-cliquer pour remettre à zéro.',
+    fini: 'Double-cliquer pour remettre à zéro.',
+  };
+
+  for (const bouton of document.querySelectorAll<HTMLButtonElement>('[data-minuterie]')) demarrer(bouton);
+
+  function demarrer(bouton: HTMLButtonElement) {
+    const duree = Number(bouton.dataset.minuterie) * 60_000;
+    const cle = `minuterie:${location.pathname}`;
+    const chiffres = bouton.querySelector<HTMLElement>('[data-chiffres]')!;
+    let memoire: Memoire = lire() ?? { etat: 'arret', reste: duree };
+    let horloge: number | undefined;
+
+    // Une minuterie laissée en marche dont l'heure de fin est passée est finie.
+    if (memoire.etat === 'marche' && restant() <= 0) memoire = { etat: 'fini', reste: 0 };
+    rendre(true);
+
+    bouton.addEventListener('click', () => {
+      switch (memoire.etat) {
+        case 'arret':
+          passer('marche', duree);
+          break;
+        case 'marche':
+          passer('pause', restant());
+          break;
+        case 'pause':
+          passer('marche', memoire.reste);
+          break;
+        // Finie : un simple clic ne fait rien, seul le double-clic la remet à zéro.
+      }
+    });
+
+    // Un double-clic arrive après deux clics, qui ont déjà basculé l'état deux
+    // fois : on remet tout à zéro, quoi qu'ils aient fait.
+    bouton.addEventListener('dblclick', () => passer('arret', duree));
+
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) tic();
+    });
+
+    function restant() {
+      return memoire.etat === 'marche' ? Math.max(0, memoire.fin! - Date.now()) : memoire.reste;
+    }
+
+    function passer(etat: Etat, reste: number) {
+      memoire = etat === 'marche' ? { etat, reste, fin: Date.now() + reste } : { etat, reste };
+      ecrire();
+      rendre(true);
+    }
+
+    function tic() {
+      if (memoire.etat === 'marche' && restant() <= 0) passer('fini', 0);
+      else rendre(false);
+    }
+
+    function rendre(nouvelEtat: boolean) {
+      // Arrondi vers le haut : 5:00 reste affiché la première seconde, et 0:00
+      // n'apparaît qu'à la fin réelle.
+      const secondes = Math.ceil(restant() / 1000);
+      chiffres.textContent = `${Math.floor(secondes / 60)}:${String(secondes % 60).padStart(2, '0')}`;
+      if (!nouvelEtat) return;
+
+      bouton.dataset.etat = memoire.etat;
+      // Le libellé ne change qu'avec l'état : un lecteur d'écran n'énonce pas chaque seconde.
+      bouton.setAttribute('aria-label', libelle(secondes));
+      window.clearInterval(horloge);
+      horloge = memoire.etat === 'marche' ? window.setInterval(tic, 250) : undefined;
+    }
+
+    function libelle(secondes: number) {
+      const temps = dureeEnMots(secondes);
+      switch (memoire.etat) {
+        case 'arret':
+          return `Minuterie de ${dureeEnMots(duree / 1000)}. ${ACTIONS.arret}`;
+        case 'marche':
+          return `Minuterie en marche, il reste ${temps}. ${ACTIONS.marche}`;
+        case 'pause':
+          return `Minuterie en pause, il reste ${temps}. ${ACTIONS.pause}`;
+        case 'fini':
+          return `Minuterie terminée. ${ACTIONS.fini}`;
+      }
+    }
+
+    function lire(): Memoire | null {
+      try {
+        const brut = sessionStorage.getItem(cle);
+        if (!brut) return null;
+        const m = JSON.parse(brut) as Partial<Memoire>;
+        if (!ETATS.includes(m.etat as Etat) || !Number.isFinite(m.reste)) return null;
+        if (m.etat === 'marche' && !Number.isFinite(m.fin)) return null;
+        // La durée a pu changer dans le contenu depuis : on ne dépasse jamais la nouvelle.
+        return { ...(m as Memoire), reste: Math.min(m.reste!, duree) };
+      } catch {
+        return null;
+      }
+    }
+
+    function ecrire() {
+      try {
+        sessionStorage.setItem(cle, JSON.stringify(memoire));
+      } catch {
+        // Stockage indisponible : la minuterie fonctionne, mais repart à zéro d'un écran à l'autre.
+      }
+    }
+  }
+
+  function dureeEnMots(totalSecondes: number) {
+    const minutes = Math.floor(totalSecondes / 60);
+    const secondes = Math.round(totalSecondes % 60);
+    const morceaux = [];
+    if (minutes) morceaux.push(`${minutes} minute${minutes > 1 ? 's' : ''}`);
+    if (secondes || !minutes) morceaux.push(`${secondes} seconde${secondes > 1 ? 's' : ''}`);
+    return morceaux.join(' ');
+  }
+</script>

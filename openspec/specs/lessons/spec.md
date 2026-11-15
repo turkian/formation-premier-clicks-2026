@@ -677,6 +677,69 @@ the same content checks as any other screen text.
 - **WHEN** a repère screen is authored with one column or more than three
 - **THEN** the build fails instead of rendering the screen
 
+### Requirement: A repère card places its icon above its title
+
+On a repère screen with column cards, a card that carries an icon SHALL show that icon on its own
+line, above the card's title, whatever the title's length or the screen's width. The icon SHALL NOT
+share a line with the title. On a concept panel, a card's icon SHALL sit beside its title when both
+fit on one line, and the title SHALL move below the icon only when they don't. A card without an
+icon SHALL open on its title.
+
+#### Scenario: Titles of different lengths share a screen
+
+- **WHEN** session 3's « Au-delà de la composition » opening screen is displayed at projection
+  width
+- **THEN** « Captiver », « Faire ressentir » and « Faire imaginer » each appear below their icon
+- **AND** the three titles start at the same height, as do the three bodies
+
+#### Scenario: A short title would fit beside its icon
+
+- **WHEN** a repère card whose title is a single short word is displayed at any width
+- **THEN** its icon is above the title, not beside it
+
+#### Scenario: A concept panel with icons and photographs is projected
+
+- **WHEN** session 3's « Captiver » panel is displayed at 1024 × 768 or 16:9
+- **THEN** « La tension » and « Les relations » each sit on the same line as their icon
+- **AND** the demonstration photographs take the height the header no longer uses
+- **AND** nothing on the screen is cut off
+
+#### Scenario: A concept-panel title is too long for its icon's line
+
+- **WHEN** a concept-panel card's title does not fit beside its icon at the displayed width
+- **THEN** the title moves below the icon
+- **AND** the bodies and photographs of the cards on that panel still start at the same height
+
+#### Scenario: Cards are read on a phone
+
+- **WHEN** a repère screen with column cards carrying icons is opened at phone width
+- **THEN** each stacked card shows its icon above its title
+
+### Requirement: A title-only repère screen is centered
+
+A repère screen that carries only its label and its claim, with no body, columns, terms or aside,
+SHALL be centered on the screen both vertically and horizontally, with its label and its claim
+each centered line by line. A repère screen with any other content SHALL keep its left-aligned
+layout.
+
+#### Scenario: A title-only repère is projected
+
+- **WHEN** a repère screen with only a label and a claim is displayed at projection width, in 16:9
+  or in 4:3
+- **THEN** its label and claim sit in the middle of the screen, vertically and horizontally
+- **AND** each line of the claim is centered
+- **AND** the claim keeps the large size of a repère without a body
+
+#### Scenario: A repère with a body is projected
+
+- **WHEN** a repère screen with a body, columns, terms or an aside is displayed
+- **THEN** its label, claim and content are left-aligned, as before this change
+
+#### Scenario: A title-only repère is read on a phone
+
+- **WHEN** a title-only repère screen is displayed at phone width
+- **THEN** its label and claim stay centered and fit the width without horizontal scrolling
+
 ### Requirement: The speed block alternates explanation and hands-on practice
 
 Session 2's shutter-speed block SHALL interleave « appareil en main » screens with its concept,
@@ -970,8 +1033,8 @@ exercise: the room cannot reproduce these scenes. The challenge SHALL ask for ph
 Session 3 SHALL be titled « Composer, puis progresser », with the thread « Apprendre à voir →
 composer → aller au-delà → progresser ». It SHALL state its question as « comment faire de
 meilleures photos ? » and SHALL present, in this order: the recap of session 2, the history of
-composition rules, composition, the pause and questions, beyond composition, and the shared
-experience block, which ends the session.
+composition rules, composition, the pause, beyond composition, and the shared experience block,
+which ends the session.
 
 #### Scenario: A participant opens session 3
 
@@ -1023,12 +1086,6 @@ composition rules written for photographers. The block SHALL end before the twen
 - **AND** neither its statement, its aside nor its image captions name the rule of thirds or
   mention the camera's grid
 
-#### Scenario: The first history screen does not repeat the loupe hint
-
-- **WHEN** the first screen of the history block offers a loupe on its images
-- **THEN** the hint to hold Shift appears once, under the images
-- **AND** the aside does not repeat it
-
 #### Scenario: The second history screen shows staged photographs in date order
 
 - **WHEN** the second screen of the history block is displayed
@@ -1041,49 +1098,58 @@ composition rules written for photographers. The block SHALL end before the twen
 
 - **WHEN** the composition block's screens are read
 - **THEN** no technique is presented as borrowed from a named painting or painter
-- **AND** the only historical reference in the block is the 1797 origin of the rule of thirds,
-  on the screen that places the subject
+- **AND** the block makes no historical reference: no date, author or origin is given for any
+  technique, apart from the credits of its photographs
 
-### Requirement: The third history screen lists Robinson's simple rules
+### Requirement: The third history screen sums up the 1860s composition principles
 
-The third screen of session 3's history block SHALL be a concept panel showing page 47 of
-Robinson's *Pictorial Effect in Photography* (1869) as its illustration and, beside it, all ten
-rules of the chapter "Simple Rules", summarized in French, grouped under four headings, outdated
-rules included. The rules SHALL be stated as Robinson stated them, without pointing to a later
-screen.
+The third screen of session 3's history block SHALL be a concept panel showing page 24 of
+Robinson's *Pictorial Effect in Photography* (1869) and, beside it, a French synthesis of the
+composition principles of William Lake Price (1860) and Robinson (1869), grouped by theme, not by
+author, in about 100 words or fewer. The body SHALL NOT name an author or source.
 
-#### Scenario: The rules are listed beside the scan
+#### Scenario: The diagonal page is shown beside the principles
 
 - **WHEN** the third history screen is displayed in projection
-- **THEN** the scan of page 47 appears on the left with its caption « Robinson, 1869 — « Simple
-  Rules » » (author, date, title) and its credit
-- **AND** the right column shows, in this order, the headings *Le point de vue*, *Les lignes*,
-  *L'équilibre* and *Le cadre*
+- **THEN** the scan of page 24, a rectangle cut by one diagonal and a cliff and beach built on it,
+  appears on the left with its caption « Robinson, 1869 — la diagonale » and its credit
+- **AND** the right column shows, in this order, the headings *Le sujet*, *Les lignes* and
+  *L'ombre et la lumière*
 
-#### Scenario: All ten rules are present
+#### Scenario: Each theme holds its principles
 
-- **WHEN** the rules of the third history screen are read
-- **THEN** *Le point de vue* holds: change position, a few steps change the lines; and seen at an
-  angle rather than from the front
-- **AND** *Les lignes* holds: no parallel lines, with an undulating foreground under a straight
-  horizon; a few straight lines among the curves; and never the main subjects stacked in a line
-- **AND** *L'équilibre* holds: never a mirror symmetry; a street or a river never taken from the
-  centre; and never the horizon in the middle
-- **AND** *Le cadre* holds: a picture closed in on its edges; and an arch never resting on the
-  edge of the frame
+- **WHEN** the principles of the third history screen are read
+- **THEN** *Le sujet* holds: one principal subject toward which everything leads the eye; the
+  subject slightly away from the exact centre; and in a portrait, the face sharpest, brightest,
+  with more room in front of it than behind
+- **AND** *Les lignes* holds: one dominant direction with a counter-line to balance it; groups
+  built on a triangle, a diagonal or a circle, without the structure showing; a shape repeated
+  more faintly; and moving the camera a few metres to balance the frame
+- **AND** *L'ombre et la lumière* holds: light and shade gathered in large masses, not scattered
+  spots; the light reaching into the dark and the dark into the light; the strongest contrast in
+  one place, with soft contours elsewhere; and the proportions of light and shade setting the
+  mood, such as mist, storm or full sun
 
-#### Scenario: The rules keep Robinson's tone and stay in the past
+#### Scenario: The principles are reported as history
 
-- **WHEN** the rules of the third history screen are read
-- **THEN** the prescriptive rules keep the word « jamais » where Robinson writes "never"
-- **AND** no rule names, links to or announces a later screen or block
+- **WHEN** the principles of the third history screen are read
+- **THEN** the light-and-shade principles are present even though no later screen teaches them
+- **AND** no principle names, links to or announces a later screen or block
+- **AND** no principle is phrased as a « jamais »
+
+#### Scenario: The screen fits the projection floors
+
+- **WHEN** the third history screen is displayed at 1024 × 768 and at 16:9
+- **THEN** the statement, the scan with its caption and every principle are visible
+  without scrolling
+- **AND** the body stays at the body size
 
 #### Scenario: The rest of the screen is unchanged
 
 - **WHEN** the third history screen is displayed
 - **THEN** its statement is « Dans les années 1860, des photographes mettent les règles par écrit —
   pour d'autres photographes. »
-- **AND** its aside names William Lake Price and Henry Peach Robinson, and says nothing else
+- **AND** the screen has no aside
 - **AND** the screen keeps its stable deep link `les-regles-s-ecrivent`
 
 ### Requirement: The recap of session 2 hands over to framing
@@ -1111,7 +1177,8 @@ placing the subject decisively.
 - **WHEN** the composition block's screens are displayed in sequence
 - **THEN** every first-tier technique appears before any second-tier technique, and every
   second-tier technique before any third-tier technique
-- **AND** the rule of thirds is presented as a starting point, alongside a clearly centred subject
+- **AND** the rule of thirds is presented as one of three ways to place the subject, alongside a
+  clearly centred subject and room left in front of the subject, and not as a rule to follow
 
 #### Scenario: A reader looks for the third tier
 
@@ -1136,24 +1203,189 @@ most a short sentence, and a demonstration photograph or its specification.
 - **WHEN** the screen is opened at phone width
 - **THEN** the techniques are stacked in a single column without horizontal scrolling
 
-### Requirement: Session 3's pause is a single question break
+### Requirement: Session 3 concept panel cards describe the technique
 
-Session 3's pause block SHALL consist of one repère screen that announces a break and invites
-questions, about composition or about anything else, and invites participants to show a
-photograph on their screen.
+On a session 3 concept panel with columns, each column's body SHALL describe the technique as it
+appears in an image, by its elements and their arrangement. It MAY say what that arrangement does.
+It SHALL NOT tell the photographer what to do, give a test to pass, or point out a common mistake.
+That advice belongs in the room, said out loud, not on the card.
+
+#### Scenario: The cards of « Simplifier » are displayed
+
+- **WHEN** the « Simplifier » panel is displayed
+- **THEN** « Un seul sujet » reads « Un seul élément à regarder, rien autour pour lui faire
+  concurrence. »
+- **AND** « Se rapprocher » reads « Assez près pour lire l'expression, la texture, le détail. »
+- **AND** « Remplir le cadre » reads « Le sujet occupe l'image d'un bord à l'autre. »
+
+#### Scenario: The cards of « Nettoyer » are displayed
+
+- **WHEN** the « Nettoyer » panel is displayed
+- **THEN** « Les quatre coins » reads « Des coins sans intrus : ni poteau, ni poubelle, ni bras
+  coupé. »
+- **AND** « L'arrière-plan d'abord » reads « Un fond calme, choisi en premier ; le sujet se détache
+  devant. »
+
+#### Scenario: The point-of-view card is displayed
+
+- **WHEN** the « Donner de la profondeur » panel is displayed
+- **THEN** « Le point de vue » reads « Accroupi ou en hauteur, plutôt qu'à la hauteur des yeux. »
+
+#### Scenario: A card body is written as advice
+
+- **WHEN** a session 3 concept panel's column body is an imperative (« Choisissez… »), a test
+  addressed to the reader (« Si vous ne pouvez pas… ») or the diagnosis of a usual fault (« la
+  photo est presque toujours prise de trop loin »)
+- **THEN** it is rewritten to describe what the image shows
+- **AND** the panel's claim and aside are not affected by this rule
+
+### Requirement: Session 3's « Nettoyer » panel has no aside
+
+Session 3's « Nettoyer » composition panel SHALL show its claim and its two technique cards, and
+SHALL NOT show an aside under the cards. The presenter says the point about looking at the four
+corners out loud.
+
+#### Scenario: The « Nettoyer » panel is displayed
+
+- **WHEN** the « Nettoyer » panel of session 3 is displayed
+- **THEN** it shows the claim « Ce qui n'aide pas votre sujet lui nuit. » and the cards « Les quatre
+  coins » and « L'arrière-plan d'abord » with their photographs
+- **AND** no aside appears between the cards and the photo credits
+- **AND** the text « Personne ne regarde ses quatre coins naturellement » appears nowhere on the
+  screen
+
+### Requirement: Session 3's « Faire imaginer » panel has no aside
+
+Session 3's « Faire imaginer » panel SHALL show its claim and its two cards, and SHALL NOT show an
+aside under the cards. The presenter tells the Stieglitz anecdote and names other photographers out
+loud.
+
+#### Scenario: The « Faire imaginer » panel is displayed
+
+- **WHEN** the « Faire imaginer » panel of session 3 is displayed
+- **THEN** it shows the claim « Ce que la photo ne montre pas, celui qui la regarde l'invente. » and
+  the cards « Ce qu'on ne montre pas » and « L'avant et l'après » with their photographs
+- **AND** no aside appears between the cards and the photo credits
+- **AND** the names « Cartier-Bresson » and « Crewdson » appear nowhere on the screen
+
+### Requirement: Session 3's « Placer » panel shows three placements and no aside
+
+Session 3's « Placer » composition panel SHALL show its claim and three technique cards, in this
+order: « Les tiers », « Le centre assumé » and « L'espace devant ». It SHALL NOT show an aside under
+the cards. The presenter says out loud that the rule of thirds is not a law.
+
+#### Scenario: The « Placer » panel is displayed
+
+- **WHEN** the « Placer » panel of session 3 is displayed
+- **THEN** it shows the claim « Décentré ou centré — franchement. Jamais entre les deux. » and the
+  cards « Les tiers », « Le centre assumé » and « L'espace devant », in that order, each with its
+  photograph or the photograph's specification
+- **AND** no aside appears between the cards and the photo credits
+- **AND** neither « point de départ » nor « 1797 » appears anywhere on the screen
+
+#### Scenario: The « L'espace devant » card is read
+
+- **WHEN** the « L'espace devant » card is read
+- **THEN** its body is « Plus de place du côté où le sujet regarde ou avance. »
+- **AND** its photograph is an archival public-domain photograph in which a subject, seen in
+  profile or moving, has clearly more room on the side it faces or moves toward than behind it
+
+#### Scenario: A candidate photograph for « L'espace devant » is centred or faces the near edge
+
+- **WHEN** a candidate photograph for « L'espace devant » shows its subject centred, coming
+  straight toward or away from the camera, or facing or moving toward the nearer edge of the
+  frame
+- **THEN** it is not used in that slot, even if its rights are clear
+
+#### Scenario: The three-card « Placer » panel is projected
+
+- **WHEN** the « Placer » panel is displayed at 1024 × 768 or at 16:9
+- **THEN** its three cards are visible side by side with their photographs, and nothing on the
+  screen is cut off
+- **AND** at 16:9 its claim still appears on a single line above the cards
+
+### Requirement: Session 3's pause is a single timed break
+
+Session 3's pause block SHALL be titled « Pause » and SHALL consist of one repère screen whose
+claim is « On prend une pause de 5 minutes. », with no body and no aside, and which carries a
+five-minute countdown timer.
 
 #### Scenario: The pause screen is displayed
 
 - **WHEN** session 3's pause block is displayed
 - **THEN** it holds exactly one screen
-- **AND** that screen announces the break and invites questions on any subject, composition
-  included
-- **AND** it invites participants to come and show a photograph on their screen
+- **AND** that screen shows the « Pause » label, the claim « On prend une pause de 5 minutes. »
+  and a timer reading `5:00`, stopped
+- **AND** it shows no other text
+
+#### Scenario: The block is listed in the lesson
+
+- **WHEN** session 3's blocks are listed or the pause screen's header is displayed
+- **THEN** the block is named « Pause », without « questions »
 
 #### Scenario: The pause screen is read months later
 
 - **WHEN** the pause screen is read outside the room
 - **THEN** it does not mention a wall, sticky notes, or the session as the last one together
+
+### Requirement: A repère screen can carry a countdown timer
+
+A repère screen MAY declare a duration in whole minutes. It SHALL then show, under its claim, a
+countdown in `m:ss` form, large enough to read from the back of the room, which the animateur
+starts, pauses, resumes and resets with the mouse. A repère screen that declares no duration
+SHALL show no timer and load no timer script.
+
+#### Scenario: The screen opens
+
+- **WHEN** a repère screen declaring 5 minutes is displayed for the first time in a browser tab
+- **THEN** its timer reads `5:00` and is stopped
+- **AND** it looks visibly different from a running timer
+
+#### Scenario: The animateur starts, pauses and resumes the timer
+
+- **WHEN** the stopped timer is clicked
+- **THEN** it counts down one second at a time
+- **WHEN** the running timer is clicked
+- **THEN** it stops on the remaining time and shows that it is paused
+- **WHEN** the paused timer is clicked
+- **THEN** it resumes from the remaining time
+
+#### Scenario: The animateur resets the timer
+
+- **WHEN** the timer is double-clicked, whatever its state
+- **THEN** it reads the full duration again and is stopped
+- **AND** the double-click does not leave the timer running or paused
+
+#### Scenario: Time runs out
+
+- **WHEN** the countdown reaches zero
+- **THEN** the timer reads `0:00` and stays there
+- **AND** it changes appearance to show that the break is over
+- **AND** no sound is played
+
+#### Scenario: The animateur leaves the screen during the break
+
+- **WHEN** the timer is running and the animateur moves to another screen, then comes back in the
+  same browser tab
+- **THEN** the timer shows the time that actually remains and is still running
+- **AND** a paused or finished timer is likewise found paused or finished
+
+#### Scenario: The browser tab is in the background
+
+- **WHEN** the running timer's tab is hidden for a while, then shown again
+- **THEN** the timer shows the time that actually remains, not a count delayed by the hidden time
+
+#### Scenario: Keyboard navigation near the timer
+
+- **WHEN** the timer has been clicked and the animateur presses Space or an arrow key
+- **THEN** the presentation changes screen as on any other screen
+- **AND** the timer's state is kept for when the animateur comes back
+
+#### Scenario: The timer is read by a screen reader
+
+- **WHEN** the timer is reached with a screen reader
+- **THEN** it is announced as a button whose label says the remaining time and what a click will do
+- **AND** the remaining time is not announced every second
 
 ### Requirement: The beyond-composition block opens on three intentions
 
@@ -1202,6 +1434,20 @@ specification.
   nothing is cut off
 - **AND** at phone width the columns stack into one without horizontal scrolling
 
+### Requirement: Session 3's « Captiver » panel has no aside
+
+Session 3's « Captiver » panel, in the « Au-delà de la composition » block, SHALL show its claim
+and its two cards, and SHALL NOT show an aside under the cards. The presenter can mention Elliott
+Erwitt's example out loud.
+
+#### Scenario: The « Captiver » panel is displayed
+
+- **WHEN** the « Captiver » panel of session 3 is displayed
+- **THEN** it shows the claim « Une photo forte arrête celui qui la regarde. » and the cards « La
+  tension » and « Les relations » with their photographs
+- **AND** no aside appears between the cards and the photo credits
+- **AND** the name « Elliott Erwitt » appears nowhere on the screen
+
 ### Requirement: The beyond-composition block is an introduction
 
 The beyond-composition block SHALL hold fewer screens than the composition block, and SHALL NOT
@@ -1233,7 +1479,7 @@ The beyond-composition block's photographs SHALL be archival photographs in the 
 the club's own photographs. A protected photographer's work MAY be named and linked in an aside,
 and SHALL NOT be shown.
 
-#### Scenario: A reader looks for Cartier-Bresson's « instant décisif »
+#### Scenario: The block mentions a protected photographer
 
 - **WHEN** the block mentions a photograph by a protected photographer
 - **THEN** the photographer and the photograph are named, and a link MAY lead to it
@@ -1242,17 +1488,23 @@ and SHALL NOT be shown.
 ### Requirement: The experience block is shared with the club's photographers
 
 Session 3's experience block SHALL be titled « Ce que la pratique nous apprend ». Its opener SHALL
-state that the animateur speaks first and that photographers from the club then share their own
-practice. The block SHALL stay true for a reader months later and SHALL NOT name the guest
+state, as its only text, « Prenez ce qui vous sert. Contournez les règles quand c'est
+nécessaire. ». The block SHALL stay true for a reader months later and SHALL NOT name the guest
 photographers.
 
 #### Scenario: A reader opens the experience block months later
 
 - **WHEN** the experience block is read outside the room
-- **THEN** the reader can tell that the animateur's screen is Jean-Pierre Bluteau's and that the
-  discussion involved photographers from the club
+- **THEN** its summary reads « Progresser sans perdre le plaisir. »
 - **AND** no screen refers to the current session by a moment relative to the reader
 - **AND** no screen names a guest photographer
+
+#### Scenario: The opener is displayed
+
+- **WHEN** the experience block's opener is displayed
+- **THEN** it shows its block label and the claim « Prenez ce qui vous sert. Contournez les règles
+  quand c'est nécessaire. »
+- **AND** it carries no body, no columns and no aside
 
 #### Scenario: A first-person screen is checked against the address rule
 
@@ -1260,27 +1512,36 @@ photographers.
 - **THEN** it speaks to the participants and gives them something to do or consider
 - **AND** it does not address the animateur
 
-### Requirement: The experience block goes from intention to an open discussion
+### Requirement: The experience block goes from an open discussion to a last word
 
-After its opener, the experience block SHALL present exactly two screens: « Pourquoi, et pour qui »,
-stating that you must like your pictures first, then a closing discussion screen titled
-« Progresser, et continuer d'aimer ça ». The discussion screen SHALL be session 3's last screen.
+After its opener, the experience block SHALL present exactly two screens: a discussion screen titled
+« Progresser, et continuer d'aimer ça », then « Le mot de la fin », a repère screen stating only
+« Aimez vos photos. ». « Le mot de la fin » SHALL be session 3's last screen.
 
 #### Scenario: The experience block is read in order
 
 - **WHEN** the experience block's screens are displayed in sequence
-- **THEN** the opener comes first, « Pourquoi, et pour qui » second and the discussion screen last
-- **AND** « Pourquoi, et pour qui » states « Aimez vos photos d'abord. Puis demandez-vous pour qui
-  vous les faites. »
+- **THEN** the opener comes first, the discussion screen second and « Le mot de la fin » last
+- **AND** the discussion screen shows the label « On enchaîne »
+- **AND** « Le mot de la fin » shows the label « Pour finir » and the claim « Aimez vos photos. »,
+  with no body, no columns and no aside
+- **AND** the label « Pour finir » appears only on « Le mot de la fin »
 
 #### Scenario: The discussion screen stays up during the discussion
 
 - **WHEN** the discussion screen is displayed
 - **THEN** its statement asks how one becomes a better photographer without losing the pleasure
-- **AND** its body says that photographers from the club tell how they got there, and lists
-  questions aimed at them: what made them progress most, which moment took them past a threshold,
-  what they wish they had known at the start, and what brings them back when the desire fades
+- **AND** its body is a list of questions aimed at the club's photographers: what made them
+  progress most, which moment took them past a threshold, what they wish they had known at the
+  start, and what brings them back when the desire fades
+- **AND** no sentence precedes that list
 - **AND** it carries no aside
+
+#### Scenario: The session ends on the last word
+
+- **WHEN** the animateur advances past the discussion screen
+- **THEN** « Aimez vos photos. » is displayed alone, centered, as the last screen of session 3
+- **AND** the next arrow appears faded and does not act as a link
 
 #### Scenario: A participant looks for RAW, a workflow or printing in session 3
 
@@ -1318,3 +1579,51 @@ appear several times with different photographs.
 - **WHEN** session 3's archival credits are listed
 - **THEN** a photographer may appear more than once
 - **AND** no photograph, or another print of its negative, appears in two slots
+
+### Requirement: Footer navigation shows only arrows and the screen counter
+
+A lesson screen's footer navigation SHALL show a previous arrow, the screen counter `n / total`
+and a next arrow, and SHALL NOT show the words « Précédent » or « Suivant ». Each arrow SHALL keep
+an accessible name, « Précédent » or « Suivant », and SHALL be easy to tap on a phone.
+
+#### Scenario: A middle screen is displayed
+
+- **WHEN** a lesson screen that is neither the first nor the last is displayed
+- **THEN** the footer navigation reads `←`, the counter (for example `12 / 25`) and `→`
+- **AND** the words « Précédent » and « Suivant » are not visible in the footer
+- **AND** activating `←` opens the previous screen and activating `→` opens the next one
+
+#### Scenario: A screen reader reaches the footer arrows
+
+- **WHEN** assistive technology announces the footer's arrow links
+- **THEN** the previous link is announced as « Précédent » and the next link as « Suivant »
+
+#### Scenario: The first or last screen is displayed
+
+- **WHEN** the first screen of a lesson is displayed
+- **THEN** the previous arrow appears faded and does not act as a link
+- **AND WHEN** the last screen of a lesson is displayed
+- **THEN** the next arrow appears faded and does not act as a link
+
+#### Scenario: A reader taps an arrow on a phone
+
+- **WHEN** a lesson screen is displayed at phone width
+- **THEN** each active arrow's tap target is larger than the arrow glyph itself
+
+### Requirement: Footer navigation never wraps
+
+The footer navigation, meaning its two arrows and its screen counter, SHALL always appear on a
+single line and SHALL NOT be narrowed by other footer content. When the footer runs out of
+horizontal room, the photo credit SHALL wrap instead.
+
+#### Scenario: A screen with long photo credits is projected
+
+- **WHEN** session 3's « Placer » composition panel, which credits three archive photographs, is
+  displayed at 16:9 and at 4:3 (1024 × 768)
+- **THEN** the arrows and the counter `12 / 25` appear on one line, with the counter unbroken
+- **AND** the photo credit wraps onto several lines if it needs the room
+
+#### Scenario: The footer wraps on a phone
+
+- **WHEN** a screen with a photo credit is displayed at phone width and the footer wraps
+- **THEN** the navigation moves as one unit and stays on a single line
