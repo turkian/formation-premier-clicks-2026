@@ -8,12 +8,12 @@
 # question — pourquoi une photo bien composée peut laisser froid — puis passe
 # la main à un bloc partagé, « Ce que la pratique nous apprend ».
 #
-# L'animateur l'ouvre avec « Pourquoi, et pour qui », à la première personne ;
-# puis des photographes du club racontent comment ils ont progressé sans
-# perdre le plaisir. La séance se termine sur cette discussion ouverte.
+# Des photographes du club y racontent comment ils ont progressé sans perdre
+# le plaisir. La séance se termine sur le mot de la fin de l'animateur :
+# « Aimez vos photos. »
 #
 # Les photographies d'archives sont du domaine public au Canada (auteur mort
-# avant 1972) comme aux États-Unis, hébergées avec le site, jamais liées, et
+# avant 1972), hébergées avec le site, jamais liées, et
 # créditées : auteur, date, collection. Les photographes encore protégés sont
 # nommés et liés, jamais montrés.
 
@@ -175,8 +175,6 @@ blocs:
             valeur: Smith, 1797 — des règles pour arranger un paysage
             credit: John Thomas Smith, 1797, Getty Research Institute
             priorite: utile
-        loupeImages:
-          zoom: 3
         aparte: |
           En 1797, le graveur **John Thomas Smith** publie des conseils pour dessiner le paysage.
           Il ne dit pas *quoi* dessiner, mais **comment l'arranger** : quelle place donner au
@@ -222,51 +220,46 @@ blocs:
         illustration:
           id: l3-histoire-robinson-effet
           specification: >-
-            Henry Peach Robinson, Pictorial Effect in Photography, 1869, page 47 — le chapitre
-            « Simple Rules » : le même château dessiné de face (fig. 1), puis vu de biais après
-            quelques dizaines de mètres de marche le long de la rive (fig. 2). Getty Research
+            Henry Peach Robinson, Pictorial Effect in Photography, 1869, page 24 — chapitre
+            « Balance of Lines and Contrast » : un rectangle coupé d'une seule diagonale (fig. 2),
+            puis une falaise et une plage composées sur cette diagonale (fig. 3). Getty Research
             Institute.
-          alt: Une page de livre de 1869 titrée « Chapter IX. Simple Rules », avec deux petits dessins du même château, de face puis de biais
-          valeur: "Robinson, 1869 — « Simple Rules »"
+          alt: "Une page de livre de 1869 avec deux petits dessins : un rectangle coupé en diagonale, puis une falaise et une plage qui suivent la même diagonale"
+          valeur: "Robinson, 1869 — la diagonale"
           credit: Henry Peach Robinson, 1869, Getty Research Institute
           priorite: utile
         corps: |
-          **Le point de vue**
+          **Le sujet**
 
-          - Changer de place : quelques pas changent les lignes.
-          - De biais plutôt que de face.
+          - Un sujet principal : tout y mène l'œil.
+          - Un peu à côté du centre.
+          - En portrait, le visage net, éclairé, de l'espace devant.
 
           **Les lignes**
 
-          - Pas de lignes parallèles ; sous un horizon droit, un premier plan ondulé.
-          - Quelques droites parmi les courbes.
-          - Jamais les sujets empilés en ligne.
+          - Une direction dominante, une ligne contraire.
+          - Des groupes discrets en triangle, en diagonale, en cercle.
+          - Une forme reprise, plus faible.
+          - Quelques mètres de côté pour équilibrer le cadre.
 
-          **L'équilibre**
+          **L'ombre et la lumière**
 
-          - Jamais de symétrie miroir.
-          - Une rue ou une rivière, jamais depuis le centre.
-          - Jamais l'horizon au milieu.
-
-          **Le cadre**
-
-          - Une image fermée sur ses bords.
-          - Une arche jamais appuyée sur le bord du cadre.
-        aparte: |
-          **William Lake Price** publie des articles sur la composition dès 1860. Le livre de
-          **Henry Peach Robinson**, *Pictorial Effect in Photography* (1869), en fait un manuel :
-          l'équilibre, les lignes, le triangle, l'ombre et la lumière.
+          - De grandes masses, pas des taches.
+          - Le clair entre dans le sombre, et l'inverse.
+          - Le plus fort contraste à un seul endroit ; des contours fondus ailleurs.
+          - Leur dosage fait l'ambiance : brume, orage, plein soleil.
 
   # ─────────────────────────────────────────────────────────────────────────
-  # Les seize photographies sont des archives du domaine public, onze du
+  # Les dix-sept photographies sont des archives du domaine public, douze du
   # Québec. Celles du club peuvent remplacer n'importe laquelle sans toucher à
   # la structure : les emplacements « essentiel » restent essentiels.
   #
-  # Droits des archives, vérifiés avant l'ajout. Auteur nommé : mort avant 1972
-  # (Canada) ; aux États-Unis, œuvre publiée avant 1931, ou auteur mort depuis
-  # plus de 70 ans. « Wm. Notman & Son » après 1891 : opérateur non nommé, jugé
-  # sur ses dates — faite avant 1949 (Canada) et il y a plus de 120 ans
-  # (États-Unis). « PD » : la fiche du Musée McCord Stewart porte « Public Domain ».
+  # Droits des archives, vérifiés avant l'ajout. Exigence : domaine public au
+  # Canada — auteur nommé mort avant 1972 ; « Wm. Notman & Son » après 1891,
+  # opérateur non nommé, jugé sur ses dates : faite avant 1949. Les seize
+  # premières passent aussi le critère américain (œuvre publiée avant 1931, ou
+  # auteur mort depuis plus de 70 ans, ou plus de 120 ans) ; espace-devant non.
+  # « PD » : la fiche du Musée McCord Stewart porte « Public Domain ».
   #   un-seul-sujet        Wm. Notman & Son, opérateur non nommé   1893
   #                        Louis Rubenstein, championship figure skater — McCord Stewart
   #                        II-99946, PD ; plus de 120 ans
@@ -290,7 +283,12 @@ blocs:
   #                        « Droit d'auteur non évalué » : BAnQ n'a pas statué, l'auteur
   #                        est mort en 1905. Page d'album et légende recadrées ; 741 px,
   #                        la plus grande taille offerte
-  #   accroupi             Wm. Notman & Son, opérateur non nommé   vers 1900
+  #   espace-devant        Conrad Poirier († 1968)   13 mai 1942
+  #                        Cycling. Rules for Cyclists — BAnQ, fonds Conrad Poirier,
+  #                        P48,S1,P7745, « Domaine public au Canada » ; pas encore aux
+  #                        États-Unis. Bords noirs du négatif, coin abîmé et bas de la rue
+  #                        recadrés ; côté droit rogné pour placer la cycliste au tiers droit
+  #   accroupi            Wm. Notman & Son, opérateur non nommé   vers 1900
   #                        View of the harbour from the Notre-Dame-de-Bon-Secours Chapel —
   #                        McCord Stewart VIEW-3212.1, PD ; plus de 120 ans
   #   premier-plan         Alexander Henderson († 1913)   1872
@@ -339,7 +337,7 @@ blocs:
         claim: Composer, c'est décider de ce qui entre dans l'image, de ce qui en sort, et où. C'est ce qui rend une photo meilleure.
         corps: |
           L'appareil vous donne une photo nette et bien exposée. **La composition en fait une
-          bonne photo.** Aucun réglage, aucun menu : vos yeux et vos pieds.
+          bonne photo.**
 
           Tout ce qui suit s'applique intégralement au cellulaire.
 
@@ -350,7 +348,7 @@ blocs:
         colonnes:
           - titre: Un seul sujet
             icone: lucide:focus
-            corps: Si vous ne pouvez pas le dire en un mot, la photo n'est pas prête.
+            corps: Un seul élément à regarder, rien autour pour lui faire concurrence.
             image:
               id: l3-compo-un-seul-sujet
               specification: >-
@@ -362,7 +360,7 @@ blocs:
               priorite: essentiel
           - titre: Se rapprocher
             icone: lucide:footprints
-            corps: Trois pas de plus — la photo est presque toujours prise de trop loin.
+            corps: Assez près pour lire l'expression, la texture, le détail.
             image:
               id: l3-compo-pres
               specification: >-
@@ -390,7 +388,7 @@ blocs:
         colonnes:
           - titre: Les quatre coins
             icone: lucide:scan-eye
-            corps: Avant de déclencher, faites le tour des coins — un poteau, une poubelle, un bras coupé.
+            corps: "Des coins sans intrus : ni poteau, ni poubelle, ni bras coupé."
             image:
               id: l3-compo-quatre-coins
               specification: >-
@@ -402,7 +400,7 @@ blocs:
               priorite: essentiel
           - titre: L'arrière-plan d'abord
             icone: lucide:square-dashed
-            corps: Choisissez un fond calme, puis placez le sujet devant.
+            corps: Un fond calme, choisi en premier ; le sujet se détache devant.
             image:
               id: l3-compo-arriere-plan
               specification: >-
@@ -411,9 +409,6 @@ blocs:
               alt: Un enfant costumé en saint Jean-Baptiste, vêtu d'une peau de mouton, tenant une croix et une bannière, debout sur un rocher devant un fond gris uni
               credit: William Notman, 1867, Musée McCord Stewart
               priorite: essentiel
-        aparte: |
-          **Personne ne regarde ses quatre coins naturellement** : tout le monde regarde le
-          sujet. C'est pour ça que ce réflexe-là change tout.
 
       - id: placer
         genre: panneau
@@ -443,10 +438,18 @@ blocs:
               alt: Une haute colonne de pierre, seule au milieu de l'image, entourée d'une grille de fer, devant quelques maisons basses et un grand ciel pâle
               credit: Louis-Prudent Vallée, vers 1880, Bibliothèque et Archives nationales du Québec
               priorite: essentiel
-        aparte: |
-          **La règle des tiers est un point de départ, pas une loi.** Smith l'a nommée en 1797,
-          pour le dessin. La grille de votre appareil ou de votre téléphone trace les tiers pour
-          vous.
+          - titre: L'espace devant
+            icone: lucide:move-right
+            corps: Plus de place du côté où le sujet regarde ou avance.
+            image:
+              id: l3-compo-espace-devant
+              specification: >-
+                Conrad Poirier, « Cycling. Rules for Cyclists », Montréal, 1942 — une cycliste au
+                tiers droit roule vers la gauche ; la rue s'ouvre devant elle sur le reste de
+                l'image. Bibliothèque et Archives nationales du Québec.
+              alt: Une jeune femme en blouse blanche roule à vélo vers la gauche, du côté droit de l'image ; devant elle, une rue vide, un trottoir et un poteau de bois
+              credit: Conrad Poirier, 1942, Bibliothèque et Archives nationales du Québec
+              priorite: essentiel
 
       - id: donner-de-la-profondeur
         genre: panneau
@@ -455,7 +458,7 @@ blocs:
         colonnes:
           - titre: Le point de vue
             icone: lucide:move-diagonal
-            corps: Accroupissez-vous, ou levez l'appareil — la hauteur des yeux est le point de vue le plus banal qui existe.
+            corps: Accroupi ou en hauteur, plutôt qu'à la hauteur des yeux.
             image:
               id: l3-compo-accroupi
               specification: >-
@@ -522,7 +525,7 @@ blocs:
               priorite: utile
           - titre: La répétition
             icone: lucide:repeat
-            corps: Des formes qui se répètent, et une seule qui rompt le rythme.
+            corps: Des formes qui se répètent.
             image:
               id: l3-compo-repetition
               specification: >-
@@ -574,21 +577,17 @@ blocs:
 
   # ─────────────────────────────────────────────────────────────────────────
   - id: pause
-    titre: Pause et questions
-    resume: Une pause, et vos questions — sur la composition ou sur n'importe quoi d'autre.
+    titre: Pause
+    resume: Cinq minutes pour souffler avant d'aller au-delà de la composition.
     ecrans:
       - id: la-pause
         genre: repere
         variante: pause
-        titre: Pause et questions
-        claim: Dix minutes, et vos questions.
-        corps: |
-          **Sur la composition, ou sur n'importe quoi d'autre** : matériel, choix d'objectif,
-          « pourquoi mes photos ne ressemblent pas à celles d'Instagram ». C'est aussi le moment
-          de venir montrer une photo sur votre écran.
-        aparte: |
-          Les questions auxquelles on ne peut pas répondre en deux minutes deviennent les sujets
-          d'atelier de l'année.
+        titre: Pause
+        claim: On prend une pause de 5 minutes.
+        # Minuterie projetée : un clic la démarre, la met en pause ou la relance ;
+        # un double-clic la remet à zéro.
+        minuterie: 5
 
   # ─────────────────────────────────────────────────────────────────────────
   # Une ouverture, pas un second cours : moins d'écrans que la composition, et
@@ -611,8 +610,7 @@ blocs:
   #                             libre CC0
   #   Stieglitz († 1946)  1893  Winter, Fifth Avenue, publiée dans Camera Work en 1905 —
   #                             Metropolitan Museum of Art, domaine public
-  # Les cartons de musée sont recadrés : seul le tirage est montré. Erwitt,
-  # Cartier-Bresson et Crewdson sont protégés : nommés en aparté, jamais montrés.
+  # Les cartons de musée sont recadrés : seul le tirage est montré.
   - id: au-dela
     titre: Au-delà de la composition
     resume: Captiver, faire ressentir, faire imaginer.
@@ -661,10 +659,6 @@ blocs:
               alt: Le pont d'un paquebot vu d'en haut, coupé par une passerelle blanche — une foule en chapeaux au-dessus, des passagers serrés en dessous
               credit: Alfred Stieglitz, 1907, Metropolitan Museum of Art
               priorite: utile
-        aparte: |
-          Un exemple célèbre, qu'on ne peut pas montrer ici : [Elliott Erwitt](https://fr.wikipedia.org/wiki/Elliott_Erwitt),
-          *New York City*, 1974 — un petit chien entre les bottes de sa maîtresse et les pattes
-          d'un très grand chien.
 
       - id: faire-ressentir
         genre: panneau
@@ -737,12 +731,6 @@ blocs:
               alt: Une diligence tirée par des chevaux avance dans une avenue enneigée, sous une neige qui efface les immeubles
               credit: Alfred Stieglitz, 1893, Metropolitan Museum of Art
               priorite: utile
-        aparte: |
-          Stieglitz a attendu trois heures dans la tempête pour ce moment.
-          [Henri Cartier-Bresson](https://fr.wikipedia.org/wiki/Henri_Cartier-Bresson)
-          l'appellera « l'instant décisif » (*Derrière la gare Saint-Lazare*, 1932).
-          [Gregory Crewdson](https://fr.wikipedia.org/wiki/Gregory_Crewdson) met en scène des
-          histoires qui ne finissent jamais.
 
       - id: pourquoi
         genre: repere
@@ -762,48 +750,32 @@ blocs:
 
   # ─────────────────────────────────────────────────────────────────────────
   # Un bloc partagé : l'animateur ouvre, puis des photographes du club racontent
-  # leur pratique. L'énoncé de « Pourquoi, et pour qui » reste un conseil aux
-  # participants, le corps parle à la première personne ; la séance se termine
-  # sur la discussion, sans autre bloc après.
+  # leur pratique. L'ouverture ne porte qu'un énoncé : qui parle, et pourquoi, se
+  # dit dans la salle. La discussion vient ensuite ; la séance se termine sur
+  # « Aimez vos photos. », le mot de la fin de l'animateur, sans autre bloc après.
   - id: apprentissages
     titre: Ce que la pratique nous apprend
-    resume: Aimer ses photos, puis progresser — des photographes du club racontent.
+    resume: Progresser sans perdre le plaisir.
     ecrans:
       - id: ouverture
         genre: repere
         variante: ouverture
         titre: Ce que la pratique nous apprend
-        claim: Prenez ce qui vous sert. C'est une pratique, pas une règle.
-        corps: |
-          **Jean-Pierre Bluteau**, animateur de la formation « Premiers clics », commence. Puis des
-          photographes du club racontent ce qu'ils ont appris en photographiant, en se trompant et
-          en montrant leurs photos.
-
-      - id: pourquoi-pour-qui
-        genre: panneau
-        titre: Pourquoi, et pour qui
-        claim: Aimez vos photos d'abord. Puis demandez-vous pour qui vous les faites.
-        corps: |
-          Je photographie d'abord pour moi. Une photo que j'aime, je la regarde encore des années
-          plus tard ; une photo faite pour plaire, je l'oublie dès qu'elle a fait le tour.
-
-          Avant de déclencher, je me demande **pour qui** est cette image : pour moi, pour ma
-          famille, pour un mur, pour le club. La réponse change ce que je garde, comment je la
-          développe et où je la montre.
-
-          Les avis des autres m'apprennent beaucoup. Mais ils viennent **après** : si je n'aime
-          pas ma photo, aucun compliment ne la sauve.
+        claim: Prenez ce qui vous sert. Contournez les règles quand c'est nécessaire.
 
       - id: progresser
         genre: repere
-        variante: cloture
+        variante: transition
         titre: Progresser, et continuer d'aimer ça
         claim: Comment devient-on meilleur photographe, sans perdre le plaisir ?
         corps: |
-          Des photographes du club racontent leur parcours.
-
-          - **Qu'est-ce qui vous a fait progresser le plus ?** Une personne, un livre, une
-            contrainte, une erreur.
+          - **Qu'est-ce qui vous a fait progresser le plus ?**
           - **Quel moment vous a fait passer un cap ?**
           - **Qu'auriez-vous aimé savoir à vos débuts ?**
           - **Quand l'envie baisse, qu'est-ce qui vous ramène à la photo ?**
+
+      - id: pourquoi-pour-qui
+        genre: repere
+        variante: cloture
+        titre: Le mot de la fin
+        claim: Aimez vos photos.
